@@ -2,9 +2,9 @@
 // Connect to database server
 
 if($_SERVER['SERVER_NAME'] == 'assets-newhorizons.rhcloud.com')
-mysql_connect("localhost", "root", "password") or die (mysql_error ());
+	mysql_connect("127.3.13.2", "adminxntQq3s", "s-FSsSggM7q3") or die (mysql_error ());
 else
-mysql_connect("127.3.13.2", "adminxntQq3s", "s-FSsSggM7q3") or die (mysql_error ());
+mysql_connect("localhost", "root", "password") or die (mysql_error ());
 
 
 // changed
