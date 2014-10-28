@@ -1,0 +1,49 @@
+
+
+	FULL WORKFLOW AND STATUS OF THE PROJECT
+
+	1. ADDING ASSETS:
+
+		Assets will be added with following attributes.
+
+		a)Asset Name	--------------------------------------------->OK
+
+		b)Asset Description ----------------------------------------->OK
+
+		c)Location  ------------------------------------------------->OK
+
+		d)Asset assigned employee. ---------------------------------->OK
+
+		e)Asset Status (active, inactive, under maintenance) -------->OK
+
+		f)Asset license expiry, Insurance Expiry and so on.---------->PENDING
+
+	2. EDITING ASSETS
+
+		Edit all the above mentioned attributes.---------------------->EXPIRY PENDING
+
+	3. DELETING ASSETS.--------------------------------------------------->OK
+
+	4. ALERTS OF EXPIRY.
+
+		a) Full Notification and Alerts by Email. --------------------->PENDING
+
+	5. DASHBOARD AND THEMES(Like pomapps).--------------------------------->OK
+
+	6. DYNAMIC REPORTS.----------------------------------------------------->PENDING
+
+	7. Workflow Controlled by a “Role Table” updated by System Admin.------->DONT UNDERSTAND
+
+	8. COMPATIBLE TO ALL USER INTERFACES.
+
+		a)WEB     ------------------------------------------------------>OK
+
+		b)PC      ------------------------------------------------------>OK
+
+		c)Mobile(Android).  -------------------------------------------->PENDING
+
+		d)Login using google API.--------------------------------------->PENDING
+
+	9.BACKUP CAPABILITY AND IMPORT CAPABILTIY.  ---------------------------->PENDING
+
+
