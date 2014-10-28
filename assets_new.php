@@ -13,9 +13,23 @@
 			if(isset($_POST['asset_expiry'])){
 				$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
 			}
+			
+			if($_POST['insurance_expiry'] != '0000-00-00')
+			$insurance_expiry = "'".$_POST['insurance_expiry']."'";
+			else
+				$insurance_expiry = NULL;
+			//$insurance_expiry = "'".$_POST['insurance_expiry']."'";
+			
+			
+			
+			 
+			
+			  
  			
 			  $mysql_query = "UPDATE `".$assets_table."` SET  `name`='".$_POST["asset_name"]."',`description`='".$_POST["asset_desc"]."',`location`='".$_POST["asset_location"]."',`custodian`='".$_POST["custodian"]."',`status`='".$_POST["asset_status"]."', `accident_history`='".$_POST["accident_history"]."', `violation_history`='".$_POST["violation_history"]."',  `istemara_expiry`='".$_POST["istemara_expiry"]."',  `insurance_expiry`='".$_POST["insurance_expiry"]."', `expiry`='".$expiry_date."' WHERE `id`= ".$edit_id.";";
+			  
 			  mysql_query($mysql_query);
+			  
 		}
  	}
  	
@@ -26,9 +40,10 @@
  		if(isset($_POST['asset_expiry'])){
  			$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
  		}
- 		   $mysql_query = "INSERT INTO `".$assets_table."`( `name`, `description`, `location`, `custodian`, `status`,  `accident_history`, `violation_history`, `expiry` , `istemara_expiry` ,`insurance_expiry` ,    ) VALUES
+ 		     $mysql_query = "INSERT INTO `".$assets_table."`( `name`, `description`, `location`, `custodian`, `status`,  `accident_history`, `violation_history`, `expiry` , `istemara_expiry` ,`insurance_expiry`     ) VALUES
 				('".$_POST["asset_name"]."','".$_POST["asset_desc"]."','". $_POST["asset_location"]."' ,'".$_POST["custodian"]."' ,'".$_POST["asset_status"]."' ,'".$_POST["accident_history"]."','".$_POST["violation_history"]."','".$expiry_date ."' ,'".$_POST["istemara_expiry"]."','".$_POST["insurance_expiry"]."')";
  		  mysql_query($mysql_query);
+ 		   
  		 
  		  ?>
  		  
@@ -258,12 +273,12 @@ No vendors
 	<label for="expiry_date_div">Istemara Expiry</label>
 	<br>
 
-	<input class="form-control" id="istemara_expiry_date" name="istemara_expiry"   value="<?php  echo (isset($asset_det['istemara_expiry']) ? $asset_det['istemara_expiry']:'' )?>"type="text">
+	<input class="form-control" id="istemara_expiry_date" name="istemara_expiry"   value="<?php  echo (isset($asset_det['istemara_expiry']) && $asset_det['istemara_expiry'] != '0000-00-00'   ? $asset_det['istemara_expiry']:'' )?>"type="text">
 </div>
 <div class="expiry_date_div">
 	<label for="expiry_date_div"> Insurance Expiry</label>
 	<br>
-	<input class="form-control" id="insurance_expiry_date" name="insurance_expiry"   value="<?php  echo (isset($asset_det['insurance_expiry']) ? $asset_det['insurance_expiry']:'' )?>"type="text">
+	<input class="form-control" id="insurance_expiry_date" name="insurance_expiry"   value="<?php  echo (isset($asset_det['insurance_expiry'])  && $asset_det['insurance_expiry'] != '0000-00-00' ? $asset_det['insurance_expiry']:'' )?>"type="text">
 	
 </div>
 

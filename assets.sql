@@ -39,7 +39,7 @@ CREATE TABLE `assets` (
   `accident_history` text,
   `violation_history` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,8 +55,11 @@ INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','a
 INSERT INTO `assets` VALUES (17,'Xpefia','tip \r\n','al','Ali','active','2014-10-21 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive','2014-10-21 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active','2014-11-05 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `assets` VALUES (20,'test asset','sdfsrfsf','','','inactive',NULL,'2014-10-08',NULL,NULL,NULL,NULL,NULL,'Thi is tesxt',NULL);
+INSERT INTO `assets` VALUES (20,'test asset','sdfsrfsf','sfd','Sdf','active','0000-00-00 00:00:00','2014-10-08',NULL,NULL,NULL,NULL,NULL,'Thi is tesxt','sfdsfsf');
 INSERT INTO `assets` VALUES (23,'name','desc','loc','cust','active','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,'accsa','viosa');
+INSERT INTO `assets` VALUES (24,'test asset 1','asset desc','ass loc','custodia','active','0000-00-00 00:00:00','2014-10-01','2014-10-02',NULL,NULL,NULL,NULL,'accid his','violhis');
+INSERT INTO `assets` VALUES (26,'test aset 2','asset desc','ass loc','cus','active','0000-00-00 00:00:00','2014-10-01','2014-10-22',NULL,NULL,NULL,NULL,'acc his','vio his');
+INSERT INTO `assets` VALUES (27,'test aset 3','ASDF','ass loc','cus','active','0000-00-00 00:00:00','2014-10-01','0000-00-00',NULL,NULL,NULL,NULL,'ACC','VIO');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,4 +98,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-28 21:18:01
+-- Dump completed on 2014-10-28 22:03:19

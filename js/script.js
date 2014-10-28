@@ -19,6 +19,7 @@ $(document).ready(function() {
 });
     is=$("#istemara_expiry_date").val();
     $("#istemara_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",is)
+    
    
     insu=$("#insurance_expiry_date").val();
     $("#insurance_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",insu)
