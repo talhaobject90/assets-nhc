@@ -14,7 +14,7 @@
 				$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
 			}
  			
-			  $mysql_query = "UPDATE `".$assets_table."` SET  `name`='".$_POST["asset_name"]."',`description`='".$_POST["asset_desc"]."',`location`='".$_POST["asset_location"]."',`employee`='".$_POST["assigned_employee"]."',`status`='".$_POST["asset_status"]."',`expiry`='".$expiry_date."' WHERE `id`= ".$edit_id.";";
+			  $mysql_query = "UPDATE `".$assets_table."` SET  `name`='".$_POST["asset_name"]."',`description`='".$_POST["asset_desc"]."',`location`='".$_POST["asset_location"]."',`custodian`='".$_POST["custodian"]."',`status`='".$_POST["asset_status"]."', `accident_history`='".$_POST["accident_history"]."', `violation_history`='".$_POST["violation_history"]."',  `istemara_expiry`='".$_POST["istemara_expiry"]."',  `insurance_expiry`='".$_POST["insurance_expiry"]."', `expiry`='".$expiry_date."' WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
 		}
  	}
@@ -26,9 +26,10 @@
  		if(isset($_POST['asset_expiry'])){
  			$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
  		}
- 		  $mysql_query = "INSERT INTO `".$assets_table."`( `name`, `description`, `location`, `employee`, `status`, `expiry`) VALUES
-				('".$_POST["asset_name"]."','".$_POST["asset_desc"]."','". $_POST["asset_location"]."','".$_POST["assigned_employee"]."','".$_POST["asset_status"]."','".$expiry_date ."')";
+ 		   $mysql_query = "INSERT INTO `".$assets_table."`( `name`, `description`, `location`, `custodian`, `status`,  `accident_history`, `violation_history`, `expiry` , `istemara_expiry` ,`insurance_expiry` ,    ) VALUES
+				('".$_POST["asset_name"]."','".$_POST["asset_desc"]."','". $_POST["asset_location"]."' ,'".$_POST["custodian"]."' ,'".$_POST["asset_status"]."' ,'".$_POST["accident_history"]."','".$_POST["violation_history"]."','".$expiry_date ."' ,'".$_POST["istemara_expiry"]."','".$_POST["insurance_expiry"]."')";
  		  mysql_query($mysql_query);
+ 		 
  		  ?>
  		  
  		  <script  type="text/javascript">
@@ -46,20 +47,20 @@
 		  $edit_query ="SELECT * FROM `".$assets_table."`  WHERE `id` =".$_GET['edit'].";";
 		$edit_query = mysql_query($edit_query);
 		while($rows = mysql_fetch_array($edit_query)) {
-			$asset_det['asset_name'] = $rows['name'];
-			$asset_det['asset_desc'] = $rows['description'];
-			$asset_det['asset_loc'] = $rows['location'];
-			$asset_det['asset_employee']= $rows['employee'];
-			$asset_det['asset_status']= $rows['status'];
-			$asset_det['asset_expiry']= $rows['expiry'];
-			$asset_det['estimara_expiry'] = $rows['estimara_expiry'];
-			$asset_det['insurance_expiry'] = $rows['insurance_expiry'];
-			$asset_det['preventive_maintenance'] = $rows['preventive_maintenance'];
-			$asset_det['tuv_sticker'] = $rows['tuv_sticker'];
-			$asset_det['client_sticker'] = $rows['client_sticker'];
-			$asset_det['mot_license_expiry'] = $rows['mot_license_expiry'];
-			$asset_det['accident_history'] = $rows['accident_history'];
-			$asset_det['violation_history'] = $rows['violation_history'];
+			$asset_det['asset_name'] = trim($rows['name']);
+			$asset_det['asset_desc'] = trim($rows['description']);
+			$asset_det['asset_loc'] =  trim($rows['location']);
+			$asset_det['custodian']= trim($rows['custodian']);
+			$asset_det['asset_status']= trim($rows['status']);
+			$asset_det['asset_expiry']= trim($rows['expiry']);
+			 $asset_det['istemara_expiry'] = trim($rows['istemara_expiry']);
+			$asset_det['insurance_expiry'] = trim($rows['insurance_expiry']);
+			$asset_det['preventive_maintenance'] = trim($rows['preventive_maintenance']);
+			$asset_det['tuv_sticker'] = trim($rows['tuv_sticker']);
+			$asset_det['client_sticker'] = trim($rows['client_sticker']);
+			$asset_det['mot_license_expiry'] = trim($rows['mot_license_expiry']);
+			$asset_det['accident_history'] = trim($rows['accident_history']);
+			$asset_det['violation_history'] = trim($rows['violation_history']);
 		}
 		}
 	
@@ -105,11 +106,7 @@ else
 <div class="row">
 <div class="remark form-group col-sm-12">
 <label class="sr-only" for="purchase_remark">Remark</label>
-<textarea class="form-control" id="purchase_remark" name="asset_desc" placeholder="Asset Description.  
-
-" rows="4">
-<?php echo (isset($asset_det['asset_desc'])?$asset_det['asset_desc'] : '')?> 
-</textarea>
+<textarea class="form-control" id="purchase_remark" name="asset_desc" placeholder="Asset Description." rows="4"><?php echo (isset($asset_det['asset_desc'])?$asset_det['asset_desc'] : '')?></textarea>
 </div>
 </div>
 <div class="editable-purchae-items">
@@ -159,11 +156,11 @@ else
 
  <div class="form-group col-sm-4 item-qty" >
 <div class="approver" >
-<label for="purchase_approver_id">Assigned Employee</label>
+<label for="purchase_approver_id">Custodian</label>
 <br>
 <!-- <select class="form-control" id="purchase_approver_id" name="assigned_employee"><option value="">- Assigned Employee-</option>
 <option value="Mohammed Talha">Mohammed Talha</option></select> -->
-<input class="form-control"   name="assigned_employee"   value="<?php echo (isset($asset_det['asset_employee'])?$asset_det['asset_employee'] : '')?>"  type="text">
+<input class="form-control"   name="custodian"  placeholder="Custodian"    value="<?php echo (isset($asset_det['custodian'])?$asset_det['custodian'] : '')?>"  type="text">
 </div>
 </div>
 
@@ -181,23 +178,16 @@ else
 
 <div class="row">
 <div class="remark form-group col-sm-12">
-<label class="sr-only" for="purchase_remark">Remark</label>
-<textarea class="form-control" id="purchase_remark" name="asset_desc" placeholder="Asset Description.  
-
-" rows="4">
-<?php echo (isset($asset_det['asset_desc'])?$asset_det['asset_desc'] : '')?> 
-</textarea>
+<label class="sr-only" for="purchase_remark">Accident history</label>
+<textarea class="form-control" id="accident_history" name="accident_history" placeholder="Accident history.
+" rows="4"><?php echo (isset($asset_det['accident_history'])?$asset_det['accident_history'] : '')?></textarea>
 </div>
 </div>
 
 <div class="row">
 <div class="remark form-group col-sm-12">
-<label class="sr-only" for="purchase_remark">Remark</label>
-<textarea class="form-control" id="purchase_remark" name="asset_desc" placeholder="Asset Description.  
-
-" rows="4">
-<?php echo (isset($asset_det['asset_desc'])?$asset_det['asset_desc'] : '')?> 
-</textarea>
+<label class="sr-only" for="purchase_remark">Violation History</label>
+<textarea class="form-control" id="violation_history" name="violation_history" placeholder="Violation History." rows="4"><?php echo (isset($asset_det['violation_history'])?$asset_det['violation_history'] : '')?></textarea>
 </div>
 </div>
 
@@ -265,16 +255,15 @@ No vendors
 <option value="mot_license_expiry"  >MOT License Expiry</option> 
 </select>
  -->
-	<label for="expiry_date_div">Expiry date</label>
+	<label for="expiry_date_div">Istemara Expiry</label>
 	<br>
-	<?php 
-	
-	if(isset($asset_det['asset_expiry'])){
-	$mysqldate = strtotime($asset_det['asset_expiry']);
-	  $phpdate= date( 'Y/m/d', $mysqldate );
-	 }
-	?>
-	<input class="form-control" id="purchase_expected_shipment_at" name="asset_expiry"   value="<?php  echo ($phpdate != '' ? $phpdate :'' )?>"type="text">
+
+	<input class="form-control" id="istemara_expiry_date" name="istemara_expiry"   value="<?php  echo (isset($asset_det['istemara_expiry']) ? $asset_det['istemara_expiry']:'' )?>"type="text">
+</div>
+<div class="expiry_date_div">
+	<label for="expiry_date_div"> Insurance Expiry</label>
+	<br>
+	<input class="form-control" id="insurance_expiry_date" name="insurance_expiry"   value="<?php  echo (isset($asset_det['insurance_expiry']) ? $asset_det['insurance_expiry']:'' )?>"type="text">
 	
 </div>
 

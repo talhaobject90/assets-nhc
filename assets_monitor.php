@@ -83,7 +83,7 @@ by Mohammed Talha
   $all_assets_query = "SELECT * FROM `".$assets_table."`;";
 $all_assets = mysql_query($all_assets_query);
 echo '<table class="table table-hover">';
-echo '<th>ID</th><th>Asset Name</th><th>Asset Location</th><th>Assigned Employee</th><th>Status</th><th>Expiry</th><th></th><th></th>';
+echo '<th>ID</th><th>Asset Name</th><th>Asset Location</th><th>Custodian</th><th>Status</th><th></th><th></th>';
 while($row = mysql_fetch_array($all_assets)) {
 if($row['status'] == 'active')
 	$status ='Active';
@@ -91,7 +91,7 @@ elseif ($row['status'] == 'inactive')
 	$status = 'Inactive';
 elseif ($row['status'] == 'under_maintenance')
 	$status = 'Under Maintenance';
-echo '<tr ><td>'.$row['id'].'</td><td>'.$row['name'].'</td><td>'.$row['location'].'</td><td>'.$row['employee'].'</td><td  class="text-capitalize">'.$status.'</td><td>'.$row['expiry'].'</td><td><a href="assets_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="assets_monitor.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+echo '<tr ><td>'.$row['id'].'</td><td>'.$row['name'].'</td><td>'.$row['location'].'</td><td>'.$row['custodian'].'</td><td  class="text-capitalize">'.$status.'</td><td><a href="assets_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="assets_monitor.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
 
 }
 echo '<table';
