@@ -254,7 +254,7 @@ No vendors
 <br>
 
 <div class="expiry_date_div">
-
+<!-- 
 <select class="form-control" id="asset_expiry_select" name="asset_expiry_select" >
 <option value="">- Expiry Dates -</option>
 <option value="estimara_expiry"      >Estimara Expiry</option> 
@@ -264,14 +264,10 @@ No vendors
 <option value="client_sticker"  >Client Sticker</option> 
 <option value="mot_license_expiry"  >MOT License Expiry</option> 
 </select>
+ -->
 	<label for="expiry_date_div">Expiry date</label>
 	<br>
 	<?php 
-	
- 
-	
-	
-	
 	
 	if(isset($asset_det['asset_expiry'])){
 	$mysqldate = strtotime($asset_det['asset_expiry']);
