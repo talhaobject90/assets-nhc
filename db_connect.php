@@ -7,6 +7,8 @@ else
 mysql_connect("localhost", "root", "password") or die (mysql_error ());
 
 
+
+
 // changed
 
 
