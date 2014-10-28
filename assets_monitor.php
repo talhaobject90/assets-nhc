@@ -11,8 +11,6 @@
 		
 		}
 	
-	
-	
 	?>
 
 
@@ -97,15 +95,7 @@ echo '<tr ><td>'.$row['id'].'</td><td>'.$row['name'].'</td><td>'.$row['location'
 
 }
 echo '<table';
-
-
 ?>
-
-
-
-
-
-
 
 </div>
 </div>

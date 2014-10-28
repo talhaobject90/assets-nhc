@@ -42,7 +42,7 @@
 	 
 	
 // EDIT QUERY 
-		if($Edit_mode){
+		if($Edit_mode){	
 		  $edit_query ="SELECT * FROM `".$assets_table."`  WHERE `id` =".$_GET['edit'].";";
 		$edit_query = mysql_query($edit_query);
 		while($rows = mysql_fetch_array($edit_query)) {
@@ -52,6 +52,14 @@
 			$asset_det['asset_employee']= $rows['employee'];
 			$asset_det['asset_status']= $rows['status'];
 			$asset_det['asset_expiry']= $rows['expiry'];
+			$asset_det['estimara_expiry'] = $rows['estimara_expiry'];
+			$asset_det['insurance_expiry'] = $rows['insurance_expiry'];
+			$asset_det['preventive_maintenance'] = $rows['preventive_maintenance'];
+			$asset_det['tuv_sticker'] = $rows['tuv_sticker'];
+			$asset_det['client_sticker'] = $rows['client_sticker'];
+			$asset_det['mot_license_expiry'] = $rows['mot_license_expiry'];
+			$asset_det['accident_history'] = $rows['accident_history'];
+			$asset_det['violation_history'] = $rows['violation_history'];
 		}
 		}
 	
@@ -103,8 +111,6 @@ else
 <?php echo (isset($asset_det['asset_desc'])?$asset_det['asset_desc'] : '')?> 
 </textarea>
 </div>
-
-
 </div>
 <div class="editable-purchae-items">
 <div class="row items-to-purchase">
@@ -115,7 +121,7 @@ else
 <div class="col-sm-12">
 <div class="fields"><div class="purchase-item row">
 
- <div class="form-group col-sm-4 item-name"  style="margin-right:9px;">
+ <div class="form-group col-sm-4 item-name"  style="margin-right:5px;">
 <div class="ship-to-location">
 <label for="purchase_Ship to Location">Asset Status</label>
 <br>	
@@ -130,7 +136,7 @@ else
 </div>
 
 
- <div class="form-group col-sm-4 item-qty">
+ <div class="form-group col-sm-4 item-qty" style="margin-right:5px;">
 <div class="ship-to-location">
 <label for="purchase_Ship to Location">Asset Location</label>
 <br>	
@@ -139,9 +145,29 @@ else
 <input class="form-control"  name="asset_location" placeholder="Asset location" value="<?php echo (isset($asset_det['asset_loc'])?$asset_det['asset_loc'] : '')?>"  type="text">
  
 </div>
+
 <!-- <label class="sr-only" for="purchase_purchase_items_attributes_0_qty">Qty</label>
 <input class="form-control purchase_item_qty" id="purchase_purchase_items_attributes_0_qty" name="purchase[purchase_items_attributes][0][qty]" placeholder="Qty (e.g. 8 gallons)" type="text"> -->
+
+
+
+
+
 </div>
+
+
+
+ <div class="form-group col-sm-4 item-qty" >
+<div class="approver" >
+<label for="purchase_approver_id">Assigned Employee</label>
+<br>
+<!-- <select class="form-control" id="purchase_approver_id" name="assigned_employee"><option value="">- Assigned Employee-</option>
+<option value="Mohammed Talha">Mohammed Talha</option></select> -->
+<input class="form-control"   name="assigned_employee"   value="<?php echo (isset($asset_det['asset_employee'])?$asset_det['asset_employee'] : '')?>"  type="text">
+</div>
+</div>
+
+
  
 </div>
 </div></div>
@@ -151,7 +177,37 @@ else
 </div>
 </div>
 
+
+
+<div class="row">
+<div class="remark form-group col-sm-12">
+<label class="sr-only" for="purchase_remark">Remark</label>
+<textarea class="form-control" id="purchase_remark" name="asset_desc" placeholder="Asset Description.  
+
+" rows="4">
+<?php echo (isset($asset_det['asset_desc'])?$asset_det['asset_desc'] : '')?> 
+</textarea>
 </div>
+</div>
+
+<div class="row">
+<div class="remark form-group col-sm-12">
+<label class="sr-only" for="purchase_remark">Remark</label>
+<textarea class="form-control" id="purchase_remark" name="asset_desc" placeholder="Asset Description.  
+
+" rows="4">
+<?php echo (isset($asset_det['asset_desc'])?$asset_det['asset_desc'] : '')?> 
+</textarea>
+</div>
+</div>
+
+
+
+
+
+
+</div>
+
 </div>
 <!-- <div class="row">
 <div class="page-header">
@@ -191,27 +247,44 @@ No vendors
 
  
 <br>
-<div class="expected-shipment-date">
-<label for="purchase_Expected Shipment Date">Expiry date</label>
-<br>
-<?php 
-if(isset($asset_det['asset_expiry'])){
-$mysqldate = strtotime($asset_det['asset_expiry']);
-  $phpdate= date( 'Y/m/d', $mysqldate );
- }
-?>
+
+ 
 
 
-<input class="form-control" id="purchase_expected_shipment_at" name="asset_expiry"   value="<?php  echo ($phpdate != '' ? $phpdate :'' )?>"type="text">
-</div>
 <br>
-<div class="approver">
-<label for="purchase_approver_id">Assigned Employee</label>
-<br>
-<!-- <select class="form-control" id="purchase_approver_id" name="assigned_employee"><option value="">- Assigned Employee-</option>
-<option value="Mohammed Talha">Mohammed Talha</option></select> -->
-<input class="form-control"   name="assigned_employee"   value="<?php echo (isset($asset_det['asset_employee'])?$asset_det['asset_employee'] : '')?>"  type="text">
+
+<div class="expiry_date_div">
+
+<select class="form-control" id="asset_expiry_select" name="asset_expiry_select" >
+<option value="">- Expiry Dates -</option>
+<option value="estimara_expiry"      >Estimara Expiry</option> 
+<option value="insurance_expiry"  >Insurance Expiry</option> 
+<option value="preventive_maintenance"   <?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?> >Preventive Maintenance</option>
+<option value="tuv_sticker"  >TUV Sticker</option> 
+<option value="client_sticker"  >Client Sticker</option> 
+<option value="mot_license_expiry"  >MOT License Expiry</option> 
+</select>
+	<label for="expiry_date_div">Expiry date</label>
+	<br>
+	<?php 
+	
+ 
+	
+	
+	
+	
+	if(isset($asset_det['asset_expiry'])){
+	$mysqldate = strtotime($asset_det['asset_expiry']);
+	  $phpdate= date( 'Y/m/d', $mysqldate );
+	 }
+	?>
+	<input class="form-control" id="purchase_expected_shipment_at" name="asset_expiry"   value="<?php  echo ($phpdate != '' ? $phpdate :'' )?>"type="text">
+	
 </div>
+
+<!-- <input class="add_expiry_button btn-default"  type="button"  id="add_expiry_button"name="add_expiry" value="ADD EXPIRY CATEGORY"  > -->
+<br>
+
 <!--  <div class="page-header">
 <h3>Followers</h3>
 <p>(Followers get email updates)</p>

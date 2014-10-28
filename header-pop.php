@@ -14,9 +14,11 @@
 <link data-turbolinks-track="true" href="css/application-f4d0efa73761521b652b54dd7321c38d.css" media="all" rel="stylesheet" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" media="screen" rel="stylesheet" />
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" media="screen" rel="stylesheet" />
+<link href="css/style.css" media="screen" rel="stylesheet" />
 <script data-turbolinks-track="true" src="js/application-9924af930ec816234c493e9467f16835.js"></script>
 <!-- <script src="https://js.stripe.com/v1/"></script> -->
 <script src="js/v1.js"></script>
+<script src="js/script.js"></script>
 <meta content="authenticity_token" name="csrf-param" />
 <meta content="IfzLnEn8oYqOhaLKf6/huXuPr/feRlhEoW1az2XOYOs=" name="csrf-token" />
 <meta content="pk_live_tXltt2t4mCC4vqhPbAGDkQLb" name="stripe-key" />

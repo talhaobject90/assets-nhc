@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+
+.add_expiry_button{
+	margin: 10px;
+background: #ffe400;
+border-color: #0074a2;
+-webkit-box-shadow: inset 0 1px 0 rgba(120,200,230,.5),0 1px 0 rgba(0,0,0,.15);
+box-shadow: inset 0 1px 0 rgba(120,200,230,.5),0 1px 0 rgba(0,0,0,.15);
+color: #333;
+text-decoration: none;
+cursor: pointer;
+border-width: 1px;
+border-style: solid;
+-webkit-appearance: none;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+white-space: nowrap;
+}
+
+
