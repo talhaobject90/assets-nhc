@@ -29,17 +29,16 @@ CREATE TABLE `assets` (
   `location` varchar(500) NOT NULL,
   `custodian` varchar(500) NOT NULL,
   `status` enum('inactive','active','under_maintenance') NOT NULL DEFAULT 'inactive',
-  `expiry` datetime DEFAULT NULL,
   `istemara_expiry` date DEFAULT NULL,
   `insurance_expiry` date DEFAULT NULL,
   `preventive_maintenance` date DEFAULT NULL,
   `tuv_sticker` date DEFAULT NULL,
   `client_sticker` date DEFAULT NULL,
-  `mot_license_expiry` int(11) DEFAULT NULL,
+  `mot_license_expiry` date DEFAULT NULL,
   `accident_history` text,
   `violation_history` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,18 +47,23 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (1,'liftsq','Main lift this way','rP','talhatha','active','0000-00-00 00:00:00','2014-10-06','2014-10-27',NULL,NULL,NULL,NULL,'aaa','vvvv');
-INSERT INTO `assets` VALUES (14,'Computer','IBMs','Main server room','Salmans','active','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `assets` VALUES (15,'Moto e','sdf \r\n \r\n','pettai','talhaa','under_maintenance','2014-10-22 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','active','2014-10-27 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `assets` VALUES (17,'Xpefia','tip \r\n','al','Ali','active','2014-10-21 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive','2014-10-21 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active','2014-11-05 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-INSERT INTO `assets` VALUES (20,'test asset','sdfsrfsf','sfd','Sdf','active','0000-00-00 00:00:00','2014-10-08',NULL,NULL,NULL,NULL,NULL,'Thi is tesxt','sfdsfsf');
-INSERT INTO `assets` VALUES (23,'name','desc','loc','cust','active','0000-00-00 00:00:00',NULL,NULL,NULL,NULL,NULL,NULL,'accsa','viosa');
-INSERT INTO `assets` VALUES (24,'test asset 1','asset desc','ass loc','custodia','active','0000-00-00 00:00:00','2014-10-01','2014-10-02',NULL,NULL,NULL,NULL,'accid his','violhis');
-INSERT INTO `assets` VALUES (26,'test aset 2','asset desc','ass loc','cus','active','0000-00-00 00:00:00','2014-10-01','2014-10-22',NULL,NULL,NULL,NULL,'acc his','vio his');
-INSERT INTO `assets` VALUES (27,'test aset 3','ASDF','ass loc','cus','active','0000-00-00 00:00:00','2014-10-01','0000-00-00',NULL,NULL,NULL,NULL,'ACC','VIO');
+INSERT INTO `assets` VALUES (1,'liftsq','Main lift this way','rP','talhatha','active','2014-10-06','2014-10-27','2014-10-07','2014-10-08','2014-10-09','2014-10-10','aaa','vvvv');
+INSERT INTO `assets` VALUES (14,'Computer','IBMs','Main server room','Salmans','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `assets` VALUES (15,'Moto e','sdf \r\n \r\n','pettai','talhaa','under_maintenance',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `assets` VALUES (17,'Xpefia','tip \r\n','al','Ali','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `assets` VALUES (20,'test asset','sdfsrfsf','sfd','Sdf','active','2014-10-08',NULL,NULL,NULL,NULL,NULL,'Thi is tesxt','sfdsfsf');
+INSERT INTO `assets` VALUES (23,'name','desc','loc','cust','active',NULL,NULL,NULL,NULL,NULL,NULL,'accsa','viosa');
+INSERT INTO `assets` VALUES (24,'test asset 1','asset desc','ass loc','custodia','active','2014-10-01','2014-10-02',NULL,NULL,NULL,NULL,'accid his','violhis');
+INSERT INTO `assets` VALUES (26,'test aset 2','asset desc','ass loc','cus','active','2014-10-01','2014-10-22',NULL,NULL,NULL,NULL,'acc his','vio his');
+INSERT INTO `assets` VALUES (27,'test aset 3','ASDF','ass loc','cus','active','2014-10-01','0000-00-00',NULL,NULL,NULL,NULL,'ACC','VIO');
+INSERT INTO `assets` VALUES (28,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio');
+INSERT INTO `assets` VALUES (29,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio');
+INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio');
+INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','asfa','asdfbv');
+INSERT INTO `assets` VALUES (32,'aaaaa sfsdf','sfd','ass loc','talhatha','under_maintenance','2014-10-07','2014-10-14','0000-00-00','0000-00-00','0000-00-00','0000-00-00','sdf','sfd');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-28 22:03:19
+-- Dump completed on 2014-10-29 11:36:21

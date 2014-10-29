@@ -14,21 +14,13 @@
 				$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
 			}
 			
-			if($_POST['insurance_expiry'] != '0000-00-00')
-			$insurance_expiry = "'".$_POST['insurance_expiry']."'";
-			else
-				$insurance_expiry = NULL;
-			//$insurance_expiry = "'".$_POST['insurance_expiry']."'";
-			
-			
-			
-			 
-			
-			  
+		 
  			
-			  $mysql_query = "UPDATE `".$assets_table."` SET  `name`='".$_POST["asset_name"]."',`description`='".$_POST["asset_desc"]."',`location`='".$_POST["asset_location"]."',`custodian`='".$_POST["custodian"]."',`status`='".$_POST["asset_status"]."', `accident_history`='".$_POST["accident_history"]."', `violation_history`='".$_POST["violation_history"]."',  `istemara_expiry`='".$_POST["istemara_expiry"]."',  `insurance_expiry`='".$_POST["insurance_expiry"]."', `expiry`='".$expiry_date."' WHERE `id`= ".$edit_id.";";
-			  
+			      $mysql_query = "UPDATE `".$assets_table."` SET  `name`='".$_POST["asset_name"]."',`description`='".$_POST["asset_desc"]."',`location`='".$_POST["asset_location"]."',`custodian`='".$_POST["custodian"]."',`status`='".$_POST["asset_status"]."', `accident_history`='".$_POST["accident_history"]."', `violation_history`='".$_POST["violation_history"]."',  `istemara_expiry`='".$_POST["istemara_expiry"]."',  `insurance_expiry`='".$_POST["insurance_expiry"]."', `preventive_maintenance`='".$_POST["preventive_maintenance"]."', `tuv_sticker`='".$_POST["tuv_sticker"]."',`client_sticker`='".$_POST["client_sticker"]."',`mot_license_expiry`='".$_POST["mot_license_expiry"]."'  WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
+			  
+			 
+			 
 			  
 		}
  	}
@@ -37,13 +29,13 @@
  	if(isset($_POST['save']))
  	{
  	if(isset($_POST['asset_name']) && $_POST['asset_name'] != ''){
- 		if(isset($_POST['asset_expiry'])){
- 			$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
- 		}
- 		     $mysql_query = "INSERT INTO `".$assets_table."`( `name`, `description`, `location`, `custodian`, `status`,  `accident_history`, `violation_history`, `expiry` , `istemara_expiry` ,`insurance_expiry`     ) VALUES
-				('".$_POST["asset_name"]."','".$_POST["asset_desc"]."','". $_POST["asset_location"]."' ,'".$_POST["custodian"]."' ,'".$_POST["asset_status"]."' ,'".$_POST["accident_history"]."','".$_POST["violation_history"]."','".$expiry_date ."' ,'".$_POST["istemara_expiry"]."','".$_POST["insurance_expiry"]."')";
+ 		
+ 		
+ 		
+ 		       $mysql_query = "INSERT INTO `".$assets_table."`( `name`, `description`, `location`, `custodian`, `status`,  `accident_history`, `violation_history` , `istemara_expiry` ,`insurance_expiry`, `preventive_maintenance` , `tuv_sticker` ,`client_sticker`,  `mot_license_expiry`     ) VALUES
+				('".$_POST["asset_name"]."','".$_POST["asset_desc"]."','". $_POST["asset_location"]."' ,'".$_POST["custodian"]."' ,'".$_POST["asset_status"]."' ,'".$_POST["accident_history"]."','".$_POST["violation_history"]."','".$_POST["istemara_expiry"]."','".$_POST["insurance_expiry"]."' ,'".$_POST["preventive_maintenance"]."','".$_POST["tuv_sticker"]."','".$_POST["client_sticker"]."','".$_POST["mot_license_expiry"]."')";
  		  mysql_query($mysql_query);
- 		   
+  
  		 
  		  ?>
  		  
@@ -52,7 +44,6 @@
  		  </script>
  		  
  		  <?php 
- 		  
  	}
  	}
 	 
@@ -275,12 +266,41 @@ No vendors
 
 	<input class="form-control" id="istemara_expiry_date" name="istemara_expiry"   value="<?php  echo (isset($asset_det['istemara_expiry']) && $asset_det['istemara_expiry'] != '0000-00-00'   ? $asset_det['istemara_expiry']:'' )?>"type="text">
 </div>
+
 <div class="expiry_date_div">
 	<label for="expiry_date_div"> Insurance Expiry</label>
 	<br>
 	<input class="form-control" id="insurance_expiry_date" name="insurance_expiry"   value="<?php  echo (isset($asset_det['insurance_expiry'])  && $asset_det['insurance_expiry'] != '0000-00-00' ? $asset_det['insurance_expiry']:'' )?>"type="text">
 	
 </div>
+
+<div class="preventive_maintenance_div">
+	<label for="preventive_maintenance_div"> Preventive Maintenance</label>
+	<br>
+	<input class="form-control" id="preventive_maintenance_date" name="preventive_maintenance"   value="<?php  echo (isset($asset_det['preventive_maintenance'])  && $asset_det['preventive_maintenance'] != '0000-00-00' ? $asset_det['preventive_maintenance']:'' )?>"type="text">
+	
+</div>
+
+<div class="tuv_sticker_div">
+	<label for="tuv_sticker_div"> TUV Sticker</label>
+	<br>
+	<input class="form-control" id="tuv_sticker_date" name="tuv_sticker"   value="<?php  echo (isset($asset_det['tuv_sticker'])  && $asset_det['tuv_sticker'] != '0000-00-00' ? $asset_det['tuv_sticker']:'' )?>"type="text">
+	
+</div>
+
+<div class="client_sticker_div">
+	<label for="client_sticker_div"> Client Sticker</label>
+	<br>
+	<input class="form-control" id="client_sticker_date" name="client_sticker"   value="<?php  echo (isset($asset_det['client_sticker'])  && $asset_det['client_sticker'] != '0000-00-00' ? $asset_det['client_sticker']:'' )?>"type="text">
+	
+</div>
+<div class="mot_license_expiry_div">
+	<label for="mot_license_expiry_div"> MOT License Expiry</label>
+	<br>
+	<input class="form-control" id="mot_license_expiry_date" name="mot_license_expiry"   value="<?php  echo (isset($asset_det['mot_license_expiry'])  && $asset_det['mot_license_expiry'] != '0000-00-00' ? $asset_det['mot_license_expiry']:'' )?>"type="text">
+</div>
+
+ 
 
 <!-- <input class="add_expiry_button btn-default"  type="button"  id="add_expiry_button"name="add_expiry" value="ADD EXPIRY CATEGORY"  > -->
 <br>

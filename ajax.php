@@ -1,4 +1,9 @@
 <?php
+
+/*
+ * 		this file is not used
+ * 
+ */
 include("db_connect.php");
 
 

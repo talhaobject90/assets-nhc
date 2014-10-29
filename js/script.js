@@ -2,6 +2,11 @@
 
 
 $(document).ready(function() {
+	
+	/*
+	 * This code is not used actually
+	 * 
+	 */
 
     $("#add_expiry_button").click(function() {                
 
@@ -17,12 +22,31 @@ $(document).ready(function() {
 
     });
 });
-    is=$("#istemara_expiry_date").val();
-    $("#istemara_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",is)
+    
+    
+    
+     // CODE FOR ASSIGNING DATE PICKER 
+    
+    
+    is=$("#istemara_expiry_date").val(); // Load value into datepicker text box
+    $("#istemara_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",is) // assigns as datepicker
     
    
     insu=$("#insurance_expiry_date").val();
     $("#insurance_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",insu)
+    
+     prev=$("#preventive_maintenance_date").val();
+    $("#preventive_maintenance_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",prev)
+    
+     tuv=$("#tuv_sticker_date").val();
+    $("#tuv_sticker_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",tuv)
+    
+     client=$("#client_sticker_date").val();
+    $("#client_sticker_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",client)
+    
+     motl=$("#mot_license_expiry_date").val();
+    $("#mot_license_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",motl)
+     
     
     
     
