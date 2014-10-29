@@ -11,8 +11,7 @@
 			?>
 			<script type="text/javascript">
 			jQuery(function () {
-				window.location = "config.php"
-				jQuery('a[href="#asset_category"]').tab('show'); // Select tab by name
+ 				jQuery('a[href="#asset_category"]').tab('show'); // Select tab by name
 			})
 			</script><?php 
 		}
@@ -22,8 +21,7 @@
 			?>
 			<script type="text/javascript">
 			jQuery(function () {
-				window.location = "config.php"
-				jQuery('a[href="#asset_category"]').tab('show'); // Select tab by name
+ 				jQuery('a[href="#asset_category"]').tab('show'); // Select tab by name
 			})
 			</script><?php 
 		}
@@ -34,8 +32,7 @@
 			<script type="text/javascript">
  			jQuery(function () {
 				jQuery('a[href="#department"]').tab('show'); // Select tab by name
-				window.location = "config.php"
-			})
+ 			})
 			</script><?php 
 		}
 		

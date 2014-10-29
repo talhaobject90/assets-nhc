@@ -59,19 +59,19 @@ New Horizons Company
 <div class='row menus'>
 <ul class='nav'>
  
-<li id='purchases-link' class='active' >
+<li id='assets-link'  >
 <a href="assets_monitor.php">Assets
 <i class='fa fa-file-text-o icon'></i>
 </a></li>
-<li id='vendors-link'>
+<li id='alerts-link'>
 <a href="https://object90.pomsapp.com/vendors">Alerts
 <i class='fa fa-truck icon'></i>
 </a></li>
-<li id='users-link'>
+<li id='employees-link'>
 <a href="employees.php">Employees
 <i class='fa fa-users icon'></i>
 </a></li>
-<li id='sites-link'>
+<li id='configure-link'    >
 <a href="config.php">Configure
 <i class='fa fa-building-o icon'></i>
 </a></li>
@@ -92,6 +92,27 @@ New Horizons Company
 </ul>
 </div>
 </div>
+
+<script type="text/javascript">
+jQuery( document ).ready(function() {
+
+	
+
+	str = "<?php echo $_SERVER[REQUEST_URI] ; ?>s";
+  	if(str.search("assets_monitor.php") != '-1' || str.search("assets_new.php") != '-1')
+ 		jQuery("#assets-link").addClass( "active" );
+	if(str.search("employees.php") != '-1')
+		jQuery("#employees-link").addClass( "active" );
+	
+	if(str.search("config.php")  != '-1'  || str.search("vendor_new.php")  != '-1'  || str.search("asset_category_new.php")    != '-1' || str.search("department_new.php") != '-1')
+		jQuery("#configure-link").addClass( "active" );
+	
+		
+	 
+    
+});
+
+</script>
 
 
 

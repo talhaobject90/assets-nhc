@@ -13,7 +13,7 @@
 			 
  			
 			        $mysql_query = "UPDATE `".$vendor_table."` SET 
-			       `vendor_name`='".$_POST["vendor_name"]."'
+			       `vendor_name`='".trim($_POST["vendor_name"])."'
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
 			   
@@ -28,7 +28,7 @@
  		         $mysql_query = "INSERT INTO `".$vendor_table."`
  		       		( `vendor_name`
 				 ) VALUES
-				('".$_POST["vendor_name"]."'
+				('".trim($_POST["vendor_name"])."'
 					)";
  		       
  		  mysql_query($mysql_query);
@@ -116,11 +116,13 @@ if(isset($asset_det['vendor_id']))
 						</div>
  												<?php  
 if($Edit_mode){
-	echo '<input class="btn btn-default"  type="submit" name="update" value="Update Vendor"  style="background-color: #ffe400;margin-bottom:10px;">';
+	echo '<input class="btn btn-default"  type="submit" name="update" value="Update Vendor"  style="background-color: #ffe400;margin-bottom:10px;font-weight:bold;">';
+	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style="background-color: #ffe400;margin-bottom:10px; margin-left:10px;font-weight:bold;"></a>';
 	
 	}
 else{
-	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Vendor"  style="background-color: #ffe400;margin-bottom:10px;">';
+	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Vendor"   >';
+	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel" ></a>';
 	}
 	
 ?>

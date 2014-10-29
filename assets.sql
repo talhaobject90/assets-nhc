@@ -49,7 +49,7 @@ CREATE TABLE `assets` (
   `date_acquired` date DEFAULT NULL,
   `date_sold` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','talhathaaaaas','active','2014-10-07','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','','','','','','','','','',NULL,NULL);
+INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Mohammed Talha','active','2014-10-07','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (14,'Computer','IBMs','Main server room','Salmans','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (15,'Moto e','sdf \r\n \r\n','pettai','talhaa','under_maintenance',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
@@ -74,11 +74,7 @@ INSERT INTO `assets` VALUES (28,'Asset Name','deswc','loc','cus','under_maintena
 INSERT INTO `assets` VALUES (29,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio','','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio','','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','asfa','asdfbv','','','','','','','','','',NULL,NULL);
-INSERT INTO `assets` VALUES (32,'aaaaa sfsdf','sfd','ass loc','talhatha','under_maintenance','2014-10-07','2014-10-14','0000-00-00','0000-00-00','0000-00-00','0000-00-00','sdf','sfd','','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (36,'NEW TEST','Ass desc','ass loc','cus','active','2014-10-01','2014-10-02','2014-10-02','2014-10-03','2014-10-04','2014-10-05','acc  ','vio','1','2','3','veh num','','pur','cur','tot mina','tot dep','2014-10-06','2014-10-07');
-INSERT INTO `assets` VALUES (37,'ass 2','ass desc','loc','cus','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vv','1','1','1','veh num','','pur','cur','tot mina','tot dep','2014-10-07','2014-10-08');
-INSERT INTO `assets` VALUES (38,'ass 2','ass desc','loc','cus','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vv','1','1','1','veh num','ser','pur','cur','tot mina','tot dep','2014-10-07','2014-10-08');
-INSERT INTO `assets` VALUES (39,'ass3','sdf','ass loc','cus','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','sdf','sdf','','','','veh num','ser','pur','cur','tot mina','tot dep','0000-00-00','0000-00-00');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +89,7 @@ CREATE TABLE `assets_category` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `asset_category_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +108,6 @@ INSERT INTO `assets_category` VALUES (11,'fghfgn');
 INSERT INTO `assets_category` VALUES (12,'ffghfg');
 INSERT INTO `assets_category` VALUES (13,'fgnfnf');
 INSERT INTO `assets_category` VALUES (14,'nfnfgn');
-INSERT INTO `assets_category` VALUES (15,'trucks');
 INSERT INTO `assets_category` VALUES (16,'Baombs');
 /*!40000 ALTER TABLE `assets_category` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -137,7 +132,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES (1,'Human resource');
+INSERT INTO `department` VALUES (1,'Human resources');
 INSERT INTO `department` VALUES (7,'zdfwe');
 INSERT INTO `department` VALUES (8,'fw');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
@@ -153,8 +148,12 @@ DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `employee_name` varchar(200) NOT NULL,
+  `employee_email` varchar(50) NOT NULL,
+  `employee_department` varchar(200) NOT NULL,
+  `employee_phone` varchar(20) NOT NULL,
+  `employee_status` enum('inactive','active') NOT NULL DEFAULT 'inactive',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,12 +162,12 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Mohammed Ali');
-INSERT INTO `employee` VALUES (2,'Mohammed Talha');
-INSERT INTO `employee` VALUES (3,'Ramesh kumar');
-INSERT INTO `employee` VALUES (4,'Prasanth B');
-INSERT INTO `employee` VALUES (5,'Mariappan C');
-INSERT INTO `employee` VALUES (6,'Vally anand');
+INSERT INTO `employee` VALUES (1,'Mohammed Alisaa','sdsdf@gmcil.com','humansaa','9876465ss','active');
+INSERT INTO `employee` VALUES (2,'Mohammed Talha','talha@object90.com','programmer','9788179303','active');
+INSERT INTO `employee` VALUES (3,'Ramesh kumar','rameshkumar86@gmacil.com','','234234','active');
+INSERT INTO `employee` VALUES (4,'Prasanth B','','','','');
+INSERT INTO `employee` VALUES (5,'Mariappan C','','','','');
+INSERT INTO `employee` VALUES (6,'Vally anand','','','','');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,13 +195,12 @@ INSERT INTO `vendor` VALUES (1,'Mazdas');
 INSERT INTO `vendor` VALUES (8,'sdfdfgdf');
 INSERT INTO `vendor` VALUES (9,'dbdfsg');
 INSERT INTO `vendor` VALUES (10,'dfgdb');
-INSERT INTO `vendor` VALUES (11,'sdfgb sf ');
-INSERT INTO `vendor` VALUES (12,'fgbnf ');
-INSERT INTO `vendor` VALUES (13,'fgn ');
+INSERT INTO `vendor` VALUES (11,'sdfgb sf');
+INSERT INTO `vendor` VALUES (12,'fgbnf');
+INSERT INTO `vendor` VALUES (13,'fgn');
 INSERT INTO `vendor` VALUES (14,'sdbsdfg');
 INSERT INTO `vendor` VALUES (15,'z bad');
-INSERT INTO `vendor` VALUES (16,' dzfz ');
-INSERT INTO `vendor` VALUES (17,'z');
+INSERT INTO `vendor` VALUES (16,' dzfz');
 /*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -215,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-29 17:43:27
+-- Dump completed on 2014-10-29 21:36:48

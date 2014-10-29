@@ -13,7 +13,7 @@
 			 
  			
 			        $mysql_query = "UPDATE `".$department_table."` SET 
-			       `department_name`='".$_POST["department_name"]."'
+			       `department_name`='".trim($_POST["department_name"])."'
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
 			   
@@ -28,7 +28,7 @@
  		         $mysql_query = "INSERT INTO `".$department_table."`
  		       		( `department_name`
 				 ) VALUES
-				('".$_POST["department_name"]."'
+				('".trim($_POST["department_name"])."'
 					)";
  		       
  		  mysql_query($mysql_query);
@@ -117,10 +117,12 @@ if(isset($asset_det['department_id']))
  												<?php  
 if($Edit_mode){
 	echo '<input class="btn btn-default"  type="submit" name="update" value="Update Department"  style="background-color: #ffe400;margin-bottom:10px;">';
+	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style="background-color: #ffe400;margin-bottom:10px; margin-left:10px;font-weight:bold;"></a>';
 	
 	}
 else{
-	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Department"  style="background-color: #ffe400;margin-bottom:10px;">';
+	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Department"   >';
+	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"    ></a>';
 	}
 	
 ?>

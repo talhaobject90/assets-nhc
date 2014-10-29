@@ -1,4 +1,6 @@
 
 
 
+ssh 544f43b94382ec6427000496@assets-newhorizons.rhcloud.com
+
 mysql -u adminxntQq3s -ps-FSsSggM7q3 assets < /var/lib/openshift/544f43b94382ec6427000496/app-root/runtime/repo/assets.sql

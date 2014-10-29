@@ -14,38 +14,38 @@
 				$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
 			}
  			
-			      $mysql_query = "UPDATE `".$assets_table."` SET 
-			       `name`='".$_POST["asset_name"]."',
-			       	`description`='".$_POST["asset_desc"]."',
-			       	`location`='".$_POST["asset_location"]."',
-			       	`custodian`='".$_POST["custodian"]."',
-			       	`status`='".$_POST["asset_status"]."',
-			       	 `accident_history`='".$_POST["accident_history"]."', 
-			       	 `violation_history`='".$_POST["violation_history"]."', 
-			       	 `istemara_expiry`='".$_POST["istemara_expiry"]."',
-			         `insurance_expiry`='".$_POST["insurance_expiry"]."',
-			         `preventive_maintenance`='".$_POST["preventive_maintenance"]."',
-			         `tuv_sticker`='".$_POST["tuv_sticker"]."',
-			         `client_sticker`='".$_POST["client_sticker"]."',
-					`mot_license_expiry`='".$_POST["mot_license_expiry"]."',
-					`vendor`='".$_POST["vendor"]."',
-					`asset_category`='".$_POST["asset_category"]."',
-					`department`='".$_POST["department"]."',
-					`vehicle_number`='".$_POST["vehicle_number"]."',
-					`serial_numer`='".$_POST["serial_numer"]."',
-					`purchase_price`='".$_POST["purchase_price"]."',
-					`current_value`='".$_POST["current_value"]."',
-					`total_maintenance`='".$_POST["total_maintenance"]."',
-					`total_depreciation`='".$_POST["total_depreciation"]."',
-					`date_acquired`='".$_POST["date_acquired"]."',
-					`date_sold`='".$_POST["date_sold"]."'
+			        $mysql_query = "UPDATE `".$assets_table."` SET 
+			       `name`='".trim($_POST["asset_name"])."',
+			       	`description`='".trim($_POST["asset_desc"])."',
+			       	`location`='".trim($_POST["asset_location"])."',
+			       	`custodian`='".trim($_POST["custodian"])."',
+			       	`status`='".trim($_POST["asset_status"])."',
+			       	 `accident_history`='".trim($_POST["accident_history"])."', 
+			       	 `violation_history`='".trim($_POST["violation_history"])."', 
+			       	 `istemara_expiry`='".trim($_POST["istemara_expiry"])."',
+			         `insurance_expiry`='".trim($_POST["insurance_expiry"])."',
+			         `preventive_maintenance`='".trim($_POST["preventive_maintenance"])."',
+			         `tuv_sticker`='".trim($_POST["tuv_sticker"])."',
+			         `client_sticker`='".trim($_POST["client_sticker"])."',
+					`mot_license_expiry`='".trim($_POST["mot_license_expiry"])."',
+					`vendor`='".trim($_POST["vendor"])."',
+					`asset_category`='".trim($_POST["asset_category"])."',
+					`department`='".trim($_POST["department"])."',
+					`vehicle_number`='".trim($_POST["vehicle_number"])."',
+					`serial_number`='".trim($_POST["serial_number"])."',
+					`purchase_price`='".trim($_POST["purchase_price"])."',
+					`current_value`='".trim($_POST["current_value"])."',
+					`total_maintenance`='".trim($_POST["total_maintenance"])."',
+					`total_depreciation`='".trim($_POST["total_depreciation"])."',
+					`date_acquired`='".trim($_POST["date_acquired"])."',
+					`date_sold`='".trim($_POST["date_sold"])."'
 																													
 			         		
 			         		
 			         				 
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
-		}
+ 		}
  	}
  	
  	
@@ -79,30 +79,30 @@
  		       		`date_sold`
  		       		
 				 ) VALUES
-				('".$_POST["asset_name"]."',
-				'".$_POST["asset_desc"]."',
-				'". $_POST["asset_location"]."' ,
-				'".$_POST["custodian"]."' ,
-				'".$_POST["asset_status"]."' ,
-				'".$_POST["accident_history"]."',
-				'".$_POST["violation_history"]."',
-				'".$_POST["istemara_expiry"]."',
-				'".$_POST["insurance_expiry"]."' ,
-				'".$_POST["preventive_maintenance"]."',
-				'".$_POST["tuv_sticker"]."',
-				'".$_POST["client_sticker"]."',
-				'".$_POST["mot_license_expiry"]."',
-				'". $_POST ["vendor"] . "',
-				'" . $_POST ["asset_category"] . "',
-				'" . $_POST ["department"] . "',
-				'" . $_POST ["vehicle_number"] . "',
-				'" . $_POST ["serial_number"] . "',
-				'" . $_POST ["purchase_price"] . "',
-				'" . $_POST ["current_value"] . "',
-				'" . $_POST ["total_maintenance"] . "',
-				'" . $_POST ["total_depreciation"] . "',
-				'" . $_POST ["date_acquired"] . "',
-				'" . $_POST ["date_sold"] . "'
+				('".trim($_POST["asset_name"] )."',
+				'".trim($_POST["asset_desc"])."',
+				'". trim($_POST["asset_location"])."' ,
+				'".trim($_POST["custodian"])."' ,
+				'".trim($_POST["asset_status"])."' ,
+				'".trim($_POST["accident_history"])."',
+				'".trim($_POST["violation_history"])."',
+				'".trim($_POST["istemara_expiry"])."',
+				'".trim($_POST["insurance_expiry"])."' ,
+				'".trim($_POST["preventive_maintenance"])."',
+				'".trim($_POST["tuv_sticker"])."',
+				'".trim($_POST["client_sticker"])."',
+				'".trim($_POST["mot_license_expiry"])."',
+				'". trim($_POST ["vendor"] ). "',
+				'" . trim($_POST ["asset_category"] ). "',
+				'" . trim($_POST ["department"]) . "',
+				'" . trim($_POST ["vehicle_number"]) . "',
+				'" .trim( $_POST ["serial_number"]) . "',
+				'" .trim( $_POST ["purchase_price"]) . "',
+				'" .trim( $_POST ["current_value"]) . "',
+				'" .trim( $_POST ["total_maintenance"]) . "',
+				'" . trim($_POST ["total_depreciation"]) . "',
+				'" . trim($_POST ["date_acquired"]) . "',
+				'" .trim( $_POST ["date_sold"] ). "'
 
 					)";
  		       
@@ -252,16 +252,21 @@ else
 												<div class="form-group col-sm-4 item-qty">
 															<div class="custodian_div">
 														<label for="custodian_div">Custodian</label>
-														<br> <select class="form-control"
+														<br>
+														
+														
+														<select class="form-control"
 															id="custodian_select" name="custodian">
 															<option value="">- Custodian -</option>
-															<option value="1"
-																<?php echo ($asset_det['asset_status'] == 'inactive' ? 'selected="selected"' : '')?>>Inactive</option>
-															<option value="2"
-																<?php echo ($asset_det['asset_status'] == 'active' ? 'selected="selected"' : '')?>>Active</option>
-															<option value="3"
-																<?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?>>Under
-																Maintenance</option>
+															<?php 
+															$edit_query ="SELECT * FROM `".$employee_table."` ;" ;
+															$edit_query = mysql_query($edit_query);
+															while($rows = mysql_fetch_array($edit_query)) { ?>
+															<option value="<?php echo $rows['employee_name']; ?>"
+																<?php echo ($asset_det['custodian'] ==  $rows['employee_name'] ? 'selected="selected"' : '')?>><?php echo $rows['employee_name']; ?></option>
+																<?php } ?>
+															
+															
 														</select>
 
 													</div>
@@ -284,13 +289,13 @@ else
 														<label for="vendor_select_div">Vendor</label> <br> <select
 															class="form-control" id="vendor_select" name="vendor">
 															<option value="">- Vendor -</option>
-															<option value="1"
-																<?php echo ($asset_det['asset_status'] == 'inactive' ? 'selected="selected"' : '')?>>Inactive</option>
-															<option value="2"
-																<?php echo ($asset_det['asset_status'] == 'active' ? 'selected="selected"' : '')?>>Active</option>
-															<option value="3"
-																<?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?>>Under
-																Maintenance</option>
+															<?php 
+															$edit_query ="SELECT * FROM `".$vendor_table."` ;" ;
+															$edit_query = mysql_query($edit_query);
+															while($rows = mysql_fetch_array($edit_query)) { ?>
+															<option value="<?php echo $rows['vendor_name']; ?>"
+																<?php echo ($asset_det['vendor'] ==  $rows['vendor_name'] ? 'selected="selected"' : '')?>><?php echo  $rows['vendor_name']; ?></option>
+																<?php } ?>
 														</select>
 
 													</div>
@@ -334,13 +339,13 @@ else
 														<select class="form-control" id="asset_category"
 															name="asset_category">
 															<option value="">- Asset Category -</option>
-															<option value="1"
-																<?php echo ($asset_det['asset_status'] == 'inactive' ? 'selected="selected"' : '')?>>Inactive</option>
-															<option value="2"
-																<?php echo ($asset_det['asset_status'] == 'active' ? 'selected="selected"' : '')?>>Active</option>
-															<option value="3"
-																<?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?>>Under
-																Maintenance</option>
+															<?php 
+															$edit_query ="SELECT * FROM `".$assets_category_table."` ;" ;
+															$edit_query = mysql_query($edit_query);
+															while($rows = mysql_fetch_array($edit_query)) { ?>
+															<option value="<?php echo $rows['asset_category_name']; ?>"
+																<?php echo ($asset_det['asset_category'] ==  $rows['asset_category_name'] ? 'selected="selected"' : '')?>><?php echo  $rows['asset_category_name']; ?></option>
+																<?php } ?>
 														</select>
 
 													</div>
@@ -384,13 +389,13 @@ else
 														<label for="department_div">Department</label> <br> <select
 															class="form-control" id="department" name="department">
 															<option value="">- Department -</option>
-															<option value="1"
-																<?php echo ($asset_det['asset_status'] == 'inactive' ? 'selected="selected"' : '')?>>Inactive</option>
-															<option value="2"
-																<?php echo ($asset_det['asset_status'] == 'active' ? 'selected="selected"' : '')?>>Active</option>
-															<option value="3"
-																<?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?>>Under
-																Maintenance</option>
+															<?php 
+															$edit_query ="SELECT * FROM `".$department_table."` ;" ;
+															$edit_query = mysql_query($edit_query);
+															while($rows = mysql_fetch_array($edit_query)) { ?>
+															<option value="<?php echo $rows['department_name']; ?>"
+																<?php echo ($asset_det['department'] ==  $rows['department_name'] ? 'selected="selected"' : '')?>><?php echo  $rows['department_name']; ?></option>
+																<?php } ?>
 														</select>
 
 													</div>

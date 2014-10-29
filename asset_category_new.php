@@ -13,7 +13,7 @@
 			 
  			
 			        $mysql_query = "UPDATE `".$assets_category_table."` SET 
-			       `asset_category_name`='".$_POST["asset_category_name"]."'
+			       `asset_category_name`='".trim($_POST["asset_category_name"])."'
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
 			   
@@ -28,7 +28,7 @@
  		         $mysql_query = "INSERT INTO `".$assets_category_table."`
  		       		( `asset_category_name`
 				 ) VALUES
-				('".$_POST["asset_category_name"]."'
+				('".trim($_POST["asset_category_name"])."'
 					)";
  		       
  		  mysql_query($mysql_query);
@@ -117,10 +117,13 @@ if(isset($asset_det['asset_category_id']))
  												<?php  
 if($Edit_mode){
 	echo '<input class="btn btn-default"  type="submit" name="update" value="Update Asset Category"  style="background-color: #ffe400;margin-bottom:10px;">';
+	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style="background-color: #ffe400;margin-bottom:10px; margin-left:10px;font-weight:bold;"></a>';
 	
 	}
 else{
-	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Asset Category"  style="background-color: #ffe400;margin-bottom:10px;">';
+	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Asset Category"   >';
+	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"    ></a>';
+	
 	}
 	
 ?>
