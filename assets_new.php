@@ -13,15 +13,23 @@
 			if(isset($_POST['asset_expiry'])){
 				$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
 			}
-			
-		 
  			
-			      $mysql_query = "UPDATE `".$assets_table."` SET  `name`='".$_POST["asset_name"]."',`description`='".$_POST["asset_desc"]."',`location`='".$_POST["asset_location"]."',`custodian`='".$_POST["custodian"]."',`status`='".$_POST["asset_status"]."', `accident_history`='".$_POST["accident_history"]."', `violation_history`='".$_POST["violation_history"]."',  `istemara_expiry`='".$_POST["istemara_expiry"]."',  `insurance_expiry`='".$_POST["insurance_expiry"]."', `preventive_maintenance`='".$_POST["preventive_maintenance"]."', `tuv_sticker`='".$_POST["tuv_sticker"]."',`client_sticker`='".$_POST["client_sticker"]."',`mot_license_expiry`='".$_POST["mot_license_expiry"]."'  WHERE `id`= ".$edit_id.";";
+			      $mysql_query = "UPDATE `".$assets_table."` SET 
+			       `name`='".$_POST["asset_name"]."',
+			       	`description`='".$_POST["asset_desc"]."',
+			       	`location`='".$_POST["asset_location"]."',
+			       	`custodian`='".$_POST["custodian"]."',
+			       	`status`='".$_POST["asset_status"]."',
+			       	 `accident_history`='".$_POST["accident_history"]."', 
+			       	 `violation_history`='".$_POST["violation_history"]."', 
+			       	 `istemara_expiry`='".$_POST["istemara_expiry"]."',
+			         `insurance_expiry`='".$_POST["insurance_expiry"]."',
+			         `preventive_maintenance`='".$_POST["preventive_maintenance"]."',
+			         `tuv_sticker`='".$_POST["tuv_sticker"]."',
+			         `client_sticker`='".$_POST["client_sticker"]."',
+			         `mot_license_expiry`='".$_POST["mot_license_expiry"]."' 
+			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
-			  
-			 
-			 
-			  
 		}
  	}
  	
@@ -32,8 +40,35 @@
  		
  		
  		
- 		       $mysql_query = "INSERT INTO `".$assets_table."`( `name`, `description`, `location`, `custodian`, `status`,  `accident_history`, `violation_history` , `istemara_expiry` ,`insurance_expiry`, `preventive_maintenance` , `tuv_sticker` ,`client_sticker`,  `mot_license_expiry`     ) VALUES
-				('".$_POST["asset_name"]."','".$_POST["asset_desc"]."','". $_POST["asset_location"]."' ,'".$_POST["custodian"]."' ,'".$_POST["asset_status"]."' ,'".$_POST["accident_history"]."','".$_POST["violation_history"]."','".$_POST["istemara_expiry"]."','".$_POST["insurance_expiry"]."' ,'".$_POST["preventive_maintenance"]."','".$_POST["tuv_sticker"]."','".$_POST["client_sticker"]."','".$_POST["mot_license_expiry"]."')";
+ 		       $mysql_query = "INSERT INTO `".$assets_table."`
+ 		       		( `name`, 
+ 		       		`description`, 
+ 		       		`location`, 
+ 		       		`custodian`,
+ 		       		 `status`,  
+ 		       		`accident_history`,
+ 		       		 `violation_history` ,
+ 		       		 `istemara_expiry` ,
+ 		       		`insurance_expiry`, 
+ 		       		`preventive_maintenance` , 
+ 		       		`tuv_sticker` ,`client_sticker`,
+ 		       		 `mot_license_expiry`    
+				 ) VALUES
+				('".$_POST["asset_name"]."',
+				'".$_POST["asset_desc"]."',
+				'". $_POST["asset_location"]."' ,
+				'".$_POST["custodian"]."' ,
+				'".$_POST["asset_status"]."' ,
+				'".$_POST["accident_history"]."',
+				'".$_POST["violation_history"]."',
+				'".$_POST["istemara_expiry"]."',
+				'".$_POST["insurance_expiry"]."' ,
+				'".$_POST["preventive_maintenance"]."',
+				'".$_POST["tuv_sticker"]."',
+				'".$_POST["client_sticker"]."',
+				'".$_POST["mot_license_expiry"]."')";
+ 		       
+ 		       
  		  mysql_query($mysql_query);
   
  		 
@@ -53,6 +88,7 @@
 		  $edit_query ="SELECT * FROM `".$assets_table."`  WHERE `id` =".$_GET['edit'].";";
 		$edit_query = mysql_query($edit_query);
 		while($rows = mysql_fetch_array($edit_query)) {
+			$asset_det['asset_id'] =  trim($rows['id']);
 			$asset_det['asset_name'] = trim($rows['name']);
 			$asset_det['asset_desc'] = trim($rows['description']);
 			$asset_det['asset_loc'] =  trim($rows['location']);
@@ -121,6 +157,9 @@ else
  </div>
 </div>
 <div class="row" id="purchase-items">
+
+<!--  FIRST ROW -->
+
 <div class="col-sm-12">
 <div class="fields"><div class="purchase-item row">
 
@@ -148,24 +187,13 @@ else
 <input class="form-control"  name="asset_location" placeholder="Asset location" value="<?php echo (isset($asset_det['asset_loc'])?$asset_det['asset_loc'] : '')?>"  type="text">
  
 </div>
-
-<!-- <label class="sr-only" for="purchase_purchase_items_attributes_0_qty">Qty</label>
-<input class="form-control purchase_item_qty" id="purchase_purchase_items_attributes_0_qty" name="purchase[purchase_items_attributes][0][qty]" placeholder="Qty (e.g. 8 gallons)" type="text"> -->
-
-
-
-
-
 </div>
-
 
 
  <div class="form-group col-sm-4 item-qty" >
 <div class="approver" >
 <label for="purchase_approver_id">Custodian</label>
 <br>
-<!-- <select class="form-control" id="purchase_approver_id" name="assigned_employee"><option value="">- Assigned Employee-</option>
-<option value="Mohammed Talha">Mohammed Talha</option></select> -->
 <input class="form-control"   name="custodian"  placeholder="Custodian"    value="<?php echo (isset($asset_det['custodian'])?$asset_det['custodian'] : '')?>"  type="text">
 </div>
 </div>
@@ -174,9 +202,132 @@ else
  
 </div>
 </div></div>
-<!-- <div class="navigator-purchase-items">
-<a class="add_nested_fields" data-association="purchase_items" data-blueprint-id="purchase_items_fields_blueprint" data-target="#purchase-items .col-sm-12" href="javascript:void(0)">Add more</a>
-</div> -->
+<!-- -- SECOND ROW -->
+
+<div class="col-sm-12">
+<div class="fields"><div class="purchase-item row">
+
+ <div class="form-group col-sm-4 item-name"  style="margin-right:5px;">
+<div class="vendor_select_div">
+<label for="vendor_select_div">Vendor</label>
+<br>	
+<select class="form-control" id="vendor_select" name="vendor" >
+<option value="">- Vendor -</option>
+<option value="1"     <?php echo ($asset_det['asset_status'] == 'inactive' ? 'selected="selected"' : '')?> >Inactive</option> 
+<option value="2"  <?php echo ($asset_det['asset_status'] == 'active' ? 'selected="selected"' : '')?> >Active</option> 
+<option value="3"   <?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?> >Under Maintenance</option> 
+</select>
+ 
+</div>
+</div>
+
+
+ <div class="form-group col-sm-4 item-qty" style="margin-right:5px;">
+<div class="vehicle_num_div">
+<label for="vehicle_num_div">Vehicle Number</label>
+<br>	
+<input class="form-control"  name="vehicle_number" placeholder="Vehicle Number" value="<?php echo (isset($asset_det['vehicle_number'])?$asset_det['vehicle_number'] : '')?>"  type="text">
+</div>
+</div>
+
+
+ <div class="form-group col-sm-4 item-qty" >
+<div class="serial_number_div" >
+<label for="serial_number_div">Serial Number</label>
+<br>
+<input class="form-control"   name="serial_number"  placeholder="Serial Number"    value="<?php echo (isset($asset_det['serial_number'])?$asset_det['serial_number'] : '')?>"  type="text">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!--  THIRD ROW -->
+<div class="col-sm-12">
+<div class="fields"><div class="purchase-item row">
+
+ <div class="form-group col-sm-4 item-name"  style="margin-right:5px;">
+<div class="asset_category_div">
+<label for="asset_category_div">Asset Category</label>
+<br>	
+<select class="form-control" id="asset_category" name="asset_category" >
+<option value="">- Asset Category -</option>
+<option value="1"     <?php echo ($asset_det['asset_status'] == 'inactive' ? 'selected="selected"' : '')?> >Inactive</option> 
+<option value="2"  <?php echo ($asset_det['asset_status'] == 'active' ? 'selected="selected"' : '')?> >Active</option> 
+<option value="3"   <?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?> >Under Maintenance</option> 
+</select>
+ 
+</div>
+</div>
+
+
+ <div class="form-group col-sm-4 item-qty" style="margin-right:5px;">
+<div class="purchase_price_div">
+<label for="purchase_price_div">Purchase Price</label>
+<br>	
+<input class="form-control"  name="purchase_price" placeholder="Purchase Price" value="<?php echo (isset($asset_det['purchase_price'])?$asset_det['purchase_price'] : '')?>"  type="text">
+</div>
+</div>
+
+
+ <div class="form-group col-sm-4 item-qty" >
+<div class="current_value_div" >
+<label for="current_value_div">Current Value</label>
+<br>
+<input class="form-control"   name="current_value"  placeholder="Current Value"    value="<?php echo (isset($asset_det['current_value'])?$asset_det['current_value'] : '')?>"  type="text">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!--  FOURTH  ROW -->
+<div class="col-sm-12">
+<div class="fields"><div class="purchase-item row">
+
+ <div class="form-group col-sm-4 item-name"  style="margin-right:5px;">
+<div class="department_div">
+<label for="department_div">Department</label>
+<br>	
+<select class="form-control" id="department" name="department" >
+<option value="">- Department -</option>
+<option value="1"     <?php echo ($asset_det['asset_status'] == 'inactive' ? 'selected="selected"' : '')?> >Inactive</option> 
+<option value="2"  <?php echo ($asset_det['asset_status'] == 'active' ? 'selected="selected"' : '')?> >Active</option> 
+<option value="3"   <?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?> >Under Maintenance</option> 
+</select>
+ 
+</div>
+</div>
+
+
+ <div class="form-group col-sm-4 item-qty" style="margin-right:5px;">
+<div class="ship-to-location">
+<label for="purchase_Ship to Location">Asset Location</label>
+<br>	
+<!-- <select class="form-control" id="purchase_location_id" name="asset_location" onchange="loadLocation()"><option value="">- Location -</option>
+<option value="Pettai">Pettai</option></select> -->
+<input class="form-control"  name="asset_location" placeholder="Asset location" value="<?php echo (isset($asset_det['asset_loc'])?$asset_det['asset_loc'] : '')?>"  type="text">
+ 
+</div>
+</div>
+
+
+ <div class="form-group col-sm-4 item-qty" >
+<div class="approver" >
+<label for="purchase_approver_id">Custodian</label>
+<br>
+<input class="form-control"   name="custodian"  placeholder="Custodian"    value="<?php echo (isset($asset_det['custodian'])?$asset_det['custodian'] : '')?>"  type="text">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+   
 </div>
 </div>
 
@@ -245,25 +396,23 @@ No vendors
 <br>
 
  
-
-
+<?php 
+if(isset($asset_det['asset_id']))
+{
+?>
+<div class="asset_id_div">
+	<label for="asset_id_div">Asset ID : </label>
+	<label ><?php  echo $asset_det['asset_id'] ;?></label>
+</div>
 <br>
+<?php 
+}
+?>
+
 
 <div class="expiry_date_div">
-<!-- 
-<select class="form-control" id="asset_expiry_select" name="asset_expiry_select" >
-<option value="">- Expiry Dates -</option>
-<option value="estimara_expiry"      >Estimara Expiry</option> 
-<option value="insurance_expiry"  >Insurance Expiry</option> 
-<option value="preventive_maintenance"   <?php echo ($asset_det['asset_status'] == 'under_maintenance' ? 'selected="selected"' : '')?> >Preventive Maintenance</option>
-<option value="tuv_sticker"  >TUV Sticker</option> 
-<option value="client_sticker"  >Client Sticker</option> 
-<option value="mot_license_expiry"  >MOT License Expiry</option> 
-</select>
- -->
 	<label for="expiry_date_div">Istemara Expiry</label>
 	<br>
-
 	<input class="form-control" id="istemara_expiry_date" name="istemara_expiry"   value="<?php  echo (isset($asset_det['istemara_expiry']) && $asset_det['istemara_expiry'] != '0000-00-00'   ? $asset_det['istemara_expiry']:'' )?>"type="text">
 </div>
 

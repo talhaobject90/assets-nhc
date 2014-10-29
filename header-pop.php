@@ -68,7 +68,7 @@ New Horizons Company
 <i class='fa fa-truck icon'></i>
 </a></li>
 <li id='users-link'>
-<a href="https://object90.pomsapp.com/users">Backup &amp; import
+<a href="employees.php">Employees
 <i class='fa fa-users icon'></i>
 </a></li>
 <li id='sites-link'>

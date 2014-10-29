@@ -48,13 +48,39 @@
 
 
 
-1 Estimara Expiry,  -- Some expiry date , i am considering it as a date
-2 Insurance Expiry, - Some expiry date regarding insurance , i am considering it as a date
-3 Preventive Maintenance, -  Some expiry date regarding maintenance , i am considering it as a date
-4 TUV Sticker,  - Guess it's some expiry date. Please notify me if it is not
-5 Client Sticker, -   Not yet figured out . Let me know what kind of datatype i should assign for it. 
-6 MOT License Expiry,  -  Some expiry date , i am considering it as a date
-7 Accident History, - Text to input accident history details . Will be a text box in the UI.
-8 Violation History. - Text to input violaton history details . Will be a text box in the UI.
+1 Istimara Expiry,  ----------OK 
+2 Insurance Expiry, ----------OK
+3 Preventive Maintenance,  ----------OK
+4 TUV Sticker,   ----------OK
+5 Client Sticker, ----------OK
+6 MOT License Expiry,  ----------OK
+7 Accident History, ----------OK
+8 Violation History.  ----------OK
+
+
+
+
+ASSETS ATTRIBUTES
+
+1.Asset ID.         TEXTBOX   ---------OK
+
+2.Vendor            DROPDOWN --
+3.Asset Category    DROPDOWN
+4.Department        DROPDOWN
+8.Vehicle Number    TEXTBOX--
+9.Serial Number     TEXTBOX  --
+10.Purchase Price   TEXTBOX
+11.Current Value     TEXTBOX
+12.Total Maintenance TEXTBOX
+13.Total Depreciation   TEXTBOX
+
+
+5.Next Sched Maint  DATE
+6.Date acquired     DATE
+7.Date Sold         DATE
+
+
+
+
 
 

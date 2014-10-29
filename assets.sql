@@ -38,7 +38,7 @@ CREATE TABLE `assets` (
   `accident_history` text,
   `violation_history` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (1,'liftsq','Main lift this way','rP','talhatha','active','2014-10-06','2014-10-27','2014-10-07','2014-10-08','2014-10-09','2014-10-10','aaa','vvvv');
+INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','talhathaaaaas','active','2014-10-07','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa');
 INSERT INTO `assets` VALUES (14,'Computer','IBMs','Main server room','Salmans','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO `assets` VALUES (15,'Moto e','sdf \r\n \r\n','pettai','talhaa','under_maintenance',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
@@ -102,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-29 11:36:21
+-- Dump completed on 2014-10-29 12:56:19
