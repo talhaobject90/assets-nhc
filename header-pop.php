@@ -72,7 +72,7 @@ New Horizons Company
 <i class='fa fa-users icon'></i>
 </a></li>
 <li id='sites-link'>
-<a href="https://object90.pomsapp.com/sites">sites
+<a href="config.php">Configure
 <i class='fa fa-building-o icon'></i>
 </a></li>
 <li class='divider'></li>

@@ -58,26 +58,40 @@
 8 Violation History.  ----------OK
 
 
-
+5.Next Sched Maint  DATE   ------------->IGNORED , BECAUSE PREVENTIVE MAINTENACNE IS ADDED INSTEAD OF IT.
 
 ASSETS ATTRIBUTES
 
 1.Asset ID.         TEXTBOX   ---------OK
 
+
+
 2.Vendor            DROPDOWN --
-3.Asset Category    DROPDOWN
-4.Department        DROPDOWN
+3.Asset Category    DROPDOWN --
+4.Department        DROPDOWN  --
 8.Vehicle Number    TEXTBOX--
 9.Serial Number     TEXTBOX  --
-10.Purchase Price   TEXTBOX
-11.Current Value     TEXTBOX
-12.Total Maintenance TEXTBOX
+10.Purchase Price   TEXTBOX  --- 
+11.Current Value     TEXTBOX  ---
+12.Total Maintenance TEXTBOX   
 13.Total Depreciation   TEXTBOX
-
-
-5.Next Sched Maint  DATE
 6.Date acquired     DATE
 7.Date Sold         DATE
+
+
+New table for 
+Employees
+Vendor
+Asset category
+Department
+
+
+
+
+
+
+
+
 
 
 

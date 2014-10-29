@@ -46,6 +46,17 @@ $(document).ready(function() {
     
      motl=$("#mot_license_expiry_date").val();
     $("#mot_license_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",motl)
+    
+    
+    acqu=$("#date_acquired_date").val();
+    $("#date_acquired_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",acqu)
+    
+    sold=$("#date_sold_date").val();
+    $("#date_sold_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",sold)
+    
+    
+    
+    
      
     
     

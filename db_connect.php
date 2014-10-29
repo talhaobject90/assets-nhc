@@ -9,6 +9,11 @@ mysql_connect("localhost", "root", "password") or die (mysql_error ());
  
 // configure table_names;
 $assets_table = 'assets';
+$assets_category_table = 'assets_category';
+$department_table = 'department';
+$employee_table = 'employee';
+$vendor_table = 'vendor';
+
 
 // Select database
 mysql_select_db($assets_table) or die(mysql_error());
