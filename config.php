@@ -11,7 +11,7 @@
 			?>
 			<script type="text/javascript">
 			jQuery(function () {
- 				jQuery('a[href="#asset_category"]').tab('show'); // Select tab by name
+ 				jQuery('a[href="#vendor"]').tab('show'); // Select tab by name
 			})
 			</script><?php 
 		}

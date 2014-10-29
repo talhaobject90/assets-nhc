@@ -199,8 +199,6 @@ INSERT INTO `vendor` VALUES (11,'sdfgb sf');
 INSERT INTO `vendor` VALUES (12,'fgbnf');
 INSERT INTO `vendor` VALUES (13,'fgn');
 INSERT INTO `vendor` VALUES (14,'sdbsdfg');
-INSERT INTO `vendor` VALUES (15,'z bad');
-INSERT INTO `vendor` VALUES (16,' dzfz');
 /*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -213,4 +211,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-29 21:36:48
+-- Dump completed on 2014-10-29 21:44:22
