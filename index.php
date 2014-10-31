@@ -40,7 +40,7 @@ if (isset($_REQUEST['reset']))
   unset($_SESSION['token']);
   $gClient->revokeToken();
   
-  if($_SERVER['SERVER_NAME'] == 'assets-newhorizons.rhcloud.com')
+  if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
   	$google_redirect_url = 'http://assets-newhorizons.rhcloud.com';
   
   header('Location: ' . filter_var($google_redirect_url.'?logged_out=1', FILTER_SANITIZE_URL)); //redirect user back to page
@@ -60,7 +60,7 @@ if (isset($_GET['code']))
 { 
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();
-	if($_SERVER['SERVER_NAME'] == 'assets-newhorizons.rhcloud.com')
+	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
 		$google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
 	
 	header('Location: ' . filter_var($google_redirect_url, FILTER_SANITIZE_URL));
@@ -196,10 +196,13 @@ $_SESSION['new_user'] = true;
 	
 	?>
 	
-	<?php if($_SERVER['SERVER_NAME'] == 'assets-newhorizons.rhcloud.com')
-		$google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php'; ?>
+	<?php 
+	
+	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
+		  $google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php'; 
+	?>
 `			<script type="text/javascript">
-				window.location.href = "<?php $google_redirect_url?>"
+				//window.location.href = "<?php $google_redirect_url?>"
  		  </script>
 	
 	<?php 
