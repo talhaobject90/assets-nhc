@@ -3,6 +3,17 @@
 
 <?php 
 
+session_start();
+if(!$_SESSION['user_logged_in']){
+?>
+<script type="text/javascript">
+window.location.href = "index.php"
+		</script>
+<?php 
+$_SESSION['bad_attempt'] = true;
+
+
+}
 //echo 
 //include_once(DIR_ABS.'inc/application_top.php'); ?>
 
@@ -34,13 +45,17 @@
 <span class='pp'></span>
  
 New Horizons Company
+
+<?php  
+ 
+?>
 </h1>
 </div>
 <div class='row current-user'>
 <ul class='nav'>
 <li id='profiles-show-link'>
-<a href="https://object90.pomsapp.com/profile">Mohammed Talha
-<span class='pp'><img alt="Pp.001" src="https://d1n8cmjuqlpe9.cloudfront.net/pp/pp.001.jpg" /></span>
+<a href="<?php  echo $_SESSION['profile_url'] ;?>"><?php  echo $_SESSION['user_name'] ;?>
+<span class='pp'  style="margin-left: 10px;"><img alt="Profile Picture" src="<?php  echo $_SESSION['profile_image_url'] ;?>" /></span>
 </a></li>
 </ul>
 </div>
@@ -59,13 +74,21 @@ New Horizons Company
 <div class='row menus'>
 <ul class='nav'>
  
+ <li id="dashboard-link" >
+<a href="dashboard.php">Dashboard
+<i class="fa fa-dashboard icon"></i>
+</a></li>
+ 
+ 
+ 
+ 
 <li id='assets-link'  >
 <a href="assets_monitor.php">Assets
 <i class='fa fa-file-text-o icon'></i>
 </a></li>
 <li id='alerts-link'>
 <a href="https://object90.pomsapp.com/vendors">Alerts
-<i class='fa fa-truck icon'></i>
+<i class='fa fa-exclamation-triangle icon'></i>
 </a></li>
 <li id='employees-link'>
 <a href="employees.php">Employees
@@ -73,7 +96,7 @@ New Horizons Company
 </a></li>
 <li id='configure-link'    >
 <a href="config.php">Configure
-<i class='fa fa-building-o icon'></i>
+<i class='fa fa-wrench icon'></i>
 </a></li>
 <li class='divider'></li>
 <li id='sites-link'>
@@ -86,7 +109,7 @@ New Horizons Company
 <i class='fa fa-umbrella icon'></i>
 </a></li>
 <li>
-<a data-method="delete" href="https://pomsapp.com/session" rel="nofollow">log out
+<a data-method="delete" href="index.php?reset=1" rel="nofollow">log out
 <i class='fa fa-power-off icon'></i>
 </a></li>
 </ul>
@@ -98,7 +121,10 @@ jQuery( document ).ready(function() {
 
 	
 
-	str = "<?php echo $_SERVER[REQUEST_URI] ; ?>s";
+	str = "<?php echo $_SERVER[REQUEST_URI] ; ?>";
+	if(str.search("dashboard.php") != '-1' )
+ 		jQuery("#dashboard-link").addClass( "active" );
+	
   	if(str.search("assets_monitor.php") != '-1' || str.search("assets_new.php") != '-1')
  		jQuery("#assets-link").addClass( "active" );
 	if(str.search("employees.php") != '-1')

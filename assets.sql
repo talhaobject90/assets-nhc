@@ -49,7 +49,7 @@ CREATE TABLE `assets` (
   `date_acquired` date DEFAULT NULL,
   `date_sold` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,6 +75,7 @@ INSERT INTO `assets` VALUES (29,'Asset Name','deswc','loc','cus','under_maintena
 INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio','','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','asfa','asdfbv','','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (36,'NEW TEST','Ass desc','ass loc','cus','active','2014-10-01','2014-10-02','2014-10-02','2014-10-03','2014-10-04','2014-10-05','acc  ','vio','1','2','3','veh num','','pur','cur','tot mina','tot dep','2014-10-06','2014-10-07');
+INSERT INTO `assets` VALUES (48,'Moto E','My Own motorolla','table','Mohammed Talha','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','NIL','nil','Mazdas','Vehicle','Human resources','9788755','XT895','7000','6999','tot mina','tot dep','2014-10-07','2014-10-08');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +90,7 @@ CREATE TABLE `assets_category` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `asset_category_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +124,7 @@ CREATE TABLE `department` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `department_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +154,7 @@ CREATE TABLE `employee` (
   `employee_phone` varchar(20) NOT NULL,
   `employee_status` enum('inactive','active') NOT NULL DEFAULT 'inactive',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,6 +173,140 @@ INSERT INTO `employee` VALUES (6,'Vally anand','','','','');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `google_users`
+--
+
+DROP TABLE IF EXISTS `google_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `google_users` (
+  `google_id` decimal(21,0) NOT NULL,
+  `google_name` varchar(60) NOT NULL,
+  `google_email` varchar(60) NOT NULL,
+  `google_link` varchar(60) NOT NULL,
+  `google_picture_link` varchar(60) NOT NULL,
+  PRIMARY KEY (`google_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `google_users`
+--
+
+LOCK TABLES `google_users` WRITE;
+/*!40000 ALTER TABLE `google_users` DISABLE KEYS */;
+INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','talha@object90.com','https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','roneyp20@gmail.com','https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+/*!40000 ALTER TABLE `google_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `screens`
+--
+
+DROP TABLE IF EXISTS `screens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `screens` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `screen_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `screens`
+--
+
+LOCK TABLES `screens` WRITE;
+/*!40000 ALTER TABLE `screens` DISABLE KEYS */;
+INSERT INTO `screens` VALUES (1,'assets_screen');
+INSERT INTO `screens` VALUES (2,'alerts_screen');
+INSERT INTO `screens` VALUES (3,'employees_screen');
+INSERT INTO `screens` VALUES (4,'configure_screen');
+INSERT INTO `screens` VALUES (5,'role_table_screen');
+/*!40000 ALTER TABLE `screens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_roles`
+--
+
+DROP TABLE IF EXISTS `user_roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_roles` (
+  `user_role_id` int(5) NOT NULL AUTO_INCREMENT,
+  `user_role_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`user_role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+LOCK TABLES `user_roles` WRITE;
+/*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
+INSERT INTO `user_roles` VALUES (1,'Admin');
+INSERT INTO `user_roles` VALUES (2,'Data Entry Operator');
+INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinator');
+INSERT INTO `user_roles` VALUES (4,'Approver');
+/*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `nice_name` varchar(10) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `user_role` varchar(30) NOT NULL,
+  `user_status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Talha','talha@object90.com','password1','1','active');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users_screens`
+--
+
+DROP TABLE IF EXISTS `users_screens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users_screens` (
+  `userrole_screen_id` int(5) DEFAULT NULL,
+  `user_role_id` int(5) NOT NULL,
+  `screen_id` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users_screens`
+--
+
+LOCK TABLES `users_screens` WRITE;
+/*!40000 ALTER TABLE `users_screens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users_screens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `vendor`
 --
 
@@ -182,7 +317,7 @@ CREATE TABLE `vendor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vendor_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,4 +346,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-29 21:44:22
+-- Dump completed on 2014-10-31 11:49:58

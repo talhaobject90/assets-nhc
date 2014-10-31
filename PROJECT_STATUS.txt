@@ -16,11 +16,11 @@
 
 		e)Asset Status (active, inactive, under maintenance) -------->OK
 
-		f)Asset license expiry, Insurance Expiry and so on.---------->PENDING
+		f)Asset license expiry, Insurance Expiry and so on.---------->OK
 
 	2. EDITING ASSETS
 
-		Edit all the above mentioned attributes.---------------------->EXPIRY PENDING
+		Edit all the above mentioned attributes.---------------------->OK
 
 	3. DELETING ASSETS.--------------------------------------------------->OK
 
@@ -66,17 +66,17 @@ ASSETS ATTRIBUTES
 
 
 
-2.Vendor            DROPDOWN --
-3.Asset Category    DROPDOWN --
-4.Department        DROPDOWN  --
-8.Vehicle Number    TEXTBOX--
-9.Serial Number     TEXTBOX  --
-10.Purchase Price   TEXTBOX  --- 
-11.Current Value     TEXTBOX  ---
-12.Total Maintenance TEXTBOX   
-13.Total Depreciation   TEXTBOX
-6.Date acquired     DATE
-7.Date Sold         DATE
+2.Vendor            DROPDOWN --OK
+3.Asset Category    DROPDOWN --OK
+4.Department        DROPDOWN  --OK
+8.Vehicle Number    TEXTBOX--OK
+9.Serial Number     TEXTBOX  --OK
+10.Purchase Price   TEXTBOX  --- OK
+11.Current Value     TEXTBOX  ---OK
+12.Total Maintenance TEXTBOX   ---OK
+13.Total Depreciation   TEXTBOX---OK
+6.Date acquired     DATE---------OK
+7.Date Sold         DATE---------OK
 
 
 
@@ -88,6 +88,11 @@ Asset category
 Department
 
 
+
+TEMPORARY FILE TWEAKS (SHOULD BE CORRECTED BEFORE DEPLOYING ONLINE)
+
+1. DB_CONNECT.PHP --- 
+2. INDEX.PHP
 
 
 

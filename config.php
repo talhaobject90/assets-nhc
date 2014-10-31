@@ -2,6 +2,7 @@
 	include_once('header-pop.php');
 	include_once('db_connect.php');
 	
+	
 	if(isset($_GET['delete']))
 	{
 		$delete_id = $_GET['delete'];
@@ -199,6 +200,7 @@ echo '</table>';
 </div>
 </div>
 </div>
+ 
 
  
  
