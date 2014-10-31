@@ -61,9 +61,12 @@ if (isset($_GET['code']))
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();
 	if($_SERVER['SERVER_NAME'] == 'assets-newhorizons.rhcloud.com')
-		$google_redirect_url = 'http://assets-newhorizons.rhcloud.com';
+		$google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
 	
 	header('Location: ' . filter_var($google_redirect_url, FILTER_SANITIZE_URL));
+	   
+ 
+ 	
 	return;
 }
 
@@ -192,8 +195,11 @@ $_SESSION['new_user'] = true;
 	$_SESSION['user_name'] =$user_name;
 	
 	?>
+	
+	<?php if($_SERVER['SERVER_NAME'] == 'assets-newhorizons.rhcloud.com')
+		$google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php'; ?>
 `			<script type="text/javascript">
-				window.location.href = "dashboard.php"
+				window.location.href = "<?php $google_redirect_url?>"
  		  </script>
 	
 	<?php 
