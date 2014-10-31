@@ -172,15 +172,15 @@ echo '<div class="alert alert-success  col-md-2 col-md-offset-5" role="alert">
 
 </div>
 <div class="row">
-<form accept-charset="UTF-8" action="https://pomsapp.com/session" class="form-signin" id="new_signin_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="C3auzP3qaTSWuVBRCwrtcNNYRfgHlDPbUKYgHf54RUg="></div><h2 class="form-signin-heading">
+<form accept-charset="UTF-8" action="https://pomsapp.com/session" class="form-signin" id="new_signin_form" method="post" ><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="C3auzP3qaTSWuVBRCwrtcNNYRfgHlDPbUKYgHf54RUg="></div><h2 class="form-signin-heading">
 <a href="https://pomsapp.com/">New Horiozons Company</a>
 </h2>
-<input class="form-control" id="signin_form_email" name="signin_form[email]" placeholder="Your email" type="text">
+<!-- <input class="form-control" id="signin_form_email" name="signin_form[email]" placeholder="Your email" type="text">
 <input class="form-control" id="signin_form_password" name="signin_form[password]" placeholder="Your password" type="password">
 <div class="footer">
 
 <a href="assets_monitor.php" class="btn btn-yellow btn-md">Login</a>
-<div>
+<div> -->
 <a class="login" href="<?php echo $authUrl; ?>"><img src="images/sign-in-with-google.png" class="img-responsive" /></a>
 </div>
 
