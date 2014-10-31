@@ -30,7 +30,7 @@ $google_client_id 		= '166287425618-1au2e08rn22lrbpsg6bqvcqv83408kv6.apps.google
 $google_client_secret 	= 'ph_0jB5Izo_tP5shCjIsYXdU';
 $google_redirect_url 	= 'http://localhost/assets/index.php'; //path to your script
 $google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
-$redirect_dashboard = 'http://assets/dashboard.php';
+$redirect_dashboard = 'http://localhost/assets/dashboard.php';
 
 ########## MySql details (Replace with yours) #############
 $db_username = "root"; //Database Username
@@ -53,6 +53,7 @@ $gClient->setClientId($google_client_id);
 $gClient->setClientSecret($google_client_secret);
 $gClient->setRedirectUri($google_redirect_url);
 $gClient->setDeveloperKey($google_developer_key);
+$gClient->setApprovalPrompt('auto');
 
 $google_oauthV2 = new Google_Oauth2Service($gClient);
 
@@ -65,7 +66,10 @@ if (isset($_REQUEST['reset']))
   
  
   header('Location: ' . filter_var($google_redirect_url.'?logged_out=1', FILTER_SANITIZE_URL)); //redirect user back to page
-  session_unset(); 
+  unset($_SESSION['user_logged_in']);
+  unset($_SESSION['profile_url']);
+  unset($_SESSION['profile_image_url'] );
+  unset($_SESSION['user_name']);
  
   
   
