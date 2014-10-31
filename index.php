@@ -13,6 +13,7 @@ $google_client_secret 	= 'nZ9i_XIHF_5St9BOzaBRX_lN';
 $google_redirect_url 	= 'http://assets-newhorizons.rhcloud.com'; //path to your script
 $google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
 $redirect_dashboard = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
+$access_type = 'online';
 
 ########## MySql details (Replace with yours) #############
 $db_username = "adminxntQq3s"; //Database Username
@@ -31,6 +32,7 @@ $google_client_secret 	= 'ph_0jB5Izo_tP5shCjIsYXdU';
 $google_redirect_url 	= 'http://localhost/assets/index.php'; //path to your script
 $google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
 $redirect_dashboard = 'http://localhost/assets/dashboard.php';
+$access_type = 'online';
 
 ########## MySql details (Replace with yours) #############
 $db_username = "root"; //Database Username
@@ -54,6 +56,7 @@ $gClient->setClientSecret($google_client_secret);
 $gClient->setRedirectUri($google_redirect_url);
 $gClient->setDeveloperKey($google_developer_key);
 $gClient->setApprovalPrompt('auto');
+$gClient->setAccessType($access_type);
 
 $google_oauthV2 = new Google_Oauth2Service($gClient);
 
