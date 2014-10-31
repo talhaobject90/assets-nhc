@@ -1,5 +1,5 @@
 
-
+http://assets-newhorizons.rhcloud.com/
 	FULL WORKFLOW AND STATUS OF THE PROJECT
 
 	1. ADDING ASSETS:
@@ -32,7 +32,7 @@
 
 	6. DYNAMIC REPORTS.---------------------------------------------------->PENDING
 
-	7. Workflow Controlled by a “Role Table” updated by System Admin.------>DONT UNDERSTAND
+	7. Workflow Controlled by a “Role Table” updated by System Admin.------>PENDING
 
 	8. COMPATIBLE TO ALL USER INTERFACES.
 
@@ -42,7 +42,7 @@
 
 		c)Mobile(Android).  -------------------------------------------->PENDING
 
-		d)Login using google API.--------------------------------------->PENDING
+		d)Login using google API.--------------------------------------->OK
 
 	9.BACKUP CAPABILITY AND IMPORT CAPABILTIY.  ---------------------------->PENDING
 
@@ -86,6 +86,16 @@ Employees
 Vendor
 Asset category
 Department
+
+
+
+
+
+
+
+
+
+
 
 
 

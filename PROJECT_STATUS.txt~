@@ -92,7 +92,7 @@ Department
 TEMPORARY FILE TWEAKS (SHOULD BE CORRECTED BEFORE DEPLOYING ONLINE)
 
 1. DB_CONNECT.PHP --- 
-2. INDEX.PHP
+2. INDEX.PHP (reset/get code/ redirect after login)
 
 
 

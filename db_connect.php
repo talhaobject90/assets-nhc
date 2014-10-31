@@ -13,6 +13,7 @@ $assets_category_table = 'assets_category';
 $department_table = 'department';
 $employee_table = 'employee';
 $vendor_table = 'vendor';
+$users_table= 'google_users';
 
 
 // Select database

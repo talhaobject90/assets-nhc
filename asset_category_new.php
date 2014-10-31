@@ -116,13 +116,13 @@ if(isset($asset_det['asset_category_id']))
 						</div>
  												<?php  
 if($Edit_mode){
-	echo '<input class="btn btn-default"  type="submit" name="update" value="Update Asset Category"  style="background-color: #ffe400;margin-bottom:10px;">';
-	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style="background-color: #ffe400;margin-bottom:10px; margin-left:10px;font-weight:bold;"></a>';
+	echo '<input class="btn btn-default btn-primary "  type="submit" name="update" value="Update Asset Category"  >';
+	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"    style=" margin-left:10px;font-weight:bold;"></a>';
 	
 	}
 else{
-	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Asset Category"   >';
-	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"    ></a>';
+	echo '<input class="btn btn-default  btn-primary"  type="submit"  name="save"  value="Save Asset Category"   >';
+	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;" ></a>';
 	
 	}
 	

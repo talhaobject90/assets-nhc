@@ -2,6 +2,60 @@
 
 
 $(document).ready(function() {
+	/*
+	 * 
+	 * To set set username /password form with identical validation
+	 * 
+	 */
+	
+	
+	
+	$('#identicalForm').validate({
+	    rules: {
+	    	username: {
+	            minlength: 2,
+	            required: true
+	        },
+	        
+	        password: {
+	            minlength: 2,
+	            required: true
+	        },
+	        
+	        confirmPassword: {
+	            minlength: 2,
+	            required: true
+	        }
+	        
+	        
+	        
+	    }
+	});
+	$('#identicalForm').bootstrapValidator({
+        feedbackIcons: {
+            //valid: 'glyphicon glyphicon-ok',
+            //invalid: 'glyphicon glyphicon-remove',
+            //validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            password: {
+                validators: {
+                    identical: {
+                        field: 'confirmPassword',
+                        message: 'The password and its confirm are not the same'
+                    }
+                }
+            },
+            confirmPassword: {
+                validators: {
+                    identical: {
+                        field: 'password',
+                        message: 'The password and its confirm are not the same'
+                    }
+                }
+            }
+        }
+    });
 	
 	/*
 	 * This code is not used actually

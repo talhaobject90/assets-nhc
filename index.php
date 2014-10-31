@@ -1,8 +1,12 @@
 <?php 
 	include_once('header-login.php');
+	include_once('db_connect.php');
  
 	?>
 	<?php
+	
+	session_start();
+
 
 	 
 	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com') !== false){
@@ -41,13 +45,47 @@ $hostname = "localhost"; //Mysql Hostname
 $db_name = 'assets'; //Database Name
 ###################################################################
 	}
+	
+	
+	
+	if(isset($_POST['ordinary_login']))
+	{
+		   $user_query ="SELECT * FROM `".$users_table."`  WHERE `username` = '".$_POST['user_email']."' AND  `password` = '".$_POST['user_password']."' ;";
+	  	$user_query_result = mysql_query($user_query);
+	
+		if($user_query_result){
+			while($rows = mysql_fetch_array($user_query_result)) {
+ 				$_SESSION['user_logged_in'] = true;
+				$_SESSION['profile_url'] =$rows['google_link'];
+				$_SESSION['profile_image_url'] = filter_var($rows['google_picture_link'], FILTER_VALIDATE_URL);
+				$_SESSION['user_name'] =$rows['google_name'];
+				$_SESSION['user_id'] = $rows['google_id'];
+				$_SESSION['user_email'] = $rows['google_email'];
+				
+				
+				if($rows['password'] == $_POST['user_password']){
+									?>
+								<script type="text/javascript">
+								window.location.href = "<?php echo $redirect_dashboard?>";
+								</script>
+								<?php 
+								}
+								
+			}
+			if($rows['password'] != $_POST['user_password']){
+				$wrong_credentials = true;
+			}
+		}
+			else 
+			echo 'Sorry! There is some problem with the database';
+		}
 
 //include google api files
 require_once 'src/Google_Client.php';
 require_once 'src/contrib/Google_Oauth2Service.php';
 
 //start session
-session_start();
+
  
 $gClient = new Google_Client();
 $gClient->setApplicationName('Login to assets-newhorizons.rhclould.com_local');
@@ -73,6 +111,7 @@ if (isset($_REQUEST['reset']))
   unset($_SESSION['profile_url']);
   unset($_SESSION['profile_image_url'] );
   unset($_SESSION['user_name']);
+  unset($_SESSION['user_email']);
  
   
   
@@ -114,6 +153,7 @@ if ($gClient->getAccessToken())
 	    $profile_url 			= filter_var($user['link'], FILTER_VALIDATE_URL);
 	    $profile_image_url 	= filter_var($user['picture'], FILTER_VALIDATE_URL);
 	    $personMarkup 		= "$email<div><img src='$profile_image_url?sz=50'></div>";
+	    
 	    $_SESSION['token'] 	= $gClient->getAccessToken();
 	    
 	    
@@ -137,11 +177,19 @@ echo '<body>';
 
  if($_SESSION['bad_attempt']){
 echo '<div class="alert alert-danger  col-md-2 col-md-offset-5" role="alert">
-  <p>You had not logged in.<p>
+  <p>You had not logged in<p>
 </div>';
 $_SESSION['bad_attempt'] = false;
 } 
  
+if($wrong_credentials){
+echo '<div class="alert alert-danger  col-md-2 col-md-offset-5" role="alert">
+  <p>Username or Password is incorrect<p>
+</div>';
+$wrong_credentials =  false;
+}
+
+
 
 
  
@@ -172,15 +220,18 @@ echo '<div class="alert alert-success  col-md-2 col-md-offset-5" role="alert">
 
 </div>
 <div class="row">
-<form accept-charset="UTF-8" action="https://pomsapp.com/session" class="form-signin" id="new_signin_form" method="post" ><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="C3auzP3qaTSWuVBRCwrtcNNYRfgHlDPbUKYgHf54RUg="></div><h2 class="form-signin-heading">
-<a href="https://pomsapp.com/">New Horiozons Company</a>
+<form accept-charset="UTF-8" action="" class="form-signin" id="new_signin_form" method="post" ><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="C3auzP3qaTSWuVBRCwrtcNNYRfgHlDPbUKYgHf54RUg="></div><h2 class="form-signin-heading">
+New Horiozons Company
 </h2>
-<!-- <input class="form-control" id="signin_form_email" name="signin_form[email]" placeholder="Your email" type="text">
-<input class="form-control" id="signin_form_password" name="signin_form[password]" placeholder="Your password" type="password">
+<input class="form-control" id="signin_form_email" name="user_email" placeholder="Your email" type="text">
+<input class="form-control" id="signin_form_password" name="user_password" placeholder="Your password" type="password">
 <div class="footer">
 
-<a href="assets_monitor.php" class="btn btn-yellow btn-md">Login</a>
-<div> -->
+<!-- <a href="assets_monitor.php" class="btn btn-yellow btn-md">Login</a> -->
+<input type="submit"  class="btn btn-yellow btn-md" name="ordinary_login"  value="Login"/>
+
+
+<div> 
 <a class="login" href="<?php echo $authUrl; ?>"><img src="images/sign-in-with-google.png" class="img-responsive" /></a>
 </div>
 
@@ -200,6 +251,10 @@ else // user logged in
 	$_SESSION['profile_url'] =$profile_url;
 	$_SESSION['profile_image_url'] =$profile_image_url;
 	$_SESSION['user_name'] =$user_name;
+	$_SESSION['user_id'] = $user_id;
+	$_SESSION['user_email'] = $email;
+	
+	
 	
 	
 	
@@ -214,7 +269,7 @@ else // user logged in
 	}
 	
 	//compare user id in our database
-	$user_exist = $mysqli->query("SELECT COUNT(google_id) as usercount FROM google_users WHERE google_id=$user_id")->fetch_object()->usercount; 
+	$user_exist = $mysqli->query("SELECT COUNT(google_id) as usercount FROM `".$users_table."` WHERE google_id=$user_id")->fetch_object()->usercount; 
 	if($user_exist)
 	{
 		//echo 'Welcome back '.$user_name.'!';
@@ -222,7 +277,7 @@ else // user logged in
 	}else{ 
 		//user is new
 		//echo 'Hi '.$user_name.', Thanks for Registering!';
-		$mysqli->query("INSERT INTO google_users (google_id, google_name, google_email, google_link, google_picture_link) 
+		$mysqli->query("INSERT INTO `".$users_table."` (google_id, google_name, google_email, google_link, google_picture_link) 
 		VALUES ($user_id, '$user_name','$email','$profile_url','$profile_image_url')");
 $_SESSION['new_user'] = true;
 

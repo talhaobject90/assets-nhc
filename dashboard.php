@@ -3,13 +3,69 @@
 	
 	include_once('db_connect.php');
 	
+	
+	
+	
+	
+	if(isset($_POST['set_username_password'])){
+	
+		if($_POST['set_username_password'] == 'save'){
+			if(isset($_POST['username']) && $_POST['password']){
+					
+				$mysql_query = "UPDATE `".$users_table."` SET
+			       `username` ='".trim($_POST["username"])."',
+			       	`password` ='".trim($_POST["password"])."'
+			    
+			          WHERE `google_id`= ".$_SESSION['user_id'].";";
+				mysql_query($mysql_query);
+			}
+		}
+	}
+	
+	  $user_query ="SELECT * FROM `".$users_table."`  WHERE `google_id` =".$_SESSION['user_id'].";";
+	  $user_query_result = mysql_query($user_query);
+	  
+	  $username_not_set = true;
+	  
+	  if($user_query_result){
+	  while($rows = mysql_fetch_array($user_query_result)) {
+	      	  $username = $rows['username'];
+	  }
+	  if(trim($username)  != '')
+	  $username_not_set = false;
+	  
+	  }
+	  
+	  
+	  
+	  
+	
+	
+
+	
+	
 	?>
 	
 	
 	
 	<div class="col-md-9 col-lg-10" id="content">
+	
+	    
+		
+					
 	<div class="row">
 		<div class="canvas col-md-12" id="main-canvas"  style="padding-top: 100px;">
+		
+		<?php 
+		
+
+		?>
+							<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary   pull-right" data-toggle="modal" data-target="#myModal">
+  <?php  echo ($username_not_set?'Set Password':'Change Password') ;?>
+</button>
+
+
 			 
 				 
 				 
@@ -25,7 +81,10 @@
 		 
     
     
-    
+
+					
+					
+					
 					
 <div class="row  row-centered"  >
  
@@ -77,6 +136,55 @@
 				
 		<div class="clear">
 		</div>
+		
+		
+		
+		
+		
+
+<!-- Modal -->
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php  echo ($username_not_set?'Set password for ordinary login':'Change password for ordinary login') ;?></h4>
+      </div>
+      <div class="modal-body">
+       <form id="identicalForm" class="form-horizontal"  action="" method="post">
+       
+     <div class="form-group" >
+        <label class="col-sm-10 control-label"><?php  echo ($username_not_set?'Set':'Change') ;?> password for user name : <?php echo $_SESSION['user_email']; ?></label>
+        <div class="col-sm-5">
+            <input type="hidden" class="form-control" name="username" value="<?php echo $_SESSION['user_email']; ?>" />
+        </div>
+    </div>    
+       
+       
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-5">
+            <input type="password" class="form-control" name="password" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Retype password</label>
+        <div class="col-sm-5">
+            <input type="password" class="form-control" name="confirmPassword" />
+        </div>
+    </div>
+    
+    <div class="form-group " style="text-align: center">
+    	<button type="submit" name="set_username_password" class="btn btn-primary centered"    value="save"><?php  echo ($username_not_set? 'Save':'Update') ;?></button>
+    </div>
+</form>
+      </div>
+     
+     
+    </div>
+  </div>
+</div>
  
 
 

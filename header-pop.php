@@ -5,6 +5,8 @@
 
 session_start();
 if(!$_SESSION['user_logged_in']){
+
+
 ?>
 <script type="text/javascript">
 window.location.href = "index.php"
@@ -30,6 +32,9 @@ $_SESSION['bad_attempt'] = true;
 <!-- <script src="https://js.stripe.com/v1/"></script> -->
 <script src="js/v1.js"></script>
 <script src="js/script.js"></script>
+<script src="js/bootstrapValidator.min.js"></script>
+
+
 <meta content="authenticity_token" name="csrf-param" />
 <meta content="IfzLnEn8oYqOhaLKf6/huXuPr/feRlhEoW1az2XOYOs=" name="csrf-token" />
 <meta content="pk_live_tXltt2t4mCC4vqhPbAGDkQLb" name="stripe-key" />
@@ -87,7 +92,7 @@ New Horizons Company
 <i class='fa fa-file-text-o icon'></i>
 </a></li>
 <li id='alerts-link'>
-<a href="https://object90.pomsapp.com/vendors">Alerts
+<a href="alerts.php">Alerts
 <i class='fa fa-exclamation-triangle icon'></i>
 </a></li>
 <li id='employees-link'>
@@ -129,6 +134,8 @@ jQuery( document ).ready(function() {
  		jQuery("#assets-link").addClass( "active" );
 	if(str.search("employees.php") != '-1')
 		jQuery("#employees-link").addClass( "active" );
+	if(str.search("alerts.php") != '-1')
+		jQuery("#alerts-link").addClass( "active" );
 	
 	if(str.search("config.php")  != '-1'  || str.search("vendor_new.php")  != '-1'  || str.search("asset_category_new.php")    != '-1' || str.search("department_new.php") != '-1')
 		jQuery("#configure-link").addClass( "active" );
