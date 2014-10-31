@@ -4,11 +4,33 @@
 	?>
 	<?php
 
+	 
+	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com') !== false){
+			 
+########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
+$google_client_id 		= '166287425618-j5cluinh8cqpntkie8q8rokimenf57d9.apps.googleusercontent.com';
+$google_client_secret 	= 'nZ9i_XIHF_5St9BOzaBRX_lN';
+$google_redirect_url 	= 'http://assets-newhorizons.rhcloud.com'; //path to your script
+$google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
+$redirect_dashboard = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
+
+########## MySql details (Replace with yours) #############
+$db_username = "adminxntQq3s"; //Database Username
+$db_password = "s-FSsSggM7q3"; //Database Password
+$hostname = "127.3.13.2:3306"; //Mysql Hostname
+$db_name = 'assets'; //Database Name
+###################################################################
+
+	}
+	else{
+		 
+	
 ########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
 $google_client_id 		= '166287425618-1au2e08rn22lrbpsg6bqvcqv83408kv6.apps.googleusercontent.com';
 $google_client_secret 	= 'ph_0jB5Izo_tP5shCjIsYXdU';
 $google_redirect_url 	= 'http://localhost/assets/index.php'; //path to your script
 $google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
+$redirect_dashboard = 'http://assets/dashboard.php';
 
 ########## MySql details (Replace with yours) #############
 $db_username = "root"; //Database Username
@@ -16,6 +38,7 @@ $db_password = "password"; //Database Password
 $hostname = "localhost"; //Mysql Hostname
 $db_name = 'assets'; //Database Name
 ###################################################################
+	}
 
 //include google api files
 require_once 'src/Google_Client.php';
@@ -40,11 +63,7 @@ if (isset($_REQUEST['reset']))
   unset($_SESSION['token']);
   $gClient->revokeToken();
   
-  if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
-  	$google_redirect_url = 'http://assets-newhorizons.rhcloud.com';
-  else
-  	$google_redirect_url = 'http://localhost/assets';
-  
+ 
   header('Location: ' . filter_var($google_redirect_url.'?logged_out=1', FILTER_SANITIZE_URL)); //redirect user back to page
   session_unset(); 
  
@@ -62,13 +81,8 @@ if (isset($_GET['code']))
 { 
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();
-	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com')){
-		echo $google_redirect_url = 'http://assets-newhorizons.rhcloud.com';
-	}
-	else
-	echo 	$google_redirect_url = 'http://localhost/assets';
-	exit;
- 	   
+	 
+ 
 	  
 	header('Location: ' . filter_var($google_redirect_url, FILTER_SANITIZE_URL));
  
@@ -185,7 +199,10 @@ else // user logged in
    /* connect to database using mysqli */
 	$mysqli = new mysqli($hostname, $db_username, $db_password, $db_name);
 	
-	if ($mysqli->connect_error) {
+	if ($mysqli->connect_error)
+	
+{
+	echo 'Cannot connect to database';
 		die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
 	}
 	
@@ -203,20 +220,13 @@ else // user logged in
 $_SESSION['new_user'] = true;
 
 	}
-
-
 	
 	?>
-	
-	<?php 
 	 
-	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
-		      $google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
-	else 
-		$google_redirect_url = 'http://localhost/assets/dashboard.php';
-		?>
+		
+		
 `			<script type="text/javascript">
-				window.location.href = "<?php echo $google_redirect_url ; ?>"
+				window.location.href = "<?php echo $redirect_dashboard?>";
  		  </script>
 	
 	<?php 
