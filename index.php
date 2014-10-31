@@ -63,10 +63,11 @@ if (isset($_GET['code']))
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();
 	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com')){
-		echo $google_redirect_url = 'http://assets-newhorizons.rhcloud.com';exit;
+		echo $google_redirect_url = 'http://assets-newhorizons.rhcloud.com';
 	}
 	else
-		$google_redirect_url = 'http://localhost/assets';
+	echo 	$google_redirect_url = 'http://localhost/assets';
+	exit;
  	   
 	  
 	header('Location: ' . filter_var($google_redirect_url, FILTER_SANITIZE_URL));
