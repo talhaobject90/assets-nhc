@@ -62,14 +62,14 @@ if (isset($_GET['code']))
 { 
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();
-	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
-		echo $google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
+	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com')){
+		echo $google_redirect_url = 'http://assets-newhorizons.rhcloud.com';exit;
+	}
 	else
-		$google_redirect_url = 'http://localhost/assets/dashboard.php';
-	 
-	
+		$google_redirect_url = 'http://localhost/assets';
+ 	   
+	  
 	header('Location: ' . filter_var($google_redirect_url, FILTER_SANITIZE_URL));
-	   
  
  	
 	return;
@@ -93,6 +93,9 @@ if ($gClient->getAccessToken())
 	    $profile_image_url 	= filter_var($user['picture'], FILTER_VALIDATE_URL);
 	    $personMarkup 		= "$email<div><img src='$profile_image_url?sz=50'></div>";
 	    $_SESSION['token'] 	= $gClient->getAccessToken();
+	    
+	    
+	   
 	   
 	  
 }
@@ -110,12 +113,12 @@ echo '<title>Login with Google</title>';
 echo '</head>';
 echo '<body>';
 
-if($_SESSION['bad_attempt']){
+ if($_SESSION['bad_attempt']){
 echo '<div class="alert alert-danger  col-md-2 col-md-offset-5" role="alert">
   <p>You had not logged in.<p>
 </div>';
 $_SESSION['bad_attempt'] = false;
-}
+} 
  
 
 
@@ -170,7 +173,12 @@ echo '<div class="alert alert-success  col-md-2 col-md-offset-5" role="alert">
 } 
 else // user logged in 
 {
+	
 	$_SESSION['user_logged_in'] = true;
+	$_SESSION['profile_url'] =$profile_url;
+	$_SESSION['profile_image_url'] =$profile_image_url;
+	$_SESSION['user_name'] =$user_name;
+	
 	
 	
    /* connect to database using mysqli */
@@ -195,9 +203,7 @@ $_SESSION['new_user'] = true;
 
 	}
 
-	$_SESSION['profile_url'] =$profile_url;
-	$_SESSION['profile_image_url'] =$profile_image_url;
-	$_SESSION['user_name'] =$user_name;
+
 	
 	?>
 	
