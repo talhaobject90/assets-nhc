@@ -42,6 +42,8 @@ if (isset($_REQUEST['reset']))
   
   if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
   	$google_redirect_url = 'http://assets-newhorizons.rhcloud.com';
+  else
+  	$google_redirect_url = 'http://localhost/assets';
   
   header('Location: ' . filter_var($google_redirect_url.'?logged_out=1', FILTER_SANITIZE_URL)); //redirect user back to page
   session_unset(); 
@@ -61,7 +63,10 @@ if (isset($_GET['code']))
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();
 	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
-		$google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
+		echo $google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
+	else
+		$google_redirect_url = 'http://localhost/assets/dashboard.php';
+	 
 	
 	header('Location: ' . filter_var($google_redirect_url, FILTER_SANITIZE_URL));
 	   
@@ -197,12 +202,14 @@ $_SESSION['new_user'] = true;
 	?>
 	
 	<?php 
-	
+	 
 	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com'))
-		  $google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php'; 
-	?>
+		      $google_redirect_url = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
+	else 
+		$google_redirect_url = 'http://localhost/assets/dashboard.php';
+		?>
 `			<script type="text/javascript">
-				//window.location.href = "<?php $google_redirect_url?>"
+				window.location.href = "<?php echo $google_redirect_url ; ?>"
  		  </script>
 	
 	<?php 
