@@ -14,6 +14,9 @@ $department_table = 'department';
 $employee_table = 'employee';
 $vendor_table = 'vendor';
 $users_table= 'google_users';
+$user_roles_table = 'user_roles';
+$user_screens_table = 'users_screens';
+$screens_table = 'screens';
 
 
 // Select database

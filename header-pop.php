@@ -28,6 +28,7 @@ $_SESSION['bad_attempt'] = true;
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" media="screen" rel="stylesheet" />
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" media="screen" rel="stylesheet" />
 <link href="css/style.css" media="screen" rel="stylesheet" />
+
 <script data-turbolinks-track="true" src="js/application-9924af930ec816234c493e9467f16835.js"></script>
 <!-- <script src="https://js.stripe.com/v1/"></script> -->
 <script src="js/v1.js"></script>
@@ -60,7 +61,7 @@ New Horizons Company
 <ul class='nav'>
 <li id='profiles-show-link'>
 <a href="<?php  echo $_SESSION['profile_url'] ;?>"><?php  echo $_SESSION['user_name'] ;?>
-<span class='pp'  style="margin-left: 10px;"><img alt="Profile Picture" src="<?php  echo $_SESSION['profile_image_url'] ;?>" /></span>
+<!-- <span class='pp'  style="margin-left: 10px;"><img alt="Profile Picture" src="<?php  //echo $_SESSION['profile_image_url'] ;?>" /></span> -->
 </a></li>
 </ul>
 </div>
@@ -105,7 +106,7 @@ New Horizons Company
 </a></li>
 <li class='divider'></li>
 <li id='sites-link'>
-<a href="https://object90.pomsapp.com/manage_accounts">Role Table
+<a href="role_table.php">Role Table
 <i class='fa fa-cogs icon'></i>
 </a></li>
 <li class='divider'></li>

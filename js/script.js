@@ -2,6 +2,8 @@
 
 
 $(document).ready(function() {
+ 
+	
 	/*
 	 * 
 	 * To set set username /password form with identical validation
@@ -111,6 +113,7 @@ $(document).ready(function() {
     
     
     
+     
      
     
     
