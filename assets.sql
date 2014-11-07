@@ -180,13 +180,12 @@ DROP TABLE IF EXISTS `google_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `google_users` (
-  `id` int(5) NOT NULL,
   `google_id` decimal(21,0) NOT NULL,
   `google_name` varchar(60) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
   `google_email` varchar(60) NOT NULL,
-  `users_user_role_id` int(3) NOT NULL,
+  `users_user_role_id` int(3) NOT NULL DEFAULT '0',
   `google_link` varchar(60) NOT NULL,
   `google_picture_link` varchar(60) NOT NULL,
   PRIMARY KEY (`google_id`)
@@ -199,10 +198,12 @@ CREATE TABLE `google_users` (
 
 LOCK TABLES `google_users` WRITE;
 /*!40000 ALTER TABLE `google_users` DISABLE KEYS */;
-INSERT INTO `google_users` VALUES (1,100428232109775983047,'Mohammed Talha','','','talhaqqq@gmail.com',1,'https://plus.google.com/100428232109775983047','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (2,100678434091494690900,'Mohammed Talha','talha@object90.com','pass','talha@object90.com',0,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (3,106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',0,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (4,118161579513011654715,'Roney Philip','roneyp20@gmail.com','philip','roneyp20@gmail.com',0,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (100428232109775983047,'Mohammed Talha','','','talhaqqq@gmail.com',2,'https://plus.google.com/100428232109775983047','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','','','talha@object90.com',1,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (106053436166547787694,'Mariappan C','','','mars@object90.com',11,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',3,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (106803781885381507211,'Bala P','','','bala223344@gmail.com',11,'https://plus.google.com/106803781885381507211','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','roneyp20@gmail.com',11,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 /*!40000 ALTER TABLE `google_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,7 +218,7 @@ CREATE TABLE `screens` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `screen_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,11 +227,11 @@ CREATE TABLE `screens` (
 
 LOCK TABLES `screens` WRITE;
 /*!40000 ALTER TABLE `screens` DISABLE KEYS */;
-INSERT INTO `screens` VALUES (1,'assets_screen');
+INSERT INTO `screens` VALUES (1,'assets_screens');
 INSERT INTO `screens` VALUES (2,'alerts_screen');
 INSERT INTO `screens` VALUES (3,'employees_screen');
 INSERT INTO `screens` VALUES (4,'configure_screen');
-INSERT INTO `screens` VALUES (5,'role_table_screen');
+INSERT INTO `screens` VALUES (5,'test');
 /*!40000 ALTER TABLE `screens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,7 +247,7 @@ CREATE TABLE `user_roles` (
   `user_role_name` varchar(100) NOT NULL,
   `user_role_screens` varchar(500) NOT NULL,
   PRIMARY KEY (`user_role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,10 +256,11 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (1,'Admin','a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}');
-INSERT INTO `user_roles` VALUES (2,'Data Entry Operator','');
-INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinator','');
+INSERT INTO `user_roles` VALUES (1,'Admin','a:5:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";}');
+INSERT INTO `user_roles` VALUES (2,'Data Entry Operator','a:2:{i:0;s:1:\"1\";i:1;s:1:\"5\";}');
+INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinators','a:3:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";}');
 INSERT INTO `user_roles` VALUES (4,'Approver','');
+INSERT INTO `user_roles` VALUES (11,'trainee','a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -325,4 +327,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-01 11:22:11
+-- Dump completed on 2014-11-07 22:15:49

@@ -3,8 +3,14 @@
 
 <?php 
 
+
+include_once('db_connect.php');
+
+
+
 session_start();
 if(!$_SESSION['user_logged_in']){
+
 
 
 ?>
@@ -14,10 +20,99 @@ window.location.href = "index.php"
 <?php 
 $_SESSION['bad_attempt'] = true;
 
+}
+
+else{
+
+
+/*
+ *    ASSIGNING FILES WITH SCREEN IDS
+*
+*/
+
+    $myurl = basename($_SERVER['PHP_SELF']);
+
+
+switch ($myurl){
+	case 'assets_monitor.php':
+	case 'assets_new.php':
+		$screen_id = 1;
+		break;
+
+	case 'alerts.php':
+		$screen_id = 3;
+		break;
+
+	case 'employees.php':
+	case 'employee_new.php':
+		
+		$screen_id = 2;
+		break;
+
+	case 'config.php':
+	case 'vendor_new.php':
+	case 'asset_category_new.php':
+	case 'department_new.php':
+		$screen_id = 4;
+		break;
+
+	case 'role_table.php':
+		$screen_id = 5;
+		break;
+}
+
+
+//$_SESSION['authorization_status'] =  true;
+
+if($myurl  !== 'dashboard.php'){
+ 
+$current_user_id = $_SESSION['user_id'];
+  $current_user_query =  "SELECT * FROM `".$users_table."`  WHERE  `google_id`='".$current_user_id."' ;";
+$current_user_query_results= mysql_query($current_user_query);
+while($current_user_query_results_row= mysql_fetch_array($current_user_query_results)) {
+$user_role_id =  $current_user_query_results_row['users_user_role_id'];
+}
+
+
+
+
+  $current_user_roles_query =  "SELECT * FROM `".$user_roles_table."`  WHERE  `user_role_id`='".$user_role_id."' ;";
+$current_user_roles_query_results= mysql_query($current_user_roles_query);
+while($current_user_roles_query_results_row= mysql_fetch_array($current_user_roles_query_results)) {
+
+ 
+if($current_user_roles_query_results_row['user_role_screens']  !== ''){
+	  $user_roles_parts = unserialize($current_user_roles_query_results_row['user_role_screens']);
+	  
+	  if(in_array($screen_id , $user_roles_parts)){
+		$_SESSION['authorization_status'] =  true;
+}
+else {
+	$_SESSION['authorization_status'] = false;
+ 	?>
+	<script type="text/javascript">
+	window.location.href = "dashboard.php"
+			</script>
+	<?php	
+	}
+	  }
+	   else{
+$_SESSION['authorization_status'] = false;
+
+?>
+	<script type="text/javascript">
+	window.location.href = "dashboard.php"
+			</script>
+	<?php	
+} 
 
 }
-//echo 
-//include_once(DIR_ABS.'inc/application_top.php'); ?>
+
+ 
+}
+
+}
+ ?>
 
 <head>
 
@@ -53,7 +148,13 @@ $_SESSION['bad_attempt'] = true;
 New Horizons Company
 
 <?php  
+
+
+
+
  
+
+     
 ?>
 </h1>
 </div>

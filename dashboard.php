@@ -4,7 +4,7 @@
 	include_once('db_connect.php');
 	
 	
-	
+	session_start();
 	
 	
 	if(isset($_POST['set_username_password'])){
@@ -55,6 +55,18 @@
 					
 	<div class="row">
 		<div class="canvas col-md-12" id="main-canvas"  style="padding-top: 100px;">
+		
+		
+		<?php  
+		
+		if(! $_SESSION['authorization_status']){
+		?>
+		<div class="alert alert-danger  col-md-4 col-md-offset-3" role="alert">
+  <p>You are not authorized to use that page</p><p>
+</p></div>
+<?php 
+}
+?>
 	 
 							<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary   pull-right" data-toggle="modal" data-target="#myModal">
