@@ -387,8 +387,8 @@
 		$mail->isHTML(true);                                  // Set email format to HTML
 		
 		$mail->Subject = $subject. date("Y-m-d h:i:s");
-		$mail->Body    = $message;
-		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+$mail->Body    = $message;
+$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 		
 		
 		
