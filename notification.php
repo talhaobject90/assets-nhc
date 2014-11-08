@@ -3,6 +3,15 @@
 	
 	include_once('db_connect.php');
 	
+	error_reporting(E_ALL);
+	
+	/* if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com') !== false)
+	 require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
+	else */
+	include '/var/www/PHPMailer-master/PHPMailerAutoload.php';
+	$mail = new PHPMailer;
+	
+	
 	/*  Notifications will be sent as per the following procedure;
 	 * 
 	 *  
@@ -10,11 +19,6 @@
 	 *    			a) one month , notification is send each week
 	 *    			b) one week, notification is send each day
 	 *    			c) one day, ....
-	 *   
-	 *  
-	 *  
-	 * 
-	 * 
 	 */
 	
 	 /*
@@ -32,7 +36,8 @@
 	
 	echo 'istemara<br><br><br>';
 	
-	
+	$notified_gap =  10;
+	$notify = 1;
 	
   	$istemara_check_query =    "SELECT  *   FROM  ".$assets_table." ORDER BY   `istemara_expiry`   ASC  ;";
 	$istemara_check_query_results= mysql_query($istemara_check_query);
@@ -47,16 +52,17 @@
 			  if($left < 0)
 			  	echo 'Expired';
 			  else{
+			  	
 			  	// if leftdays is less than 30 days and greater than 7 days one notification is send, and if success saved in a table 
 			  	if($left < 30  && $left > 7 && $notified_gap >7  && $notify == 1   ){
 			  		// notify weekly
- 			  	notify($istemara_row['name'], 'Istemara Expiry', $istemara_row['istemara_expiry']);
+ 			  	notify($istemara_row['name'], $istemara_row['id'] , 'Istemara Expiry', $istemara_row['istemara_expiry'] ,$mail);
 			  	}
 			  	elseif($left  < 7  && $left > 1   && $notified_gap > 1  && $notify == 1){
 			  		//  if left is less than 7 days and greater than 1 , one notification is send and saved
 			  		//notify_daily
 			  		
-			  	notify($istemara_row['name'], 'Istemara Expiry', $istemara_row['istemara_expiry']);
+			  	notify($istemara_row['name'],  $istemara_row['id'] ,'Istemara Expiry', $istemara_row['istemara_expiry'],$mail );
 			  	}
 			  	
 			  }
@@ -97,13 +103,13 @@
 			  	// if leftdays is less than 30 days and greater than 7 days one notification is send, and if success saved in a table 
 			  	if($left < 30  && $left > 7 && $notified_gap >7  && $notify == 1   ){
 			  		// notify weekly
- 			  	notify($insurance_row['name'], 'Insurance Expiry', $insurance_row['insurance_expiry']);
+ 			  	notify($insurance_row['name'], $insurance_row['id'] , 'Insurance Expiry', $insurance_row['insurance_expiry'] ,$mail);
 			  	}
 			  	elseif($left  < 7  && $left > 1   && $notified_gap > 1  && $notify == 1){
 			  		//  if left is less than 7 days and greater than 1 , one notification is send and saved
 			  		//notify_daily
 			  		
-			  	notify($insurance_row['name'], 'Insurance Expiry', $insurance_row['insurance_expiry']);
+			  	notify($insurance_row['name'], $insurance_row['id'] ,  'Insurance Expiry', $insurance_row['insurance_expiry'] ,$mail);
 			  	}
 			  	
 			  }
@@ -139,13 +145,13 @@
 			  	// if leftdays is less than 30 days and greater than 7 days one notification is send, and if success saved in a table 
 			  	if($left < 30  && $left > 7 && $notified_gap >7  && $notify == 1   ){
 			  		// notify weekly
- 			  	notify($preventive_maintenance_row['name'], 'Preventive Maintenace Expiry', $preventive_maintenance_row['preventive_maintenance']);
+ 			  	notify($preventive_maintenance_row['name'], $preventive_maintenance_row['id'] , 'Preventive Maintenace Expiry', $preventive_maintenance_row['preventive_maintenance'] ,$mail);
 			  	}
 			  	elseif($left  < 7  && $left > 1   && $notified_gap > 1  && $notify == 1){
 			  		//  if left is less than 7 days and greater than 1 , one notification is send and saved
 			  		//notify_daily
 			  		
-			  	notify($preventive_maintenance_row['name'], 'Preventive Maintenance Expiry', $preventive_maintenance_row['preventive_maintenance']);
+			  	notify($preventive_maintenance_row['name'],  $preventive_maintenance_row['id'] , 'Preventive Maintenance Expiry', $preventive_maintenance_row['preventive_maintenance']  ,$mail);
 			  	}
 			  	
 			  }
@@ -182,13 +188,13 @@
 			  	// if leftdays is less than 30 days and greater than 7 days one notification is send, and if success saved in a table 
 			  	if($left < 30  && $left > 7 && $notified_gap >7  && $notify == 1   ){
 			  		// notify weekly
- 			  	notify($tuv_sticker_row['name'], 'TUV Sticker Expiry', $tuv_sticker_row['tuv_sticker']);
+ 			  	notify($tuv_sticker_row['name'], $tuv_sticker_row['id'] , 'TUV Sticker Expiry', $tuv_sticker_row['tuv_sticker'] ,$mail);
 			  	}
 			  	elseif($left  < 7  && $left > 1   && $notified_gap > 1  && $notify == 1){
 			  		//  if left is less than 7 days and greater than 1 , one notification is send and saved
 			  		//notify_daily
 			  		
-			  	notify($tuv_sticker_row['name'], 'TUV Sticker Expiry', $tuv_sticker_row['tuv_sticker']);
+			  	notify($tuv_sticker_row['name'],  $tuv_sticker_row['id'] ,  'TUV Sticker Expiry', $tuv_sticker_row['tuv_sticker'] ,$mail);
 			  	}
 			  	
 			  }
@@ -209,7 +215,7 @@
 	while($client_sticker_row= mysql_fetch_array($client_sticker_check_query_check_query_results)) {
 	
 		if($client_sticker_row['client_sticker']  != '')
-	{
+	{     echo 'client';
 			echo   $expiry_date =  $client_sticker_row['client_sticker'] ;
 			  echo '<br>';
 			    $expiry_date = new DateTime($expiry_date);
@@ -221,18 +227,15 @@
 			  	// if leftdays is less than 30 days and greater than 7 days one notification is send, and if success saved in a table 
 			  	if($left < 30  && $left > 7 && $notified_gap >7  && $notify == 1   ){
 			  		// notify weekly
- 			  	notify($client_sticker_row['name'], 'Client sticker Expiry', $client_sticker_row['client_sticker']);
+ 			  	notify($client_sticker_row['name'], $client_sticker_row['id'] , 'Client sticker Expiry', $client_sticker_row['client_sticker'] ,$mail);
 			  	}
 			  	elseif($left  < 7  && $left > 1   && $notified_gap > 1  && $notify == 1){
 			  		//  if left is less than 7 days and greater than 1 , one notification is send and saved
 			  		//notify_daily
 			  		
-			  	notify($client_sticker_row['name'], 'Client sticker Expiry', $client_sticker_row['client_sticker']);
+			  	notify($client_sticker_row['name'],  $client_sticker_row['id'] , 'Client sticker Expiry', $client_sticker_row['client_sticker'] ,$mail);
 			  	}
-			  	
 			  }
-		
-	
 		}
 	
 	}
@@ -269,13 +272,13 @@
 			  	// if leftdays is less than 30 days and greater than 7 days one notification is send, and if success saved in a table 
 			  	if($left < 30  && $left > 7 && $notified_gap >7  && $notify == 1   ){
 			  		// notify weekly
- 			  	notify($mot_license_expiry_row['name'], 'MOT License Expiry', $mot_license_expiry_row['mot_license_expiry']);
+ 			  	notify($mot_license_expiry_row['name'],  $mot_license_expiry_row['id'] ,  'MOT License Expiry', $mot_license_expiry_row['mot_license_expiry'] ,$mail);
 			  	}
 			  	elseif($left  < 7  && $left > 1   && $notified_gap > 1  && $notify == 1){
 			  		//  if left is less than 7 days and greater than 1 , one notification is send and saved
 			  		//notify_daily
 			  		
-			  	notify($mot_license_expiry_row['name'], 'MOT License Expiry', $mot_license_expiry_row['mot_license_expiry']);
+			  	notify($mot_license_expiry_row['name'],  $mot_license_expiry_row['id'] ,  'MOT License Expiry', $mot_license_expiry_row['mot_license_expiry'] ,$mail);
 			  	}
 			  	
 			  }
@@ -285,19 +288,20 @@
 	
 	}
 	
-	function notify($asset,  $expiry_type, $expiry_date){
+
+	
+	function notify($asset, $asset_id ,  $expiry_type, $expiry_date ,  $mail){
 		
+		  $today = date("Y-m-d");
+		
+		//echo $asset.$expiry_type.$expiry_date;
+ 		
 		/*EMAIL TEMPLATE BEGINS*/
 		
 		$imgSrc   = 'http://www.nhc-ksa.com/images/logo1.png'; // Change image src to your site specific settings
 		$imgDesc  = 'Logo'; // Change Alt tag/image Description to your site specific settings
 		$imgTitle = 'Logo'; // Change Alt Title tag/image title to your site specific settings
-		
-		/*
-		 Change your message body in the given $subjectPara variables.
-		$subjectPara1 means 'first paragraph in message body', $subjectPara2 means'first paragraph in message body',
-		if you don't want more than 1 para, just put NULL in unused $subjectPara variables.
-		*/
+	 
 		$subjectPara1 = '<h3>The '.$expiry_type.' expiring shortly.</h3>';
 		$subjectPara2 = 'The '.$expiry_type.' expiry  for '.$asset.' is on '.$expiry_date.' Kindly take necessary action.';
 		$subjectPara3 = NULL;
@@ -334,34 +338,11 @@
 
 
 		$to      = 'talha@object90.com';             // give to email address
-		$subject = 'Email template sample PHP';  //change subject of email
+		$subject = 'Notification alert : '.$expiry_type .' expiring shortly.';  //change subject of email
 		$from    = 'roneyp20@gmail.com';                           // give from email address
 		
-		// mandatory headers for email message, change if you need something different in your setting.
-		$headers  = "From: " . $from . "\r\n";
-		$headers .= "Reply-To: ". $from . "\r\n";
-		$headers .= "CC: test@example.com\r\n";
-		$headers .= "MIME-Version: 1.0\r\n";
-		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		
-		// Remember, mail function may not work in PHP localhost setup but the email template can be used anywhere like (PHPmailer, swiftmailer, PHPMail classes etc.)
-		// Sending mail
-		
-		
-		
-		
-		
-		
-		
-		error_reporting(E_ALL);
-		
-		if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com') !== false)
-		require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
-		else
-			require 'PHPMailer-master/PHPMailerAutoload.php';
-			
-		
-		$mail = new PHPMailer;
+
 		
 		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 		
@@ -386,25 +367,33 @@
 		//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 		$mail->isHTML(true);                                  // Set email format to HTML
 		
-		$mail->Subject = $subject. date("Y-m-d h:i:s");
+		$mail->Subject = $subject;
+		//$mail->Subject = $subject. date("Y-m-d h:i:s");
 $mail->Body    = $message;
 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 		
 		
-		
-		
-		
-		
-		
+if($expiry_type == 'client_sticker')
+{
+
 		if(!$mail->send()) {
 			echo 'Message could not be sent.';
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
+			
+echo 			$mysql_query = "INSERT INTO `".$notifications_table."`
+ 		       		( `asset_id` , `asset_name` , `notified_on` )
+				 ) VALUES
+				('".$asset_id."' , '".$asset."' , '".$today."'  
+					)";
+			
+			mysql_query($mysql_query);
+			
+			
+			
 		} else {
 			echo 'Message has been sent';
 		}
-		
-		
-		
+}
 		
 	}
 

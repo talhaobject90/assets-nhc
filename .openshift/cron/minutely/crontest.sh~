@@ -1,3 +1,3 @@
-php $OPENSHIFT_REPO_DIR/cronmail.php
+php $OPENSHIFT_REPO_DIR/notification.php
 
 
