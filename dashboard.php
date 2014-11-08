@@ -58,8 +58,10 @@
 		
 		
 		<?php  
-		
-		if(! $_SESSION['authorization_status']){
+		// if session false
+		  $_SESSION['redirected'];
+ 		
+		if(!$_SESSION['authorization_status'] &&  $_SESSION['redirected'] == 'yes' ){
 		?>
 		<div class="alert alert-danger  col-md-4 col-md-offset-3" role="alert">
   <p>You are not authorized to use that page</p><p>

@@ -62,10 +62,10 @@ switch ($myurl){
 }
 
 
-//$_SESSION['authorization_status'] =  true;
-
 if($myurl  !== 'dashboard.php'){
  
+	
+	// Get use role id 
 $current_user_id = $_SESSION['user_id'];
   $current_user_query =  "SELECT * FROM `".$users_table."`  WHERE  `google_id`='".$current_user_id."' ;";
 $current_user_query_results= mysql_query($current_user_query);
@@ -75,7 +75,7 @@ $user_role_id =  $current_user_query_results_row['users_user_role_id'];
 
 
 
-
+// Get authenticated screens for the fetched role id
   $current_user_roles_query =  "SELECT * FROM `".$user_roles_table."`  WHERE  `user_role_id`='".$user_role_id."' ;";
 $current_user_roles_query_results= mysql_query($current_user_roles_query);
 while($current_user_roles_query_results_row= mysql_fetch_array($current_user_roles_query_results)) {
@@ -83,25 +83,31 @@ while($current_user_roles_query_results_row= mysql_fetch_array($current_user_rol
  
 if($current_user_roles_query_results_row['user_role_screens']  !== ''){
 	  $user_roles_parts = unserialize($current_user_roles_query_results_row['user_role_screens']);
-	  
+	  // Check if user is authenticated for this screen
 	  if(in_array($screen_id , $user_roles_parts)){
+//if yes session true;
 		$_SESSION['authorization_status'] =  true;
+		$_SESSION['redirected'] =  true;
 }
 else {
+ // if no , session false; and redirect to dashboardpage
 	$_SESSION['authorization_status'] = false;
- 	?>
+	$_SESSION['redirected'] =  'yes';
+  	?>
 	<script type="text/javascript">
-	window.location.href = "dashboard.php"
+	//window.location.href = "dashboard.php"
 			</script>
 	<?php	
 	}
 	  }
 	   else{
+// if authorised screens are not defined for the user , then also session false and redirect to dashboard page.
 $_SESSION['authorization_status'] = false;
-
+$_SESSION['redirected'] =  'yes';
+ 
 ?>
 	<script type="text/javascript">
-	window.location.href = "dashboard.php"
+	//window.location.href = "dashboard.php"
 			</script>
 	<?php	
 } 
@@ -110,6 +116,9 @@ $_SESSION['authorization_status'] = false;
 
  
 }
+else
+$_SESSION['authorization_status'] =  true;
+$_SESSION['redirected'] =  'yes';
 
 }
  ?>

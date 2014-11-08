@@ -58,8 +58,8 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Mohammed Talha','active','2014-10-07','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','','','','','','','0000-00-00','0000-00-00');
-INSERT INTO `assets` VALUES (14,'Computer','IBMs','Main server room','Salmans','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
+INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Mohammed Talha','active','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','','','','','','','0000-00-00','0000-00-00');
+INSERT INTO `assets` VALUES (14,'Computer','IBMs','Main server room','','active','2014-11-10','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (15,'Moto e','sdf \r\n \r\n','pettai','talhaa','under_maintenance',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (17,'Xpefia','tip \r\n','al','Ali','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
@@ -208,6 +208,33 @@ INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','r
 UNLOCK TABLES;
 
 --
+-- Table structure for table `notifications`
+--
+
+DROP TABLE IF EXISTS `notifications`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notifications` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `asset_id` int(10) NOT NULL,
+  `asset_name` varchar(100) NOT NULL,
+  `notified_on` date NOT NULL,
+  `notify` enum('yes','no') NOT NULL DEFAULT 'yes',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notifications`
+--
+
+LOCK TABLES `notifications` WRITE;
+/*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
+INSERT INTO `notifications` VALUES (1,1,'car','2014-11-09','yes');
+/*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `screens`
 --
 
@@ -218,7 +245,7 @@ CREATE TABLE `screens` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `screen_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,4 +354,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-07 22:15:49
+-- Dump completed on 2014-11-08 14:48:56
