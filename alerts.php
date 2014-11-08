@@ -62,8 +62,7 @@
 			id="purchase-main-form" method="post">
 			<div style="margin: 0; padding: 0; display: inline">
 			<input name="utf8" type="hidden" value="✓">
-			<h2>This is a dummy page</h2>
-			<input
+ 			<input
 			name="authenticity_token" type="hidden"
 					value="C3auzP3qaTSWuVBRCwrtcNNYRfgHlDPbUKYgHf54RUg=">
 					</div>
@@ -73,9 +72,9 @@
 				<div class="row">		
 						<!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-  <li class="active"><a href="#vendor" role="tab" data-toggle="tab">Vendors</a></li>
-  <li><a href="#asset_category" role="tab" data-toggle="tab">Asset Categories</a></li>
-  <li><a href="#department" role="tab" data-toggle="tab">Departments</a></li>
+  <li class="active"><a href="#vendor" role="tab" data-toggle="tab">Alerts</a></li>
+  <li  style="display: none;"><a href="#asset_category" role="tab" data-toggle="tab">Asset Categories</a></li>
+  <li  style="display: none;" ><a href="#department" role="tab" data-toggle="tab">Departments</a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -86,9 +85,9 @@
 <section class="index col-md-12" id="purchase">
 <div class="row">
 <div class="page-header">
-<h1>Vendors</h1>
+<h1>Alerts</h1>
 <div class="page-menus">
-<a href="vendor_new.php"><i class="icon fa fa-plus"></i><span>Create new vendor</span></a></div>
+<!-- <a href="vendor_new.php"><i class="icon fa fa-plus"></i><span>Create new vendor</span></a></div> -->
 </div>
 
 <h4>
@@ -101,13 +100,31 @@ Toggle the icons to quickly filter by status
 <div class="page-content col-md-12">
  
 <?php 
-  $all_assets_cat_query = "SELECT * FROM `".$vendor_table."`;";
+  $all_assets_cat_query = "SELECT * FROM `".$notifications_table."`  ORDER BY `expiry_date` ASC;";
 $all_assets = mysql_query($all_assets_cat_query);
 echo '<table class="table table-hover">';
-echo '<th>ID</th><th>Vendor Name</th><th></th><th></th>';
+echo '<th>ID</th><th>Asset ID</th><th>Asset Name</th> <th>Expiry Type</th><th>Expriy Date</th><th>Notified on</th>';
 while($row = mysql_fetch_array($all_assets)) {
+   $today = date("Y-m-d");
+
+$today = new DateTime($today);
+  $row['expiry_date'];
+ $expiry_date = new DateTime($row['expiry_date']);
+$interval = $today->diff($expiry_date);
+    $left =  $interval->format('%R%a ');
  
-echo '<tr ><td>'.$row['id'].'</td><td>'.$row['vendor_name'].'</td><td><a href="vendor_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&del_vendor=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+$class = '';
+if($left < 30 && $left >7)
+	$class = 'warning';
+elseif($left < 7   )
+	$class = 'danger';
+
+
+	
+
+
+ 
+echo '<tr  class="'.$class.'" ><td>'.$row['id'].'</td><td>'.$row['asset_id'].'</td><td>'.$row['asset_name'].'</td><td>'.$row['expiry_type'].'</td><td>'.$row['expiry_date'].'</td><td>'.$row['notified_on'].'</td></tr>';
 
 }
 echo '</table>';

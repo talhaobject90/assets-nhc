@@ -17,6 +17,9 @@ $users_table= 'google_users';
 $user_roles_table = 'user_roles';
 $user_screens_table = 'users_screens';
 $screens_table = 'screens';
+$notifications_table = 'notifications';
+
+
 
 
 // Select database
