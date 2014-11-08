@@ -287,23 +287,6 @@
 	
 	function notify($asset,  $expiry_type, $expiry_date){
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		/**
-		 * @author     Jack Mason
-		* @website    volunteer @ http://www.osipage.com , web access application and bookmarking tool.
-		* @copyright free script
-		* @created    2013
-		* @Language  PHP
-		* This script is free and can  be used anywhere, no attribution required
-		*/
-		
 		/*EMAIL TEMPLATE BEGINS*/
 		
 		$imgSrc   = 'http://www.nhc-ksa.com/images/logo1.png'; // Change image src to your site specific settings
@@ -342,16 +325,17 @@
 				'</div>'.
 		
 				'<div id="footer" style="width: 80%;height: 40px;margin: 0 auto;text-align: center;padding: 10px;font-family: Verdena;background-color: #E2E2E2;">'.
-				'All rights reserved @ mysite.html 2014'.
+				'All rights reserved @ assets-newhorizons 2014'.
 				'</div>'.
 				'</body>';
 		
 		/*EMAIL TEMPLATE ENDS*/
 		
-		
+
+
 		$to      = 'talha@object90.com';             // give to email address
-		$subject = $asset .'expiring on'. $expiry_date;  //change subject of email
-		$from    = 'talha@object90.com';                           // give from email address
+		$subject = 'Email template sample PHP';  //change subject of email
+		$from    = 'roneyp20@gmail.com';                           // give from email address
 		
 		// mandatory headers for email message, change if you need something different in your setting.
 		$headers  = "From: " . $from . "\r\n";
@@ -362,19 +346,64 @@
 		
 		// Remember, mail function may not work in PHP localhost setup but the email template can be used anywhere like (PHPmailer, swiftmailer, PHPMail classes etc.)
 		// Sending mail
-		if(mail($to, $subject, $message, $headers))
-		{
-			echo 'HTML email sent successfully!';
-
-			 
-			
-			
-		}
+		
+		
+		
+		
+		
+		
+		
+		error_reporting(E_ALL);
+		
+		if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com') !== false)
+		require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
 		else
-		{
-			echo 'Problem sending HTML email!';
+			require 'PHPMailer-master/PHPMailerAutoload.php';
+			
+		
+		$mail = new PHPMailer;
+		
+		//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+		
+		$mail->isSMTP();                                      // Set mailer to use SMTP
+		$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+		$mail->SMTPAuth = true;                               // Enable SMTP authentication
+		echo $mail->Username = 'talha@object90.com';                 // SMTP username
+		echo $mail->Password = '9947183255p';                           // SMTP password
+		$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+		$mail->Port = 465;                                    // TCP port to connect to
+		
+		$mail->From = 'm.ali@object90.com';
+		$mail->FromName = 'Assets-NewHorizons';
+		$mail->addAddress('talha@object90.com', 'Mohammed talha');     // Add a recipient
+		//$mail->addAddress('roneyp20@gmail.com');               // Name is optional
+		//$mail->addReplyTo('m.ali@object90.com', 'Information');
+		//$mail->addCC('cc@example.com');
+		//$mail->addBCC('bcc@example.com');
+		
+		$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
+		//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+		//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+		$mail->isHTML(true);                                  // Set email format to HTML
+		
+		$mail->Subject = $subject. date("Y-m-d h:i:s");
+		$mail->Body    = $message;
+		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+		
+		
+		
+		
+		
+		
+		
+		if(!$mail->send()) {
+			echo 'Message could not be sent.';
+			echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {
+			echo 'Message has been sent';
 		}
-	
+		
+		
 		
 		
 	}
