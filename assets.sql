@@ -58,7 +58,7 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Mohammed Talha','active','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','','','','','','','0000-00-00','0000-00-00');
+INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Mohammed Talha','active','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','Mazdas','fhf','zdfwe','veh num','ser','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (14,'Computer','IBMs','Main server room','','active','2014-11-10','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (15,'Moto e','sdf','pettai','','under_maintenance','2014-11-11','2014-11-12','2014-11-13','2014-11-14','2014-11-16','2014-11-16','','','','','','','','','','','','2014-11-17','2014-11-18');
 INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
@@ -203,7 +203,7 @@ CREATE TABLE `google_users` (
 LOCK TABLES `google_users` WRITE;
 /*!40000 ALTER TABLE `google_users` DISABLE KEYS */;
 INSERT INTO `google_users` VALUES (100428232109775983047,'Mohammed Talha','','','talhaqqq@gmail.com',2,'https://plus.google.com/100428232109775983047','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','','','talha@object90.com',1,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','talha@object90.com','monu','talha@object90.com',1,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (106053436166547787694,'Mariappan C','','','mars@object90.com',11,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',3,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (106803781885381507211,'Bala P','','','bala223344@gmail.com',11,'https://plus.google.com/106803781885381507211','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
@@ -390,4 +390,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-08 22:12:37
+-- Dump completed on 2014-11-10 14:22:43

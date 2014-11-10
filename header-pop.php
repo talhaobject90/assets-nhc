@@ -5,13 +5,8 @@
 
 
 include_once('db_connect.php');
-
-
-
 session_start();
 if(!$_SESSION['user_logged_in']){
-
-
 
 ?>
 <script type="text/javascript">
@@ -107,7 +102,7 @@ $_SESSION['redirected'] =  'yes';
  
 ?>
 	<script type="text/javascript">
-	//window.location.href = "dashboard.php"
+	window.location.href = "dashboard.php"
 			</script>
 	<?php	
 } 

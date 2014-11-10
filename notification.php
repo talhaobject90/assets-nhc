@@ -476,7 +476,7 @@
 		  $today = date("Y-m-d");
  		  
 		
-		echo '***********'.$asset.$expiry_type.$expiry_date;
+		//echo '***********'.$asset.$expiry_type.$expiry_date;
  		
 		/*EMAIL TEMPLATE BEGINS*/
 		

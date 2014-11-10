@@ -68,9 +68,9 @@
 
 <?php  
 if($Edit_mode)
-	echo '<h1>Edit Vendor</h1>';
+	echo '<h1>Edit Manufacturer</h1>';
 else
-	echo '<h1>New Vendor</h1>'; 
+	echo '<h1>New Manufacturer</h1>'; 
 	
 ?>
 
@@ -101,7 +101,7 @@ if(isset($asset_det['vendor_id']))
 								 
 									<label class="sr-only" for="purchase_subject">Subject</label> <input
 										class="form-control" id="purchase_subject" name="vendor_name"
-										placeholder="Vendor Name"
+										placeholder="Manufacturer Name"
 										value="<?php echo (isset($asset_det['vendor_name'])?$asset_det['vendor_name'] : '')?>"
 										type="text">
 										 
@@ -116,12 +116,12 @@ if(isset($asset_det['vendor_id']))
 						</div>
  												<?php  
 if($Edit_mode){
-	echo '<input class="btn btn-default btn-primary"  type="submit" name="update" value="Update Vendor"  >';
+	echo '<input class="btn btn-default btn-primary"  type="submit" name="update" value="Update Manufacturer"  >';
 	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style=" margin-left:10px;font-weight:bold;"></a>';
 	
 	}
 else{
-	echo '<input class="btn btn-default btn-primary"  type="submit"  name="save"  value="Save Vendor"   >';
+	echo '<input class="btn btn-default btn-primary"  type="submit"  name="save"  value="Save Manufacturer"   >';
 	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;"></a>';
 	}
 	

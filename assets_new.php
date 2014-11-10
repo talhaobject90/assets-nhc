@@ -286,9 +286,9 @@ else
 												<div class="form-group col-sm-4 item-name"
 													style="margin-right: 5px;">
 													<div class="vendor_select_div">
-														<label for="vendor_select_div">Vendor</label> <br> <select
+														<label for="vendor_select_div">Manufacturer</label> <br> <select
 															class="form-control" id="vendor_select" name="vendor">
-															<option value="">- Vendor -</option>
+															<option value="">- Manufacturer -</option>
 															<?php 
 															$edit_query ="SELECT * FROM `".$vendor_table."` ;" ;
 															$edit_query = mysql_query($edit_query);
@@ -305,9 +305,9 @@ else
 												<div class="form-group col-sm-4 item-qty"
 													style="margin-right: 5px;">
 													<div class="vehicle_num_div">
-														<label for="vehicle_num_div">Vehicle Number</label> <br> <input
+														<label for="vehicle_num_div">Plate Number</label> <br> <input
 															class="form-control" name="vehicle_number"
-															placeholder="Vehicle Number"
+															placeholder="Plate Number"
 															value="<?php echo (isset($asset_det['vehicle_number'])?$asset_det['vehicle_number'] : '')?>"
 															type="text">
 													</div>
@@ -316,9 +316,9 @@ else
 
 												<div class="form-group col-sm-4 item-qty">
 													<div class="serial_number_div">
-														<label for="serial_number_div">Serial Number</label> <br>
+														<label for="serial_number_div">Project</label> <br>
 														<input class="form-control" name="serial_number"
-															placeholder="Serial Number"
+															placeholder="Project"
 															value="<?php echo (isset($asset_det['serial_number'])?$asset_det['serial_number'] : '')?>"
 															type="text">
 													</div>

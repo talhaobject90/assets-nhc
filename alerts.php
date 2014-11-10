@@ -225,5 +225,5 @@ echo '</table>';
 
  
  
-
+<?php 	include_once('footer-pop.php'); ?>
 

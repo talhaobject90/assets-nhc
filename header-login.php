@@ -20,5 +20,6 @@ $users_table= 'google_users';
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" media="screen" rel="stylesheet" />
 <script data-turbolinks-track="true" src="js/application-9924af930ec816234c493e9467f16835.js"></script>
 <script src="js/v1.js"></script>
+<link href="css/style.css" media = "all" rel="stylesheet"></link>
  
 <body>

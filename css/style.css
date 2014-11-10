@@ -49,3 +49,6 @@ white-space: nowrap;
 }
 
  
+.col-center{
+  margin:0 auto;
+}
