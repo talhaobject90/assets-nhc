@@ -41,7 +41,7 @@ CREATE TABLE `assets` (
   `asset_category` text NOT NULL,
   `department` text NOT NULL,
   `vehicle_number` text NOT NULL,
-  `serial_number` text NOT NULL,
+  `project` text NOT NULL,
   `purchase_price` text NOT NULL,
   `current_value` text NOT NULL,
   `total_maintenance` text NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `assets` (
   `date_acquired` date DEFAULT NULL,
   `date_sold` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Mohammed Talha','active','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','Mazdas','fhf','zdfwe','veh num','ser','','','','','0000-00-00','0000-00-00');
+INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Mohammed Talha','active','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','veh num','testasas','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (14,'Computer','IBMs','Main server room','','active','2014-11-10','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (15,'Moto e','sdf','pettai','','under_maintenance','2014-11-11','2014-11-12','2014-11-13','2014-11-14','2014-11-16','2014-11-16','','','','','','','','','','','','2014-11-17','2014-11-18');
 INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL);
@@ -80,6 +80,8 @@ INSERT INTO `assets` VALUES (49,'Black berry','thanseel','pocket','Mohammed Talh
 INSERT INTO `assets` VALUES (50,'Goodday','','','','active','2014-11-21','2014-11-22','2014-11-23','2014-11-24','2014-11-25','2014-11-26','','','','','','','','','','','','2014-11-27','2014-11-28');
 INSERT INTO `assets` VALUES (51,'sets','','','','','2014-11-18','2014-11-19','2014-11-20','2014-11-21','2014-11-22','2014-11-23','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (52,'jack','','','','','2014-11-12','2014-11-13','2014-11-14','2014-11-15','2014-11-16','2014-11-17','','','','','','','','','','','','0000-00-00','0000-00-00');
+INSERT INTO `assets` VALUES (53,'sdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','testasas','','','','','0000-00-00','0000-00-00');
+INSERT INTO `assets` VALUES (54,'sdfsafdsadf','sdfsdf','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','','','sdfs','testasas','','','','','0000-00-00','0000-00-00');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,6 +273,33 @@ INSERT INTO `notifications` VALUES (31,52,'jack','MOT License Expiry','2014-11-1
 UNLOCK TABLES;
 
 --
+-- Table structure for table `projects`
+--
+
+DROP TABLE IF EXISTS `projects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `projects` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `project_name` varchar(100) NOT NULL,
+  `project_description` varchar(500) NOT NULL,
+  `status` enum('inactive','active','finished') NOT NULL DEFAULT 'inactive',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `projects`
+--
+
+LOCK TABLES `projects` WRITE;
+/*!40000 ALTER TABLE `projects` DISABLE KEYS */;
+INSERT INTO `projects` VALUES (2,'testasas','sfsfsfas','active');
+INSERT INTO `projects` VALUES (3,'ssss','sssdasdfsdf','finished');
+/*!40000 ALTER TABLE `projects` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `screens`
 --
 
@@ -281,7 +310,7 @@ CREATE TABLE `screens` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `screen_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,7 +323,7 @@ INSERT INTO `screens` VALUES (1,'assets_screens');
 INSERT INTO `screens` VALUES (2,'alerts_screen');
 INSERT INTO `screens` VALUES (3,'employees_screen');
 INSERT INTO `screens` VALUES (4,'configure_screen');
-INSERT INTO `screens` VALUES (5,'test');
+INSERT INTO `screens` VALUES (5,'role_table');
 /*!40000 ALTER TABLE `screens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,9 +350,9 @@ LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
 INSERT INTO `user_roles` VALUES (1,'Admin','a:5:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";}');
 INSERT INTO `user_roles` VALUES (2,'Data Entry Operator','a:2:{i:0;s:1:\"1\";i:1;s:1:\"5\";}');
-INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinators','a:3:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";}');
+INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinators','a:1:{i:0;s:1:\"1\";}');
 INSERT INTO `user_roles` VALUES (4,'Approver','');
-INSERT INTO `user_roles` VALUES (11,'trainee','a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}');
+INSERT INTO `user_roles` VALUES (11,'trainee','a:4:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";}');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -390,4 +419,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-10 14:22:43
+-- Dump completed on 2014-11-10 17:49:48

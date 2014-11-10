@@ -37,6 +37,17 @@
 			</script><?php 
 		}
 		
+		if(isset($_GET['del_project'])){
+			$mysql_query = "DELETE FROM `".$project_table."` WHERE `id` =".$delete_id.";";
+			mysql_query($mysql_query);
+			?>
+					<script type="text/javascript">
+		 			jQuery(function () {
+						jQuery('a[href="#project"]').tab('show'); // Select tab by name
+		 			})
+					</script><?php 
+				}
+		
 		
 	
 	}
@@ -72,6 +83,7 @@
   <li class="active"><a href="#vendor" role="tab" data-toggle="tab">Manufacturers</a></li>
   <li><a href="#asset_category" role="tab" data-toggle="tab">Asset Categories</a></li>
   <li><a href="#department" role="tab" data-toggle="tab">Departments</a></li>
+  <li><a href="#project" role="tab" data-toggle="tab">Projects</a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -181,6 +193,54 @@ echo '<table class="table table-hover">';
 echo '<th>ID</th><th>Department Name</th><th></th><th></th>';
 while($row = mysql_fetch_array($all_assets)) {
 echo '<tr ><td>'.$row['id'].'</td><td>'.$row['department_name'].'</td><td><a href="department_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&del_department=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+
+}
+echo '</table>';
+?>
+
+</div>
+</div>
+</section>
+  
+  
+  
+  </div>
+  
+  
+    <div class="tab-pane   " id="project">
+  
+  
+  <section class="index col-md-12" id="purchase">
+<div class="row">
+<div class="page-header">
+<h1>Projects</h1>
+<div class="page-menus">
+<a href="project_new.php"><i class="icon fa fa-plus"></i><span>Create new project</span></a></div>
+</div>
+
+<h4>
+<!-- <center>
+Toggle the icons to quickly filter by status
+</center> -->
+</h4>
+</div>
+<div class="row">
+<div class="page-content col-md-12">
+ 
+<?php 
+  $all_assets_query = "SELECT * FROM `".$project_table."`;";
+$all_assets = mysql_query($all_assets_query);
+echo '<table class="table table-hover">';
+echo '<th>ID</th><th>Project Name</th><th>Status</th><th></th><th></th>';
+while($row = mysql_fetch_array($all_assets)) {
+if($row['status'] == 'active')
+	$status ='Active';
+elseif ($row['status'] == 'inactive')
+$status = 'Inactive';
+elseif ($row['status'] == 'finished')
+$status = 'Finished';
+
+echo '<tr ><td>'.$row['id'].'</td><td>'.$row['project_name'].'</td> <td>'.$status.'</td><td><a href="project_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&del_project=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
 
 }
 echo '</table>';

@@ -32,7 +32,7 @@
 					`asset_category`='".trim($_POST["asset_category"])."',
 					`department`='".trim($_POST["department"])."',
 					`vehicle_number`='".trim($_POST["vehicle_number"])."',
-					`serial_number`='".trim($_POST["serial_number"])."',
+					`project`='".trim($_POST["project"])."',
 					`purchase_price`='".trim($_POST["purchase_price"])."',
 					`current_value`='".trim($_POST["current_value"])."',
 					`total_maintenance`='".trim($_POST["total_maintenance"])."',
@@ -70,7 +70,7 @@
  		       		`asset_category`,
  		       		`department`,
  		       		`vehicle_number`,
- 		       		`serial_number`,
+ 		       		`project`,
  		       		`purchase_price`,
  		       		`current_value`,
  		       		`total_maintenance`,
@@ -96,7 +96,7 @@
 				'" . trim($_POST ["asset_category"] ). "',
 				'" . trim($_POST ["department"]) . "',
 				'" . trim($_POST ["vehicle_number"]) . "',
-				'" .trim( $_POST ["serial_number"]) . "',
+				'" .trim( $_POST ["project"]) . "',
 				'" .trim( $_POST ["purchase_price"]) . "',
 				'" .trim( $_POST ["current_value"]) . "',
 				'" .trim( $_POST ["total_maintenance"]) . "',
@@ -142,7 +142,7 @@
 			$asset_det['asset_category'] = trim($rows['asset_category']);
 			$asset_det['department'] = trim($rows['department']);
 			$asset_det['vehicle_number'] = trim($rows['vehicle_number']);
-			$asset_det['serial_number'] = trim($rows['serial_number']);
+			$asset_det['project'] = trim($rows['project']);
 			$asset_det['purchase_price'] = trim($rows['purchase_price']);
 			$asset_det['current_value'] = trim($rows['current_value']);
 			$asset_det['total_maintenance'] = trim($rows['total_maintenance']);
@@ -317,10 +317,17 @@ else
 												<div class="form-group col-sm-4 item-qty">
 													<div class="serial_number_div">
 														<label for="serial_number_div">Project</label> <br>
-														<input class="form-control" name="serial_number"
-															placeholder="Project"
-															value="<?php echo (isset($asset_det['serial_number'])?$asset_det['serial_number'] : '')?>"
-															type="text">
+														 <select
+															class="form-control" id="vendor_select" name="project">
+															<option value="">- Project Name -</option>
+															<?php 
+															$edit_query ="SELECT * FROM `".$project_table."` ;" ;
+															$edit_query = mysql_query($edit_query);
+															while($rows = mysql_fetch_array($edit_query)) { ?>
+															<option value="<?php echo $rows['project_name']; ?>"
+																<?php echo ($asset_det['project'] ==  $rows['project_name'] ? 'selected="selected"' : '')?>><?php echo  $rows['project_name']; ?></option>
+																<?php } ?>
+														</select>
 													</div>
 												</div>
 											</div>

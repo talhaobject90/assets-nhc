@@ -2,11 +2,11 @@
 	include_once('header-pop.php');
 	include_once('db_connect.php');
 	
+	  if($_SESSION['authorization_status'])
+	{
+		
  
-				
-	
-	
-	
+		
 	 	if(isset($_POST['new_user_role']))
  	{
  	if(isset($_POST['role_name']) && $_POST['role_name'] != ''){
@@ -659,7 +659,27 @@ Warning : Editing the screen id may affect  user role's screen configuration. Pr
 </div><!-- /.modal -->
 
 <?php 
-}?>
+
+}
+	}
+else{
+
+echo '<div class="row  ">
+			<div class=" col-md-12 col-md-offset-2  vcenter">
+			<h1> YOU ARE NOT AUTHORIZED TO ACCESS THIS PAGE</h1>
+			<a href="dashboard.php"> Back to dashboard </a>
+			</div>
+			</div>';
+}
+
+ 
+ 
+
+include_once 'footer-pop.php';
+
+?>
+
+
 
  
  

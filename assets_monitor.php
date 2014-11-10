@@ -32,7 +32,7 @@
 <form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;">
     <div class="input-append  form-group">
         <input type="text"  placeholder="Asset name"   name="search" class="span2 search-query">
-        <button type="submit" class="btn" name="search_submit"  value = "search"><i class="fa fa-search icon"></i></button>
+        <button type="submit" class="btn"  ><i class="fa fa-search icon"></i></button>
         
     </div>
 </form>

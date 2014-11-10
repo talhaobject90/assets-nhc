@@ -57,18 +57,7 @@
 		<div class="canvas col-md-12" id="main-canvas"  style="padding-top: 100px;">
 		
 		
-		<?php  
-		// if session false
-		  $_SESSION['redirected'];
- 		
-		if(!$_SESSION['authorization_status'] &&  $_SESSION['redirected'] == 'yes' ){
-		?>
-		<div class="alert alert-danger  col-md-4 col-md-offset-3" role="alert">
-  <p>You are not authorized to use that page</p><p>
-</p></div>
-<?php 
-}
-?>
+ 
 	 
 							<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary   pull-right" data-toggle="modal" data-target="#myModal">
@@ -98,13 +87,13 @@
 					
 <div class="row  row-centered"  >
  
-  <div class="col-xs-6 col-md-4 col-centered">
+  <div class="col-xs-6 col-md-4 col-centered"  <?php echo ( !in_array(1, $user_roles_parts) ? 'style="display:none;"' : '')?>>
     <a href="assets_monitor.php" class="thumbnail">
     <i class="fa fa-file-text-o icon dash_thumb "></i> 
     <p>Assets</p>
      </a>
   </div>
-    <div class="col-xs-6 col-md-4 col-centered">
+    <div class="col-xs-6 col-md-4 col-centered"  <?php echo ( !in_array(3, $user_roles_parts) ? 'style="display:none;"' : '')?>>
     <a href="employees.php" class="thumbnail">
     <i class="fa fa-users icon dash_thumb "></i> 
     <p>Employees</p>
@@ -115,21 +104,38 @@
 <br>
 
 <div class="row">
-  <div class="col-xs-6 col-md-4  col-centered">
+  <div class="col-xs-6 col-md-4  col-centered"  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?> >
     <a href="alerts.php" class="thumbnail">
         <i class="fa fa-exclamation-triangle   dash_thumb "></i> 
         <p>Alerts</p>
     </a>
   </div>
-  <div class="col-xs-6 col-md-4   col-centered">
+  
+    <div class="col-xs-6 col-md-4   col-centered"   >
+    <a href="config.php" class="thumbnail">
+        <i class="fa fa-ticket   dash_thumb  "></i>
+        <p>Open Tickets</p> 
+    </a>
+  </div>
+
+</div>
+<br><br><br>
+<div class="row">
+  <div class="col-xs-6 col-md-4  col-centered"   >
+    <a href="alerts.php" class="thumbnail">
+        <i class="fa fa-sort-alpha-desc  dash_thumb"></i> 
+        <p>Reports</p>
+    </a>
+  </div>
+    <div class="col-xs-6 col-md-4   col-centered"   <?php echo ( !in_array(4, $user_roles_parts) ? 'style="display:none;"' : '')?>>
     <a href="config.php" class="thumbnail">
         <i class="fa fa-wrench   dash_thumb  "></i>
         <p>Configure</p> 
-      
-      
     </a>
   </div>
 </div>
+
+
 
  
  

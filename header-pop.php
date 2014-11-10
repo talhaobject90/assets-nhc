@@ -35,13 +35,13 @@ switch ($myurl){
 		break;
 
 	case 'alerts.php':
-		$screen_id = 3;
+		$screen_id = 2;
 		break;
 
 	case 'employees.php':
 	case 'employee_new.php':
 		
-		$screen_id = 2;
+		$screen_id = 3;
 		break;
 
 	case 'config.php':
@@ -57,7 +57,7 @@ switch ($myurl){
 }
 
 
-if($myurl  !== 'dashboard.php'){
+//if($myurl  !== 'dashboard.php'){
  
 	
 	// Get use role id 
@@ -73,21 +73,32 @@ $user_role_id =  $current_user_query_results_row['users_user_role_id'];
 // Get authenticated screens for the fetched role id
   $current_user_roles_query =  "SELECT * FROM `".$user_roles_table."`  WHERE  `user_role_id`='".$user_role_id."' ;";
 $current_user_roles_query_results= mysql_query($current_user_roles_query);
-while($current_user_roles_query_results_row= mysql_fetch_array($current_user_roles_query_results)) {
 
- 
-if($current_user_roles_query_results_row['user_role_screens']  !== ''){
+
+while($current_user_roles_query_results_row= mysql_fetch_array($current_user_roles_query_results)) {
+	
+ if($current_user_roles_query_results_row['user_role_screens']  !== ''){
+ 	//echo $current_user_roles_query_results_row['user_role_screens'];
 	  $user_roles_parts = unserialize($current_user_roles_query_results_row['user_role_screens']);
-	  // Check if user is authenticated for this screen
+	  
+	  if(empty($user_roles_parts))
+	  	$user_roles_parts =  array();
+ 	 
+ 	  // Check if user is authenticated for this screen
+ 
 	  if(in_array($screen_id , $user_roles_parts)){
 //if yes session true;
 		$_SESSION['authorization_status'] =  true;
 		$_SESSION['redirected'] =  true;
+ 		
 }
 else {
  // if no , session false; and redirect to dashboardpage
 	$_SESSION['authorization_status'] = false;
 	$_SESSION['redirected'] =  'yes';
+	
+	
+ 	
   	?>
 	<script type="text/javascript">
 	//window.location.href = "dashboard.php"
@@ -100,6 +111,7 @@ else {
 $_SESSION['authorization_status'] = false;
 $_SESSION['redirected'] =  'yes';
  
+ 
 ?>
 	<script type="text/javascript">
 	window.location.href = "dashboard.php"
@@ -110,10 +122,10 @@ $_SESSION['redirected'] =  'yes';
 }
 
  
-}
+/* }
 else
 $_SESSION['authorization_status'] =  true;
-$_SESSION['redirected'] =  'yes';
+$_SESSION['redirected'] =  'yes';  */
 
 }
  ?>
@@ -140,6 +152,13 @@ $_SESSION['redirected'] =  'yes';
 <meta content="pk_live_tXltt2t4mCC4vqhPbAGDkQLb" name="stripe-key" />
 <body>
 	<div class='container'>
+	
+	
+	<?php  if($_SESSION['authorization_status']  ||  $myurl == 'dashboard.php')
+	{
+		?>
+	
+	
 <div class='row'>
 
 
@@ -150,16 +169,7 @@ $_SESSION['redirected'] =  'yes';
 <span class='pp'></span>
  
 New Horizons Company
-
-<?php  
-
-
-
-
  
-
-     
-?>
 </h1>
 </div>
 <div class='row current-user'>
@@ -180,8 +190,7 @@ New Horizons Company
 
 
 
-
-
+ 
 <div class='row menus'>
 <ul class='nav'>
  
@@ -193,24 +202,23 @@ New Horizons Company
  
  
  
-<li id='assets-link'  >
+<li id='assets-link'   <?php echo ( !in_array(1, $user_roles_parts) ? 'style="display:none;"' : '')?> >
 <a href="assets_monitor.php">Assets
 <i class='fa fa-file-text-o icon'></i>
 </a></li>
-<li id='alerts-link'>
+<li id='alerts-link'  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?>  >
 <a href="alerts.php">Alerts
 <i class='fa fa-exclamation-triangle icon'></i>
 </a></li>
-<li id='employees-link'>
+<li id='employees-link'  <?php echo ( !in_array(3, $user_roles_parts) ? 'style="display:none;"' : '')?>>
 <a href="employees.php">Employees
 <i class='fa fa-users icon'></i>
 </a></li>
-<li id='configure-link'    >
+<li id='configure-link'    <?php echo ( !in_array(4, $user_roles_parts) ? 'style="display:none;"' : '')?>  >
 <a href="config.php">Configure
 <i class='fa fa-wrench icon'></i>
 </a></li>
-<li class='divider'></li>
-<li id='sites-link'>
+ <li id='sites-link'   <?php echo ( !in_array(5, $user_roles_parts) ? 'style="display:none;"' : '')?> >
 <a href="role_table.php">Role Table
 <i class='fa fa-cogs icon'></i>
 </a></li>
@@ -252,7 +260,7 @@ jQuery( document ).ready(function() {
 });
 
 </script>
-
+<?php }?>
 
 
 
