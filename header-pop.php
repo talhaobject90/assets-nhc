@@ -48,6 +48,7 @@ switch ($myurl){
 	case 'vendor_new.php':
 	case 'asset_category_new.php':
 	case 'department_new.php':
+	case 'project_new.php':
 		$screen_id = 4;
 		break;
 
@@ -180,12 +181,14 @@ New Horizons Company
 </a></li>
 </ul>
 </div>
+
+<!-- 
 <div class='row search'>
 <form accept-charset="UTF-8" action="/search" data-remote="true" id="search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
 <input class="form-control input-sm" id="search_keyword" name="search_keyword" placeholder="search" type="search" />
 <i class='fa fa-search icon-search' id='icon-search' onclick='search()'></i>
 </form>
-</div>
+</div> -->
 
 
 
@@ -218,7 +221,7 @@ New Horizons Company
 <a href="config.php">Configure
 <i class='fa fa-wrench icon'></i>
 </a></li>
- <li id='sites-link'   <?php echo ( !in_array(5, $user_roles_parts) ? 'style="display:none;"' : '')?> >
+ <li id='roles-link'   <?php echo ( !in_array(5, $user_roles_parts) ? 'style="display:none;"' : '')?> >
 <a href="role_table.php">Role Table
 <i class='fa fa-cogs icon'></i>
 </a></li>
@@ -250,8 +253,10 @@ jQuery( document ).ready(function() {
 		jQuery("#employees-link").addClass( "active" );
 	if(str.search("alerts.php") != '-1')
 		jQuery("#alerts-link").addClass( "active" );
+	if(str.search("role_table.php") != '-1')
+		jQuery("#roles-link").addClass( "active" );
 	
-	if(str.search("config.php")  != '-1'  || str.search("vendor_new.php")  != '-1'  || str.search("asset_category_new.php")    != '-1' || str.search("department_new.php") != '-1')
+	if(str.search("config.php")  != '-1'  || str.search("vendor_new.php")  != '-1'  || str.search("asset_category_new.php")    != '-1' || str.search("department_new.php") != '-1' || str.search("project_new.php") != '-1')
 		jQuery("#configure-link").addClass( "active" );
 	
 		
