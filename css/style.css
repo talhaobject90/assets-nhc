@@ -52,3 +52,33 @@ white-space: nowrap;
 .col-center{
   margin:0 auto;
 }
+
+.search-query{
+	box-sizing: border-box;
+	-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+box-sizing: content-box;
+-webkit-appearance: textfield;
+
+
+height: 15px;
+padding: 5px 10px;
+font-size: 12px;
+line-height: 1.5;
+
+color: #555;
+vertical-align: middle;
+background-color: #fff;
+border: 1px solid #ccc;
+
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+border-radius: 3px;
+
+	
+	
+	
+}

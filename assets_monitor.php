@@ -2,6 +2,8 @@
 	include_once('header-pop.php');
 	
 	include_once('db_connect.php');
+	if($_SESSION['authorization_status'])
+	{
 	
 	if(isset($_GET['delete']))
 	{
@@ -43,6 +45,7 @@ Toggle the icons to quickly filter by status
 </h4>
 
 </div>
+ 
 <div class="row">
 <div class="page-content col-md-12">
  
@@ -53,6 +56,18 @@ if(isset($_GET['search']))
 else
   $all_assets_query = "SELECT * FROM `".$assets_table."`;";
 $all_assets = mysql_query($all_assets_query);
+if( mysql_num_rows($all_assets) == 0){
+	echo '<div class="row">
+<div id="notices">
+<div class="alert alert-danger  col-md-2 col-md-offset-5" role="alert">
+  <p>No results found ! </p>
+</div> </div>
+
+</div>';
+	}
+else{
+
+
 echo '<table class="table table-hover">';
 echo '<th>ID</th><th>Asset Name</th><th>Asset Location</th><th>Custodian</th><th>Status</th><th></th><th></th>';
 while($row = mysql_fetch_array($all_assets)) {
@@ -66,6 +81,7 @@ echo '<tr ><td>'.$row['id'].'</td><td>'.$row['name'].'</td><td>'.$row['location'
 
 }
 echo '</table>';
+}
 ?>
 
 </div>
@@ -75,4 +91,16 @@ echo '</table>';
 </div>
 </div>
 </div>
-	<?php   include_once('footer-pop.php'); ?>
+	<?php
+	}
+	else{
+
+echo '<div class="row  ">
+			<div class=" col-md-12 col-md-offset-2  vcenter">
+			<h1> YOU ARE NOT AUTHORIZED TO ACCESS THIS PAGE</h1>
+			<a href="dashboard.php"> Back to dashboard </a>
+			</div>
+			</div>';
+}
+	
+include_once('footer-pop.php'); ?>

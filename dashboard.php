@@ -122,7 +122,7 @@
 <br><br><br>
 <div class="row">
   <div class="col-xs-6 col-md-4  col-centered"   >
-    <a href="alerts.php" class="thumbnail">
+    <a href="report.php" class="thumbnail">
         <i class="fa fa-sort-alpha-desc  dash_thumb"></i> 
         <p>Reports</p>
     </a>

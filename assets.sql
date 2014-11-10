@@ -310,7 +310,7 @@ CREATE TABLE `screens` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `screen_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,6 +324,7 @@ INSERT INTO `screens` VALUES (2,'alerts_screen');
 INSERT INTO `screens` VALUES (3,'employees_screen');
 INSERT INTO `screens` VALUES (4,'configure_screen');
 INSERT INTO `screens` VALUES (5,'role_table');
+INSERT INTO `screens` VALUES (6,'reports_screen');
 /*!40000 ALTER TABLE `screens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -348,11 +349,11 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (1,'Admin','a:5:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";}');
+INSERT INTO `user_roles` VALUES (1,'Admin','a:6:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";i:5;s:1:\"6\";}');
 INSERT INTO `user_roles` VALUES (2,'Data Entry Operator','a:2:{i:0;s:1:\"1\";i:1;s:1:\"5\";}');
 INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinators','a:1:{i:0;s:1:\"1\";}');
 INSERT INTO `user_roles` VALUES (4,'Approver','');
-INSERT INTO `user_roles` VALUES (11,'trainee','a:4:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";}');
+INSERT INTO `user_roles` VALUES (11,'trainee','a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,4 +420,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-10 17:59:12
+-- Dump completed on 2014-11-10 23:16:09

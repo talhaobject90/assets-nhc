@@ -50,6 +50,16 @@ else
 	
   $all_assets_query = "SELECT * FROM `".$employee_table."`;";
 $all_assets = mysql_query($all_assets_query);
+if( mysql_num_rows($all_assets) == 0){
+	echo '<div class="row">
+<div id="notices">
+<div class="alert alert-danger  col-md-2 col-md-offset-5" role="alert">
+  <p>No results found ! </p>
+</div> </div>
+
+</div>';
+}
+else{
 echo '<table class="table table-hover">';
 echo '<th>ID</th><th>Employee Name</th><th>Email</th><th>Department</th><th>Phone</th><th>Status</th><th></th><th></th>';
 while($row = mysql_fetch_array($all_assets)) {
@@ -61,6 +71,7 @@ echo '<tr ><td>'.$row['id'].'</td><td>'.$row['employee_name'].'</td><td>'.$row['
 
 }
 echo '</table>';
+}
 ?>
 
 </div>
