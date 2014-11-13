@@ -76,7 +76,7 @@ if ( isset($_POST["submit"]) ) {
 			
 			$allDataInSheet = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
 			$arrayCount = count($allDataInSheet);  // Here get total count of row in that Excel sheet
-			
+			$inserted = 0;
 			
 			for($i=3;$i<=$arrayCount;$i++){
  				$firstname= trim($allDataInSheet[$i]["G"]);
@@ -120,6 +120,7 @@ employee_phone
  '".$employee_phone."'
 );";
 			
+					$inserted++;
 				  	$insertTable= mysql_query($query);
 				  	
 				if (! $insertTable) {
@@ -131,7 +132,7 @@ employee_phone
 }
 else{
 	$msg = '<div class="alert alert-success  col-md-3 col-md-offset-5" role="alert">
-  <p>Database is updated.
+  <p>Database is updated with '.$inserted.' record.
 		</p>
 		<a href="dashboard.php"> Back to Dashboard </a>
 </div>';
@@ -148,7 +149,18 @@ else{
   <p>No file chosen.</p>
 </div>';
 	}
+	
+	if($inserted == 0)
+		$msg .= '<div class="alert alert-danger  col-md-2 col-md-offset-5" role="alert">
+  <p>No records are added.</p>
+</div>';
+	
 }
+
+
+	
+	
+
 
  
  
@@ -209,7 +221,7 @@ else{
 						
 
 						</form>
-						<?php  echo $msg ; ?>
+						<?php  echo $msg  ; ?>
 						</div>
 						
 					</div>

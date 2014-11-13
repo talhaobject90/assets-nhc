@@ -254,7 +254,7 @@ jQuery( document ).ready(function() {
 	
   	if(str.search("assets_monitor.php") != '-1' || str.search("assets_new.php") != '-1')
  		jQuery("#assets-link").addClass( "active" );
-	if(str.search("employees.php") != '-1')
+	if(str.search("employees.php") != '-1'   || str.search("import_excel.php") != '-1'   || str.search("employee_new.php") != '-1')
 		jQuery("#employees-link").addClass( "active" );
 	if(str.search("alerts.php") != '-1')
 		jQuery("#alerts-link").addClass( "active" );

@@ -549,7 +549,7 @@ CREATE TABLE `employee` (
   `employee_phone` varchar(20) NOT NULL,
   `employee_status` enum('inactive','active') NOT NULL DEFAULT 'active',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=362 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=369 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -558,12 +558,6 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Sami','Iskandrani','sami@nhc-ksa.com','iskandsa','CEO','Jeddah - HO','Office of the CEO','','active');
-INSERT INTO `employee` VALUES (2,'Fahmi','Ahmed','fahmi@nhc-ksa.com','tanrak','Manager, Support Services','Jeddah - HO','Support Services','','active');
-INSERT INTO `employee` VALUES (3,'Syed Abdul Aleem','','aaleem@nhc-ksa.com','10001','Commercial Manager','Jeddah - HO','Commercial and Business Development','','active');
-INSERT INTO `employee` VALUES (4,'Ali Abdullah Alzahrani','','aalzahrani@nhc-ksa.com','10002','Operations Manager','Jeddah','Operations Department','','active');
-INSERT INTO `employee` VALUES (5,'Abdul Rahman Abdullah Alzahran','','arzahrani@nhc-ksa.com','10083','H R Co-ordinator','Jeddah - HO','Human Resources Department','','active');
-INSERT INTO `employee` VALUES (6,'Asaad Adham Al Nemer','','asaad@nhc-ksa.com','10310','Area Manager','Rabigh Workshop','Operations Department','','active');
 INSERT INTO `employee` VALUES (7,'Fahad Ayman Al Saleh','','fahad.als@nhc-ksa.com','10285','HR Policy Supervisor','Jeddah - HO','Human Resources Department','','active');
 INSERT INTO `employee` VALUES (8,'Shahid Zaffar Iqbal','','','10308','Marketing Manager','Jubail','Operations Department','','active');
 INSERT INTO `employee` VALUES (9,'Ramil Sevilla Nacua','','ramilnacua34@yahoo.com','10299','Safety Officer','Yanbu','Operations Department','','active');
@@ -913,7 +907,13 @@ INSERT INTO `employee` VALUES (356,'sssssss','ddddd','','','','','','3435','');
 INSERT INTO `employee` VALUES (358,'Muhammad Ajmal Fazal Ellahi','','','10183','Fabricator','Abha','Operations Department','597954786','active');
 INSERT INTO `employee` VALUES (359,'Sherrehman Saifurahman','','','10312','Heavy Driver','Yanbu','Operations Department','597893493','active');
 INSERT INTO `employee` VALUES (360,'Devilal Bishwakarma Nara','','','10300','Blaster / Painter','Yanbu','Operations Department','597638478','active');
-INSERT INTO `employee` VALUES (361,'Wilson Gadores Sulit','Sulit','','10294','Pipe Fitter','Yanbu','Operations Department','639499450971','active');
+INSERT INTO `employee` VALUES (362,'Wilson Gadores Sulit','Sulit','','10294','Pipe Fitter','Yanbu','Operations Department','639499450971','active');
+INSERT INTO `employee` VALUES (363,'Sami','Iskandrani','sami@nhc-ksa.com','iskandsa','CEO','Jeddah - HO','Office of the CEO','','active');
+INSERT INTO `employee` VALUES (364,'Fahmi','Ahmed','fahmi@nhc-ksa.com','tanrak','Manager, Support Services','Jeddah - HO','Support Services','','active');
+INSERT INTO `employee` VALUES (365,'Syed Abdul Aleem','','aaleem@nhc-ksa.com','10001','Commercial Manager','Jeddah - HO','Commercial and Business Development','','active');
+INSERT INTO `employee` VALUES (366,'Ali Abdullah Alzahrani','','aalzahrani@nhc-ksa.com','10002','Operations Manager','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (367,'Abdul Rahman Abdullah Alzahran','','arzahrani@nhc-ksa.com','10083','H R Co-ordinator','Jeddah - HO','Human Resources Department','','active');
+INSERT INTO `employee` VALUES (368,'Asaad Adham Al Nemer','','asaad@nhc-ksa.com','10310','Area Manager','Rabigh Workshop','Operations Department','','active');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1159,4 +1159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-13 19:47:15
+-- Dump completed on 2014-11-13 21:16:07
