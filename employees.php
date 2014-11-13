@@ -3,6 +3,13 @@
 	
 	include_once('db_connect.php');
 	
+	if(isset($_POST['truncate']))
+	{
+		$mysql_query = "TRUNCATE TABLE`".$employee_table."` ;";
+		mysql_query($mysql_query);
+	}
+		
+	
 	if(isset($_GET['delete']))
 	{
 		$delete_id = $_GET['delete'];
@@ -24,6 +31,11 @@
 <div class="page-menus">
 <a href="employee_new.php"><i class="icon fa fa-plus"></i><span>Add new employee</span></a>
 <a href="import_excel.php"><i class="icon fa fa-plus"></i><span>Import employees</span></a>
+
+<form onsubmit="return confirm('Do you really want to truncate employees table ?');"  action="" method="post">
+<a ><input type="submit" name="truncate"  value = "Truncate"></a>
+</form>
+
 </div>
 </div>
 

@@ -7,7 +7,7 @@
 	<div class="row">
 	<div class="canvas col-md-12" id="main-canvas">
 	<form accept-charset="UTF-8" action="report_gen.php" class="form-horizontal"
-			id="purchase-main-form" method="post">
+			id="purchase-main-form" method="post"  >
 				
 				
 			<section class="form col-sm-9" id="purchase">

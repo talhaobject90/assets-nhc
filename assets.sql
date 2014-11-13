@@ -549,7 +549,7 @@ CREATE TABLE `employee` (
   `employee_phone` varchar(20) NOT NULL,
   `employee_status` enum('inactive','active') NOT NULL DEFAULT 'active',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -558,6 +558,56 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES (1,'Sami','Iskandrani','sami@nhc-ksa.com','iskandsa','CEO','Jeddah - HO','Office of the CEO','','active');
+INSERT INTO `employee` VALUES (2,'Fahmi','Ahmed','fahmi@nhc-ksa.com','tanrak','Manager, Support Services','Jeddah - HO','Support Services','','active');
+INSERT INTO `employee` VALUES (3,'Syed Abdul Aleem','','aaleem@nhc-ksa.com','10001','Commercial Manager','Jeddah - HO','Commercial and Business Development','','active');
+INSERT INTO `employee` VALUES (4,'Ali Abdullah Alzahrani','','aalzahrani@nhc-ksa.com','10002','Operations Manager','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (5,'Abdul Rahman Abdullah Alzahran','','arzahrani@nhc-ksa.com','10083','H R Co-ordinator','Jeddah - HO','Human Resources Department','','active');
+INSERT INTO `employee` VALUES (6,'Asaad Adham Al Nemer','','asaad@nhc-ksa.com','10310','Area Manager','Rabigh Workshop','Operations Department','','active');
+INSERT INTO `employee` VALUES (7,'Fahad Ayman Al Saleh','','fahad.als@nhc-ksa.com','10285','HR Policy Supervisor','Jeddah - HO','Human Resources Department','','active');
+INSERT INTO `employee` VALUES (8,'Shahid Zaffar Iqbal','','','10308','Marketing Manager','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (9,'Ramil Sevilla Nacua','','ramilnacua34@yahoo.com','10299','Safety Officer','Yanbu','Operations Department','','active');
+INSERT INTO `employee` VALUES (10,'Muhammed','Hussain','','new019','Safety Officer','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (11,'Mahboob','Khan','','new020','Safety Officer','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (12,'Muhammed Ikram','','','10318','Safety Officer','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (13,'Muhammed Anjad Ali','','','10315','Safety Officer','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (14,'Fayaz','Mohammed Riyasat Ali','','10411','Safety Officer','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (15,'William Arevalo Cadangan','','williamcadangan@yahoo.com','10092','GRP Laminator','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (16,'Michael Lagat Santiago','','','10298','GRP Laminator','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (17,'Jun Rey Casama Dionglay','','','10296','GRP Laminator','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (18,'Syed Akbar Batcha','','','10154','Mech. Supervisor','Jeddah','Operations Department','507963892','active');
+INSERT INTO `employee` VALUES (19,'Syed','Tasawar Hussain Shah','','10339','Mech. Supervisor','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (20,'Haseeb','Khalid','','10345','Mech. Supervisor','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (21,'Narayanan','Deivasigamani','dnarayan@nhc-ksa.com','10241','Project Manager','Jubail','Operations Department','567067003','active');
+INSERT INTO `employee` VALUES (22,'Bansh','Raj Yadav','','10372','Welder-TIG','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (23,'Prakasam Ramasamy Ethiraj','','prakaaash1984@gmail.com','10151','Welder-TIG','Yanbu','Operations Department','544385238','active');
+INSERT INTO `employee` VALUES (24,'Shamsudeen Kader Mydeen','','','10152','Welder-TIG','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (25,'Sureshbabu Arumugam','','','10179','Welder-TIG','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (26,'Reuban Franklin Gnanaprakasam','','','10186','Welder-TIG','Yanbu','Operations Department','','active');
+INSERT INTO `employee` VALUES (27,'Percibal Bacay Sumalde','','','10203','Welder-TIG','Jeddah','Operations Department','503274386','active');
+INSERT INTO `employee` VALUES (28,'Emil Padua Ronatay','','nhong_06@yahoo.com','10211','Welder-TIG','Jeddah','Operations Department','503274384','active');
+INSERT INTO `employee` VALUES (29,'Sultan Abul Razaq Mohammed','','','10261','Welder-TIG','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (30,'MOHAMMAD','FARID ALAM MAHTAB ALAM','','iv1216','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (31,'NISHIKANT','PARIDA NARENDRA KUMAR PARIDA','','iv1214','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (32,'Fakhruddin','Ansari Abdul Kudus Ansari','','iv1215','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (33,'MOHAMMAD','ISTIYAK AHMAD MOHAMMED MUKHTAR','','iv1213','Welder-TIG','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (34,'Sajeesh Kombath Rajan','','','10323','Welder-TIG','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (35,'Pratab Kumar Singh','','','10324','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (36,'Fazal Akbar','','','10317','Welder-TIG','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (37,'BABALU','TIWARI KAUSHALAKISHOR TIWARI','','iv1229','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (38,'SADDAM','HUSAIN IDDRISHALI','','iv1228','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (39,'JALALUDDIN','ANSARI SATTAR AHMAD','','iv1227','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (40,'NOOR','ALAM MOHAMMAD MAHBOOB','','iv1226','Welder-TIG','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (41,'Ejaz','Hussain Kanjal Malik Ameer','','new066','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (42,'Sohail','Mehmood Chudry Mazhar','','new067','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (43,'Vineeth','Palliparambil Xavier','','10408','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (44,'Muhammad','Ashfaq Noor Muhammad','','10400','Welder-TIG','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (45,'Reji Philip','','reji.philip@nhc-ksa.com','10262','Technical Advisor','Abha','Operations Department','0501866826, 05476464','active');
+INSERT INTO `employee` VALUES (46,'Sohel Arman','','','10026','Welder-TIG & SMAW','Yanbu','Operations Department','','active');
+INSERT INTO `employee` VALUES (47,'Mustak Khan','','','10027','Welder-TIG & SMAW','Jeddah','Operations Department','','active');
+INSERT INTO `employee` VALUES (48,'Mohammad Firoz Khan','','','10155','Welder-TIG & SMAW','Jeddah','Operations Department','531604537','active');
+INSERT INTO `employee` VALUES (49,'Jamaluddin Saddar Din','','','10271','Welder-TIG & SMAW','Yanbu','Operations Department','','active');
+INSERT INTO `employee` VALUES (50,'PREM','MISHRA RAMCHANDRA MISHRA','','iv1230','Electric Foreman','Jubail','Operations Department','','active');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -803,4 +853,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-13 22:07:55
+-- Dump completed on 2014-11-13 22:41:53
