@@ -29,7 +29,7 @@ if ( isset($_POST["submit"]) ) {
 			if (file_exists($_FILES["file"]["name"])) {
  				unlink($_FILES["file"]["name"]);
 			}
-			$storagename = "Report.xls";
+			$storagename = "Report.xlsx";
 			move_uploaded_file($_FILES["file"]["tmp_name"],  $storagename);
 			$uploadedStatus = 1;
 			
@@ -86,7 +86,7 @@ if ( isset($_POST["submit"]) ) {
 			
 			
 			// This is the file path to be uploaded.
-			$inputFileName = 'Report.xls';
+			$inputFileName = 'Report.xlsx';
 			
 			
 			try {

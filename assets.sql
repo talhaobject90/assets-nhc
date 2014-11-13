@@ -606,7 +606,7 @@ INSERT INTO `employee` VALUES (45,'Reji Philip','','reji.philip@nhc-ksa.com','10
 INSERT INTO `employee` VALUES (46,'Sohel Arman','','','10026','Welder-TIG & SMAW','Yanbu','Operations Department','','active');
 INSERT INTO `employee` VALUES (47,'Mustak Khan','','','10027','Welder-TIG & SMAW','Jeddah','Operations Department','','active');
 INSERT INTO `employee` VALUES (48,'Mohammad Firoz Khan','','','10155','Welder-TIG & SMAW','Jeddah','Operations Department','531604537','active');
-INSERT INTO `employee` VALUES (49,'Jamaluddin Saddar Din','','','10271','Welder-TIG & SMAW','Yanbu','Operations Department','','active');
+INSERT INTO `employee` VALUES (49,'Jamaluddin Saddar Din','aa','','10271','Welder-TIG & SMAW','Yanbu','Operations Department','','active');
 INSERT INTO `employee` VALUES (50,'PREM','MISHRA RAMCHANDRA MISHRA','','iv1230','Electric Foreman','Jubail','Operations Department','','active');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -853,4 +853,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-13 22:41:53
+-- Dump completed on 2014-11-13 22:55:37
