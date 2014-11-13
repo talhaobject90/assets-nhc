@@ -261,9 +261,11 @@ else
 															<?php 
 															$edit_query ="SELECT * FROM `".$employee_table."` ;" ;
 															$edit_query = mysql_query($edit_query);
-															while($rows = mysql_fetch_array($edit_query)) { ?>
-															<option value="<?php echo $rows['employee_name']; ?>"
-																<?php echo ($asset_det['custodian'] ==  $rows['employee_name'] ? 'selected="selected"' : '')?>><?php echo $rows['employee_name']; ?></option>
+															while($rows = mysql_fetch_array($edit_query)) {
+
+ ?>
+															<option value="<?php echo $rows['first_name'].' ' . $rows['last_name']; ?>"
+																<?php echo ($asset_det['custodian'] == $rows['first_name'].' ' . $rows['last_name'] ? 'selected="selected"' : '')?>><?php  echo  $rows['first_name'].' ' . $rows['last_name'];?></option>
 																<?php } ?>
 															
 															

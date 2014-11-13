@@ -2,6 +2,7 @@
 	include_once('header-pop.php');
 	include_once('db_connect.php');
 	
+ 	
 	if(isset($_GET['edit'])){
 		$Edit_mode = true;
 		$edit_id = $_GET['edit'];
@@ -9,17 +10,21 @@
 	
 	if(isset($_POST['update']))
 	{
-		if(isset($_POST['employee_name']) && $_POST['employee_name'] != ''){
+		
+		if(isset($_POST['first_name']) && $_POST['first_name'] != ''){
 			 
  			
-			        $mysql_query = "UPDATE `".$employee_table."` SET 
-			       `employee_name`='".trim($_POST["employee_name"])."',
+			          $mysql_query = "UPDATE `".$employee_table."` SET 
+			       `first_name`='".trim($_POST["first_name"])."',
+			       		`last_name`='".trim($_POST["last_name"])."',
 			       	`employee_email`='".trim($_POST["employee_email"])."',
 			       	`employee_department`='".trim($_POST["employee_department"])."',
 			       	`employee_phone`='".trim($_POST["employee_phone"])."',
 			       	`employee_status`='".trim($_POST["employee_status"])."'
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
+			  
+			  
 			   
 		}
  	}
@@ -27,16 +32,18 @@
  	
  	if(isset($_POST['save']))
  	{
- 	if(isset($_POST['employee_name']) && $_POST['employee_name'] != ''){
+ 	if(isset($_POST['first_name']) && $_POST['first_name'] != ''){
  		
  		         $mysql_query = "INSERT INTO `".$employee_table."`
- 		       		( `employee_name`,
+ 		       		( `first_name`,
+ 		         		 `last_name`,
  		         		`employee_email`,
  		         		`employee_department`,
  		         		`employee_phone`,
  		         		`employee_status`
 				 ) VALUES
-				('".trim($_POST["employee_name"])."',
+				('".trim($_POST["first_name"])."',
+						'".trim($_POST["last_name"])."',
 				'".trim($_POST["employee_email"])."',
 				'".trim($_POST["employee_department"])."',
 				'".trim($_POST["employee_phone"])."',
@@ -61,7 +68,8 @@
 		$edit_query = mysql_query($edit_query);
 		while($rows = mysql_fetch_array($edit_query)) {
  		 	$asset_det['employee_id'] = trim($rows['id']);
-			$asset_det['employee_name'] = trim($rows['employee_name']);
+ 		 	$asset_det['first_name'] = trim($rows['first_name']);
+			$asset_det['last_name'] = trim($rows['last_name']);
 			$asset_det['employee_email'] = trim($rows['employee_email']);
 			$asset_det['employee_department'] = trim($rows['employee_department']);
 			$asset_det['employee_phone'] = trim($rows['employee_phone']);
@@ -115,12 +123,27 @@ if(isset($asset_det['vendor_id']))
 					<div class="form-group col-sm-4 item-qty"
 													style="margin-right: 5px;">
 													<div class="ship-to-location">
-														<label for="purchase_Ship to Location">Employee Name</label>
+														<label for="purchase_Ship to Location">First Name</label>
 														<br>
 														 
-														<input class="form-control" name="employee_name"
+														<input class="form-control" name="first_name"
 															placeholder="Employee Name"
-															value="<?php echo (isset($asset_det['employee_name'])?$asset_det['employee_name'] : '')?>"
+															value="<?php echo (isset($asset_det['first_name'])?$asset_det['first_name'] : '')?>"
+															type="text">
+
+													</div>
+												</div>
+												
+												
+														<div class="form-group col-sm-4 item-qty"
+													style="margin-right: 5px;">
+													<div class="ship-to-location">
+														<label for="purchase_Ship to Location">Last Name</label>
+														<br>
+														 
+														<input class="form-control" name="last_name"
+															placeholder="Employee Name"
+															value="<?php echo (isset($asset_det['last_name'])?$asset_det['last_name'] : '')?>"
 															type="text">
 
 													</div>
@@ -194,7 +217,7 @@ if(isset($asset_det['vendor_id']))
  												<?php  
 if($Edit_mode){
 	echo '<input class="btn btn-default"  type="submit" name="update" value="Update Employee"  style="background-color: #ffe400;margin-bottom:10px;font-weight:bold;">';
-	echo '<a href="employee.php"><input class="btn btn-default"  type="button"  value="Cancel"   style="background-color: #ffe400;margin-bottom:10px; margin-left:10px;font-weight:bold;"></a>';
+	echo '<a href="employees.php"><input class="btn btn-default"  type="button"  value="Cancel"   style="background-color: #ffe400;margin-bottom:10px; margin-left:10px;font-weight:bold;"></a>';
 	
 	}
 else{

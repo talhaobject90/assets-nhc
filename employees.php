@@ -22,7 +22,9 @@
 <div class="page-header">
 <h1>Employees</h1>
 <div class="page-menus">
-<a href="employee_new.php"><i class="icon fa fa-plus"></i><span>Add new employee</span></a></div>
+<a href="employee_new.php"><i class="icon fa fa-plus"></i><span>Add new employee</span></a>
+<a href="import_excel.php"><i class="icon fa fa-plus"></i><span>Import employees</span></a>
+</div>
 </div>
 
 <form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;">
@@ -45,11 +47,10 @@ Toggle the icons to quickly filter by status
 <?php 
 
 if(isset($_GET['search']))
-	$all_assets_query = "SELECT * FROM `".$employee_table."`   WHERE   `employee_name` LIKE '%".$_GET['search']."%';";
+	$all_assets_query = "SELECT * FROM `".$employee_table."`  WHERE `first_name` LIKE '%".$_GET['search']."%' OR `last_name` LIKE '%".$_GET['search']."%'  ";
 else
-	
   $all_assets_query = "SELECT * FROM `".$employee_table."`;";
-$all_assets = mysql_query($all_assets_query);
+  $all_assets = mysql_query($all_assets_query);
 if( mysql_num_rows($all_assets) == 0){
 	echo '<div class="row">
 <div id="notices">
@@ -61,14 +62,17 @@ if( mysql_num_rows($all_assets) == 0){
 }
 else{
 echo '<table class="table table-hover">';
-echo '<th>ID</th><th>Employee Name</th><th>Email</th><th>Department</th><th>Phone</th><th>Status</th><th></th><th></th>';
+echo '<th>ID</th><th>Employee Name</th><th>Email</th><th>User Name</th><th>Department</th><th></th><th></th>';
 while($row = mysql_fetch_array($all_assets)) {
-if($row['employee_status'] == 'active')
-	$status ='Active';
-elseif ($row['employee_status'] == 'inactive')
-	$status = 'Inactive';
-echo '<tr ><td>'.$row['id'].'</td><td>'.$row['employee_name'].'</td><td>'.$row['employee_email'].'</td><td>'.$row['employee_department'].'</td><td>'.$row['employee_phone'].'</td><td  class="text-capitalize">'.$status.'</td><td><a href="employee_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="employees.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+ 
+echo '<tr><td>'.$row['id'].'</td>
+    		<td>'.$row['first_name'].' '.$row['last_name'].' </td>
+        		<td>'.$row['employee_email'].'</td>
+        		<td >'.$row['user_name'].'</td><td >'.$row['employee_department'].'</td>
+        		<td><a href="employee_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td>
+		 <td><a href="employees.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td>
 
+		</tr>';
 }
 echo '</table>';
 }

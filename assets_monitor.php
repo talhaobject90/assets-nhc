@@ -61,7 +61,8 @@ if( mysql_num_rows($all_assets) == 0){
 <div id="notices">
 <div class="alert alert-danger  col-md-2 col-md-offset-5" role="alert">
   <p>No results found ! </p>
-</div> </div>
+</div> 
+				</div>
 
 </div>';
 	}

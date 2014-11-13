@@ -31,6 +31,7 @@ else{
 switch ($myurl){
 	case 'assets_monitor.php':
 	case 'assets_new.php':
+		case 'import_excel.php':
 		$screen_id = 1;
 		break;
 
@@ -159,7 +160,7 @@ $_SESSION['redirected'] =  'yes';  */
 	<div class='container'>
 	
 	
-	<?php  if($_SESSION['authorization_status']  ||  $myurl == 'dashboard.php')
+	<?php  if($_SESSION['authorization_status']  ||  $myurl == 'dashboard.php'  )
 	{
 		?>
 	

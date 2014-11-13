@@ -56,13 +56,15 @@
 	<div class="row">
 		<div class="canvas col-md-12" id="main-canvas"  style="padding-top: 100px;">
 		
-		
- 
-	 
 							<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary   pull-right" data-toggle="modal" data-target="#myModal">
   <?php  echo ($username_not_set?'Set Password':'Change Password') ;?>
 </button>
+<br>
+<br>
+<br>
+
+
 
 
 			 
