@@ -251,6 +251,7 @@ else{
 								<div class="alert alert-danger  col-md-8 col-md-offset-2" role="alert"  style=" margin-top: 50px; " >
  													<p>Import employees by uploading the excel file generated from Reports Generator  . </p>
   <p>The excel file should contain all fields available under Employee Reports (Data Columns). This is mandatory </p>
+  <p>The excel file should be .xlsx format . The Report Generator is providing old .xls format (Open the .xls file and save it in .xlsx format (2007) )  . </p>
 </div>
 </div>
  						

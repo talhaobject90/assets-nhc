@@ -29,6 +29,37 @@ function create_excel($sort_by, $order_by, $assets_table){
 	$rowCount++;
 	$objPHPExcel->getActiveSheet()->SetCellValue('E2'.$rowCount,'Assets Report - New Horizons Company');
 	
+	
+	$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(10);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('N')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('O')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('P')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('Q')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('R')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('S')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('T')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('U')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('V')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('W')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('X')->setWidth(20);
+	$objPHPExcel->getActiveSheet()->getColumnDimension('Y')->setWidth(20);
+	
+	
+	
+	
+	
 	$objPHPExcel->getActiveSheet()->SetCellValue('A'.$rowCount,'Asset id');
 	$objPHPExcel->getActiveSheet()->SetCellValue('B'.$rowCount,'Asset Name');
 	$objPHPExcel->getActiveSheet()->SetCellValue('C'.$rowCount,'Asset description');
