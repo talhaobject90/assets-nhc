@@ -173,8 +173,7 @@ else{
  
  
  <div class="col-md-9 col-lg-10" id="content">
-	<div class="row">
-		<div class="canvas col-md-12" id="main-canvas">
+ 		<div class="canvas col-md-12" id="main-canvas">
 		
 		
  
@@ -218,13 +217,22 @@ else{
  												<input class="btn btn-default" type="button" value="Cancel" style="margin-left:10px;font-weight:bold;&quot;"></a>					
  												
  													</section>
+  													
 						
 
-						</form>
+						</form><br><br>
+										<div class="row"  >
+					
 						<?php  echo $msg  ; ?>
-						</div>
 						
+								<div class="alert alert-danger  col-md-8 col-md-offset-2" role="alert"  style=" margin-top: 50px; " >
+ 													<p>Import employees by uploading the excel file generated from Reports Generator  . </p>
+  <p>The excel file should contain all fields available under Employee Reports (Data Columns). This is mandatory </p>
+</div>
+</div>
+ 						
 					</div>
+				
 				
 		<div class="clear">
 		</div>
