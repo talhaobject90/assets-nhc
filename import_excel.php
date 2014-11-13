@@ -44,10 +44,20 @@ if ( isset($_POST["submit"]) ) {
 			
 			/************************ YOUR DATABASE CONNECTION START HERE   ****************************/
 			
+			
+			if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false){
 			define ("DB_HOST", "localhost"); // set database host
 			define ("DB_USER", "root"); // set database user
 			define ("DB_PASS","password"); // set database password
 			define ("DB_NAME","assets"); // set database name
+			}
+			else{
+				
+				define ("DB_HOST", "127.3.13.2"); // set database host
+				define ("DB_USER", "adminxntQq3s"); // set database user
+				define ("DB_PASS","s-FSsSggM7q3"); // set database password
+				define ("DB_NAME","assets"); // set database name
+			}
 			
 			$link = mysql_connect(DB_HOST, DB_USER, DB_PASS) or die("Couldn't make connection.");
 			$db = mysql_select_db(DB_NAME, $link) or die("Couldn't select database");
