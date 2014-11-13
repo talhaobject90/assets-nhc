@@ -29,7 +29,7 @@ if ( isset($_POST["submit"]) ) {
 			if (file_exists($_FILES["file"]["name"])) {
  				unlink($_FILES["file"]["name"]);
 			}
-			$storagename = "Report.xlsx";
+			$storagename = "Report.xls";
 			move_uploaded_file($_FILES["file"]["tmp_name"],  $storagename);
 			$uploadedStatus = 1;
 			
@@ -72,8 +72,21 @@ if ( isset($_POST["submit"]) ) {
 			set_include_path(get_include_path() . PATH_SEPARATOR . 'Classes/');
 			include 'php_excel/Classes/PHPExcel/IOFactory.php';
 			
-			// This is the file path to be uploaded.
+/* 			require_once 'phpExcel/PHPExcel.php';
+			
 			$inputFileName = 'Report.xlsx';
+			$excel2 = PHPExcel_IOFactory::createReader('Excel2007');
+			$excel2 = $excel2->load($inputFileName.'.xlsx');
+			$excel2->setActiveSheetIndex(0);
+			$excel2->getActiveSheet()->setCellValue('H5', '4');
+			$objWriter = PHPExcel_IOFactory::createWriter($excel2, 'Excel2007');
+			$objWriter->save($inputFileName.'_.xlsx'); */
+			
+			
+			
+			
+			// This is the file path to be uploaded.
+			$inputFileName = 'Report.xls';
 			
 			
 			try {
