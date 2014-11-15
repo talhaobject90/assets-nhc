@@ -73,19 +73,12 @@ echo '<table class="table table-hover">';
 echo '<th>ID</th><th>Notification Type</th><th>Send to</th><th>Days to send notification</th> <th></th><th></th>';
 while($row = mysql_fetch_array($all_assets)) {
  
-  $all_assets_query = "SELECT * FROM `".$users_table."`   WHERE   `google_id`  = '".$row['send_to']."';";
+  $all_assets_query = "SELECT * FROM `".$user_roles_table."`   WHERE   `user_role_id`  = '".$row['send_to']."';";
   $all_assets_results = mysql_query($all_assets_query);
 while($user_row = mysql_fetch_array($all_assets_results)) {
-$user_name = $user_row['google_name'];
+$user_name = $user_row['user_role_name'];
 }
-
-
- 
-
-
-
-
-echo '<tr ><td>'.$row['id'].'</td><td>'.$row['notification_type'].'</td><td>'.$user_name.'</td><td>'.$row['days_before'].'</td> <td><a href="notify_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="notification_monitor.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+echo '<tr ><td>'.$row['id'].'</td><td>'.$row['notification_type'].'</td><td>'.$user_name.'</td><td>'.$row['days_before'].'</td> <td><a href="notify_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="notification_monitor.php?delete='.$row['id'].'"   ><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
 
 }
 echo '</table>';

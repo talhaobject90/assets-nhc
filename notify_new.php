@@ -40,7 +40,7 @@
  		  ?>
 
 <script type="text/javascript">
-				//window.location.href = "notification_monitor.php"
+				window.location.href = "notification_monitor.php"
  		  </script>
 
 <?php 
@@ -143,11 +143,11 @@ if(isset($asset_det['id']))
 														
 															<option   value="">- User-</option>
 															<?php  
-														$edit_query ="SELECT * FROM `".$users_table."` ;";
+														$edit_query ="SELECT * FROM `".$user_roles_table."` ;";
 														$edit_query = mysql_query($edit_query);
 														while($rows = mysql_fetch_array($edit_query)) {
 														?>
-															<option  <?php echo ($asset_det['send_to'] == $rows['google_id'] ? 'selected="selected"' : '')?> value="<?php  echo $rows['google_id'];?>"><?php  echo  $rows['google_name']; ?></option>
+															<option  <?php echo ($asset_det['send_to'] == $rows['user_role_id'] ? 'selected="selected"' : '')?> value="<?php  echo $rows['user_role_id'];?>"><?php  echo  $rows['user_role_name']; ?></option>
 															<?php  
 															}?>
 														</select>

@@ -16,7 +16,12 @@ if(isset($_POST['print_ticket']))
 
 
 
-  $edit_query = "SELECT *  FROM `".$assets_table."` INNER JOIN `".$tickets_table."` ON `".$tickets_table."`.`asset_id` = `".$assets_table."`.`id` AND `".$tickets_table."`.`id` =".$view_id.";";
+    $edit_query = "SELECT `".$assets_table."`.`id`,
+  												`".$assets_table."`.`name`, 
+  														`".$assets_table."`.`vehicle_number`,  
+  																`".$assets_table."`.`location` 
+  		
+  		  FROM `".$assets_table."` INNER JOIN `".$tickets_table."` ON `".$tickets_table."`.`asset_id` = `".$assets_table."`.`id` AND `".$tickets_table."`.`id` =".$view_id.";";
 $edit_query = mysql_query($edit_query);
 while($rows = mysql_fetch_array($edit_query)) {
 	$asset_det['id'] = $rows['id'];

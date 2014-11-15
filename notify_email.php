@@ -65,12 +65,27 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		$istemara_notify_query = "SELECT *  FROM " . $notify_table . " WHERE `notification_type` LIKE '%".$notification_type."%'   AND  `days_before`  = '".$left."' ;";
 		$istemara_notify_query_results = mysql_query ( $istemara_notify_query );
 		while ( $istemara_notify_row = mysql_fetch_array ( $istemara_notify_query_results ) ) {
-				$user_query = "SELECT *  FROM " . $users_table. " WHERE `google_id` = '".$istemara_notify_row['send_to']."'  ;";
-				$user_query_results = mysql_query ( $user_query);
+			$mysql_query = "INSERT INTO `".$tickets_table."`
+ 		       		( `asset_id`,
+					`expiry_type`,
+					`expiring_date`
+			
+				 ) VALUES
+				('".$istemara_row ['id']."',
+					'".$notification_type."',
+  					'".$istemara_row [$order_by]."'
+					)";
+			mysql_query($mysql_query);
+			$ticket_id = mysql_insert_id();
+			
+			
+				$user_query = "SELECT *  FROM " . $users_table. " WHERE `users_user_role_id` = '".$istemara_notify_row['send_to']."'  ;";
+				$user_query_results = mysql_query ($user_query);
 				while ( $user_query_row= mysql_fetch_array ( $user_query_results) ) {
-					$sent_to  = $user_query_row['google_email'];
+					  $sent_to  = $user_query_row['google_email'];
+					  notify ( $istemara_row ['name'], $istemara_row ['id'], $notification_type, $istemara_row [$order_by], $mail  , $sent_to , $ticket_id );
 				}
-					notify ( $istemara_row ['name'], $istemara_row ['id'], $notification_type, $istemara_row [$order_by], $mail  , $sent_to , $tickets_table );
+					
 					
 			}
 		}
@@ -83,27 +98,16 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 	
 		
 
-		function notify($asset, $asset_id ,  $expiry_type, $expiry_date ,  $mail , $sent_to , $tickets_table){
+		function notify($asset, $asset_id ,  $expiry_type, $expiry_date ,  $mail , $sent_to , $ticket_id){
 			
 			/*
 			 * 	OPENING TICKET FOR A PARTICULAR NOTIFICATION
 			 * 
 			 */
 			
-			
-			$mysql_query = "INSERT INTO `".$tickets_table."`
- 		       		( `asset_id`,
-					`expiry_type`,
-					`expiring_date`
-					
-				 ) VALUES
-				('".$asset_id."',
-					'".$expiry_type."',
-  					'".$expiry_date."'
-					)";
-			mysql_query($mysql_query);
 				
 			
+				
 			
 			
 			
@@ -118,7 +122,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		
 			$subjectPara1 = '<h3>The '.$expiry_type.' expiring shortly.</h3>';
 			$subjectPara2 = 'The '.$expiry_type.' expiry  for asset :  '.$asset.' (ID : '.$asset_id.' ) is on '.$expiry_date.' Kindly take necessary action.';
-			$subjectPara3 = 'A ticket is opened under ID : ' . mysql_insert_id();
+			$subjectPara3 = 'A ticket is opened under ID : ' . $ticket_id;
 			$subjectPara4 = NULL;
 			$subjectPara5 = NULL;
 		
@@ -187,13 +191,13 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		
 			$a = 1;
 		
-			//if(!$mail->send()) {
+		//if(!$mail->send()) {
 			if($a != 1) {
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 				
- 				echo  '<b>Send for asset id ' . $asset_id . ' to '.$sent_to . '</b><br>';
+ 				echo  '<b>Send for asset id ' . $asset_id . ' to '.$sent_to  . '     OPENED TICKET ID IS :'. mysql_insert_id().' </b><br>';
 				 			}
 		}
 		

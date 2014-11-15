@@ -76,7 +76,6 @@ INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintena
 INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','asfa','asdfbv','','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (36,'NEW TEST','Ass desc','ass loc','cus','active','2014-10-01','2014-10-02','2014-10-02','2014-10-03','2014-10-04','2014-10-05','acc  ','vio','1','2','3','veh num','','pur','cur','tot mina','tot dep','2014-10-06','2014-10-07');
 INSERT INTO `assets` VALUES (48,'Moto E','My Own motorolla','table','Mohammed Talha','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','NIL','nil','Mazdas','Vehicle','Human resources','9788755','XT895','7000','6999','tot mina','tot dep','2014-10-07','2014-10-08');
-INSERT INTO `assets` VALUES (49,'Black berry','thanseel','pocket','Mohammed Talha','active','2014-11-23','2014-11-24','2014-11-25','2014-11-26','2014-11-27','2014-11-28','nil','nil','Mazdas','Vehicle','Human resources','123123','23423','2323','234234','234','34','2014-11-29','2014-11-30');
 INSERT INTO `assets` VALUES (50,'Goodday','','','','active','2014-11-21','2014-11-22','2014-11-23','2014-11-24','2014-11-29','2014-11-26','','','','','','','','','','','','2014-11-27','2014-11-28');
 INSERT INTO `assets` VALUES (51,'sets','','','','','2014-11-18','2014-11-19','2014-11-20','2014-11-21','2014-11-22','2014-11-23','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (52,'jack','','','','','2014-11-12','2014-11-13','2014-11-14','2014-11-15','2014-11-16','2014-11-17','','','','','','','','','','','','0000-00-00','0000-00-00');
@@ -557,12 +556,12 @@ CREATE TABLE `google_users` (
 LOCK TABLES `google_users` WRITE;
 /*!40000 ALTER TABLE `google_users` DISABLE KEYS */;
 INSERT INTO `google_users` VALUES (100428232109775983047,'Mohammed Talhaqqq','','','talhaqqq@gmail.com',2,'https://plus.google.com/100428232109775983047','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','talha@object90.com','monu','talha@object90.com',1,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (106053436166547787694,'Mariappan C','','','mars@object90.com',2,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',3,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (106803781885381507211,'Bala P','','','bala223344@gmail.com',1,'https://plus.google.com/106803781885381507211','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (112556666499925624851,'Mhd Ali','m.ali@object90.com','ali','m.ali@object90.com',0,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','roneyp20@gmail.com',11,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','talha@object90.com','monu','talha@object90.com',3,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (106053436166547787694,'Mariappan C','','','mars@object90.com',1,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',1,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (106803781885381507211,'Bala P','','','bala223344@gmail.com',2,'https://plus.google.com/106803781885381507211','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (112556666499925624851,'Mhd Ali','m.ali@object90.com','ali','m.ali@object90.com',11,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','roneyp20@gmail.com',2,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 /*!40000 ALTER TABLE `google_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -667,7 +666,7 @@ CREATE TABLE `notify` (
   `send_to` varchar(200) NOT NULL,
   `days_before` int(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -676,12 +675,9 @@ CREATE TABLE `notify` (
 
 LOCK TABLES `notify` WRITE;
 /*!40000 ALTER TABLE `notify` DISABLE KEYS */;
-INSERT INTO `notify` VALUES (11,'Insurance Expiry','100678434091494690900',8);
-INSERT INTO `notify` VALUES (12,'Preventive Maintenance Expiry','100678434091494690900',10);
-INSERT INTO `notify` VALUES (13,'TUV Sticker Expiry','100678434091494690900',11);
-INSERT INTO `notify` VALUES (14,'Client Sticker Expiry','100678434091494690900',14);
-INSERT INTO `notify` VALUES (15,'MOT License Expiry','100678434091494690900',11);
-INSERT INTO `notify` VALUES (16,'Istemara Expiry','100678434091494690900',6);
+INSERT INTO `notify` VALUES (19,'Istemara Expiry','1',6);
+INSERT INTO `notify` VALUES (20,'Insurance Expiry','11',7);
+INSERT INTO `notify` VALUES (22,'Insurance Expiry','1',4);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -756,7 +752,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -765,21 +761,9 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (1,50,'Istemara Expiry','2014-11-21','opened');
-INSERT INTO `tickets` VALUES (2,49,'Preventive Maintenance Expiry','2014-11-25','opened');
-INSERT INTO `tickets` VALUES (3,49,'TUV Sticker Expiry','2014-11-26','opened');
-INSERT INTO `tickets` VALUES (4,50,'Client Sticker Expiry','2014-11-29','opened');
-INSERT INTO `tickets` VALUES (5,50,'MOT License Expiry','2014-11-26','opened');
 INSERT INTO `tickets` VALUES (6,50,'Istemara Expiry','2014-11-21','opened');
-INSERT INTO `tickets` VALUES (7,49,'Preventive Maintenance Expiry','2014-11-25','opened');
-INSERT INTO `tickets` VALUES (8,49,'TUV Sticker Expiry','2014-11-26','opened');
-INSERT INTO `tickets` VALUES (9,50,'Client Sticker Expiry','2014-11-29','opened');
-INSERT INTO `tickets` VALUES (10,50,'MOT License Expiry','2014-11-26','opened');
-INSERT INTO `tickets` VALUES (11,50,'Istemara Expiry','2014-11-21','opened');
-INSERT INTO `tickets` VALUES (12,49,'Preventive Maintenance Expiry','2014-11-25','opened');
-INSERT INTO `tickets` VALUES (13,49,'TUV Sticker Expiry','2014-11-26','opened');
-INSERT INTO `tickets` VALUES (14,50,'Client Sticker Expiry','2014-11-29','opened');
-INSERT INTO `tickets` VALUES (15,50,'MOT License Expiry','2014-11-26','opened');
+INSERT INTO `tickets` VALUES (7,51,'Insurance Expiry','2014-11-19','opened');
+INSERT INTO `tickets` VALUES (8,50,'Insurance Expiry','2014-11-22','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -806,7 +790,7 @@ LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
 INSERT INTO `user_roles` VALUES (1,'System Admin','a:7:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";i:5;s:1:\"6\";i:6;s:1:\"7\";}');
 INSERT INTO `user_roles` VALUES (2,'Data Entry Operator','a:2:{i:0;s:1:\"1\";i:1;s:1:\"5\";}');
-INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinator','a:1:{i:0;s:1:\"1\";}');
+INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinator','a:7:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";i:5;s:1:\"6\";i:6;s:1:\"7\";}');
 INSERT INTO `user_roles` VALUES (4,'Approver','');
 INSERT INTO `user_roles` VALUES (11,'Trainee','a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
@@ -875,4 +859,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-15 22:08:42
+-- Dump completed on 2014-11-15 23:30:46
