@@ -185,7 +185,7 @@
 					</div>
  
 	
- 	  <a href="tickets.php"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;"></a>
+ 	  <a href="tickets.php"><input class="btn btn-default"  type="button"  value="Back"   style= margin-left:10px;font-weight:bold;"></a>
 						</section>
 
 

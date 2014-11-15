@@ -31,7 +31,23 @@ while($rows = mysql_fetch_array($edit_query)) {
 
 require_once 'PHP_word/PHPWord.php';
 $PHPWord = new PHPWord();
-$document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_TICKET_TEMPLATE.docx');
+
+if($expiry_type  == 'Istemara Expiry')
+$document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_ISTEMARA_TICKET.docx');
+elseif ($expiry_type  == 'Preventive Maintenance Expiry')
+$document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_PREVENTIVE_MAINTENANCE_TICKET.docx');
+elseif ($expiry_type  == 'TUV Sticker Expiry')
+$document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_TUV_STICKER_EXPIRY_TICKET.docx');
+elseif ($expiry_type  == 'Client Sticker Expiry')
+$document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_CLIENT_STICKER_EXPIRY_TICKET.docx');
+elseif ($expiry_type  == 'MOT License Expiry')
+$document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_MOT_TICKET.docx');
+elseif ($expiry_type  == 'Insurance Expiry')
+$document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_INSURANCE_TICKET.docx');
+
+
+
+
 $document->setValue('expiry_type_title', 'aqaaaa');
 $document->setValue('expiry_type', $expiry_type);
 $document->setValue('asset_name', $asset_det['name']);

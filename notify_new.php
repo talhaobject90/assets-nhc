@@ -104,7 +104,7 @@ if(isset($asset_det['id']))
 {
 ?>
 <div class="asset_id_div">
-								<label for="asset_id_div">Project ID : </label> <label><?php  echo $asset_det['id'] ;?></label>
+								<label for="asset_id_div">Notification ID : </label> <label><?php  echo $asset_det['id'] ;?></label>
 							</div>
 							<br>
 <?php 
