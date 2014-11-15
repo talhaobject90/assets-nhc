@@ -172,7 +172,7 @@
 <ul class="nav nav-tabs" role="tablist">
   <li class="active"><a href="#users" role="tab" data-toggle="tab">Users</a></li>
   <li><a href="#user_roles" role="tab" data-toggle="tab">User Roles</a></li>
-  <li><a href="#role_screens" role="tab" data-toggle="tab">Role Screens</a></li>
+  <li  style="display: none;"><a href="#role_screens" role="tab" data-toggle="tab">Role Screens</a></li>
 </ul>
 
 <!-- Tab panes -->

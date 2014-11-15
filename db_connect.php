@@ -21,6 +21,7 @@ $notifications_table = 'notifications';
 $project_table = 'projects';
 $notification_types_table = 'notification_types';
 $notify_table = 'notify';
+$tickets_table = 'tickets';
 
 
 

@@ -62,6 +62,10 @@ switch ($myurl){
 		case 'report.php':
 			$screen_id = 6;
 			break;
+		case 'tickets.php':
+		case 'ticket_view.php':
+			$screen_id = 7;
+			break;
 }
 
 
@@ -218,15 +222,19 @@ New Horizons Company
 <a href="assets_monitor.php">Assets
 <i class='fa fa-file-text-o icon'></i>
 </a></li>
-<li id='alerts-link'  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?>  >
-<a href="alerts.php">Alerts
-<i class='fa fa-exclamation-triangle icon'></i>
-</a></li>
+
 
 <li id='notification-link'  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?>  >
 <a href="notification_monitor.php">Notifications
 <i class='fa fa-exclamation-triangle icon'></i>
 </a></li>
+
+
+<li id='tickets-link'  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?>  >
+<a href="tickets.php">Open Tickets
+<i class='fa fa-ticket icon'></i>
+</a></li>
+
 <li id='employees-link'  <?php echo ( !in_array(3, $user_roles_parts) ? 'style="display:none;"' : '')?>>
 <a href="employees.php">Employees
 <i class='fa fa-users icon'></i>
@@ -265,8 +273,8 @@ jQuery( document ).ready(function() {
  		jQuery("#assets-link").addClass( "active" );
 	if(str.search("employees.php") != '-1'   || str.search("import_excel.php") != '-1'   || str.search("employee_new.php") != '-1')
 		jQuery("#employees-link").addClass( "active" );
-	if(str.search("alerts.php") != '-1')
-		jQuery("#alerts-link").addClass( "active" );
+	if(str.search("tickets.php") != '-1'  || str.search("ticket_view.php") != '-1')
+		jQuery("#tickets-link").addClass( "active" );
 	if(str.search("notification_monitor.php") != '-1'   || str.search("notify_new.php") != '-1')
 		jQuery("#notification-link").addClass( "active" );
 	if(str.search("role_table.php") != '-1')

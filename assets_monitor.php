@@ -33,7 +33,7 @@
  
 <form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;">
     <div class="input-append  form-group">
-        <input type="text"  placeholder="Asset name"   name="search" class="span2 search-query">
+        <input type="text"  placeholder="Search Asset"   name="search" class="span2 search-query">
         <button type="submit" class="btn"  ><i class="fa fa-search icon"></i></button>
         
     </div>
@@ -52,7 +52,9 @@ Toggle the icons to quickly filter by status
 <?php 
 
 if(isset($_GET['search']))
-	$all_assets_query = "SELECT * FROM `".$assets_table."`   WHERE   `name` LIKE '%".$_GET['search']."%';";
+$all_assets_query =  "SELECT *  FROM `".$assets_table."` WHERE `name` LIKE '%".$_GET['search']."%'  OR `id` LIKE '%".$_GET['search']."%' OR `description` LIKE '%".$_GET['search']."%' OR `location` LIKE '%".$_GET['search']."%'
+OR `custodian` LIKE '%".$_GET['search']."%'  OR `vendor` LIKE '%".$_GET['search']."%'  OR `asset_category` LIKE '%".$_GET['search']."%'  OR `department` LIKE '%".$_GET['search']."%'
+OR `vehicle_number` LIKE '%".$_GET['search']."%'  OR `project` LIKE '%".$_GET['search']."%'  OR `status` LIKE '%".$_GET['search']."%'";
 else
   $all_assets_query = "SELECT * FROM `".$assets_table."`;";
 $all_assets = mysql_query($all_assets_query);

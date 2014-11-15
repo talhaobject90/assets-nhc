@@ -14,26 +14,37 @@
  
 	
 	// Trigger for Istemara expiry
-  //trigger_notification('istemara_expiry', 'Istemara Expiry', $mail , $assets_table , $notify_table , $users_table);
+	echo 'Istemara Expiry <hr> Asset id -- Days left';
+  trigger_notification('istemara_expiry', 'Istemara Expiry', $mail , $assets_table , $notify_table , $users_table ,$tickets_table);
+  echo '<hr>';
   
   // Trigger for insurance_expiry
-  trigger_notification('insurance_expiry', 'Insurance Expiry', $mail, $assets_table , $notify_table , $users_table);
+  echo 'Insurance Expiry <hr> Asset id -- Days left';
+  trigger_notification('insurance_expiry', 'Insurance Expiry', $mail, $assets_table , $notify_table , $users_table ,$tickets_table);
+  echo '<hr>';
   
   // Trigger for Preventive Maintenance Expiry
-  //trigger_notification('preventive_maintenance', 'Preventive Maintenance Expiry', $mail, $assets_table , $notify_table , $users_table);
-  
+  echo 'Preventive Maintenance Expiry <hr>Asset id -- Days left';
+ trigger_notification('preventive_maintenance', 'Preventive Maintenance Expiry', $mail, $assets_table , $notify_table , $users_table ,$tickets_table);
+ echo '<hr>';
   // Trigger for TUV Sticker Expiry
-// trigger_notification('tuv_sticker', 'TUV Sticker Expiry', $mail, $assets_table , $notify_table , $users_table);
+ echo 'TUV Sticker Expiry <hr> Asset id -- Days left';
+trigger_notification('tuv_sticker', 'TUV Sticker Expiry', $mail, $assets_table , $notify_table , $users_table , $tickets_table);
+echo '<hr>';
   
   // Trigger for Client Sticker Expiry
- // trigger_notification('client_sticker', 'Client Sticker Expiry', $mail, $assets_table , $notify_table , $users_table);
+echo 'Client Sticker Expiry<hr> Asset id -- Days left';
+  trigger_notification('client_sticker', 'Client Sticker Expiry', $mail, $assets_table , $notify_table , $users_table ,$tickets_table);
+  echo '<hr>';
   
   // Trigger for MOT License Expiry
- // trigger_notification('mot_license_expiry', 'MOT License Expiry', $mail, $assets_table , $notify_table , $users_table);
+  echo 'MOT License Expiry<hr> Asset id -- Days left';
+  trigger_notification('mot_license_expiry', 'MOT License Expiry', $mail, $assets_table , $notify_table , $users_table ,$tickets_table);
+  echo '<hr>';
   
   
 	
-	function trigger_notification($order_by, $notification_type , $mail , $assets_table , $notify_table ,$users_table){
+	function trigger_notification($order_by, $notification_type , $mail , $assets_table , $notify_table ,$users_table , $tickets_table){
 		
 		$today = date("Y-m-d");
 		$today = new DateTime($today);
@@ -43,10 +54,12 @@
 while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 	
 	if ($istemara_row [$order_by] != '' && $istemara_row [$order_by] != '0000-00-00') {
+		echo '<br>'.$istemara_row['id'].'----------';
 		$expiry_date = $istemara_row [$order_by];
 		$expiry_date = new DateTime ( $expiry_date );
 		$interval = $today->diff ( $expiry_date );
 		echo $left = $interval->format ( '%R%a ' );
+		
 		echo '<br>';
 		// select form notify table which users are opted for istemarta expiry for this days_before
 		$istemara_notify_query = "SELECT *  FROM " . $notify_table . " WHERE `notification_type` LIKE '%".$notification_type."%'   AND  `days_before`  = '".$left."' ;";
@@ -57,9 +70,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 				while ( $user_query_row= mysql_fetch_array ( $user_query_results) ) {
 					$sent_to  = $user_query_row['google_email'];
 				}
-				echo 'SEND';
-				echo $order_by;
-					notify ( $istemara_row ['name'], $istemara_row ['id'], $notification_type, $istemara_row [$order_by], $mail  , $sent_to );
+					notify ( $istemara_row ['name'], $istemara_row ['id'], $notification_type, $istemara_row [$order_by], $mail  , $sent_to , $tickets_table );
 					
 			}
 		}
@@ -72,7 +83,30 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 	
 		
 
-		function notify($asset, $asset_id ,  $expiry_type, $expiry_date ,  $mail , $sent_to){
+		function notify($asset, $asset_id ,  $expiry_type, $expiry_date ,  $mail , $sent_to , $tickets_table){
+			
+			/*
+			 * 	OPENING TICKET FOR A PARTICULAR NOTIFICATION
+			 * 
+			 */
+			
+			
+			$mysql_query = "INSERT INTO `".$tickets_table."`
+ 		       		( `asset_id`,
+					`expiry_type`,
+					`expiring_date`
+					
+				 ) VALUES
+				('".$asset_id."',
+					'".$expiry_type."',
+  					'".$expiry_date."'
+					)";
+			mysql_query($mysql_query);
+				
+			
+			
+			
+			
 		
 			$today = date("Y-m-d");
 				
@@ -83,8 +117,8 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 			$imgTitle = 'Logo'; // Change Alt Title tag/image title to your site specific settings
 		
 			$subjectPara1 = '<h3>The '.$expiry_type.' expiring shortly.</h3>';
-			$subjectPara2 = 'The '.$expiry_type.' expiry  for '.$asset.' is on '.$expiry_date.' Kindly take necessary action.';
-			$subjectPara3 = NULL;
+			$subjectPara2 = 'The '.$expiry_type.' expiry  for asset :  '.$asset.' (ID : '.$asset_id.' ) is on '.$expiry_date.' Kindly take necessary action.';
+			$subjectPara3 = 'A ticket is opened under ID : ' . mysql_insert_id();
 			$subjectPara4 = NULL;
 			$subjectPara5 = NULL;
 		
@@ -153,14 +187,14 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		
 			$a = 1;
 		
-			if(!$mail->send()) {
-			//if($a != 1) {
+			//if(!$mail->send()) {
+			if($a != 1) {
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 				
-				echo 'Message has been sent';
- 			}
+ 				echo  '<b>Send for asset id ' . $asset_id . ' to '.$sent_to . '</b><br>';
+				 			}
 		}
 		
 		

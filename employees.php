@@ -41,7 +41,7 @@
 
 <form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;">
     <div class="input-append  form-group">
-        <input type="text"  placeholder="Employee  name"   name="search" class="span2 search-query">
+        <input type="text"  placeholder="Search employee"   name="search" class="span2 search-query">
         <button type="submit" class="btn"  ><i class="fa fa-search icon"></i></button>
         
     </div>
@@ -59,7 +59,10 @@ Toggle the icons to quickly filter by status
 <?php 
 
 if(isset($_GET['search']))
-	$all_assets_query = "SELECT * FROM `".$employee_table."`  WHERE `first_name` LIKE '%".$_GET['search']."%' OR `last_name` LIKE '%".$_GET['search']."%'  ";
+$all_assets_query = " SELECT *  FROM `".$employee_table."` WHERE `first_name` LIKE '%".$_GET['search']."%'  OR `id` LIKE '%".$_GET['search']."%'   OR `last_name` LIKE '%".$_GET['search']."%' 
+OR `employee_email` LIKE '%".$_GET['search']."%' 
+OR `user_name` LIKE '%".$_GET['search']."%'  OR `designation` LIKE '%".$_GET['search']."%' 
+ OR `station` LIKE '%".$_GET['search']."%'  OR `employee_department` LIKE '%".$_GET['search']."%'";
 else
   $all_assets_query = "SELECT * FROM `".$employee_table."`;";
   $all_assets = mysql_query($all_assets_query);

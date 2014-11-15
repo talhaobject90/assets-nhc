@@ -114,7 +114,7 @@
   </div>
   
     <div class="col-xs-6 col-md-4   col-centered"   >
-    <a href="config.php" class="thumbnail">
+    <a href="tickets.php" class="thumbnail">
         <i class="fa fa-ticket   dash_thumb  "></i>
         <p>Open Tickets</p> 
     </a>

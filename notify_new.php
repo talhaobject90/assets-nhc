@@ -53,6 +53,7 @@
  		  $edit_query ="SELECT * FROM `".$notify_table."`  WHERE `id` =".$_GET['edit'].";";
 		$edit_query = mysql_query($edit_query);
 		while($rows = mysql_fetch_array($edit_query)) {
+
  			$asset_det['id'] = trim($rows['id']);
 			$asset_det['notification_type'] = trim($rows['notification_type']);
 			$asset_det['send_to'] = trim($rows['send_to']);
@@ -60,17 +61,7 @@
 			
 		}
 		}
-		else{
-$edit_query ="SELECT * FROM `".$notification_types_table."` ;";
-$edit_query = mysql_query($edit_query);
-while($rows = mysql_fetch_array($edit_query)) {
-	$asset_det['id'] = trim($rows['id']);
-	$asset_det['notification_type'] = trim($rows['notification_type']);
-	$asset_det['send_to'] = trim($rows['send_to']);
-	$asset_det['days_before'] = $rows['days_before'];
-}
-
-}
+	 
 
 
 
@@ -130,6 +121,7 @@ if(isset($asset_det['id']))
 														$edit_query ="SELECT * FROM `".$notification_types_table."` ;";
 														$edit_query = mysql_query($edit_query);
 														while($rows = mysql_fetch_array($edit_query)) {
+ 
 														?>
 															<option  <?php echo ($asset_det['notification_type'] == $rows['notification_type'] ? 'selected="selected"' : '')?> value="<?php  echo $rows['notification_type'];?>"><?php  echo $rows['notification_type']; ?></option>
 															<?php  
