@@ -107,9 +107,9 @@
 
 <div class="row">
   <div class="col-xs-6 col-md-4  col-centered"  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?> >
-    <a href="alerts.php" class="thumbnail">
+    <a href="notification_monitor.php" class="thumbnail">
         <i class="fa fa-exclamation-triangle   dash_thumb "></i> 
-        <p>Alerts</p>
+        <p>Notifications</p>
     </a>
   </div>
   

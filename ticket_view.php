@@ -185,8 +185,7 @@
 					</div>
  
 	
-  <input class="btn btn-default btn-primary"  type="submit"  name="save"  value="Save Notification"   >
-	  <a href="notification_monitor.php"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;"></a>
+ 	  <a href="tickets.php"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;"></a>
 						</section>
 
 
