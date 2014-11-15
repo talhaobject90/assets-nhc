@@ -12,36 +12,13 @@
 	include '/var/www/PHPMailer-master/PHPMailerAutoload.php';
 	$mail = new PHPMailer;
 	
-	
-	
-	/*  Notifications will be sent as per the following procedure;
-	 * 
-	 *  
-	 *  1. In DAILY CHECK , if expiry date is found within 
-	 *    			a) one month , notification is send each week
-	 *    			b) one week, notification is send each day
-	 *    			c) one day, ....
-	 */
-	
-	 /*
-	  * 		CHECK ISTEMARA EXPIRY
-	  * 
-	  */
-	
+ 
 	
 	
 	$today = date("Y-m-d");
 	$today = new DateTime($today);
 	
-	
-	
-
-	
-	
 	echo 'istemara<br><br><br>';
-	
-	
-	
 	
 	// DECLARING ESSENTIAL VARIBALES
 	$default_notified_gap = 33;

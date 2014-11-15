@@ -19,6 +19,11 @@ $user_screens_table = 'users_screens';
 $screens_table = 'screens';
 $notifications_table = 'notifications';
 $project_table = 'projects';
+$notification_types_table = 'notification_types';
+$notify_table = 'notify';
+
+
+
 
 
 

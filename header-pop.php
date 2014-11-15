@@ -36,6 +36,8 @@ switch ($myurl){
 		break;
 
 	case 'alerts.php':
+	case 'notification_monitor.php':
+	case 'notify_new.php':
 		$screen_id = 2;
 		break;
 
@@ -73,6 +75,8 @@ $current_user_query_results= mysql_query($current_user_query);
 while($current_user_query_results_row= mysql_fetch_array($current_user_query_results)) {
 $user_role_id =  $current_user_query_results_row['users_user_role_id'];
 }
+
+$user_roles_parts =  array();
 
 
 
@@ -218,6 +222,11 @@ New Horizons Company
 <a href="alerts.php">Alerts
 <i class='fa fa-exclamation-triangle icon'></i>
 </a></li>
+
+<li id='notification-link'  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?>  >
+<a href="notification_monitor.php">Notifications
+<i class='fa fa-exclamation-triangle icon'></i>
+</a></li>
 <li id='employees-link'  <?php echo ( !in_array(3, $user_roles_parts) ? 'style="display:none;"' : '')?>>
 <a href="employees.php">Employees
 <i class='fa fa-users icon'></i>
@@ -258,6 +267,8 @@ jQuery( document ).ready(function() {
 		jQuery("#employees-link").addClass( "active" );
 	if(str.search("alerts.php") != '-1')
 		jQuery("#alerts-link").addClass( "active" );
+	if(str.search("notification_monitor.php") != '-1'   || str.search("notify_new.php") != '-1')
+		jQuery("#notification-link").addClass( "active" );
 	if(str.search("role_table.php") != '-1')
 		jQuery("#roles-link").addClass( "active" );
 	

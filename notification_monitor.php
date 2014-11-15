@@ -8,7 +8,7 @@
 	if(isset($_GET['delete']))
 	{
 		$delete_id = $_GET['delete'];
-		$mysql_query = "DELETE FROM `".$assets_table."` WHERE `id` =".$delete_id.";";
+		$mysql_query = "DELETE FROM `".$notify_table."` WHERE `id` =".$delete_id.";";
 		mysql_query($mysql_query);
 		
 		}
@@ -22,9 +22,9 @@
 <section class="index col-md-12" id="purchase">
 <div class="row">
 <div class="page-header">
-<h1>Assets</h1>
+<h1>Notifications</h1>
 <div class="page-menus">
-<a href="assets_new.php"><i class="icon fa fa-plus"></i><span>Create new asset</span></a></div>
+<a href="notify_new.php"><i class="icon fa fa-plus"></i><span>Create new notification</span></a></div>
 
 
 
@@ -33,7 +33,7 @@
  
 <form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;">
     <div class="input-append  form-group">
-        <input type="text"  placeholder="Asset name"   name="search" class="span2 search-query">
+        <input type="text"  placeholder="Notification name"   name="search" class="span2 search-query">
         <button type="submit" class="btn"  ><i class="fa fa-search icon"></i></button>
         
     </div>
@@ -52,9 +52,9 @@ Toggle the icons to quickly filter by status
 <?php 
 
 if(isset($_GET['search']))
-	$all_assets_query = "SELECT * FROM `".$assets_table."`   WHERE   `name` LIKE '%".$_GET['search']."%';";
+	  $all_assets_query = "SELECT * FROM `".$notify_table."`   WHERE   `notification_type` LIKE '%".$_GET['search']."%';";
 else
-  $all_assets_query = "SELECT * FROM `".$assets_table."`;";
+  $all_assets_query = "SELECT * FROM `".$notify_table."`;";
 $all_assets = mysql_query($all_assets_query);
 if( mysql_num_rows($all_assets) == 0){
 	echo '<div class="row">
@@ -70,21 +70,27 @@ else{
 
 
 echo '<table class="table table-hover">';
-echo '<th>ID</th><th>Asset Name</th><th>Asset Location</th><th>Custodian</th><th>Status</th><th></th><th></th>';
+echo '<th>ID</th><th>Notification Type</th><th>Send to</th><th>Days to send notification</th><th>Status</th><th></th><th></th>';
 while($row = mysql_fetch_array($all_assets)) {
-if($row['status'] == 'active')
-	$status ='Active';
-elseif ($row['status'] == 'inactive')
-	$status = 'Inactive';
-elseif ($row['status'] == 'under_maintenance')
-	$status = 'Under Maintenance';
-if(strlen($row['custodian']) >15)
-	$append = '....';
-	else 
-		$append = '';
+if($row['sent'] == 'send')
+	$status ='Send';
+elseif ($row['sent'] == 'not_send')
+	$status = 'Not Send';
+elseif ($row['sent'] == 'failed')
+	$status = 'Failed';
+  $all_assets_query = "SELECT * FROM `".$users_table."`   WHERE   `google_id`  = '".$row['send_to']."';";
+  $all_assets_results = mysql_query($all_assets_query);
+while($user_row = mysql_fetch_array($all_assets_results)) {
+$user_name = $user_row['google_name'];
+}
 
 
-echo '<tr ><td>'.$row['id'].'</td><td>'.$row['name'].'</td><td>'.$row['location'].'</td><td>'.substr($row['custodian'],0,15).$append.'</td><td  class="text-capitalize">'.$status.'</td><td><a href="assets_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="assets_monitor.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+ 
+
+
+
+
+echo '<tr ><td>'.$row['id'].'</td><td>'.$row['notification_type'].'</td><td>'.$user_name.'</td><td>'.$row['days_before'].'</td><td  class="text-capitalize">'.$status.'</td><td><a href="notify_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="notification_monitor.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
 
 }
 echo '</table>';

@@ -9,41 +9,46 @@
 
 
 	 
-	if(strpos($_SERVER['SERVER_NAME'],'assets-newhorizons.rhcloud.com') !== false){
-			 
-########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
-$google_client_id 		= '166287425618-j5cluinh8cqpntkie8q8rokimenf57d9.apps.googleusercontent.com';
-$google_client_secret 	= 'nZ9i_XIHF_5St9BOzaBRX_lN';
-$google_redirect_url 	= 'http://assets-newhorizons.rhcloud.com'; //path to your script
-$google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
-$redirect_dashboard = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
-$access_type = 'online';
+	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false){
+		
+		
 
-########## MySql details (Replace with yours) #############
-$db_username = "adminxntQq3s"; //Database Username
-$db_password = "s-FSsSggM7q3"; //Database Password
-$hostname = "127.3.13.2:3306"; //Mysql Hostname
-$db_name = 'assets'; //Database Name
-###################################################################
+		########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
+		$google_client_id 		= '166287425618-1au2e08rn22lrbpsg6bqvcqv83408kv6.apps.googleusercontent.com';
+		$google_client_secret 	= 'ph_0jB5Izo_tP5shCjIsYXdU';
+		$google_redirect_url 	= 'http://localhost/assets/index.php'; //path to your script
+		$google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
+		$redirect_dashboard = 'http://localhost/assets/dashboard.php';
+		$access_type = 'online';
+		
+		########## MySql details (Replace with yours) #############
+		$db_username = "root"; //Database Username
+		$db_password = "password"; //Database Password
+		$hostname = "localhost"; //Mysql Hostname
+		$db_name = 'assets'; //Database Name
+		###################################################################
+				 
+
 
 	}
 	else{
+		
+		########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
+		$google_client_id 		= '166287425618-j5cluinh8cqpntkie8q8rokimenf57d9.apps.googleusercontent.com';
+		$google_client_secret 	= 'nZ9i_XIHF_5St9BOzaBRX_lN';
+		$google_redirect_url 	= 'http://assets-newhorizons.rhcloud.com'; //path to your script
+		$google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
+		$redirect_dashboard = 'http://assets-newhorizons.rhcloud.com/dashboard.php';
+		$access_type = 'online';
+		
+		########## MySql details (Replace with yours) #############
+		$db_username = "adminxntQq3s"; //Database Username
+		$db_password = "s-FSsSggM7q3"; //Database Password
+		$hostname = "127.3.13.2:3306"; //Mysql Hostname
+		$db_name = 'assets'; //Database Name
+		###################################################################
 		 
-	
-########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
-$google_client_id 		= '166287425618-1au2e08rn22lrbpsg6bqvcqv83408kv6.apps.googleusercontent.com';
-$google_client_secret 	= 'ph_0jB5Izo_tP5shCjIsYXdU';
-$google_redirect_url 	= 'http://localhost/assets/index.php'; //path to your script
-$google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
-$redirect_dashboard = 'http://localhost/assets/dashboard.php';
-$access_type = 'online';
 
-########## MySql details (Replace with yours) #############
-$db_username = "root"; //Database Username
-$db_password = "password"; //Database Password
-$hostname = "localhost"; //Mysql Hostname
-$db_name = 'assets'; //Database Name
-###################################################################
 	}
 	
 	

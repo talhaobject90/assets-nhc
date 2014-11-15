@@ -61,7 +61,7 @@
 	
 	
 	
-	$to      = 'talha@object90.com';             // give to email address
+	$to      = $notify_row['google_email'];             // give to email address
 	$subject = 'Request for forget password : Assets NewHorizons';  //change subject of email
 	$from    = 'roneyp20@gmail.com';                           // give from email address
 	
@@ -80,7 +80,7 @@
 	
 	$mail->From = 'm.ali@object90.com';
 	$mail->FromName = 'Assets-NewHorizons';
-	$mail->addAddress('talha@object90.com', 'Mohammed talha');     // Add a recipient
+	$mail->addAddress($notify_row['google_email'], $notify_row['google_name']);     // Add a recipient
 	//$mail->addAddress('roneyp20@gmail.com');               // Name is optional
 	//$mail->addReplyTo('m.ali@object90.com', 'Information');
 	//$mail->addCC('cc@example.com');
