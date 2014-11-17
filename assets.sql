@@ -76,8 +76,8 @@ INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintena
 INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','asfa','asdfbv','','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (36,'NEW TEST','Ass desc','ass loc','cus','active','2014-10-01','2014-10-02','2014-10-02','2014-10-03','2014-10-04','2014-10-05','acc  ','vio','1','2','3','veh num','','pur','cur','tot mina','tot dep','2014-10-06','2014-10-07');
 INSERT INTO `assets` VALUES (48,'Moto E','My Own motorolla','table','Mohammed Talha','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','NIL','nil','Mazdas','Vehicle','Human resources','9788755','XT895','7000','6999','tot mina','tot dep','2014-10-07','2014-10-08');
-INSERT INTO `assets` VALUES (50,'Goodday','','','','active','2014-11-21','2014-11-22','2014-11-23','2014-11-24','2014-11-29','2014-11-26','','','','','','','','','','','','2014-11-27','2014-11-28');
-INSERT INTO `assets` VALUES (51,'sets','','','','','2014-11-18','2014-11-19','2014-11-20','2014-11-21','2014-11-22','2014-11-23','','','','','','','','','','','','0000-00-00','0000-00-00');
+INSERT INTO `assets` VALUES (50,'Goodday','','','','active','2014-11-28','2014-11-22','2014-11-23','2014-11-24','2014-11-29','2014-11-26','','','','','','','','','','','','2014-11-27','2014-11-28');
+INSERT INTO `assets` VALUES (51,'sets','','','','','2014-11-28','2014-11-26','2014-11-20','2014-11-21','2014-11-22','2014-11-23','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (52,'jack','','','','','2014-11-12','2014-11-13','2014-11-14','2014-11-15','2014-11-16','2014-11-17','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (53,'sdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','testasas','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (54,'sdfsafdsadf','sdfsdf','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','','','sdfs','testasas','','','','','0000-00-00','0000-00-00');
@@ -761,8 +761,6 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (6,50,'Istemara Expiry','2014-11-21','opened');
-INSERT INTO `tickets` VALUES (7,51,'Insurance Expiry','2014-11-19','opened');
 INSERT INTO `tickets` VALUES (8,50,'Insurance Expiry','2014-11-22','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -859,4 +857,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-15 23:51:20
+-- Dump completed on 2014-11-17 15:23:40

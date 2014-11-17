@@ -2,6 +2,52 @@
 	include_once('header-pop.php');
 	
 	include_once('db_connect.php');
+	
+	
+	
+	
+	/*
+	 * =====================================================================================================
+	 * =====================		OPENTICKETS CLOSING CRON SECTION 		==========================================
+	 * =====================================================================================================
+	 * 	This section checks for open tickets and check if their expiry dates are updated with a new one, 
+	 * 	And if they are updated then they are deleted from the database
+	 * 
+	 */
+	$ticket_check_query =    "SELECT  *   FROM  ".$tickets_table." ;";
+	$ticket_check_query_results= mysql_query($ticket_check_query);
+	while ( $ticket_row = mysql_fetch_array ($ticket_check_query_results) ) {
+		
+		if($ticket_row['expiry_type']  == 'Istemara Expiry')
+			$ticket_expiry_type =  'istemara_expiry';
+		elseif($ticket_row['expiry_type']  == 'Insurance Expiry')
+			$ticket_expiry_type =  'insurance_expiry';
+		elseif($ticket_row['expiry_type']  == 'Preventive Maintenance Expiry')
+		$ticket_expiry_type =  'preventive_maintenance';
+		elseif($ticket_row['expiry_type']  == 'TUV Sticker Expiry')
+		$ticket_expiry_type =  'tuv_sticker';
+		elseif($ticket_row['expiry_type']  == 'Client Sticker Expiry')
+		$ticket_expiry_type =  'client_sticker';
+		elseif($ticket_row['expiry_type']  == 'MOT License Expiry')
+		$ticket_expiry_type =  'mot_license_expiry';
+	  $asset_check_query =    "SELECT  *   FROM  ".$assets_table."  WHERE `id` = '".$ticket_row['asset_id']."'  ;";
+	$asset_check_query_results= mysql_query($asset_check_query);
+	while ( $asset_row = mysql_fetch_array ($asset_check_query_results) ) {
+		echo  $ticket_expiry_type . '>>>>>>>'.  $asset_row[$ticket_expiry_type] . '----------' .  $ticket_row['expiring_date'] . '<br>';
+		if($asset_row[$ticket_expiry_type]  >  $ticket_row['expiring_date']){
+			$delete_query =    "DELETE FROM `".$tickets_table."` WHERE `id` = '".$ticket_row['id']."' ;";
+			mysql_query($delete_query);
+		}
+	}
+	}
+	
+	/*
+	 * ==================================================================================================
+	 * =========================	NOTIFICATION MAIL SECTION	==============================================
+	 * ==================================================================================================
+	 * 		The notification mails are sent by checking the expiry dates of assets and their notificatoin (sent to ) and 
+	 * 		number of days to send the notifications
+	 */
  
 	
 	error_reporting(E_ALL);
@@ -104,17 +150,8 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 			 * 	OPENING TICKET FOR A PARTICULAR NOTIFICATION
 			 * 
 			 */
-			
-				
-			
-				
-			
-			
-			
 		
 			$today = date("Y-m-d");
-				
- 
 		
 			$imgSrc   = 'http://www.nhc-ksa.com/images/logo1.png'; // Change image src to your site specific settings
 			$imgDesc  = 'Logo'; // Change Alt tag/image Description to your site specific settings
@@ -153,13 +190,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		
 			/*EMAIL TEMPLATE ENDS*/
 		
-		
-		
  			$subject = 'Notification alert : '.$expiry_type .' expiring on '.$expiry_date.'.';  //change subject of email
- 		
-		
-		
-		
 			//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 		
 			$mail->isSMTP();                                      // Set mailer to use SMTP
@@ -187,7 +218,6 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 			//$mail->Subject = $subject. date("Y-m-d h:i:s");
 			$mail->Body    = $message;
 			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-		
 		
 			$a = 1;
 		
