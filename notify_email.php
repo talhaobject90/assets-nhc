@@ -196,8 +196,8 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 			$mail->isSMTP();                                      // Set mailer to use SMTP
 			$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
 			$mail->SMTPAuth = true;                               // Enable SMTP authentication
-			  $mail->Username = 'talha@object90.com';                 // SMTP username
-			  $mail->Password = '9947183255p';                           // SMTP password
+			  $mail->Username = 'alerts@nhc-ksa.com';                 // SMTP username
+			  $mail->Password = '123qweASD!';                           // SMTP password
 			$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 			$mail->Port = 465;                                    // TCP port to connect to
 		

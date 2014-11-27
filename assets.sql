@@ -76,7 +76,7 @@ INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintena
 INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','asfa','asdfbv','','','','','','','','','',NULL,NULL);
 INSERT INTO `assets` VALUES (36,'NEW TEST','Ass desc','ass loc','cus','active','2014-10-01','2014-10-02','2014-10-02','2014-10-03','2014-10-04','2014-10-05','acc  ','vio','1','2','3','veh num','','pur','cur','tot mina','tot dep','2014-10-06','2014-10-07');
 INSERT INTO `assets` VALUES (48,'Moto E','My Own motorolla','table','Mohammed Talha','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','NIL','nil','Mazdas','Vehicle','Human resources','9788755','XT895','7000','6999','tot mina','tot dep','2014-10-07','2014-10-08');
-INSERT INTO `assets` VALUES (50,'Goodday','','','','active','2014-11-28','2014-11-22','2014-11-23','2014-11-24','2014-11-29','2014-11-26','','','','','','','','','','','','2014-11-27','2014-11-28');
+INSERT INTO `assets` VALUES (50,'Goodday','','','','active','2014-12-05','2014-11-22','2014-11-23','2014-11-24','2014-11-29','2014-11-26','','','','','','','','','','','','2014-11-27','2014-11-28');
 INSERT INTO `assets` VALUES (51,'sets','','','','','2014-11-28','2014-11-26','2014-11-20','2014-11-21','2014-11-22','2014-11-23','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (52,'jack','','','','','2014-11-12','2014-11-13','2014-11-14','2014-11-15','2014-11-16','2014-11-17','','','','','','','','','','','','0000-00-00','0000-00-00');
 INSERT INTO `assets` VALUES (53,'sdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','testasas','','','','','0000-00-00','0000-00-00');
@@ -675,7 +675,7 @@ CREATE TABLE `notify` (
 
 LOCK TABLES `notify` WRITE;
 /*!40000 ALTER TABLE `notify` DISABLE KEYS */;
-INSERT INTO `notify` VALUES (19,'Istemara Expiry','1',6);
+INSERT INTO `notify` VALUES (19,'Istemara Expiry','1',1);
 INSERT INTO `notify` VALUES (20,'Insurance Expiry','11',7);
 INSERT INTO `notify` VALUES (22,'Insurance Expiry','1',4);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
@@ -752,7 +752,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -762,6 +762,8 @@ CREATE TABLE `tickets` (
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
 INSERT INTO `tickets` VALUES (8,50,'Insurance Expiry','2014-11-22','opened');
+INSERT INTO `tickets` VALUES (10,51,'Istemara Expiry','2014-11-28','opened');
+INSERT INTO `tickets` VALUES (11,51,'Istemara Expiry','2014-11-28','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -857,4 +859,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-27 14:10:47
+-- Dump completed on 2014-11-27 14:34:05
