@@ -100,7 +100,7 @@ echo 'Client Sticker Expiry<hr> Asset id -- Days left';
 while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 	
 	if ($istemara_row [$order_by] != '' && $istemara_row [$order_by] != '0000-00-00') {
-		echo '<br>'.$istemara_row['id'].'----------';
+		echo '<br>'.$istemara_row['id'].'>>>>>>  ';
 		$expiry_date = $istemara_row [$order_by];
 		$expiry_date = new DateTime ( $expiry_date );
 		$interval = $today->diff ( $expiry_date );
