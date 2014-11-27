@@ -121,6 +121,14 @@ function create_excel($sort_by, $order_by, $assets_table){
 		}
 	}
 
+	// Set password for readonly activesheet
+$objPHPExcel->getSecurity()->setLockWindows(true);
+$objPHPExcel->getSecurity()->setLockStructure(true);
+$objPHPExcel->getSecurity()->setWorkbookPassword("password");
+
+// Set password for readonly data
+$objPHPExcel->getActiveSheet()->getProtection()->setSheet(true);
+$objPHPExcel->getActiveSheet()->getProtection()->setPassword("password");
 
 	$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
 	$objWriter->save( 'reports/assets_report.xlsx');

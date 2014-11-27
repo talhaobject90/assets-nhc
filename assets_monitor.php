@@ -86,7 +86,7 @@ if(strlen($row['custodian']) >15)
 		$append = '';
 
 
-echo '<tr ><td>'.$row['id'].'</td><td>'.$row['name'].'</td><td>'.$row['location'].'</td><td>'.substr($row['custodian'],0,15).$append.'</td><td  class="text-capitalize">'.$status.'</td><td><a href="assets_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="assets_monitor.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+echo '<tr ><td>'.$row['id'].'</td><td><a href="assets_view.php?edit='.$row['id'].'">'.$row['name'].'</a></td><td>'.$row['location'].'</td><td>'.substr($row['custodian'],0,15).$append.'</td><td  class="text-capitalize">'.$status.'</td><td><a href="assets_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="assets_monitor.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
 
 }
 echo '</table>';

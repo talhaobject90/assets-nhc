@@ -86,6 +86,7 @@
   <li><a href="#asset_category" role="tab" data-toggle="tab">Asset Categories</a></li>
   <li><a href="#department" role="tab" data-toggle="tab">Departments</a></li>
   <li><a href="#project" role="tab" data-toggle="tab">Projects</a></li>
+  <li><a href="notification_monitor.php" role="tab" >Notifications</a></li>
 </ul>
 
 <!-- Tab panes -->

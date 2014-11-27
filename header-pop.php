@@ -31,6 +31,7 @@ else{
 switch ($myurl){
 	case 'assets_monitor.php':
 	case 'assets_new.php':
+		case 'assets_view.php':
 		case 'import_excel.php':
 		$screen_id = 1;
 		break;
@@ -224,10 +225,10 @@ New Horizons Company
 </a></li>
 
 
-<li id='notification-link'  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?>  >
+<!-- <li id='notification-link'  <?php   //echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?>  >
 <a href="notification_monitor.php">Notifications
 <i class='fa fa-exclamation-triangle icon'></i>
-</a></li>
+</a></li> -->
 
 
 <li id='tickets-link'  <?php echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?>  >

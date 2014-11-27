@@ -265,7 +265,7 @@ else
 
  ?>
 															<option value="<?php echo $rows['first_name'].' ' . $rows['last_name']; ?>"
-																<?php echo ($asset_det['custodian'] == $rows['first_name'].' ' . $rows['last_name'] ? 'selected="selected"' : '')?>><?php  echo  $rows['first_name'].' ' . $rows['last_name'];?></option>
+																<?php echo ($asset_det['custodian'] == $rows['first_name'].'' . $rows['last_name'] ? 'selected="selected"' : '')?>><?php  echo  $rows['first_name'].' ' . $rows['last_name'];?></option>
 																<?php } ?>
 															
 															

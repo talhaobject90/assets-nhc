@@ -21,9 +21,6 @@ if ( isset($_POST["submit"]) ) {
 			echo   "Return Code: " . $_FILES["file"]["error"] . "<br />
 					
 					";
-			
-			
-			
 		}
 		else {
 			if (file_exists($_FILES["file"]["name"])) {
@@ -71,19 +68,7 @@ if ( isset($_POST["submit"]) ) {
 			
 			set_include_path(get_include_path() . PATH_SEPARATOR . 'Classes/');
 			include 'php_excel/Classes/PHPExcel/IOFactory.php';
-			
-/* 			require_once 'phpExcel/PHPExcel.php';
-			
-			$inputFileName = 'Report.xlsx';
-			$excel2 = PHPExcel_IOFactory::createReader('Excel2007');
-			$excel2 = $excel2->load($inputFileName.'.xlsx');
-			$excel2->setActiveSheetIndex(0);
-			$excel2->getActiveSheet()->setCellValue('H5', '4');
-			$objWriter = PHPExcel_IOFactory::createWriter($excel2, 'Excel2007');
-			$objWriter->save($inputFileName.'_.xlsx'); */
-			
-			
-			
+ 
 			
 			// This is the file path to be uploaded.
 			$inputFileName = 'Report.xlsx';
@@ -180,21 +165,7 @@ else{
 	
 }
 
-
-	
-	
-
-
- 
- 
-
 ?>
-
-
-
- 
- 
- 
  <div class="col-md-9 col-lg-10" id="content">
  		<div class="canvas col-md-12" id="main-canvas">
 		
