@@ -33,7 +33,7 @@
 	  $asset_check_query =    "SELECT  *   FROM  ".$assets_table."  WHERE `id` = '".$ticket_row['asset_id']."'  ;";
 	$asset_check_query_results= mysql_query($asset_check_query);
 	while ( $asset_row = mysql_fetch_array ($asset_check_query_results) ) {
-		echo  $ticket_expiry_type . '>>>>>>>'.  $asset_row[$ticket_expiry_type] . '----------' .  $ticket_row['expiring_date'] . '<br>';
+		//echo  $ticket_expiry_type . '>>>>>>>'.  $asset_row[$ticket_expiry_type] . '----------' .  $ticket_row['expiring_date'] . '<br>';
 		if($asset_row[$ticket_expiry_type]  >  $ticket_row['expiring_date']){
 			$delete_query =    "DELETE FROM `".$tickets_table."` WHERE `id` = '".$ticket_row['id']."' ;";
 			mysql_query($delete_query);

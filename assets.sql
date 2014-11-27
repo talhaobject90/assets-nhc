@@ -752,7 +752,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -764,6 +764,7 @@ LOCK TABLES `tickets` WRITE;
 INSERT INTO `tickets` VALUES (8,50,'Insurance Expiry','2014-11-22','opened');
 INSERT INTO `tickets` VALUES (10,51,'Istemara Expiry','2014-11-28','opened');
 INSERT INTO `tickets` VALUES (11,51,'Istemara Expiry','2014-11-28','opened');
+INSERT INTO `tickets` VALUES (12,51,'Istemara Expiry','2014-11-28','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -859,4 +860,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-27 14:34:05
+-- Dump completed on 2014-11-27 14:56:57
