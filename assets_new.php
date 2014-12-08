@@ -16,6 +16,7 @@
  			
 			        $mysql_query = "UPDATE `".$assets_table."` SET 
 			       `name`='".trim($_POST["asset_name"])."',
+			       `serial_number`='".trim($_POST["serial_number"])."',
 			       	`description`='".trim($_POST["asset_desc"])."',
 			       	`location`='".trim($_POST["asset_location"])."',
 			       	`custodian`='".trim($_POST["custodian"])."',
@@ -55,6 +56,7 @@
  		
  		         $mysql_query = "INSERT INTO `".$assets_table."`
  		       		( `name`, 
+ 		       		`serial_number`,
  		       		`description`, 
  		       		`location`, 
  		       		`custodian`,
@@ -80,6 +82,7 @@
  		       		
 				 ) VALUES
 				('".trim($_POST["asset_name"] )."',
+				'".trim($_POST["serial_number"])."',
 				'".trim($_POST["asset_desc"])."',
 				'". trim($_POST["asset_location"])."' ,
 				'".trim($_POST["custodian"])."' ,
@@ -124,6 +127,7 @@
 		$edit_query = mysql_query($edit_query);
 		while($rows = mysql_fetch_array($edit_query)) {
 			$asset_det['asset_id'] =  trim($rows['id']);
+			$asset_det['serial_number'] =  trim($rows['serial_number']);
 			$asset_det['asset_name'] = trim($rows['name']);
 			$asset_det['asset_desc'] = trim($rows['description']);
 			$asset_det['asset_loc'] =  trim($rows['location']);
@@ -497,7 +501,13 @@ if(isset($asset_det['asset_id']))
 <?php 
 }
 ?>
-
+<div class="expiry_date_div">
+								<label for="expiry_date_div">Serial Number</label> <br> <input
+									class="form-control" id="serial_number"
+									name="serial_number"
+									value="<?php  echo (isset($asset_det['serial_number']) && $asset_det['serial_number'] != '0000-00-00'   ? $asset_det['serial_number']:'' )?>"
+									type="text">
+							</div>
 
 <div class="expiry_date_div">
 								<label for="expiry_date_div">Istemara Expiry</label> <br> <input
