@@ -124,6 +124,7 @@
 		$edit_query = mysql_query($edit_query);
 		while($rows = mysql_fetch_array($edit_query)) {
 			$asset_det['asset_id'] =  trim($rows['id']);
+			$asset_det['serial_number'] =  trim($rows['serial_number']);
 			$asset_det['asset_name'] = trim($rows['name']);
 			$asset_det['asset_desc'] = trim($rows['description']);
 			$asset_det['asset_loc'] =  trim($rows['location']);
@@ -427,6 +428,13 @@ if(isset($asset_det['asset_id']))
 <?php 
 }
 ?>
+
+<div class="expiry_date_div">
+								<label for="expiry_date_div">Serial Number : </label> <br>
+								<span    style=" text-transform: capitalize; "><?php echo ($asset_det['serial_number']); ?></span>
+						 
+							</div>
+
 
 
 <div class="expiry_date_div">
