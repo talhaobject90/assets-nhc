@@ -109,8 +109,8 @@ while($current_user_roles_query_results_row= mysql_fetch_array($current_user_rol
 }
 else {
  // if no , session false; and redirect to dashboardpage
-	$_SESSION['authorization_status'] = false;
-	$_SESSION['redirected'] =  'yes';
+	$_SESSION['authorization_status'] = true;
+	$_SESSION['redirected'] =  'false';
 	
 	
  	
