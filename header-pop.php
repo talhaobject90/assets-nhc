@@ -183,7 +183,8 @@ $_SESSION['redirected'] =  'yes';  */
 <h1 class='header'>
 <span class='pp'></span>
  
-New Horizons Company
+
+<img  class="form-control" src="images/logo.jpg" style="height:100% !important;">
  
 </h1>
 </div>
