@@ -148,7 +148,9 @@
 				 
 				 <input class="btn btn-default btn-primary"  type="submit"  name="print_ticket"  value="Print ticket"   >
 				 <input type="hidden"  name="view_id"  value="<?php  echo $view_id ; ?>" > 
-				 <input type="hidden" name="expiry_type"  value="<?php  echo $asset_det['expiry_type'] ; ?>" > 
+				 <input type="hidden" name="expiry_type"  value="<?php  echo $asset_det['expiry_type'] ; ?>" >
+				 <input type="hidden" name="expiry_type"  value="<?php  echo $asset_det['expiry_type'] ; ?>" >
+				 <input type="hidden" name="expiry_date"  value="<?php  echo $asset_det['expiring_date'] ; ?>" > 
 				 
 				 </form>
 				 

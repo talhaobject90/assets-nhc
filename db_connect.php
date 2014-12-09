@@ -29,6 +29,7 @@ $tickets_table = 'tickets';
 
 
 
+
 // Select database
 mysql_select_db($assets_table) or die(mysql_error());
  

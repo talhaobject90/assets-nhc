@@ -10,6 +10,8 @@
 		$delete_id = $_GET['delete'];
 		$mysql_query = "DELETE FROM `".$assets_table."` WHERE `id` =".$delete_id.";";
 		mysql_query($mysql_query);
+		$mysql_query = "DELETE FROM `".$tickets_table."` WHERE `asset_id` =".$delete_id.";";
+		mysql_query($mysql_query);
 		
 		}
 	

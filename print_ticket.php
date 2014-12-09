@@ -8,6 +8,7 @@ if(isset($_POST['print_ticket']))
 {
 	$view_id = $_POST['view_id'];
 	$expiry_type = $_POST['expiry_type'];
+	$expiry_date = $_POST['expiry_date'];
 	 header('Content-type: application/vnd.ms-word');
 	header('Content-disposition: attachment; filename=nhc_ticket_'.$view_id.'.docx'); 
 	 
@@ -16,10 +17,10 @@ if(isset($_POST['print_ticket']))
 
 
 
-    $edit_query = "SELECT `".$assets_table."`.`id`,
+      $edit_query = "SELECT `".$assets_table."`.`id`,
   												`".$assets_table."`.`name`, 
   														`".$assets_table."`.`vehicle_number`,  
-  																`".$assets_table."`.`location` 
+  																`".$assets_table."`.`location`
   		
   		  FROM `".$assets_table."` INNER JOIN `".$tickets_table."` ON `".$tickets_table."`.`asset_id` = `".$assets_table."`.`id` AND `".$tickets_table."`.`id` =".$view_id.";";
 $edit_query = mysql_query($edit_query);
@@ -28,7 +29,7 @@ while($rows = mysql_fetch_array($edit_query)) {
 	$asset_det['name'] = $rows['name'];
 	$asset_det['vehicle_number'] = $rows['vehicle_number'];
 	$asset_det['location'] = $rows['location'];
- }
+  }
 
    
  
@@ -53,7 +54,7 @@ $document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_INSURANCE_TICKET.docx')
 
 
 
-$document->setValue('expiry_type_title', 'aqaaaa');
+$document->setValue('expiry_date', $expiry_date);
 $document->setValue('expiry_type', $expiry_type);
 $document->setValue('asset_name', $asset_det['name']);
 $document->setValue('asset_id', $asset_det['id']);
