@@ -226,7 +226,8 @@ echo '<div class="alert alert-success  col-md-2 col-md-offset-5" role="alert">
 </div>
 <div class="row">
 <form accept-charset="UTF-8" action="" class="form-signin" id="new_signin_form" method="post" ><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="C3auzP3qaTSWuVBRCwrtcNNYRfgHlDPbUKYgHf54RUg="></div><h2 class="form-signin-heading">
-New Horizons Company
+ 
+<img  class="form-control" src="images/logoold.jpg" style="height:100% !important;">
 </h2>
 <input class="form-control" id="signin_form_email" name="user_email" placeholder="Your email" type="text">
 <input class="form-control" id="signin_form_password" name="user_password" placeholder="Your password" type="password">
