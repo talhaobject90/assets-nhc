@@ -53,7 +53,7 @@ $document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_INSURANCE_TICKET.docx')
 
 
 
-
+$document->setValue('expiry_datedummy', 'sdfsdf');
 $document->setValue('expiry_date', $expiry_date);
 $document->setValue('expiry_type', $expiry_type);
 $document->setValue('asset_name', $asset_det['name']);
