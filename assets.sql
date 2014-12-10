@@ -60,9 +60,7 @@ CREATE TABLE `assets` (
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
 INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Abdul Rahman Abdullah Alzahran','inactive','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','veh num','testasas','','','','','0000-00-00','0000-00-00','122');
-INSERT INTO `assets` VALUES (14,'Computer','IBMsasdasdadsaaaaaaaaaaaaaaaaaaaaassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssffffffffffffffffffffffffffffffffffffffff','Main server room','Abdul Rahman Abdullah Alzahran','active','2014-11-10','2014-11-03','2014-11-18','2014-11-04','2014-11-25','2014-11-18','Acidnet history\r\nAcidnet history\r\nAcidnet history\r\nAcidnet historyAcidnet history','Violatoin shistory\r\nViolatoin shistory\r\nViolatoin shistory\r\nViolatoin shistory','Mazdas','Baombs','zdfwe','asdasd','testasas','q3e234','asdasd','234234','234234234','2014-11-26','2014-11-12','');
-INSERT INTO `assets` VALUES (15,'Moto e','sdf','pettai','','under_maintenance','2014-11-11','2014-11-12','2014-11-13','2014-11-14','2014-11-16','2014-11-16','','','','','','','','','','','','2014-11-17','2014-11-18','');
-INSERT INTO `assets` VALUES (16,'Sony','ericson prodct \r\n','pettai','talha','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (16,'Sony','ericson prodct','pettai','','active','0000-00-00','0000-00-00','2014-12-31','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
 INSERT INTO `assets` VALUES (17,'Xpefia','tip \r\n','al','Ali','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL,'');
 INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','Human resources','','','','','','',NULL,NULL,'');
 INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL,'');
@@ -562,7 +560,7 @@ INSERT INTO `google_users` VALUES (106053436166547787694,'Mariappan C','','','ma
 INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',1,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (106803781885381507211,'Bala P','','','bala223344@gmail.com',2,'https://plus.google.com/106803781885381507211','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (112556666499925624851,'Mhd Ali','m.ali@object90.com','ali','m.ali@object90.com',11,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','roneyp20@gmail.com',2,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','roneyp20@gmail.com',4,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 /*!40000 ALTER TABLE `google_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -611,7 +609,7 @@ CREATE TABLE `notifications` (
   `notified_on` date NOT NULL,
   `notify` enum('yes','no') NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -651,6 +649,7 @@ INSERT INTO `notifications` VALUES (28,52,'jack','Insurance Expiry','2014-11-13'
 INSERT INTO `notifications` VALUES (29,52,'jack','Preventive Maintenace Expiry','2014-11-14','2014-11-08','yes');
 INSERT INTO `notifications` VALUES (30,52,'jack','Client sticker Expiry','2014-11-16','2014-11-08','yes');
 INSERT INTO `notifications` VALUES (31,52,'jack','MOT License Expiry','2014-11-17','2014-11-08','yes');
+INSERT INTO `notifications` VALUES (32,16,'Sony','Preventive Maintenace Expiry','2014-12-31','2014-12-10','yes');
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -667,7 +666,7 @@ CREATE TABLE `notify` (
   `send_to` varchar(200) NOT NULL,
   `days_before` int(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -679,6 +678,7 @@ LOCK TABLES `notify` WRITE;
 INSERT INTO `notify` VALUES (19,'Istemara Expiry','1',1);
 INSERT INTO `notify` VALUES (20,'Insurance Expiry','11',7);
 INSERT INTO `notify` VALUES (22,'Insurance Expiry','1',4);
+INSERT INTO `notify` VALUES (23,'Preventive Maintenance Expiry','4',21);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -753,7 +753,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -766,6 +766,7 @@ INSERT INTO `tickets` VALUES (10,51,'Istemara Expiry','2014-11-28','opened');
 INSERT INTO `tickets` VALUES (11,51,'Istemara Expiry','2014-11-28','opened');
 INSERT INTO `tickets` VALUES (12,51,'Istemara Expiry','2014-11-28','opened');
 INSERT INTO `tickets` VALUES (13,51,'Istemara Expiry','2014-11-28','opened');
+INSERT INTO `tickets` VALUES (14,16,'Preventive Maintenance Expiry','2014-12-31','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -861,4 +862,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-10 11:24:12
+-- Dump completed on 2014-12-10 11:55:04
