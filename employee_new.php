@@ -222,7 +222,7 @@ if($Edit_mode){
 	}
 else{
 	echo '<input class="btn btn-primary"  type="submit"  name="save"  value="Save Employee"   style="margin-right:20px;" >';
-	echo '<a href="employee.php"><input class="btn btn-default"  type="button"  value="Cancel" ></a>';
+	echo '<a href="employees.php"><input class="btn btn-default"  type="button"  value="Cancel" ></a>';
 	}
 	
 ?>
