@@ -50,6 +50,8 @@ elseif ($expiry_type  == 'MOT License Expiry')
 $document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_MOT_TICKET.docx');
 elseif ($expiry_type  == 'Insurance Expiry')
 $document = $PHPWord->loadTemplate('PHP_word/tickets/NHC_INSURANCE_TICKET.docx');
+elseif ($expiry_type  == 'MVPI Expiry')
+$document = $PHPWord->loadTemplate('PHP_word/tickets/MVPI_EXPIRY_TICKET.docx');
 
 
 

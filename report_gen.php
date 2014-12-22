@@ -155,6 +155,10 @@ function appendQuery($sort_array){
  			return 'MOT License Expiry';
  			break;
  			
+ 		case 'mvpi_expiry':
+ 			return 'MVPI Expiry';
+ 			break;
+ 			
  		case 'total_maintenance':
  			return 'Total Maintenance';
  			break;

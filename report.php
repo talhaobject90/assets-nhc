@@ -58,6 +58,7 @@ if( mysql_num_rows($all_assets) != 0){
 																															<option value="tuv_sticker">TUV Sticker</option>
 																															<option value="client_sticker">Client Sticker</option>
 																															<option value="mot_license_expiry">MOT License Expiry </option>
+																															<option value="mvpi_expiry">MVPI  Expiry </option>
 														</select>
 														<br><br>
 														<select class="form-control"
@@ -186,6 +187,7 @@ if( mysql_num_rows($all_assets) != 0){
    <option value="tuv_sticker">TUV Sticker </option>
    <option value="client_sticker">Client Sticker </option>
    <option value="mot_license_expiry">MOT license expiry </option>
+   <option value="mvpi_expiry">MVPI expiry </option>
    <option value="accident_history">Accident History </option>
    <option value="violation_history">Violation History </option>
    <option value="vendor">Vendor </option>
