@@ -60,8 +60,8 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (2,'LIFT','Main lift this wayaa','','Abdul Rahman Abdullah Alzahran','inactive','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-12-22','2014-12-31','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','veh num','testasas','','','','','0000-00-00','0000-00-00','122');
-INSERT INTO `assets` VALUES (16,'Sony','ericson prodct','rIAYD','','active','0000-00-00','0000-00-00','2014-12-31','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (2,'LIFT','Main lift this wayaa','Jeddahs','Abdul Rahman Abdullah Alzahran','inactive','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-12-22','2014-12-31','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','veh num','testasas','','','','','0000-00-00','0000-00-00','122');
+INSERT INTO `assets` VALUES (16,'Sony','ericson prodct','Damam','','active','0000-00-00','0000-00-00','2014-12-31','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
 INSERT INTO `assets` VALUES (17,'Xpefia','tip','Jeddahs','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
 INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'','','Human resources','','','','','','',NULL,NULL,'');
 INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'','','','','','','','','',NULL,NULL,'');
@@ -836,4 +836,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-22 16:12:20
+-- Dump completed on 2014-12-22 16:20:56
