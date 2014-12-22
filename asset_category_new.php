@@ -16,6 +16,12 @@
 			       `asset_category_name`='".trim($_POST["asset_category_name"])."'
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
+			  ?>
+			  			  			<script type="text/javascript">
+			  			  			jQuery(function () {
+			  			  				window.location.replace("config.php?show=asset_category");
+			  			  			})
+			  			  			</script><?php 
 			   
 		}
  	}
@@ -32,13 +38,12 @@
 					)";
  		       
  		  mysql_query($mysql_query);
- 		  ?>
-
-<script type="text/javascript">
-				window.location.href = "config.php"
- 		  </script>
-
-<?php 
+  ?>
+			  			  			<script type="text/javascript">
+			  			  			jQuery(function () {
+			  			  				window.location.replace("config.php?show=asset_category");
+			  			  			})
+			  			  			</script><?php 
  	}
  	}
 	 
@@ -117,12 +122,12 @@ if(isset($asset_det['asset_category_id']))
  												<?php  
 if($Edit_mode){
 	echo '<input class="btn btn-default btn-primary "  type="submit" name="update" value="Update Asset Category"  >';
-	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"    style=" margin-left:10px;font-weight:bold;"></a>';
+	echo '<a href="config.php?show=asset_category"><input class="btn btn-default"  type="button"  value="Cancel"    style=" margin-left:10px;font-weight:bold;"></a>';
 	
 	}
 else{
 	echo '<input class="btn btn-default  btn-primary"  type="submit"  name="save"  value="Save Asset Category"   >';
-	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;" ></a>';
+	echo '<a href="config.php?show=asset_category"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;" ></a>';
 	
 	}
 	

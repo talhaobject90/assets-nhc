@@ -116,7 +116,11 @@
  -->  
     <div class="col-xs-6 col-md-4   col-centered"   >
     <a href="tickets.php" class="thumbnail">
-        <i class="fa fa-ticket   dash_thumb  "></i>
+    <?php 
+    $result = mysql_query("SELECT * FROM ".$tickets_table);
+$num_rows = mysql_num_rows($result);
+?>
+        <i class="fa fa-ticket   dash_thumb  "><span class="badge" ><?php  echo $num_rows?></span></i>
         <p>Open Tickets</p> 
     </a>
   </div>

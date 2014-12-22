@@ -103,12 +103,16 @@ $(document).ready(function() {
      motl=$("#mot_license_expiry_date").val();
     $("#mot_license_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",motl)
     
+     mvpi=$("#mvpi_expiry_date").val();
+     $("#mvpi_expiry_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",mvpi)
+    
     
     acqu=$("#date_acquired_date").val();
     $("#date_acquired_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",acqu)
     
     sold=$("#date_sold_date").val();
     $("#date_sold_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",sold)
+    
     
     
     

@@ -16,6 +16,12 @@
 			       `vendor_name`='".trim($_POST["vendor_name"])."'
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
+			  ?>
+			  			  			  			<script type="text/javascript">
+			  			  			  			jQuery(function () {
+			  			  			  				window.location.replace("config.php?show=vendor");
+			  			  			  			})
+			  			  			  			</script><?php 
 			   
 		}
  	}
@@ -32,13 +38,12 @@
 					)";
  		       
  		  mysql_query($mysql_query);
- 		  ?>
-
-<script type="text/javascript">
-				window.location.href = "config.php"
- 		  </script>
-
-<?php 
+ 		    ?>
+			  			  			  			<script type="text/javascript">
+			  			  			  			jQuery(function () {
+			  			  			  				window.location.replace("config.php?show=vendor");
+			  			  			  			})
+			  			  			  			</script><?php 
  	}
  	}
 	 

@@ -29,6 +29,7 @@
 			         `tuv_sticker`='".trim($_POST["tuv_sticker"])."',
 			         `client_sticker`='".trim($_POST["client_sticker"])."',
 					`mot_license_expiry`='".trim($_POST["mot_license_expiry"])."',
+					`mvpi_expiry`='".trim($_POST["mvpi_expiry"])."',
 					`vendor`='".trim($_POST["vendor"])."',
 					`asset_category`='".trim($_POST["asset_category"])."',
 					`department`='".trim($_POST["department"])."',
@@ -46,6 +47,12 @@
 			         				 
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
+			   ?>
+			  			  			  			  			  			  			<script type="text/javascript">
+			  			  			  			  			  			  			jQuery(function () {
+			  			  			  			  			  			  	window.location.href = "assets_monitor.php"
+			  			  			  			  			  			  			})
+			  			  			  			  			  			  			</script><?php 
  		}
  	}
  	
@@ -68,6 +75,7 @@
  		       		`preventive_maintenance` , 
  		       		`tuv_sticker` ,`client_sticker`,
  		       		 `mot_license_expiry`,
+					`mvpi_expiry`,
  		       		`vendor`,
  		       		`asset_category`,
  		       		`department`,
@@ -95,6 +103,7 @@
 				'".trim($_POST["tuv_sticker"])."',
 				'".trim($_POST["client_sticker"])."',
 				'".trim($_POST["mot_license_expiry"])."',
+				'".trim($_POST["mvpi_expiry"])."',
 				'". trim($_POST ["vendor"] ). "',
 				'" . trim($_POST ["asset_category"] ). "',
 				'" . trim($_POST ["department"]) . "',
@@ -140,6 +149,7 @@
 			$asset_det['tuv_sticker'] = trim($rows['tuv_sticker']);
 			$asset_det['client_sticker'] = trim($rows['client_sticker']);
 			$asset_det['mot_license_expiry'] = trim($rows['mot_license_expiry']);
+			$asset_det['mvpi_expiry'] = trim($rows['mvpi_expiry']);
 			$asset_det['accident_history'] = trim($rows['accident_history']);
 			$asset_det['violation_history'] = trim($rows['violation_history']);
 			$asset_det['vendor'] = trim($rows['vendor']);
@@ -244,10 +254,26 @@ else
 														<label for="purchase_Ship to Location">Asset Location</label>
 														<br>
 														 
-														<input class="form-control" name="asset_location"
-															placeholder="Asset location"
-															value="<?php echo (isset($asset_det['asset_loc'])?$asset_det['asset_loc'] : '')?>"
-															type="text">
+												 
+															
+															
+															
+															
+																<select class="form-control"
+															id="custodian_select" name="asset_location">
+															<option value="">- Location -</option>
+															<?php 
+															$edit_query ="SELECT * FROM `".$locations_table."` ;" ;
+															$edit_query = mysql_query($edit_query);
+															while($rows = mysql_fetch_array($edit_query)) {
+
+ ?>
+															<option value="<?php echo $rows['location'] ;?>"
+																<?php echo ($asset_det['asset_loc'] == $rows['location'] ? 'selected="selected"' : '')?>><?php  echo  $rows['location'] ; ;?></option>
+																<?php } ?>
+															
+															
+														</select>
 
 													</div>
 												</div>
@@ -551,11 +577,19 @@ if(isset($asset_det['asset_id']))
 									type="text">
 
 							</div>
-							<div class="mot_license_expiry_div">
+							 
+								<div class="mot_license_expiry_div">
 								<label for="mot_license_expiry_div"> MOT License Expiry</label>
 								<br> <input class="form-control" id="mot_license_expiry_date"
 									name="mot_license_expiry"
 									value="<?php  echo (isset($asset_det['mot_license_expiry'])  && $asset_det['mot_license_expiry'] != '0000-00-00' ? $asset_det['mot_license_expiry']:'' )?>"
+									type="text">
+							</div>
+									<div class="mvpi_expiry_div">
+								<label for="mot_license_expiry_div"> MVPI Expiry</label>
+								<br> <input class="form-control" id="mvpi_expiry_date"
+									name="mvpi_expiry"
+									value="<?php  echo (isset($asset_det['mvpi_expiry'])  && $asset_det['mvpi_expiry'] != '0000-00-00' ? $asset_det['mvpi_expiry']:'' )?>"
 									type="text">
 							</div>
 							<div class="date_acquired_div">

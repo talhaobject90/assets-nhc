@@ -21,6 +21,12 @@
 			       				
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
+			  ?>
+			  			  			  			  			  			<script type="text/javascript">
+			  			  			  			  			  			jQuery(function () {
+			  			  			  			  			  				window.location.replace("config.php?show=project");
+			  			  			  			  			  			})
+			  			  			  			  			  			</script><?php 
 			   
 		}
  	}
@@ -37,13 +43,12 @@
 					)";
  		       
  		  mysql_query($mysql_query);
- 		  ?>
-
-<script type="text/javascript">
-				window.location.href = "config.php"
- 		  </script>
-
-<?php 
+ 		 ?>
+			  			  			  			  			  			<script type="text/javascript">
+			  			  			  			  			  			jQuery(function () {
+			  			  			  			  			  				window.location.replace("config.php?show=project");
+			  			  			  			  			  			})
+			  			  			  			  			  			</script><?php 
  	}
  	}
 	 
@@ -153,12 +158,12 @@ if(isset($asset_det['id']))
  												<?php  
 if($Edit_mode){
 	echo '<input class="btn btn-default btn-primary"  type="submit" name="update" value="Update Project"  >';
-	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style=" margin-left:10px;font-weight:bold;"></a>';
+	echo '<a href="config.php?show=project"><input class="btn btn-default"  type="button"  value="Cancel"   style=" margin-left:10px;font-weight:bold;"></a>';
 	
 	}
 else{
 	echo '<input class="btn btn-default btn-primary"  type="submit"  name="save"  value="Save Project"   >';
-	echo '<a href="config.php"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;"></a>';
+	echo '<a href="config.php?show=project"><input class="btn btn-default"  type="button"  value="Cancel"   style= margin-left:10px;font-weight:bold;"></a>';
 	}
 	
 ?>

@@ -35,6 +35,7 @@ CREATE TABLE `assets` (
   `tuv_sticker` date DEFAULT NULL,
   `client_sticker` date DEFAULT NULL,
   `mot_license_expiry` date DEFAULT NULL,
+  `mvpi_expiry` date NOT NULL,
   `accident_history` text,
   `violation_history` text,
   `vendor` text NOT NULL,
@@ -50,7 +51,7 @@ CREATE TABLE `assets` (
   `date_sold` date DEFAULT NULL,
   `serial_number` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,27 +60,29 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (2,'liftsqaa','Main lift this wayaa','rPaa','Abdul Rahman Abdullah Alzahran','inactive','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-10-12','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','veh num','testasas','','','','','0000-00-00','0000-00-00','122');
-INSERT INTO `assets` VALUES (16,'Sony','ericson prodct','pettai','','active','0000-00-00','0000-00-00','2014-12-31','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (17,'Xpefia','tip \r\n','al','Ali','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','Human resources','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (20,'test asset','sdfsrfsf','sfd','Sdf','active','2014-10-08',NULL,NULL,NULL,NULL,NULL,'Thi is tesxt','sfdsfsf','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (23,'name','desc','loc','cust','active',NULL,NULL,NULL,NULL,NULL,NULL,'accsa','viosa','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (24,'test asset 1','asset desc','ass loc','custodia','active','2014-10-01','2014-10-02',NULL,NULL,NULL,NULL,'accid his','violhis','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (26,'test aset 2','asset desc','ass loc','cus','active','2014-10-01','2014-10-22',NULL,NULL,NULL,NULL,'acc his','vio his','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (27,'test aset 3','ASDF','ass loc','cus','active','2014-10-01','0000-00-00',NULL,NULL,NULL,NULL,'ACC','VIO','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (28,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (29,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','acc','vio','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','asfa','asdfbv','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (36,'NEW TEST','Ass desc','ass loc','cus','active','2014-10-01','2014-10-02','2014-10-02','2014-10-03','2014-10-04','2014-10-05','acc  ','vio','1','2','3','veh num','','pur','cur','tot mina','tot dep','2014-10-06','2014-10-07','');
-INSERT INTO `assets` VALUES (48,'Moto E','My Own motorolla','table','Mohammed Talha','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','NIL','nil','Mazdas','Vehicle','Human resources','9788755','XT895','7000','6999','tot mina','tot dep','2014-10-07','2014-10-08','');
-INSERT INTO `assets` VALUES (51,'sets','','wqwqw','','','2014-11-28','2014-11-26','2014-11-20','2014-11-21','2014-11-22','2014-11-23','','','','','','','','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (52,'jack','','','','','2014-11-12','2014-11-13','2014-11-14','2014-11-15','2014-11-16','2014-11-17','','','','','','','','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (53,'sdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','testasas','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (54,'sdfsafdsadf','sdfsdf','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','','Human resources','sdfs','testasas','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (55,'sdfdsfs','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','qw22');
+INSERT INTO `assets` VALUES (2,'LIFT','Main lift this wayaa','','Abdul Rahman Abdullah Alzahran','inactive','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-12-22','2014-12-31','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','veh num','testasas','','','','','0000-00-00','0000-00-00','122');
+INSERT INTO `assets` VALUES (16,'Sony','ericson prodct','rIAYD','','active','0000-00-00','0000-00-00','2014-12-31','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (17,'Xpefia','tip','Jeddahs','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'','','Human resources','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (20,'test asset','sdfsrfsf','sfd','Sdf','active','2014-10-08',NULL,NULL,NULL,NULL,NULL,'0000-00-00','Thi is tesxt','sfdsfsf','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (23,'name','desc','loc','cust','active',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00','accsa','viosa','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (24,'test asset 1','asset desc','ass loc','custodia','active','2014-10-01','2014-10-02',NULL,NULL,NULL,NULL,'0000-00-00','accid his','violhis','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (26,'test aset 2','asset desc','ass loc','cus','active','2014-10-01','2014-10-22',NULL,NULL,NULL,NULL,'0000-00-00','acc his','vio his','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (27,'test aset 3','ASDF','ass loc','cus','active','2014-10-01','0000-00-00',NULL,NULL,NULL,NULL,'0000-00-00','ACC','VIO','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (28,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','0000-00-00','acc','vio','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (29,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','0000-00-00','acc','vio','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','0000-00-00','acc','vio','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','0000-00-00','asfa','asdfbv','','','','','','','','','',NULL,NULL,'');
+INSERT INTO `assets` VALUES (36,'NEW TEST','Ass desc','ass loc','cus','active','2014-10-01','2014-10-02','2014-10-02','2014-10-03','2014-10-04','2014-10-05','0000-00-00','acc  ','vio','1','2','3','veh num','','pur','cur','tot mina','tot dep','2014-10-06','2014-10-07','');
+INSERT INTO `assets` VALUES (48,'Moto E','My Own motorolla','table','Mohammed Talha','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','0000-00-00','NIL','nil','Mazdas','Vehicle','Human resources','9788755','XT895','7000','6999','tot mina','tot dep','2014-10-07','2014-10-08','');
+INSERT INTO `assets` VALUES (51,'sets','','wqwqw','','','2014-11-28','2014-11-26','2014-11-20','2014-11-21','2014-11-22','2014-11-23','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (52,'jack','','','','','2014-11-12','2014-11-13','2014-11-14','2014-11-15','2014-11-16','2014-11-17','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (53,'sdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','testasas','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (54,'sdfsafdsadf','sdfsdf','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','','Human resources','sdfs','testasas','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (55,'sdfdsfs','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','qw22');
+INSERT INTO `assets` VALUES (56,'asdfsdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (57,'test','sdf','Jeddahs','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-10','','','','','','','','','','','','0000-00-00','0000-00-00','');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +97,7 @@ CREATE TABLE `assets_category` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `asset_category_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,8 +106,7 @@ CREATE TABLE `assets_category` (
 
 LOCK TABLES `assets_category` WRITE;
 /*!40000 ALTER TABLE `assets_category` DISABLE KEYS */;
-INSERT INTO `assets_category` VALUES (1,'Vehicle');
-INSERT INTO `assets_category` VALUES (5,'ds gvfdsga');
+INSERT INTO `assets_category` VALUES (5,'ds gvfdsga S');
 INSERT INTO `assets_category` VALUES (7,'dfgbfg');
 INSERT INTO `assets_category` VALUES (8,'bfg');
 INSERT INTO `assets_category` VALUES (9,'fgnfgn');
@@ -128,7 +130,7 @@ CREATE TABLE `department` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `department_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,6 +142,7 @@ LOCK TABLES `department` WRITE;
 INSERT INTO `department` VALUES (1,'Human resources');
 INSERT INTO `department` VALUES (7,'zdfwe');
 INSERT INTO `department` VALUES (8,'fw');
+INSERT INTO `department` VALUES (9,'SOCIALs');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,7 +165,7 @@ CREATE TABLE `employee` (
   `employee_phone` varchar(20) NOT NULL,
   `employee_status` enum('inactive','active') NOT NULL DEFAULT 'active',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=355 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=356 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,8 +174,6 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Sami','Iskandrani','sami@nhc-ksa.com','iskandsa','CEO','Jeddah - HO','Office of the CEO','','active');
-INSERT INTO `employee` VALUES (2,'Fahmi','Ahmed','fahmi@nhc-ksa.com','tanrak','Manager, Support Services','Jeddah - HO','Support Services','','active');
 INSERT INTO `employee` VALUES (3,'Syed Abdul Aleem','','aaleem@nhc-ksa.com','10001','Commercial Manager','Jeddah - HO','Commercial and Business Development','','active');
 INSERT INTO `employee` VALUES (4,'Ali Abdullah Alzahrani','','aalzahrani@nhc-ksa.com','10002','Operations Manager','Jeddah','Operations Department','','active');
 INSERT INTO `employee` VALUES (5,'Abdul Rahman Abdullah Alzahran','','arzahrani@nhc-ksa.com','10083','H R Co-ordinator','Jeddah - HO','Human Resources Department','','active');
@@ -525,6 +526,7 @@ INSERT INTO `employee` VALUES (351,'Bilal Ahmed','Nisar Ahmed','','v1203','Helpe
 INSERT INTO `employee` VALUES (352,'Abdul Rashhed','Hakim Ali','','v1209','Helper','Jeddah','Operations Department','','active');
 INSERT INTO `employee` VALUES (353,'Rana Sajid Ali','Rana Tufail Muhammad','','10350','Supervisor Mechanical','Jubail','Operations Department','','active');
 INSERT INTO `employee` VALUES (354,'Hamid Ali','Rana Tufail Muhammad','','10352','Fabricator Pipe','Jubail','Operations Department','','active');
+INSERT INTO `employee` VALUES (355,'asda','','','','','','asda','','');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -565,6 +567,33 @@ INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','r
 UNLOCK TABLES;
 
 --
+-- Table structure for table `locations`
+--
+
+DROP TABLE IF EXISTS `locations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `locations` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `location` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `locations`
+--
+
+LOCK TABLES `locations` WRITE;
+/*!40000 ALTER TABLE `locations` DISABLE KEYS */;
+INSERT INTO `locations` VALUES (1,'Jeddahs');
+INSERT INTO `locations` VALUES (4,'rIAYD');
+INSERT INTO `locations` VALUES (5,'Damam');
+INSERT INTO `locations` VALUES (6,'aaaaaaaaaaaaaaaaaaaaaa');
+/*!40000 ALTER TABLE `locations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `notification_types`
 --
 
@@ -575,7 +604,7 @@ CREATE TABLE `notification_types` (
   `id` int(4) NOT NULL AUTO_INCREMENT,
   `notification_type` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -590,67 +619,8 @@ INSERT INTO `notification_types` VALUES (3,'Preventive Maintenance Expiry');
 INSERT INTO `notification_types` VALUES (4,'TUV Sticker Expiry');
 INSERT INTO `notification_types` VALUES (5,'Client Sticker Expiry');
 INSERT INTO `notification_types` VALUES (6,'MOT License Expiry');
+INSERT INTO `notification_types` VALUES (7,'MVPI Expiry');
 /*!40000 ALTER TABLE `notification_types` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `notifications`
---
-
-DROP TABLE IF EXISTS `notifications`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `notifications` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `asset_id` int(10) NOT NULL,
-  `asset_name` varchar(100) NOT NULL,
-  `expiry_type` varchar(100) NOT NULL,
-  `expiry_date` date NOT NULL,
-  `notified_on` date NOT NULL,
-  `notify` enum('yes','no') NOT NULL DEFAULT 'yes',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `notifications`
---
-
-LOCK TABLES `notifications` WRITE;
-/*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
-INSERT INTO `notifications` VALUES (1,14,'Computer','Istemara Expiry','2014-11-10','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (2,15,'Moto e','Istemara Expiry','2014-11-11','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (3,49,'Black berry','Istemara Expiry','2014-11-23','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (4,2,'liftsqaa','Istemara Expiry','2014-11-26','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (5,15,'Moto e','Insurance Expiry','2014-11-12','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (6,49,'Black berry','Insurance Expiry','2014-11-24','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (7,15,'Moto e','Preventive Maintenace Expiry','2014-11-13','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (8,49,'Black berry','Preventive Maintenace Expiry','2014-11-25','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (9,15,'Moto e','TUV Sticker Expiry','2014-11-14','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (10,49,'Black berry','TUV Sticker Expiry','2014-11-26','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (11,15,'Moto e','Client sticker Expiry','2014-11-16','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (12,49,'Black berry','Client sticker Expiry','2014-11-27','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (13,15,'Moto e','MOT License Expiry','2014-11-16','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (14,49,'Black berry','MOT License Expiry','2014-11-28','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (15,50,'Goodday','Istemara Expiry','2014-11-21','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (16,51,'sets','Istemara Expiry','2014-11-18','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (17,51,'sets','Insurance Expiry','2014-11-19','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (18,50,'Goodday','Insurance Expiry','2014-11-22','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (19,51,'sets','Preventive Maintenace Expiry','2014-11-20','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (20,50,'Goodday','Preventive Maintenace Expiry','2014-11-23','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (21,51,'sets','TUV Sticker Expiry','2014-11-21','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (22,50,'Goodday','TUV Sticker Expiry','2014-11-24','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (23,51,'sets','Client sticker Expiry','2014-11-22','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (24,50,'Goodday','Client sticker Expiry','2014-11-25','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (25,51,'sets','MOT License Expiry','2014-11-23','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (26,50,'Goodday','MOT License Expiry','2014-11-26','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (27,52,'jack','Istemara Expiry','2014-11-12','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (28,52,'jack','Insurance Expiry','2014-11-13','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (29,52,'jack','Preventive Maintenace Expiry','2014-11-14','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (30,52,'jack','Client sticker Expiry','2014-11-16','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (31,52,'jack','MOT License Expiry','2014-11-17','2014-11-08','yes');
-INSERT INTO `notifications` VALUES (32,16,'Sony','Preventive Maintenace Expiry','2014-12-31','2014-12-10','yes');
-/*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -666,7 +636,7 @@ CREATE TABLE `notify` (
   `send_to` varchar(200) NOT NULL,
   `days_before` int(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -675,10 +645,10 @@ CREATE TABLE `notify` (
 
 LOCK TABLES `notify` WRITE;
 /*!40000 ALTER TABLE `notify` DISABLE KEYS */;
-INSERT INTO `notify` VALUES (19,'Istemara Expiry','1',1);
+INSERT INTO `notify` VALUES (19,'Istemara Expiry','1',15);
 INSERT INTO `notify` VALUES (20,'Insurance Expiry','11',7);
 INSERT INTO `notify` VALUES (22,'Insurance Expiry','1',4);
-INSERT INTO `notify` VALUES (23,'Preventive Maintenance Expiry','4',21);
+INSERT INTO `notify` VALUES (24,'MVPI Expiry','3',9);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -695,7 +665,7 @@ CREATE TABLE `projects` (
   `project_description` varchar(500) NOT NULL,
   `status` enum('inactive','active','finished') NOT NULL DEFAULT 'inactive',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -705,7 +675,7 @@ CREATE TABLE `projects` (
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
 INSERT INTO `projects` VALUES (2,'testasas','sfsfsfas','active');
-INSERT INTO `projects` VALUES (3,'ssss','sssdasdfsdf','finished');
+INSERT INTO `projects` VALUES (4,'sdfsss','sdf','');
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -753,7 +723,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -767,6 +737,7 @@ INSERT INTO `tickets` VALUES (11,51,'Istemara Expiry','2014-11-28','opened');
 INSERT INTO `tickets` VALUES (12,51,'Istemara Expiry','2014-11-28','opened');
 INSERT INTO `tickets` VALUES (13,51,'Istemara Expiry','2014-11-28','opened');
 INSERT INTO `tickets` VALUES (14,16,'Preventive Maintenance Expiry','2014-12-31','opened');
+INSERT INTO `tickets` VALUES (15,2,'MVPI Expiry','2014-12-31','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -782,7 +753,7 @@ CREATE TABLE `user_roles` (
   `user_role_name` varchar(100) NOT NULL,
   `user_role_screens` varchar(500) NOT NULL,
   PRIMARY KEY (`user_role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -796,6 +767,7 @@ INSERT INTO `user_roles` VALUES (2,'Data Entry Operator','a:2:{i:0;s:1:\"1\";i:1
 INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinator','a:7:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";i:5;s:1:\"6\";i:6;s:1:\"7\";}');
 INSERT INTO `user_roles` VALUES (4,'Approver','');
 INSERT INTO `user_roles` VALUES (11,'Trainee','a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}');
+INSERT INTO `user_roles` VALUES (12,'Anonymous','a:3:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";}');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -833,7 +805,7 @@ CREATE TABLE `vendor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vendor_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -842,7 +814,7 @@ CREATE TABLE `vendor` (
 
 LOCK TABLES `vendor` WRITE;
 /*!40000 ALTER TABLE `vendor` DISABLE KEYS */;
-INSERT INTO `vendor` VALUES (1,'Mazdas');
+INSERT INTO `vendor` VALUES (1,'Mazda');
 INSERT INTO `vendor` VALUES (8,'sdfdfgdf');
 INSERT INTO `vendor` VALUES (9,'dbdfsg');
 INSERT INTO `vendor` VALUES (10,'dfgdb');
@@ -850,6 +822,8 @@ INSERT INTO `vendor` VALUES (11,'sdfgb sf');
 INSERT INTO `vendor` VALUES (12,'fgbnf');
 INSERT INTO `vendor` VALUES (13,'fgn');
 INSERT INTO `vendor` VALUES (14,'sdbsdfg');
+INSERT INTO `vendor` VALUES (15,'ssS');
+INSERT INTO `vendor` VALUES (16,'ass');
 /*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -862,4 +836,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-10 22:42:52
+-- Dump completed on 2014-12-22 15:59:02

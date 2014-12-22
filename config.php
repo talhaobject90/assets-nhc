@@ -3,6 +3,20 @@
 	include_once('db_connect.php');
 	if($_SESSION['authorization_status'])
 	{
+		
+		
+		
+		if(isset($_GET['show']))
+		{
+			$tab= $_GET['show'];
+			?>
+						<script type="text/javascript">
+						jQuery(function () {
+			 				jQuery('a[href="#<?php  echo $tab ; ?>"]').tab('show'); // Select tab by name
+						})
+						</script><?php 
+			
+		}
 	
 	
 	if(isset($_GET['delete']))
@@ -38,6 +52,16 @@
  			})
 			</script><?php 
 		}
+		if(isset($_GET['del_location'])){
+			$mysql_query = "DELETE FROM `".$locations_table."` WHERE `id` =".$delete_id.";";
+			mysql_query($mysql_query);
+			?>
+					<script type="text/javascript">
+		 			jQuery(function () {
+						jQuery('a[href="#locations"]').tab('show'); // Select tab by name
+		 			})
+					</script><?php 
+				}
 		
 		if(isset($_GET['del_project'])){
 			$mysql_query = "DELETE FROM `".$project_table."` WHERE `id` =".$delete_id.";";
@@ -84,6 +108,7 @@
 <ul class="nav nav-tabs" role="tablist">
   <li class="active"><a href="#vendor" role="tab" data-toggle="tab">Manufacturers</a></li>
   <li><a href="#asset_category" role="tab" data-toggle="tab">Asset Categories</a></li>
+  <li><a href="#locations" role="tab" data-toggle="tab">Locations</a></li>
   <li><a href="#department" role="tab" data-toggle="tab">Departments</a></li>
   <li><a href="#project" role="tab" data-toggle="tab">Projects</a></li>
   <li><a href="notification_monitor.php" role="tab" >Notifications</a></li>
@@ -159,6 +184,47 @@ echo '<table class="table table-hover">';
 echo '<th>ID</th><th>Asset Category Name</th><th></th><th></th>';
 while($row = mysql_fetch_array($all_assets)) {
 echo '<tr ><td>'.$row['id'].'</td><td>'.$row['asset_category_name'].'</td><td><a href="asset_category_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&del_category=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+}
+echo '</table>';
+?>
+
+</div>
+</div>
+</section>
+  
+  
+  </div>
+  
+  
+    <!--  ASSET LOCATION CONTENT -->
+  
+  <div class="tab-pane  "  id="locations">
+  
+  
+  <section class="index col-md-12" id="purchase">
+<div class="row">
+<div class="page-header">
+<h1>Locations</h1>
+<div class="page-menus">
+<a href="locations_new.php"><i class="icon fa fa-plus"></i><span>Create new location</span></a></div>
+</div>
+
+<h4>
+<!-- <center>
+Toggle the icons to quickly filter by status
+</center> -->
+</h4>
+</div>
+<div class="row">
+<div class="page-content col-md-12">
+ 
+<?php 
+  $all_assets_query = "SELECT * FROM `".$locations_table."`;";
+$all_assets = mysql_query($all_assets_query);
+echo '<table class="table table-hover">';
+echo '<th>ID</th><th>Asset Location Name</th><th></th><th></th>';
+while($row = mysql_fetch_array($all_assets)) {
+echo '<tr ><td>'.$row['id'].'</td><td>'.$row['location'].'</td><td><a href="locations_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&del_location=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
 }
 echo '</table>';
 ?>

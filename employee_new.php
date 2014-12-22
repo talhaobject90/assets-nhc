@@ -23,6 +23,12 @@
 			       	`employee_status`='".trim($_POST["employee_status"])."'
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
+			  ?>
+			  			  			  			  			  			  			<script type="text/javascript">
+			  			  			  			  			  			  			jQuery(function () {
+			  			  			  			  			  			  	window.location.href = "employees.php"
+			  			  			  			  			  			  			})
+			  			  			  			  			  			  			</script><?php 
 			  
 			  
 			   

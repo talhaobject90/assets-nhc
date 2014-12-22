@@ -89,6 +89,12 @@ echo 'Client Sticker Expiry<hr> Asset id -- Days left';
   echo '<hr>';
   
   
+  // Trigger for MVPI Expiry
+  echo 'MVPI Expiry<hr> Asset id -- Days left';
+  trigger_notification('mvpi_expiry', 'MVPI Expiry', $mail, $assets_table , $notify_table , $users_table ,$tickets_table);
+  echo '<hr>';
+  
+  
 	
 	function trigger_notification($order_by, $notification_type , $mail , $assets_table , $notify_table ,$users_table , $tickets_table){
 		

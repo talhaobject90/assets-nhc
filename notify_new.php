@@ -21,6 +21,12 @@
 			       				
 			          WHERE `id`= ".$edit_id.";";
 			  mysql_query($mysql_query);
+			  ?>
+			  			  			  			  			  			  			<script type="text/javascript">
+			  			  			  			  			  			  			jQuery(function () {
+			  			  			  			  			  			  				window.location.replace("notification_monitor.php");
+			  			  			  			  			  			  			})
+			  			  			  			  			  			  			</script><?php 
 			   
 		}
  	}
