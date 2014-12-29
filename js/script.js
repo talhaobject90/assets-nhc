@@ -54,7 +54,7 @@ jQuery("#mot_license_expiry_date").attr("required" ,"required");
 jQuery("#mvpi_expiry_date").attr("required" ,"required");
 	}
 		
-		if(assetcat == 'Equipment'  || assetcat == 'Equipment'){
+		if(assetcat == 'Equipment'  || assetcat == 'Tools'){
 			
 			jQuery("#istemara_expiry_date").removeAttr("required");
 			jQuery("#insurance_expiry_date").removeAttr("required");

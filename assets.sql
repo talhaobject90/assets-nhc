@@ -51,7 +51,7 @@ CREATE TABLE `assets` (
   `date_sold` date DEFAULT NULL,
   `serial_number` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,6 +85,7 @@ INSERT INTO `assets` VALUES (56,'asdfsdfsdf','','','','','0000-00-00','0000-00-0
 INSERT INTO `assets` VALUES (57,'test','sdf','Jeddahs','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-10','','','','','','','','','','','','0000-00-00','0000-00-00','');
 INSERT INTO `assets` VALUES (61,'aaa','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','sd');
 INSERT INTO `assets` VALUES (62,'sdf','','','','','2014-12-16','2014-12-17','2014-12-17','2014-12-10','2014-12-12','2014-12-18','2014-12-16','','','','Vehicles','','','','','','','','0000-00-00','0000-00-00','2323');
+INSERT INTO `assets` VALUES (63,'test','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','Tools','','','','','','','','0000-00-00','0000-00-00','sdsd');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -835,4 +836,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-29 22:40:21
+-- Dump completed on 2014-12-29 22:47:31
