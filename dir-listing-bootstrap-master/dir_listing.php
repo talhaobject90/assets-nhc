@@ -33,8 +33,8 @@ include 'dir_listing_config.php';
 
 
 // TURN OFF ERROR REPORTING
-//error_reporting(0);
-//@ini_set('display_errors', 0);
+error_reporting(0);
+@ini_set('display_errors', 0);
 
 	$path = $_SERVER['REQUEST_URI'];
 	$doc_root = $_SERVER['DOCUMENT_ROOT'];

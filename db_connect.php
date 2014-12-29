@@ -9,7 +9,7 @@
 	}
 else{
 	
-	$uploads_folder  = OPENSHIFT_REPO_DIR.'/uploads';
+	$uploads_folder  =  '/var/lib/openshift/544f43b94382ec6427000496/app-root/runtime/repo/uploads';
 	mysql_connect("127.3.13.2", "adminxntQq3s", "s-FSsSggM7q3") or die (mysql_error ());
 }
 
