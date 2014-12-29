@@ -85,7 +85,7 @@ error_reporting(0);
 		unlink($uploads_folder.'/asset_doc_'.$asset_folder.'/'.$_GET['del_upload']);
 	}
 	
-echo   $full_path = $uploads_folder.'/asset_doc_'.$asset_folder;
+    $full_path = $uploads_folder.'/asset_doc_'.$asset_folder;
   
 
   
