@@ -1,10 +1,17 @@
 <?php
 // Connect to database server
 
-	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false || strpos($_SERVER['SERVER_NAME'],'192.168.1.6') !== false)
+
+ 
+	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false || strpos($_SERVER['SERVER_NAME'],'192.168.1.6') !== false){
 		mysql_connect("localhost", "root", "password") or die (mysql_error ());
-else
+		$uploads_folder = '/var/www/assets/uploads';
+	}
+else{
+	
+	$uploads_folder  = OPENSHIFT_REPO_DIR.'/uploads';
 	mysql_connect("127.3.13.2", "adminxntQq3s", "s-FSsSggM7q3") or die (mysql_error ());
+}
 
  
 // configure table_names;

@@ -7,6 +7,32 @@
 		$edit_id = $_GET['edit'];
 	}
 	
+	if(isset($_POST['upload_doc']))
+	{
+		 
+		$asset_id = $_POST['asset_id'];
+		$target_dir = $uploads_folder.'/asset_doc_'.$asset_id.'/';
+		
+	if (!file_exists($target_dir)) {
+    mkdir($target_dir);
+	}
+ 
+	
+$fileName = $_FILES["fileToUpload"]["name"]; 
+$fileTmpLoc = $_FILES["fileToUpload"]["tmp_name"];
+  $pathAndName = $target_dir.$fileName;
+$moveResult = move_uploaded_file($fileTmpLoc, $pathAndName);
+ 
+ 
+ 
+    
+    
+}
+
+	 
+		
+		
+	
 	if(isset($_POST['update']))
 	{
 		if(isset($_POST['asset_name']) && $_POST['asset_name'] != ''){
@@ -173,8 +199,8 @@
 <div class="col-md-9 col-lg-10" id="content">
 	<div class="row">
 		<div class="canvas col-md-12" id="main-canvas">
-			<form accept-charset="UTF-8" action="" class="form-horizontal"
-				id="purchase-main-form" method="post">
+			<form accept-charset="UTF-8" action="" class="form-horizontal" data-toggle="validator"
+				id="asset_new_form" method="post">
 			 
 				 
 				<section class="form col-sm-9" id="purchase">
@@ -206,11 +232,11 @@ else
 										class="form-control" id="purchase_subject" name="asset_name"
 										placeholder="Asset Name"
 										value="<?php echo (isset($asset_det['asset_name'])?$asset_det['asset_name'] : '')?>"
-										type="text">
+										type="text" required>
 								</div>
 							</div>
 							<div class="row">
-								<div class="remark form-group col-sm-12">
+								<div class="remark form-group col-sm-12 ">
 									<label class="sr-only" for="purchase_remark">Remark</label>
 									<textarea class="form-control" id="purchase_remark"
 										name="asset_desc" placeholder="Asset Description." rows="4"><?php echo (isset($asset_det['asset_desc'])?$asset_det['asset_desc'] : '')?></textarea>
@@ -441,14 +467,14 @@ else
 												</div>
 
 
-												<div class="form-group col-sm-4 item-qty"
+												<div class="form-group col-sm-4 item-qty  required"
 													style="margin-right: 5px;">
 													<div class="total_maintenance_div">
 														<label for="total_maintenance_div">Total Maintenance</label>
 														<br> <input class="form-control" name="total_maintenance"
 															placeholder="Total Maintenance"
 															value="<?php echo (isset($asset_det['total_maintenance'])?$asset_det['total_maintenance'] : '')?>"
-															type="text">
+															type="text" >
 
 													</div>
 												</div>
@@ -494,6 +520,11 @@ else
 										rows="4"><?php echo (isset($asset_det['violation_history'])?$asset_det['violation_history'] : '')?></textarea>
 								</div>
 							</div>
+							
+							
+ 
+							
+			 
 
 
 
@@ -532,7 +563,7 @@ if(isset($asset_det['asset_id']))
 									class="form-control" id="serial_number"
 									name="serial_number"
 									value="<?php  echo (isset($asset_det['serial_number']) && $asset_det['serial_number'] != '0000-00-00'   ? $asset_det['serial_number']:'' )?>"
-									type="text">
+									type="text" required>
 							</div>
 
 <div class="expiry_date_div">
@@ -605,9 +636,25 @@ if(isset($asset_det['asset_id']))
 									value="<?php  echo (isset($asset_det['date_sold'])  && $asset_det['date_sold'] != '0000-00-00' ? $asset_det['date_sold']:'' )?>"
 									type="text">
 							</div>
+							
+							<div class="file_upload_div">
+								 <br>
+								 <button  id="uploads_iframe_button"  type="button" class="btn btn-primary btn-lg"  <?php  if(! $Edit_mode){?>data-toggle="tooltip" data-placement="left" title="Tooltip on left"   disabled="disabled" <?php  }else{?>  data-toggle="modal"  data-target="#file-uploads"  <?php  }?> style="cursor:pointer;" ><i class="fa fa-folder-open "  >   </i>  Uploads </button>
+								 
+ 								 
+							</div>
  							<br>
 						</div>
 					</div>
+					
+					
+					
+					
+
+					
+					
+					
+					
 				</section>
 		<div class="clear">
 		</div>
@@ -626,11 +673,66 @@ else{
 ?>
 
 
+<div class="modal fade  bs-example-modal-lg"    id="file-uploads" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Uploads</h4>
+      </div>
+      <div class="modal-body">
+      
+        <iframe src="dir-listing-bootstrap-master/dir_listing.php?asset_id=<?php  echo $asset_det['asset_id'] ;?>" style="border:none;width:100%; height: 350px;" id="uploads_iframe"  name="uploads_iframe"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         <button   id="uploads_iframe_button"  type="button" class="btn btn-primary "   data-toggle="modal"  data-target="#upload_file"   style="cursor:pointer;" ><i class="fa fa-upload"> Upload File</i>   </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+ 
+
+
+
+
+
 
 
 </div>
 </div>
 </div>
 </form>
+
+<div class="modal fade  "    id="upload_file" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog  ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Uploads</h4>
+      </div>
+      <div class="modal-body">
+      
+ <div style="text-align: center;">
+
+ <form   action=""  method="post"  enctype="multipart/form-data">
+ <input type="hidden" name="asset_id" value = "<?php echo $asset_det['asset_id'] ;?>">
+     <input type="file" name="fileToUpload" id="fileToUpload" ><br>
+   <input type="submit" class="btn btn-default"  value="Upload " name="upload_doc">
+   
+</form>
+</div>
+ 
+      
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+    </div>
+  </div>
+</div>
 
 <?php   include_once('footer-pop.php'); ?>

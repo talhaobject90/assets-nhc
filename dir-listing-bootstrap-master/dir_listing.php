@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Bootstrap -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+		<!-- Icon -->
+		<link rel="icon" href="/dirl/favicon32.ico">
+		<title><?php echo $_SERVER['REQUEST_URI'] ?></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style type="text/css">
+      	body {
+      	 /* padding-top: 60px;*/
+      	 }
+   	</style>
+	</head>
+	<!--page content-->
+	<body>
+	
+	<?php
+	include_once('../db_connect.php');
+	require 'dir_listing_func.php';
+include 'dir_listing_config.php';
+
+
+//PATH
+
+
+// TURN OFF ERROR REPORTING
+error_reporting(0);
+@ini_set('display_errors', 0);
+
+	$path = $_SERVER['REQUEST_URI'];
+	$doc_root = $_SERVER['DOCUMENT_ROOT'];
+	//remove last '/' from doc_root if exist
+	if($doc_root[strlen($doc_root)-1]=='/')
+		$doc_root = substr($doc_root,0,strlen($doc_root)-1);
+	//Substitute %xx characters
+	$path = rawurldecode($path);
+	//Create full path
+	$full_path = $_SERVER['DOCUMENT_ROOT'].$path;
+
+//END PATH
+
+//BREADCRUMB
+
+	$folders=explode('/',$path);
+	$fathers=count($folders)-2;
+
+	/* echo "		<div class='container navbar-fixed-top'>\n";
+	echo "			<ol class='breadcrumb'>\n";
+
+	//fathers path
+	for($i=0;$i<$fathers;++$i){
+	echo "			<li><a href='";
+		for($j=0;$j<($fathers-$i);++$j){
+		echo '../';
+		}
+	echo "'>".htmlentities($folders[$i])."</a></li>\n";
+	}
+
+	//this folder
+	echo "			<li class='active'>".htmlentities($folders[$fathers])."</li>\n";
+	echo "			</ol>\n";
+	echo "		</div>\n"; */
+
+
+//END_BREADCRUMB
+
+//TABLE
+
+	if($_GET['asset_id']){
+		$asset_folder = $_GET['asset_id'];
+	}
+	
+	
+
+	if(isset($_GET['del_upload'])  ){
+		unlink($uploads_folder.'/asset_doc_'.$asset_folder.'/'.$_GET['del_upload']);
+	}
+	
+  $full_path = $uploads_folder.'/asset_doc_'.$asset_folder;
+  
+
+  
+  
+	$dir_handle = opendir($full_path);
+	
+	//error opening folder
+	if($dir_handle == false){
+		echo "<br><br><div class='container'><div class='alert alert-danger text-center'> No uploads yet </div></div>\n";
+		break;
+	}
+	
+	$folderlist = array();
+	$filelist = array();
+		
+	while( false !== ($entry = readdir($dir_handle))){
+		
+		//skip hidden files(optional), current folder ".", parent folder ".."
+		if ( ( strpos($entry,'.') === 0 and $show_hidden_files===false) | $entry == "." | $entry == ".." ){
+			continue;
+		}else if ( is_dir( $full_path.$entry ) ) {
+			$folderlist[] = $entry;	
+		}else{
+			$filelist[] = $entry;
+		}
+	}
+	
+	//order folder and files
+	sort($folderlist);
+	sort($filelist);
+	
+	//foldere is empty
+	if(count ($folderlist) == 0 and count ($filelist) == 0){
+		echo '<br><br><div class="container"><div class="alert alert-info text-center"><strong>This folder is empty</strong></div></div>';
+		//break;
+	}
+	
+	//print files table	
+		//print header
+		echo'
+		<div class="container">
+				<form action="assets_new.php" method="post" >
+				
+			<table class="table table-condensed table-hover">
+			<thead>
+				<th width="35"></th>
+				<th class="text-primary">Name</th>
+ 				<th width="10" class="text-primary">Actions</th> ';
+	  	if($show_modified_time === true)
+	  		echo'
+	  			<th class="text-primary text-center">Last modified</th>';
+	  	echo'
+	  		</thead>';
+	 	
+	 	//print folder
+		foreach ($folderlist as $val) {
+			echo '
+			<tr>
+				<td><span class="glyphicon glyphicon-folder-open"></span></td>
+				<td><a href="'.rawurlencode($val).'">'.htmlentities($val).'</td>
+				
+				
+				';
+			
+			if($use_du_command === true && $show_folders_size === true)
+				echo'
+				<td class="text-right">'. format_bytes(get_file_size($full_path.$val)) .'</td>';
+			else
+				echo'
+				<td class="text-center">-</td>';
+			
+			
+			if($show_modified_time === true)
+				echo'
+				<td></td>';
+			echo'
+			</tr>';
+		}
+	
+		//print file
+		foreach ($filelist as $val) {
+		echo '
+			<tr>
+				<td><span class="glyphicon '.choose_icon($val).'"></span></td>
+				<td><a href="'.rawurlencode($val).'">'.htmlentities($val).'</td>
+				 
+	  				<td><a href ="../download_docs.php?download='.$val.'&asset_id='.$asset_folder.'">Download</a>  <a href="dir_listing.php?del_upload='.$val.'&asset_id='.$asset_folder.'"    >Delete</a></td>
+	  				';
+		
+		if($show_modified_time === true)
+	  		echo'
+	  			<td class="text-center"><small>'.date("d/m/y H:i:s",filectime($full_path.$val)).'</small></td>';
+		echo '
+			</tr>';
+		
+		}
+		echo '
+			</table>
+						
+						</form>
+		</div>'."\n";
+	//end files table print
+	
+?>
+		 
+
+	 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins)--> 
+		<script src="../js/jquery.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="../js/bootstrap.min.js"></script>
+	</body>
+</html>

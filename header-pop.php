@@ -161,6 +161,8 @@ $_SESSION['redirected'] =  'yes';  */
 <script src="js/v1.js"></script>
 <script src="js/script.js"></script>
 <script src="js/bootstrapValidator.min.js"></script>
+<script src="js/tooltip.js"></script>
+
 
 
 <meta content="authenticity_token" name="csrf-param" />

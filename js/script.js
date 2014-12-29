@@ -5,39 +5,16 @@ $(document).ready(function() {
  
 	
 	/*
-	 * 
+	 * #007
 	 * To set set username /password form with identical validation
 	 * 
 	 */
 	
 	
-	
-	$('#identicalForm').validate({
-	    rules: {
-	    	username: {
-	            minlength: 2,
-	            required: true
-	        },
-	        
-	        password: {
-	            minlength: 2,
-	            required: true
-	        },
-	        
-	        confirmPassword: {
-	            minlength: 2,
-	            required: true
-	        }
-	        
-	        
-	        
-	    }
-	});
+ 
 	$('#identicalForm').bootstrapValidator({
         feedbackIcons: {
-            //valid: 'glyphicon glyphicon-ok',
-            //invalid: 'glyphicon glyphicon-remove',
-            //validating: 'glyphicon glyphicon-refresh'
+            
         },
         fields: {
             password: {
@@ -59,25 +36,52 @@ $(document).ready(function() {
         }
     });
 	
-	/*
-	 * This code is not used actually
-	 * 
-	 */
+	// END OF 007
+	
+	
+	jQuery("#asset_category").change(function(){
+		
+		var assetcat = jQuery("#asset_category").val();
+		
+		 
+		if(assetcat == 'Vehicles'){
+jQuery("#istemara_expiry_date").attr("required" ,"required");
+jQuery("#insurance_expiry_date").attr("required" ,"required");
+jQuery("#preventive_maintenance_date").attr("required" ,"required");
+jQuery("#tuv_sticker_date").attr("required" ,"required");
+jQuery("#client_sticker_date").attr("required" ,"required");
+jQuery("#mot_license_expiry_date").attr("required" ,"required");
+jQuery("#mvpi_expiry_date").attr("required" ,"required");
+	}
+		
+		if(assetcat == 'Equipment'  || assetcat == 'Equipment'){
+			
+			jQuery("#istemara_expiry_date").removeAttr("required");
+			jQuery("#insurance_expiry_date").removeAttr("required");
+			jQuery("#preventive_maintenance_date").removeAttr("required");
+			jQuery("#client_sticker_date").removeAttr("required");
+			jQuery("#mot_license_expiry_date").removeAttr("required");
+			jQuery("#mvpi_expiry_date").removeAttr("required");
+			
+			jQuery("#tuv_sticker_date").attr("required" ,"required");
+		}
 
-    $("#add_expiry_button").click(function() {                
+	
+		
+	})
+	
+	
+	// SCRIPT TO RELOAD THE IFRAME CONTENT;
+	
+	jQuery("#uploads_iframe_button").click(function(){
+		url = jQuery("#uploads_iframe").attr('src')
+		window.frames["uploads_iframe"].location = url;
+	})
+	
+	
+ 
 
-      $.ajax({    //create an ajax request to load_page.php
-        type: "GET",
-        url: "ajax.php",             
-        dataType: "html",   //expect html to be returned                
-        success: function(response){
-        	alert(response);
-            //$("#responsecontainer").html(response); 
-            //alert(response);
-        }
-
-    });
-});
+ 
     
     
     
@@ -116,6 +120,13 @@ $(document).ready(function() {
     
     
     
+    
+    
+    
+    
+    
+    
+
     
      
      

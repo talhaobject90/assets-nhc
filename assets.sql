@@ -51,7 +51,7 @@ CREATE TABLE `assets` (
   `date_sold` date DEFAULT NULL,
   `serial_number` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,9 +60,9 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (2,'LIFT','Main lift this wayaa','Jeddahs','Abdul Rahman Abdullah Alzahran','inactive','2014-11-26','2014-10-08','2014-10-09','2014-10-10','2014-10-11','2014-12-22','2014-12-31','aaaaaaaa','vvvvaaaaaa','','fhf','zdfwe','veh num','testasas','','','','','0000-00-00','0000-00-00','122');
+INSERT INTO `assets` VALUES (2,'LIFT','Main lift this wayaa','Jeddahs','Abdul Rahman Abdullah Alzahran','inactive','2014-11-26','2014-10-08','2014-10-09','0000-00-00','2014-10-11','2014-12-22','2014-12-31','aaaaaaaa','vvvvaaaaaa','','Vehicles','zdfwe','veh num','testasas','','','','','0000-00-00','0000-00-00','1222');
 INSERT INTO `assets` VALUES (16,'Sony','ericson prodct','Damam','','active','0000-00-00','0000-00-00','2014-12-31','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (17,'Xpefia','tip','Jeddahs','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (17,'Xpefia','tip','Jeddahs','','active','0000-00-00','0000-00-00','0000-00-00','2014-12-08','0000-00-00','0000-00-00','0000-00-00','','','','Equipment','','','','','','','','0000-00-00','0000-00-00','sd');
 INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'','','Human resources','','','','','','',NULL,NULL,'');
 INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'','','','','','','','','',NULL,NULL,'');
 INSERT INTO `assets` VALUES (20,'test asset','sdfsrfsf','sfd','Sdf','active','2014-10-08',NULL,NULL,NULL,NULL,NULL,'0000-00-00','Thi is tesxt','sfdsfsf','','','','','','','','','',NULL,NULL,'');
@@ -83,6 +83,8 @@ INSERT INTO `assets` VALUES (54,'sdfsafdsadf','sdfsdf','','','','0000-00-00','00
 INSERT INTO `assets` VALUES (55,'sdfdsfs','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','qw22');
 INSERT INTO `assets` VALUES (56,'asdfsdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
 INSERT INTO `assets` VALUES (57,'test','sdf','Jeddahs','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-10','','','','','','','','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (61,'aaa','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','sd');
+INSERT INTO `assets` VALUES (62,'sdf','','','','','2014-12-16','2014-12-17','2014-12-17','2014-12-10','2014-12-12','2014-12-18','2014-12-16','','','','Vehicles','','','','','','','','0000-00-00','0000-00-00','2323');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +99,7 @@ CREATE TABLE `assets_category` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `asset_category_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,16 +108,13 @@ CREATE TABLE `assets_category` (
 
 LOCK TABLES `assets_category` WRITE;
 /*!40000 ALTER TABLE `assets_category` DISABLE KEYS */;
-INSERT INTO `assets_category` VALUES (5,'ds gvfdsga S');
-INSERT INTO `assets_category` VALUES (7,'dfgbfg');
-INSERT INTO `assets_category` VALUES (8,'bfg');
-INSERT INTO `assets_category` VALUES (9,'fgnfgn');
-INSERT INTO `assets_category` VALUES (10,'fhf');
-INSERT INTO `assets_category` VALUES (11,'fghfgn');
-INSERT INTO `assets_category` VALUES (12,'ffghfg');
-INSERT INTO `assets_category` VALUES (13,'fgnfnf');
-INSERT INTO `assets_category` VALUES (14,'nfnfgn');
-INSERT INTO `assets_category` VALUES (16,'Baombs');
+INSERT INTO `assets_category` VALUES (17,'Vehicles');
+INSERT INTO `assets_category` VALUES (18,'Equipment');
+INSERT INTO `assets_category` VALUES (19,'Tools');
+INSERT INTO `assets_category` VALUES (20,'Electronics');
+INSERT INTO `assets_category` VALUES (21,'Buildings');
+INSERT INTO `assets_category` VALUES (22,'Portables');
+INSERT INTO `assets_category` VALUES (23,'Furniture');
 /*!40000 ALTER TABLE `assets_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +129,7 @@ CREATE TABLE `department` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `department_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -836,4 +835,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-22 16:20:56
+-- Dump completed on 2014-12-29 22:40:21
