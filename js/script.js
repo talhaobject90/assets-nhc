@@ -118,7 +118,12 @@ jQuery("#mvpi_expiry_date").attr("required" ,"required");
     $("#date_sold_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",sold)
     
     
-    
+    // To clear selected file for upload
+    $("#remove_button").click(function(event){
+    	  
+    	event.preventDefault();
+    	  $("#fileToUpload").replaceWith('<input type="file" name="fileToUpload" id="fileToUpload" ><br>');
+    	});
     
     
     

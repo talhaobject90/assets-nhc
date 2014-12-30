@@ -731,7 +731,8 @@ else{
  <form   action=""  method="post"  enctype="multipart/form-data">
  <input type="hidden" name="asset_id" value = "<?php echo $asset_det['asset_id'] ;?>">
      <input type="file" name="fileToUpload" id="fileToUpload" ><br>
-   <input type="submit" class="btn btn-default"  value="Upload " name="upload_doc">
+     <button id="remove_button">Remove</button>
+   <input type="submit" class="btn btn-primary"  value="Upload " name="upload_doc">
    
 </form>
 </div>
