@@ -9,9 +9,6 @@ $(document).ready(function() {
 	 * To set set username /password form with identical validation
 	 * 
 	 */
-	
-	
- 
 	$('#identicalForm').bootstrapValidator({
         feedbackIcons: {
             
@@ -36,14 +33,11 @@ $(document).ready(function() {
         }
     });
 	
-	// END OF 007
+	// END OF 007 ================================================
 	
-	
+	// script for mandatory fields 
 	jQuery("#asset_category").change(function(){
-		
 		var assetcat = jQuery("#asset_category").val();
-		
-		 
 		if(assetcat == 'Vehicles'){
 jQuery("#istemara_expiry_date").attr("required" ,"required");
 jQuery("#insurance_expiry_date").attr("required" ,"required");
@@ -65,10 +59,8 @@ jQuery("#mvpi_expiry_date").attr("required" ,"required");
 			
 			jQuery("#tuv_sticker_date").attr("required" ,"required");
 		}
-
-	
-		
 	})
+	//=========================================================
 	
 	
 	// SCRIPT TO RELOAD THE IFRAME CONTENT;
@@ -77,7 +69,7 @@ jQuery("#mvpi_expiry_date").attr("required" ,"required");
 		url = jQuery("#uploads_iframe").attr('src')
 		window.frames["uploads_iframe"].location = url;
 	})
-	
+	//============================================
 	
  
 
@@ -117,13 +109,16 @@ jQuery("#mvpi_expiry_date").attr("required" ,"required");
     sold=$("#date_sold_date").val();
     $("#date_sold_date").datepicker({format:"yyyy/m/d"}).datepicker("setDate",sold)
     
+    //===============================================================
+    
     
     // To clear selected file for upload
     $("#remove_button").click(function(event){
-    	  
     	event.preventDefault();
     	  $("#fileToUpload").replaceWith('<input type="file" name="fileToUpload" id="fileToUpload" ><br>');
     	});
+    	//========================================
+    
     
     
     

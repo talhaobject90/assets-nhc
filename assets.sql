@@ -51,7 +51,7 @@ CREATE TABLE `assets` (
   `date_sold` date DEFAULT NULL,
   `serial_number` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,30 +60,36 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (17,'Xpefia','tip','Jeddahs','','active','0000-00-00','0000-00-00','0000-00-00','2014-12-08','0000-00-00','0000-00-00','0000-00-00','','','','Equipment','','','','','','','','0000-00-00','0000-00-00','sd');
-INSERT INTO `assets` VALUES (18,'CPU','intel \r\nsdf','rP','talhaa','inactive',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'','','Human resources','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (19,'nokia 108','The brand new nokia 108 for us \r\n','table','Salman','active',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00',NULL,NULL,'','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (20,'test asset','sdfsrfsf','sfd','Sdf','active','2014-10-08',NULL,NULL,NULL,NULL,NULL,'0000-00-00','Thi is tesxt','sfdsfsf','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (23,'name','desc','loc','cust','active',NULL,NULL,NULL,NULL,NULL,NULL,'0000-00-00','accsa','viosa','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (24,'test asset 1','asset desc','ass loc','custodia','active','2014-10-01','2014-10-02',NULL,NULL,NULL,NULL,'0000-00-00','accid his','violhis','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (26,'test aset 2','asset desc','ass loc','cus','active','2014-10-01','2014-10-22',NULL,NULL,NULL,NULL,'0000-00-00','acc his','vio his','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (27,'test aset 3','ASDF','ass loc','cus','active','2014-10-01','0000-00-00',NULL,NULL,NULL,NULL,'0000-00-00','ACC','VIO','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (28,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','0000-00-00','acc','vio','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (29,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','0000-00-00','acc','vio','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (30,'Asset Name','deswc','loc','cus','under_maintenance','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','0000-00-00','acc','vio','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (31,'aaaaa ba','asdf','ass loc','talhatha','under_maintenance','2014-10-20','2014-10-21','2014-10-22','2014-10-23','2014-10-24','2014-10-25','0000-00-00','asfa','asdfbv','','','','','','','','','',NULL,NULL,'');
-INSERT INTO `assets` VALUES (36,'NEW TEST','Ass desc','ass loc','cus','active','2014-10-01','2014-10-02','2014-10-02','2014-10-03','2014-10-04','2014-10-05','0000-00-00','acc  ','vio','1','2','3','veh num','','pur','cur','tot mina','tot dep','2014-10-06','2014-10-07','');
-INSERT INTO `assets` VALUES (48,'Moto E','My Own motorolla','table','Mohammed Talha','active','2014-10-01','2014-10-02','2014-10-03','2014-10-04','2014-10-05','2014-10-06','0000-00-00','NIL','nil','Mazdas','Vehicle','Human resources','9788755','XT895','7000','6999','tot mina','tot dep','2014-10-07','2014-10-08','');
-INSERT INTO `assets` VALUES (51,'sets','','wqwqw','','','2014-11-28','2014-11-26','2014-11-20','2014-11-21','2014-11-22','2014-11-23','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (52,'jack','','','','','2014-11-12','2014-11-13','2014-11-14','2014-11-15','2014-11-16','2014-11-17','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (53,'sdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','testasas','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (54,'sdfsafdsadf','sdfsdf','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','','Human resources','sdfs','testasas','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (55,'sdfdsfs','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','qw22');
-INSERT INTO `assets` VALUES (56,'asdfsdfsdf','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (57,'test','sdf','Jeddahs','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-10','','','','','','','','','','','','0000-00-00','0000-00-00','');
-INSERT INTO `assets` VALUES (61,'aaa','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','sd');
-INSERT INTO `assets` VALUES (62,'sdf','','','','','2014-12-16','2014-12-17','2014-12-17','2014-12-10','2014-12-12','2014-12-18','2014-12-16','','','','Vehicles','','','','','','','','0000-00-00','0000-00-00','2323');
-INSERT INTO `assets` VALUES (63,'test','','','','','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','Tools','','','','','','','','0000-00-00','0000-00-00','sdsd');
+INSERT INTO `assets` VALUES (1,'Hyundai Vacuum Truck With Tanker','','JRD','Sajid Khan Muhammed Ismail','active','2014-12-08','2014-12-09','2014-12-09','2014-12-09','2015-02-05','2014-12-17','2014-12-29','','','Hyundai','Vehicles','Operations','1657  TLA','JRD Tank Repair LFC','','','','','0000-00-00','0000-00-00','NHV - 011');
+INSERT INTO `assets` VALUES (2,'Mazda 2 Cabin p/up','','JRD','Mohammed Asif','active','2015-01-10','0000-00-00','0000-00-00','2014-12-20','2015-02-02','0000-00-00','0000-00-00','','','','Equipment','Operations','5526  TKA','','','','','','0000-00-00','0000-00-00','NHV - 014');
+INSERT INTO `assets` VALUES (3,'Isuzu 1 Cabin P/up(Disel)','Parking In Aramco','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-02-02','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','8496  JGA','JRD','','','','','0000-00-00','0000-00-00','NHV - 022');
+INSERT INTO `assets` VALUES (4,'Doosan (GX 30) Fork Lift - 3 Tons','','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-01','0000-00-00','0000-00-00','','','Hyundai','Vehicle','Operations','5668 VBA','JRD','','','','','0000-00-00','0000-00-00','NHV - 033');
+INSERT INTO `assets` VALUES (5,'Mazda 2 Cabin p/up','','JRD','Palani Chinnasamy','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-02-04','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','3747 GHA','JRD','','','','','0000-00-00','0000-00-00','NHV - 038');
+INSERT INTO `assets` VALUES (6,'Mazda 2 Cabin p/up','','JRD','Samadullah Shareef','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-16','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','7130 KEA','JRD','','','','','0000-00-00','0000-00-00','NHV - 041');
+INSERT INTO `assets` VALUES (7,'Genie Man Lift Model  S8513','Using In site.','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-15','0000-00-00','0000-00-00','','','Isuzu','Vehicle','Operations','S.N. :10163','JRD','','','','','0000-00-00','0000-00-00','NHV - 042');
+INSERT INTO `assets` VALUES (8,'Toyota Coaster','Since 5 Dec 14 (Old Plate Number 8046  BBA)','JRD','Sherrehman Saifurahman','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Toyota','Vehicle','Operations','9367 BVA','JRD','','','','','0000-00-00','0000-00-00','NHV - 017');
+INSERT INTO `assets` VALUES (9,'Toyota Coaster','Since 5 Dec 14 (Old Plate Number 4723  BBA)','JRD','Sajid Khan Muhammed Ismail','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Toyota','Vehicle','Operations','9644 BVA','JRD','','','','','0000-00-00','0000-00-00','NHV - 026');
+INSERT INTO `assets` VALUES (10,'Nissan 2 Cabin Pick up','','JRD','Ajayakumar Anandan','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','4867 DHA','JRD','','','','','0000-00-00','0000-00-00','NHV - 035');
+INSERT INTO `assets` VALUES (11,'Boom/ Dump Truck','','JRD','Sajid Khan Muhammed Ismail','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','Vehicle','Operations','4693 LUA','JRD','','','','','0000-00-00','0000-00-00','NHV -054');
+INSERT INTO `assets` VALUES (12,'Nissan Mini Bus','','YNGL','Saleh Ahmed Zahrani','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-07-07','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','5536  LGA','YNGL','','','','','0000-00-00','0000-00-00','NHV - 004');
+INSERT INTO `assets` VALUES (13,'Mazda 2 Cabin p/up','','YNGL','Nisar Ahmed','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-15','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','6215  BEA','YNGL','','','','','0000-00-00','0000-00-00','NHV - 020');
+INSERT INTO `assets` VALUES (14,'Nissan mini bus','','YRD','Abdullah Mohammed Suwailem Alanazi','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','5537  LGA','YRD','','','','','0000-00-00','0000-00-00','NHV - 003');
+INSERT INTO `assets` VALUES (15,'Hyundai HD 170 Boom Truck - 7 Tons','','YRD','Saeed Ali Bin Saeed Alzahrani Zahrani','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Hyundai','Vehicle','Operations','5240  LGA','YRD','','','','','0000-00-00','0000-00-00','NHV - 005');
+INSERT INTO `assets` VALUES (16,'Hyundai HD 260 Vacuum Truck','','YRD','Saeed Ali Bin Saeed Alzahrani Zahrani','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Hyundai','Vehicle','Operations','6373  DGA','YRD','','','','','0000-00-00','0000-00-00','NHV - 012');
+INSERT INTO `assets` VALUES (17,'Hyundai HD 46 Diesel Tanker-2000 Lts','','YRD','Eduardo Jr Almendras Perez','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Hyundai','Vehicle','Operations','6372  DGA','YRD','','','','','0000-00-00','0000-00-00','NHV - 013');
+INSERT INTO `assets` VALUES (18,'Mazda 2 Cabin p/up','','YRD','Mohammed Nazakat','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','7074  VKA','YRD','','','','','0000-00-00','0000-00-00','NHV - 016');
+INSERT INTO `assets` VALUES (19,'Nissan 2 Cabin Pick up','','YRD','Eduardo Jr Almendras Perez','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','4868 DHA','YRD','','','','','0000-00-00','0000-00-00','NHV - 036');
+INSERT INTO `assets` VALUES (20,'Genie Man Lift Model  S85 4WD','','YRD','Rajendra Sarki Bipin','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Genie','Vehicle','Operations','','YRD','','','','','0000-00-00','0000-00-00','NHV - 039');
+INSERT INTO `assets` VALUES (21,'Mazda 2 Cabin p/up','','YRD','Ram Kumar Tamang','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','7117 KEA','YRD','','','','','0000-00-00','0000-00-00','NHV - 040');
+INSERT INTO `assets` VALUES (22,'Ashok Leyland Bus - 66 Seater','','YRD','Man Kumar Sintan','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Ashok Leyland','Vehicle','Operations','2065 ZUA','YRD','','','','','0000-00-00','0000-00-00','NHV - 052');
+INSERT INTO `assets` VALUES (23,'Nissan Pathfinder','','YRD','Ziyad Faraj Bin Saleh Al Johan','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','8878 UNA','YRD','','','','','0000-00-00','0000-00-00','NHV -059');
+INSERT INTO `assets` VALUES (24,'Mercedes Boom Truck - 10 Tons','','RRD','Hameedullah Khan','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','7772  HZA','RRD','','','','','0000-00-00','0000-00-00','NHV - 021');
+INSERT INTO `assets` VALUES (25,'Isuzu Double Cabin p/up','','RRD','Ajaz Ahmed','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-01-05','0000-00-00','0000-00-00','','','Isuzu','Vehicle','Operations','3091 UNA','RRD','','','','','0000-00-00','0000-00-00','NHV - 027');
+INSERT INTO `assets` VALUES (26,'Toyota Hiace','','RRD','Noor Muhammad Sardar Khan','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-01-05','0000-00-00','0000-00-00','','','Toyota','Vehicle','Operations','5508 UNA','RRD','','','','','0000-00-00','0000-00-00','NHV - 029');
+INSERT INTO `assets` VALUES (27,'Hyundai Vacuum Truck With Tanker','','RRD','Noor Muhammad Sardar Khan','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-02-16','0000-00-00','0000-00-00','','','Hyundai','Vehicle','Operations','1658  TLA','RRD','','','','','0000-00-00','0000-00-00','NHV - 015');
+INSERT INTO `assets` VALUES (28,'Ford Explorer','','Rabigh','Asaad Adham Al Nemer','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','Vehicle','Operations','4784 KXJ','YRD','','','','','0000-00-00','0000-00-00','NHV -056');
+INSERT INTO `assets` VALUES (29,'_dummy asset for testing','','test','Sami Iskandrani','active','2014-12-17','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Toyota','Vehicles','','asdasd','YRD Painting Svcs LFC','','','','','0000-00-00','0000-00-00','');
+INSERT INTO `assets` VALUES (30,'Test asset','','','','','2014-12-15','2014-12-03','2014-12-24','2014-12-08','2014-12-23','2014-12-18','2014-12-10','','','','Vehicles','','','','','','','','0000-00-00','0000-00-00','2322');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +104,7 @@ CREATE TABLE `assets_category` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `asset_category_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,13 +113,13 @@ CREATE TABLE `assets_category` (
 
 LOCK TABLES `assets_category` WRITE;
 /*!40000 ALTER TABLE `assets_category` DISABLE KEYS */;
-INSERT INTO `assets_category` VALUES (17,'Vehicles');
-INSERT INTO `assets_category` VALUES (18,'Equipment');
-INSERT INTO `assets_category` VALUES (19,'Tools');
-INSERT INTO `assets_category` VALUES (20,'Electronics');
-INSERT INTO `assets_category` VALUES (21,'Buildings');
-INSERT INTO `assets_category` VALUES (22,'Portables');
-INSERT INTO `assets_category` VALUES (23,'Furniture');
+INSERT INTO `assets_category` VALUES (1,'Vehicles');
+INSERT INTO `assets_category` VALUES (5,'Equipment');
+INSERT INTO `assets_category` VALUES (7,'Tools');
+INSERT INTO `assets_category` VALUES (17,'Electronics');
+INSERT INTO `assets_category` VALUES (18,'Buildings');
+INSERT INTO `assets_category` VALUES (19,'Portables');
+INSERT INTO `assets_category` VALUES (20,'Furniture');
 /*!40000 ALTER TABLE `assets_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,9 +144,9 @@ CREATE TABLE `department` (
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
 INSERT INTO `department` VALUES (1,'Human resources');
-INSERT INTO `department` VALUES (7,'zdfwe');
-INSERT INTO `department` VALUES (8,'fw');
-INSERT INTO `department` VALUES (9,'SOCIALs');
+INSERT INTO `department` VALUES (7,'Operations');
+INSERT INTO `department` VALUES (8,'Support Services');
+INSERT INTO `department` VALUES (9,'IT');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +169,7 @@ CREATE TABLE `employee` (
   `employee_phone` varchar(20) NOT NULL,
   `employee_status` enum('inactive','active') NOT NULL DEFAULT 'active',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=356 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=355 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,6 +178,8 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES (1,'Sami','Iskandrani','sami@nhc-ksa.com','iskandsa','CEO','Jeddah - HO','Office of the CEO','','active');
+INSERT INTO `employee` VALUES (2,'Fahmi','T. Ahmed','fahmi@nhc-ksa.com','tanrak','Manager, Support Services','Jeddah - HO','Support Services','0500100250','active');
 INSERT INTO `employee` VALUES (3,'Syed Abdul Aleem','','aaleem@nhc-ksa.com','10001','Commercial Manager','Jeddah - HO','Commercial and Business Development','','active');
 INSERT INTO `employee` VALUES (4,'Ali Abdullah Alzahrani','','aalzahrani@nhc-ksa.com','10002','Operations Manager','Jeddah','Operations Department','','active');
 INSERT INTO `employee` VALUES (5,'Abdul Rahman Abdullah Alzahran','','arzahrani@nhc-ksa.com','10083','H R Co-ordinator','Jeddah - HO','Human Resources Department','','active');
@@ -524,7 +532,6 @@ INSERT INTO `employee` VALUES (351,'Bilal Ahmed','Nisar Ahmed','','v1203','Helpe
 INSERT INTO `employee` VALUES (352,'Abdul Rashhed','Hakim Ali','','v1209','Helper','Jeddah','Operations Department','','active');
 INSERT INTO `employee` VALUES (353,'Rana Sajid Ali','Rana Tufail Muhammad','','10350','Supervisor Mechanical','Jubail','Operations Department','','active');
 INSERT INTO `employee` VALUES (354,'Hamid Ali','Rana Tufail Muhammad','','10352','Fabricator Pipe','Jubail','Operations Department','','active');
-INSERT INTO `employee` VALUES (355,'asda','','','','','','asda','','');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -554,12 +561,13 @@ CREATE TABLE `google_users` (
 
 LOCK TABLES `google_users` WRITE;
 /*!40000 ALTER TABLE `google_users` DISABLE KEYS */;
-INSERT INTO `google_users` VALUES (100428232109775983047,'Mohammed Talhaqqq','','','talhaqqq@gmail.com',2,'https://plus.google.com/100428232109775983047','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','talha@object90.com','monu','talha@object90.com',3,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (106053436166547787694,'Mariappan C','','','mars@object90.com',1,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',1,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (106803781885381507211,'Bala P','','','bala223344@gmail.com',2,'https://plus.google.com/106803781885381507211','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (112556666499925624851,'Mhd Ali','m.ali@object90.com','ali','m.ali@object90.com',11,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','talha@object90.com','monu','talha@object90.com',1,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (103583028745737769566,'Sami A. Iskandrani','','','sami@nhc-ksa.com',12,'','https://lh5.googleusercontent.com/-COWe5Xc1JxE/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (105295586601853475832,'Syed Abdul Aaleem','','','aaleem@nhc-ksa.com',14,'https://plus.google.com/105295586601853475832','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',2,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (108217036843721318338,'Abdul Rahman','','','arahman@nhc-ksa.com',3,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (111812993465993205296,'Fahmi T.Ahmed','','','fahmi@nhc-ksa.com',14,'https://plus.google.com/111812993465993205296','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (116840605792335537520,'Abdulkadher Jailani','','','akjailani@nhc-ksa.com',1,'https://plus.google.com/116840605792335537520','https://lh4.googleusercontent.com/-ldRWFmhs-rs/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','roneyp20@gmail.com',4,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 /*!40000 ALTER TABLE `google_users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -575,7 +583,7 @@ CREATE TABLE `locations` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `location` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -584,10 +592,9 @@ CREATE TABLE `locations` (
 
 LOCK TABLES `locations` WRITE;
 /*!40000 ALTER TABLE `locations` DISABLE KEYS */;
-INSERT INTO `locations` VALUES (1,'Jeddahs');
-INSERT INTO `locations` VALUES (4,'rIAYD');
-INSERT INTO `locations` VALUES (5,'Damam');
-INSERT INTO `locations` VALUES (6,'aaaaaaaaaaaaaaaaaaaaaa');
+INSERT INTO `locations` VALUES (1,'Jeddah');
+INSERT INTO `locations` VALUES (2,'JRD');
+INSERT INTO `locations` VALUES (3,'YNGL');
 /*!40000 ALTER TABLE `locations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -634,7 +641,7 @@ CREATE TABLE `notify` (
   `send_to` varchar(200) NOT NULL,
   `days_before` int(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -643,10 +650,13 @@ CREATE TABLE `notify` (
 
 LOCK TABLES `notify` WRITE;
 /*!40000 ALTER TABLE `notify` DISABLE KEYS */;
-INSERT INTO `notify` VALUES (19,'Istemara Expiry','1',15);
-INSERT INTO `notify` VALUES (20,'Insurance Expiry','11',7);
-INSERT INTO `notify` VALUES (22,'Insurance Expiry','1',4);
-INSERT INTO `notify` VALUES (24,'MVPI Expiry','3',9);
+INSERT INTO `notify` VALUES (24,'Client Sticker Expiry','14',14);
+INSERT INTO `notify` VALUES (25,'Client Sticker Expiry','14',2);
+INSERT INTO `notify` VALUES (32,'Client Sticker Expiry','12',2);
+INSERT INTO `notify` VALUES (33,'Client Sticker Expiry','3',2);
+INSERT INTO `notify` VALUES (34,'Client Sticker Expiry','1',1);
+INSERT INTO `notify` VALUES (35,'Istemara Expiry','3',14);
+INSERT INTO `notify` VALUES (36,'MVPI Expiry','1',7);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -663,7 +673,7 @@ CREATE TABLE `projects` (
   `project_description` varchar(500) NOT NULL,
   `status` enum('inactive','active','finished') NOT NULL DEFAULT 'inactive',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -672,8 +682,13 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (2,'testasas','sfsfsfas','active');
-INSERT INTO `projects` VALUES (4,'sdfsss','sdf','');
+INSERT INTO `projects` VALUES (4,'JRD Tank Repair LFC','','active');
+INSERT INTO `projects` VALUES (5,'YRD','','active');
+INSERT INTO `projects` VALUES (6,'TEKFEN','','active');
+INSERT INTO `projects` VALUES (7,'ABHA','','active');
+INSERT INTO `projects` VALUES (8,'RRD','','active');
+INSERT INTO `projects` VALUES (9,'YNGL','','active');
+INSERT INTO `projects` VALUES (10,'YRD Painting Svcs LFC','','active');
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -721,7 +736,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -730,10 +745,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (10,51,'Istemara Expiry','2014-11-28','opened');
-INSERT INTO `tickets` VALUES (11,51,'Istemara Expiry','2014-11-28','opened');
-INSERT INTO `tickets` VALUES (12,51,'Istemara Expiry','2014-11-28','opened');
-INSERT INTO `tickets` VALUES (13,51,'Istemara Expiry','2014-11-28','opened');
+INSERT INTO `tickets` VALUES (5,1,'MVPI Expiry','2014-12-29','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -749,7 +761,7 @@ CREATE TABLE `user_roles` (
   `user_role_name` varchar(100) NOT NULL,
   `user_role_screens` varchar(500) NOT NULL,
   PRIMARY KEY (`user_role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -759,12 +771,42 @@ CREATE TABLE `user_roles` (
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
 INSERT INTO `user_roles` VALUES (1,'System Admin','a:7:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";i:5;s:1:\"6\";i:6;s:1:\"7\";}');
-INSERT INTO `user_roles` VALUES (2,'Data Entry Operator','a:2:{i:0;s:1:\"1\";i:1;s:1:\"5\";}');
-INSERT INTO `user_roles` VALUES (3,'Asset Co-ordinator','a:7:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";i:5;s:1:\"6\";i:6;s:1:\"7\";}');
-INSERT INTO `user_roles` VALUES (4,'Approver','');
-INSERT INTO `user_roles` VALUES (11,'Trainee','a:2:{i:0;s:1:\"1\";i:1;s:1:\"2\";}');
-INSERT INTO `user_roles` VALUES (12,'Anonymous','a:3:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";}');
+INSERT INTO `user_roles` VALUES (2,'Data Entry Operator','a:5:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";}');
+INSERT INTO `user_roles` VALUES (3,'Asset Coordinator','a:6:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"5\";i:4;s:1:\"6\";i:5;s:1:\"7\";}');
+INSERT INTO `user_roles` VALUES (4,'Approver','a:1:{i:0;s:1:\"1\";}');
+INSERT INTO `user_roles` VALUES (11,'Site Processor','a:3:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"6\";}');
+INSERT INTO `user_roles` VALUES (12,'CEO','a:7:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";i:5;s:1:\"6\";i:6;s:1:\"7\";}');
+INSERT INTO `user_roles` VALUES (13,'Site Coordinator','a:3:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"6\";}');
+INSERT INTO `user_roles` VALUES (14,'Site Mgr','a:5:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"6\";i:4;s:1:\"7\";}');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `nice_name` varchar(10) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `user_role` varchar(30) NOT NULL,
+  `user_status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Talha','talha@object90.com','password1','1','active');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -801,7 +843,7 @@ CREATE TABLE `vendor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vendor_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -811,15 +853,18 @@ CREATE TABLE `vendor` (
 LOCK TABLES `vendor` WRITE;
 /*!40000 ALTER TABLE `vendor` DISABLE KEYS */;
 INSERT INTO `vendor` VALUES (1,'Mazda');
-INSERT INTO `vendor` VALUES (8,'sdfdfgdf');
-INSERT INTO `vendor` VALUES (9,'dbdfsg');
-INSERT INTO `vendor` VALUES (10,'dfgdb');
-INSERT INTO `vendor` VALUES (11,'sdfgb sf');
-INSERT INTO `vendor` VALUES (12,'fgbnf');
-INSERT INTO `vendor` VALUES (13,'fgn');
-INSERT INTO `vendor` VALUES (14,'sdbsdfg');
-INSERT INTO `vendor` VALUES (15,'ssS');
-INSERT INTO `vendor` VALUES (16,'ass');
+INSERT INTO `vendor` VALUES (8,'Toyota');
+INSERT INTO `vendor` VALUES (9,'Nissan');
+INSERT INTO `vendor` VALUES (10,'Geely');
+INSERT INTO `vendor` VALUES (11,'Mercedes');
+INSERT INTO `vendor` VALUES (12,'Ashok Leyland');
+INSERT INTO `vendor` VALUES (13,'TATA');
+INSERT INTO `vendor` VALUES (14,'Isuzu');
+INSERT INTO `vendor` VALUES (15,'Hyundai');
+INSERT INTO `vendor` VALUES (16,'Genie');
+INSERT INTO `vendor` VALUES (17,'Ford');
+INSERT INTO `vendor` VALUES (18,'Fordland');
+INSERT INTO `vendor` VALUES (19,'BMW');
 /*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -832,4 +877,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-30 12:12:31
+-- Dump completed on 2014-12-30 22:47:16

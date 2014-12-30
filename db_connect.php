@@ -2,6 +2,7 @@
 // Connect to database server
 
 
+
  
 	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false || strpos($_SERVER['SERVER_NAME'],'192.168.1.6') !== false){
 		mysql_connect("localhost", "root", "password") or die (mysql_error ());
@@ -30,6 +31,22 @@ $notification_types_table = 'notification_types';
 $notify_table = 'notify';
 $tickets_table = 'tickets';
 $locations_table = 'locations';
+
+$tables = array($assets_table,
+		'assets_category_table' => $assets_category_table,
+		'department_table' =>$department_table,
+		'employee_table' => $employee_table,
+		 'vendor_table' => $vendor_table,
+		 'users_table' =>$users_table,
+		'user_roles_table' =>$user_roles_table,
+		'user_screens_table' =>$user_screens_table,
+		'screens_table' =>$screens_table,
+		 'notifications_table' =>$notifications_table,
+		'project_table'=>$project_table,
+		'notification_types_table' =>$notification_types_table,
+		 'notify_table' => $notify_table,
+		'tickets_table' =>$tickets_table,
+		'locations_table'=>$locations_table);
 
 // Select database
 mysql_select_db($assets_table) or die(mysql_error());
