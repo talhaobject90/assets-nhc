@@ -170,7 +170,7 @@ error_reporting(0);
 		echo '
 			<tr>
 				<td><span class="glyphicon '.choose_icon($val).'"></span></td>
-				<td><a href="'.rawurlencode($val).'">'.htmlentities($val).'</td>
+				<td> '.htmlentities($val).'</td>
 				 
 	  				<td><a href ="../download_docs.php?download='.$val.'&asset_id='.$asset_folder.'">Download</a>  <a href="dir_listing.php?del_upload='.$val.'&asset_id='.$asset_folder.'"    >Delete</a></td>
 	  				';

@@ -35,6 +35,22 @@ $locations_table = 'locations';
 mysql_select_db($assets_table) or die(mysql_error());
 
 
+// FUNCTION TO DELETE CONTENTS OF  A DIRECTORY RECURSIVELY
+
+function recursiveRemoveDirectory($directory)
+{
+	foreach(glob("{$directory}/*") as $file)
+	{
+		if(is_dir($file)) {
+			recursiveRemoveDirectory($file);
+		} else {
+			unlink($file);
+		}
+	}
+	rmdir($directory);
+}
+
+
 
 
  

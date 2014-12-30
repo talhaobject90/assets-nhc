@@ -25,7 +25,7 @@ $moveResult = move_uploaded_file($fileTmpLoc, $pathAndName);
 
 if($moveResult)
 	echo '<div class="alert alert-success  col-md-2 col-md-offset-3" role="alert">
-  <p>File uploaded successful</p>
+  <p>File uploaded successfully</p>
 </div>';
 else{
 	echo '<div class="alert alert-danger  col-md-2 col-md-offset-3" role="alert">
