@@ -34,7 +34,7 @@ if($_SESSION['authorization_status'])
 </div>
 
  
-<form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;">
+<form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;display:none">
     <div class="input-append  form-group">
         <input type="text"  placeholder="Search Ticket"   name="search" class="span2 search-query">
         <button type="submit" class="btn"  ><i class="fa fa-search icon"></i></button>
@@ -71,9 +71,13 @@ if( mysql_num_rows($all_assets) == 0){
 </div>';
 	}
 else{
-
-echo '<table class="table table-hover">';
-echo '<th>ID</th><th>Asset ID</th><th>Expiry Type</th><th>Expiry Date</th><th>Expiring in(Days)</th><th>Status</th><th></th><th></th>';
+$pagination_class = '';
+if(mysql_num_rows($all_assets) > 8)
+	$pagination_class = 'pagination_table';
+	
+	
+echo '<table class="table table-hover '.$pagination_class.' ">';
+echo '<thead><th>ID</th><th>Asset ID</th><th>Expiry Type</th><th>Expiry Date</th><th>Expiring in(Days)</th><th>Status</th><th></th><th></th></thead><tbody>';
 while($row = mysql_fetch_array($all_assets)) {
 
 $today = date("Y-m-d");
@@ -88,7 +92,7 @@ if($left < 0)
 
 echo '<tr ><td>'.$row['id'].'</td><td>'.$row['asset_id'].'</td><td>'.$row['expiry_type'].'</td><td>'.$row['expiring_date'].'</td><td>'.$left.'</td><td  style=" text-transform: capitalize; " >'.$row['status'].'</td><td><a href="ticket_view.php?view='.$row['id'].'"><i class="fa fa-folder-open fa-2x" alt="View Details"></i></a></td></tr>';
 }
-echo '</table>';
+echo '</tbody></table>';
 }
 ?>
 

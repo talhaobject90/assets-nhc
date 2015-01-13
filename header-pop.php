@@ -155,6 +155,7 @@ $_SESSION['redirected'] =  'yes';  */
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" media="screen" rel="stylesheet" />
 <link href="css/font-awesome.css" media="screen" rel="stylesheet" />
 <link href="css/style.css" media="screen" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css">
 
 <script data-turbolinks-track="true" src="js/application-9924af930ec816234c493e9467f16835.js"></script>
 <!-- <script src="https://js.stripe.com/v1/"></script> -->
@@ -162,6 +163,8 @@ $_SESSION['redirected'] =  'yes';  */
 <script src="js/script.js"></script>
 <script src="js/bootstrapValidator.min.js"></script>
 <script src="js/tooltip.js"></script>
+ 		<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
 
 
 

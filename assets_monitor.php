@@ -22,7 +22,7 @@
 		}
 	
 	?>
-
+ 
 
 <div class="col-md-9 col-lg-10" id="content">
 <div class="row">
@@ -39,7 +39,7 @@
 </div>
 
  
-<form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;">
+<form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;display:none;">
     <div class="input-append  form-group">
         <input type="text"  placeholder="Search Asset"   name="search" class="span2 search-query">
         <button type="submit" class="btn"  ><i class="fa fa-search icon"></i></button>
@@ -79,8 +79,8 @@ if( mysql_num_rows($all_assets) == 0){
 else{
 
 
-echo '<table class="table table-hover">';
-echo '<th>ID</th><th>Asset Name</th><th>Asset Location</th><th>Custodian</th><th>Status</th><th></th><th></th>';
+echo '<table class="  table-hover table  pagination_table" >';
+echo '<thead><th>ID</th><th>Asset Name</th><th>Asset Location</th><th>Custodian</th><th>Status</th><th></th><th></th></thead><tbody>';
 while($row = mysql_fetch_array($all_assets)) {
 if($row['status'] == 'active')
 	$status ='Active';
@@ -101,7 +101,8 @@ if(strlen($row['custodian']) >15)
 echo '<tr ><td>'.$row['id'].'</td><td><a href="assets_view.php?edit='.$row['id'].'">'.$row['name'].'</a></td><td>'.substr($row['location'],0,15).$loc_append.'</td><td>'.substr($row['custodian'],0,15).$append.'</td><td  class="text-capitalize">'.$status.'</td><td><a href="assets_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="assets_monitor.php?delete='.$row['id'].'"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
 
 }
-echo '</table>';
+echo '</tbody></table>
+		';
 }
 ?>
 

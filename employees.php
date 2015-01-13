@@ -39,7 +39,7 @@
 </div>
 </div>
 
-<form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;">
+<form class="form-search"   role="form"   accept-charset="UTF-8"    action =""  method="get"   style="float:right;display:none;">
     <div class="input-append  form-group">
         <input type="text"  placeholder="Search employee"   name="search" class="span2 search-query">
         <button type="submit" class="btn"  ><i class="fa fa-search icon"></i></button>
@@ -76,8 +76,8 @@ if( mysql_num_rows($all_assets) == 0){
 </div>';
 }
 else{
-echo '<table class="table table-hover">';
-echo '<th>ID</th><th>Employee Name</th><th>Email</th><th>User Name</th><th>Department</th><th></th><th></th>';
+echo '<table class="table table-hover pagination_table">';
+echo '<thead><th>ID</th><th>Employee Name</th><th>Email</th><th>User Name</th><th>Department</th><th></th><th></th></thead><tbody>';
 while($row = mysql_fetch_array($all_assets)) {
  
 echo '<tr><td>'.$row['id'].'</td>
@@ -89,7 +89,7 @@ echo '<tr><td>'.$row['id'].'</td>
 
 		</tr>';
 }
-echo '</table>';
+echo '</tbody></table>';
 }
 ?>
 

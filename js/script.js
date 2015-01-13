@@ -2,6 +2,9 @@
 
 
 $(document).ready(function() {
+	
+	// for table pagination
+	    jQuery('.pagination_table').dataTable();
  
 	
 	/*
