@@ -32,7 +32,8 @@ $notify_table = 'notify';
 $tickets_table = 'tickets';
 $locations_table = 'locations';
 
-$tables = array($assets_table,
+$tables = array(
+		'assets_table' =>$assets_table,
 		'assets_category_table' => $assets_category_table,
 		'department_table' =>$department_table,
 		'employee_table' => $employee_table,

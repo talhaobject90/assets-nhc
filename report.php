@@ -40,6 +40,8 @@ if( mysql_num_rows($all_assets) != 0){
 										data-toggle="tab">Assets Report</a></li>
 									<li><a href="#project_employees_report" role="tab"
 										data-toggle="tab">Other Reports</a></li>
+											<li><a href="#special_reports" role="tab"
+										data-toggle="tab">Special Reports</a></li>
 								</ul>
 							</div>
 
@@ -265,6 +267,48 @@ if( mysql_num_rows($all_assets) != 0){
 			</form>
 
 		</div><!--  #end of project_employees_report -->
+		
+		
+		
+		<div class="tab-pane   " id="special_reports">
+
+			<form accept-charset="UTF-8" action="classes.php"
+				class="form-horizontal" id="purchase-main-form" method="post">
+				<div class="row">
+					<div class="page-content col-sm-6">
+
+						<div class="form-group col-sm-12 item-qty">
+							<label for="asset_id_div"><u>Report title</u>: </label> <input
+								type="textbox" class="form-control" name="title">
+						</div>
+						
+						<div class="form-group col-sm-12 item-qty">
+							<label for="asset_id_div"><u>Sheet Protection Password</u>: (Optional)</label> <input
+								type="textbox" class="form-control" name="password">
+						</div>
+						
+						<div class="form-group col-sm-12 item-qty">
+						<label for="asset_id_div"> <u>Filter assets by  </u>:<br>
+							<select class="form-control" name="wise">
+							<option value = "projects">Projects</option>
+							<option value = "location">Location</option>
+							<option value="custodian">Custodian</option>
+							</select>
+											
+						</div>
+						
+ 					</div>
+				</div>
+				<div style="padding-bottom: 20px;">
+					<input class="btn btn-default btn-primary" type="submit"
+						name="special_reports" value="Generate Report"> <a href="dashboard.php"><input
+						class="btn btn-default  " type="button" value="Cancel"
+						style="margin-left: 10px; font-weight: bold;"></a>
+
+				</div>
+			</form>
+
+		</div><!--  #end of special reports -->
 	</div>
 	</section>
 
