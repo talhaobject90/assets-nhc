@@ -640,8 +640,9 @@ CREATE TABLE `notify` (
   `notification_type` varchar(50) NOT NULL,
   `send_to` varchar(200) NOT NULL,
   `days_before` int(4) NOT NULL,
+  `stage` int(5) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -650,13 +651,12 @@ CREATE TABLE `notify` (
 
 LOCK TABLES `notify` WRITE;
 /*!40000 ALTER TABLE `notify` DISABLE KEYS */;
-INSERT INTO `notify` VALUES (24,'Client Sticker Expiry','14',14);
-INSERT INTO `notify` VALUES (25,'Client Sticker Expiry','14',2);
-INSERT INTO `notify` VALUES (32,'Client Sticker Expiry','12',2);
-INSERT INTO `notify` VALUES (33,'Client Sticker Expiry','3',2);
-INSERT INTO `notify` VALUES (34,'Client Sticker Expiry','1',1);
-INSERT INTO `notify` VALUES (35,'Istemara Expiry','3',14);
-INSERT INTO `notify` VALUES (36,'MVPI Expiry','1',7);
+INSERT INTO `notify` VALUES (1,'Insurance Expiry','1',12,1);
+INSERT INTO `notify` VALUES (2,'Insurance Expiry','1',15,2);
+INSERT INTO `notify` VALUES (3,'Insurance Expiry','1',6,3);
+INSERT INTO `notify` VALUES (4,'Insurance Expiry','2',12,1);
+INSERT INTO `notify` VALUES (5,'Insurance Expiry','2',15,2);
+INSERT INTO `notify` VALUES (6,'Insurance Expiry','2',6,3);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -877,4 +877,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-13 20:32:01
+-- Dump completed on 2015-01-13 23:12:29

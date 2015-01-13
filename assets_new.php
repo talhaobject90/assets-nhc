@@ -530,15 +530,6 @@ else
 										rows="4"><?php echo (isset($asset_det['violation_history'])?$asset_det['violation_history'] : '')?></textarea>
 								</div>
 							</div>
-							
-							
- 
-							
-			 
-
-
-
-
 
 
 						</div>

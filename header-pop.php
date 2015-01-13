@@ -39,6 +39,7 @@ switch ($myurl){
 	case 'alerts.php':
 	case 'notification_monitor.php':
 	case 'notify_new.php':
+	case 'notification_map.php':
 		$screen_id = 2;
 		break;
 
@@ -257,7 +258,7 @@ $_SESSION['redirected'] =  'yes';  */
 </a></li>
 <li class='divider'></li>
 <li>
-<a href="https://pomsapp.com/support?email=talha%40object90.com&amp;name=Mohammed+Talha&amp;sd=object90">support
+<a href="mailto:talha@object90.com,akjailani@nhc-ksa.com,rameshkumar@gmail.com?Subject=Assets NewHorizons%20Support" target="_top">support
 <i class='fa fa-umbrella icon'></i>
 </a></li>
 <li>

@@ -32,26 +32,15 @@ class report {
 		
 		$this->create_excel($this->tablename);
 		$this->download();
-		
-		
-		
-	
 	}
-	
-	
 	function getColumnNames($tablename){
-		
-		 
 		$columnQuery = "desc ".$tablename.";";
 		$columnQuery = mysql_query($columnQuery);
-		
 		while($rows = mysql_fetch_array($columnQuery)) {
 			$columns[]= $rows['Field'];
 		}
 		return $columns;
 	}
-	
-	
 	function MapNames ($columnName){
 			if(strpos($columnName, '_') == true){
 				$columnName_arr = explode('_', $columnName);
@@ -151,8 +140,6 @@ class report {
 	
 	
 }
-
-
 
 class specialReport extends report{
 	
@@ -283,13 +270,113 @@ class specialReport extends report{
 	}
 }
 
+
+
+class updateNotification{
 	
+	
+	
+	function __construct($table,$data){
+		
+		$this->Truncate($table);
+		
+		$this->InsertData($data);
+	}
+	
+	function Truncate($table){
+		$TruncateQuery = "TRUNCATE TABLE  ".$table.";";
+		$TruncateResult= mysql_query($TruncateQuery);
+		return $TruncateResult;
+	}
+	
+	function InsertData($data){
+		
+		//print_r($data);
+		//exit;
+		
+		foreach ($data['roles_1']  as $rolesKey =>$roleID  )
+		{
+			
+		foreach ($data as $key => $value ){
+			$exp_key = explode('_', $key);
+			
+			if($exp_key[0] == 'ins'){
+				if($data[$key] != 0){
+				echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Insurance Expiry', '".$roleID."', '".$data['ins_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+				$insertQueryResult= mysql_query($insertQuery);
+			echo '<br>';
+				}  // for checking days != 0				
+			} // for ins
+			if($exp_key[0] == 'ist'){
+				if($data[$key] != 0){
+					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Istemara Expiry', '".$roleID."', '".$data['ist_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+					$insertQueryResult= mysql_query($insertQuery);
+					echo '<br>';
+				}  // for checking days != 0
+			} // for ins
+			if($exp_key[0] == 'tuv'){
+				if($data[$key] != 0){
+					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('TUV Sticker Expiry', '".$roleID."', '".$data['tuv_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+					$insertQueryResult= mysql_query($insertQuery);
+					echo '<br>';
+				}  // for checking days != 0
+			} // for ins
+			
+			if($exp_key[0] == 'cli'){
+				if($data[$key] != 0){
+					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Client Sticker Expiry', '".$roleID."', '".$data['cli_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+					$insertQueryResult= mysql_query($insertQuery);
+					echo '<br>';
+				}  // for checking days != 0
+			} // for ins
+			if($exp_key[0] == 'mot'){
+				if($data[$key] != 0){
+					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MOT License Expiry', '".$roleID."', '".$data['mot_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+					$insertQueryResult= mysql_query($insertQuery);
+					echo '<br>';
+				}  // for checking days != 0
+			} // for ins
+			if($exp_key[0] == 'mvpi'){
+				if($data[$key] != 0){
+					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MVPI Expiry', '".$roleID."', '".$data['mvpi_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+					$insertQueryResult= mysql_query($insertQuery);
+					echo '<br>';
+				}  // for checking days != 0
+			} // for ins
+			if($exp_key[0] == 'pvt'){
+				if($data[$key] != 0){
+					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Preventive Maintenance Expiry', '".$roleID."', '".$data['pvt_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+					$insertQueryResult= mysql_query($insertQuery);
+					echo '<br>';
+				}  // for checking days != 0
+			} // for ins
+			
+			
+		} // for each subdata 
+			
+		} // for each roles_1
+		
+		
+		
+	}// function insertData
+	
+	
+	
+}
+
+	
+if(isset($_POST['update_notification'])){
+ $updateNotification = new updateNotification($tables['notify_table'], $_POST);
+}
 
 
 
 
-
-
+/*
+ * ======================================================================================
+ *  ===========================  FOR GENERATING REPORTS  ===================================
+ *    ====================================================================================== 
+ */
 if(isset($_POST['report'])){
  
 if($_POST['type'] == 'project_employees'){
@@ -316,6 +403,12 @@ else if ($_POST['type'] == 'department'){
 
 }
 
+
+/*
+ * ======================================================================================
+ *  ===========================  FOR GENERATING SPECIAL REPORTS============================
+ *    ======================================================================================
+ */
 
 if(isset($_POST['special_reports'])){
 	

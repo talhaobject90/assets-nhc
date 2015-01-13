@@ -168,8 +168,6 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		$mail->Body    = 'THE MAIL SENT FORM ASSETS-NEW HORIZONS';
 		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 		
-		
-		
 		if( $mail->send()) {
 			 ECHO 'TEST MAIL IS SENT';
 		}
