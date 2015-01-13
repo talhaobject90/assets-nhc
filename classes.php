@@ -203,6 +203,7 @@ class specialReport extends report{
 			$cellName = $this->num2alpha($key);
 			$mappedName = $this->MapNames($value);
 			$objPHPExcel->getActiveSheet()->getColumnDimension($cellName)->setWidth(20);
+			$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
 			$objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(40);
 			$objPHPExcel->getActiveSheet()->SetCellValue($cellName.$rowCount,$mappedName);
 			  $cellName.'-'.$rowCount.'-'.$mappedName. '<br>';
@@ -219,6 +220,7 @@ class specialReport extends report{
 		$rowCount++;
 		$objPHPExcel = $objPHPExcel;
 		$rowCount++;
+		
 		$objPHPExcel->getActiveSheet()->getRowDimension('1')->setRowHeight(75);
 		$objPHPExcel->setActiveSheetIndex(0)->mergeCells('D1:J1');
 		$objPHPExcel->setActiveSheetIndex(0)->mergeCells('A1:C1');
