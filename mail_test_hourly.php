@@ -10,7 +10,6 @@ function check_hourly_mail($mail){
 	$mail->Password = '123qweASD!';                           // SMTP password
 	$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 	$mail->Port = 465;                                    // TCP port to connect to
-
 	$mail->From = 'm.ali@object90.com';
 	$mail->FromName = 'Assets-NewHorizons';
 	$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
