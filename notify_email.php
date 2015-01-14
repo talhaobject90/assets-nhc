@@ -103,8 +103,8 @@ echo 'Client Sticker Expiry<hr> Asset id -- Days left';
 		
 	$istemara_check_query =    "SELECT  *   FROM  ".$assets_table." ORDER BY   `".$order_by."`   ASC  ;";
 	$istemara_check_query_results= mysql_query($istemara_check_query);
-while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
-	
+while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {  // for one asset id
+	$TICKETCREATED = false;
 	if ($istemara_row [$order_by] != '' && $istemara_row [$order_by] != '0000-00-00') {
 		echo '<br>'.$istemara_row['id'].'>>>>>>  ';
 		$expiry_date = $istemara_row [$order_by];
@@ -116,19 +116,27 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		// select form notify table which users are opted for istemarta expiry for this days_before
 		$istemara_notify_query = "SELECT *  FROM " . $notify_table . " WHERE `notification_type` LIKE '%".$notification_type."%'   AND  `days_before`  = '".$left."' ;";
 		$istemara_notify_query_results = mysql_query ( $istemara_notify_query );
-		while ( $istemara_notify_row = mysql_fetch_array ( $istemara_notify_query_results ) ) {
-			$mysql_query = "INSERT INTO `".$tickets_table."`
+		while ( $istemara_notify_row = mysql_fetch_array ( $istemara_notify_query_results ) ) {  // for each notify entry like $notification_type and $left;
+			//print_r($istemara_notify_row);
+			
+
+			 
+			 $mysql_query = "INSERT INTO `".$tickets_table."`
  		       		( `asset_id`,
 					`expiry_type`,
 					`expiring_date`
-			
 				 ) VALUES
 				('".$istemara_row ['id']."',
 					'".$notification_type."',
   					'".$istemara_row [$order_by]."'
 					)";
+			
+			if( ! $TICKETCREATED ){  // create ticket only once for one asset id with particular notificationtype and days left.
 			mysql_query($mysql_query);
 			$ticket_id = mysql_insert_id();
+				$TICKETCREATED = true;
+			}
+			
 			
 			
 				$user_query = "SELECT *  FROM " . $users_table. " WHERE `users_user_role_id` = '".$istemara_notify_row['send_to']."'  ;";
@@ -147,7 +155,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		/*
 		 * ============ CODE TO CHECK CRON WORKING DAILY BASIS
 		 */
-	check_daily_mail($mail);
+	//check_daily_mail($mail);
 	
 	function check_daily_mail($mail){
 		
@@ -256,8 +264,8 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) {
 		
 			$a = 1;
 		
-		if(!$mail->send()) {
-		//	if($a != 1) {
+		//if(!$mail->send()) {
+			if($a != 1) {
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {

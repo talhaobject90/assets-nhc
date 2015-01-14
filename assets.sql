@@ -64,7 +64,7 @@ INSERT INTO `assets` VALUES (1,'Hyundai Vacuum Truck With Tanker','','JRD','Saji
 INSERT INTO `assets` VALUES (2,'Mazda 2 Cabin p/up','','JRD','Mohammed Asif','active','2015-01-10','0000-00-00','0000-00-00','2014-12-20','2015-02-02','0000-00-00','0000-00-00','','','','Equipment','Operations','5526  TKA','','','','','','0000-00-00','0000-00-00','NHV - 014');
 INSERT INTO `assets` VALUES (3,'Isuzu 1 Cabin P/up(Disel)','Parking In Aramco','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-02-02','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','8496  JGA','JRD','','','','','0000-00-00','0000-00-00','NHV - 022');
 INSERT INTO `assets` VALUES (4,'Doosan (GX 30) Fork Lift - 3 Tons','','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-01','0000-00-00','0000-00-00','','','Hyundai','Vehicle','Operations','5668 VBA','JRD','','','','','0000-00-00','0000-00-00','NHV - 033');
-INSERT INTO `assets` VALUES (5,'Mazda 2 Cabin p/up','','JRD','Palani Chinnasamy','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-02-04','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','3747 GHA','JRD','','','','','0000-00-00','0000-00-00','NHV - 038');
+INSERT INTO `assets` VALUES (5,'Mazda 2 Cabin p/up','','JRD','Palani Chinnasamy','active','2015-01-28','2015-01-22','2015-01-17','2015-01-25','2015-02-04','2015-01-15','2015-01-21','','','Nissan','','Operations','3747 GHA','','','','','','2015-01-31','2015-01-31','NHV - 038');
 INSERT INTO `assets` VALUES (6,'Mazda 2 Cabin p/up','','JRD','Samadullah Shareef','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-16','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','7130 KEA','JRD','','','','','0000-00-00','0000-00-00','NHV - 041');
 INSERT INTO `assets` VALUES (7,'Genie Man Lift Model  S8513','Using In site.','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-15','0000-00-00','0000-00-00','','','Isuzu','Vehicle','Operations','S.N. :10163','JRD','','','','','0000-00-00','0000-00-00','NHV - 042');
 INSERT INTO `assets` VALUES (8,'Toyota Coaster','Since 5 Dec 14 (Old Plate Number 8046  BBA)','JRD','Sherrehman Saifurahman','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Toyota','Vehicle','Operations','9367 BVA','JRD','','','','','0000-00-00','0000-00-00','NHV - 017');
@@ -78,7 +78,7 @@ INSERT INTO `assets` VALUES (15,'Hyundai HD 170 Boom Truck - 7 Tons','','YRD','S
 INSERT INTO `assets` VALUES (16,'Hyundai HD 260 Vacuum Truck','','YRD','Saeed Ali Bin Saeed Alzahrani Zahrani','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Hyundai','Vehicle','Operations','6373  DGA','YRD','','','','','0000-00-00','0000-00-00','NHV - 012');
 INSERT INTO `assets` VALUES (17,'Hyundai HD 46 Diesel Tanker-2000 Lts','','YRD','Eduardo Jr Almendras Perez','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Hyundai','Vehicle','Operations','6372  DGA','YRD','','','','','0000-00-00','0000-00-00','NHV - 013');
 INSERT INTO `assets` VALUES (18,'Mazda 2 Cabin p/up','','YRD','Mohammed Nazakat','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','7074  VKA','YRD','','','','','0000-00-00','0000-00-00','NHV - 016');
-INSERT INTO `assets` VALUES (19,'Nissan 2 Cabin Pick up','','YRD','Eduardo Jr Almendras Perez','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','4868 DHA','YRD','','','','','0000-00-00','0000-00-00','NHV - 036');
+INSERT INTO `assets` VALUES (19,'Nissan 2 Cabin Pick up','','','Eduardo Jr Almendras Perez','active','2015-01-31','2015-02-20','2015-03-19','2015-02-27','2015-02-26','2015-02-10','2015-02-13','','','Nissan','','Operations','4868 DHA','YRD','','','','','2015-02-19','2015-01-23','NHV - 036');
 INSERT INTO `assets` VALUES (20,'Genie Man Lift Model  S85 4WD','','YRD','Rajendra Sarki Bipin','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Genie','Vehicle','Operations','','YRD','','','','','0000-00-00','0000-00-00','NHV - 039');
 INSERT INTO `assets` VALUES (21,'Mazda 2 Cabin p/up','','YRD','Ram Kumar Tamang','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','7117 KEA','YRD','','','','','0000-00-00','0000-00-00','NHV - 040');
 INSERT INTO `assets` VALUES (22,'Ashok Leyland Bus - 66 Seater','','YRD','Man Kumar Sintan','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Ashok Leyland','Vehicle','Operations','2065 ZUA','YRD','','','','','0000-00-00','0000-00-00','NHV - 052');
@@ -654,8 +654,8 @@ LOCK TABLES `notify` WRITE;
 INSERT INTO `notify` VALUES (1,'Insurance Expiry','1',16,1);
 INSERT INTO `notify` VALUES (2,'Insurance Expiry','2',16,1);
 INSERT INTO `notify` VALUES (3,'Insurance Expiry','4',16,1);
-INSERT INTO `notify` VALUES (4,'Insurance Expiry','1',12,2);
-INSERT INTO `notify` VALUES (5,'Insurance Expiry','4',12,2);
+INSERT INTO `notify` VALUES (4,'Insurance Expiry','1',5,2);
+INSERT INTO `notify` VALUES (5,'Insurance Expiry','4',5,2);
 INSERT INTO `notify` VALUES (6,'Insurance Expiry','1',2,3);
 INSERT INTO `notify` VALUES (7,'Insurance Expiry','2',2,3);
 INSERT INTO `notify` VALUES (8,'Insurance Expiry','11',2,3);
@@ -665,24 +665,24 @@ INSERT INTO `notify` VALUES (11,'Istemara Expiry','2',16,1);
 INSERT INTO `notify` VALUES (12,'Istemara Expiry','4',16,1);
 INSERT INTO `notify` VALUES (13,'Istemara Expiry','1',14,2);
 INSERT INTO `notify` VALUES (14,'Istemara Expiry','4',14,2);
-INSERT INTO `notify` VALUES (15,'Istemara Expiry','1',14,3);
-INSERT INTO `notify` VALUES (16,'Istemara Expiry','2',14,3);
-INSERT INTO `notify` VALUES (17,'Istemara Expiry','11',14,3);
-INSERT INTO `notify` VALUES (18,'Istemara Expiry','14',14,3);
-INSERT INTO `notify` VALUES (19,'TUV Sticker Expiry','1',15,1);
-INSERT INTO `notify` VALUES (20,'TUV Sticker Expiry','2',15,1);
-INSERT INTO `notify` VALUES (21,'TUV Sticker Expiry','4',15,1);
+INSERT INTO `notify` VALUES (15,'Istemara Expiry','1',17,3);
+INSERT INTO `notify` VALUES (16,'Istemara Expiry','2',17,3);
+INSERT INTO `notify` VALUES (17,'Istemara Expiry','11',17,3);
+INSERT INTO `notify` VALUES (18,'Istemara Expiry','14',17,3);
+INSERT INTO `notify` VALUES (19,'TUV Sticker Expiry','1',11,1);
+INSERT INTO `notify` VALUES (20,'TUV Sticker Expiry','2',11,1);
+INSERT INTO `notify` VALUES (21,'TUV Sticker Expiry','4',11,1);
 INSERT INTO `notify` VALUES (22,'TUV Sticker Expiry','1',12,2);
 INSERT INTO `notify` VALUES (23,'TUV Sticker Expiry','4',12,2);
-INSERT INTO `notify` VALUES (24,'TUV Sticker Expiry','1',13,3);
-INSERT INTO `notify` VALUES (25,'TUV Sticker Expiry','2',13,3);
-INSERT INTO `notify` VALUES (26,'TUV Sticker Expiry','11',13,3);
-INSERT INTO `notify` VALUES (27,'TUV Sticker Expiry','14',13,3);
-INSERT INTO `notify` VALUES (28,'Client Sticker Expiry','1',18,1);
-INSERT INTO `notify` VALUES (29,'Client Sticker Expiry','2',18,1);
-INSERT INTO `notify` VALUES (30,'Client Sticker Expiry','4',18,1);
-INSERT INTO `notify` VALUES (31,'Client Sticker Expiry','1',15,2);
-INSERT INTO `notify` VALUES (32,'Client Sticker Expiry','4',15,2);
+INSERT INTO `notify` VALUES (24,'TUV Sticker Expiry','1',44,3);
+INSERT INTO `notify` VALUES (25,'TUV Sticker Expiry','2',44,3);
+INSERT INTO `notify` VALUES (26,'TUV Sticker Expiry','11',44,3);
+INSERT INTO `notify` VALUES (27,'TUV Sticker Expiry','14',44,3);
+INSERT INTO `notify` VALUES (28,'Client Sticker Expiry','1',22,1);
+INSERT INTO `notify` VALUES (29,'Client Sticker Expiry','2',22,1);
+INSERT INTO `notify` VALUES (30,'Client Sticker Expiry','4',22,1);
+INSERT INTO `notify` VALUES (31,'Client Sticker Expiry','1',19,2);
+INSERT INTO `notify` VALUES (32,'Client Sticker Expiry','4',19,2);
 INSERT INTO `notify` VALUES (33,'Client Sticker Expiry','1',6,3);
 INSERT INTO `notify` VALUES (34,'Client Sticker Expiry','2',6,3);
 INSERT INTO `notify` VALUES (35,'Client Sticker Expiry','11',6,3);
@@ -708,12 +708,12 @@ INSERT INTO `notify` VALUES (54,'MVPI Expiry','14',14,3);
 INSERT INTO `notify` VALUES (55,'Preventive Maintenance Expiry','1',10,1);
 INSERT INTO `notify` VALUES (56,'Preventive Maintenance Expiry','2',10,1);
 INSERT INTO `notify` VALUES (57,'Preventive Maintenance Expiry','4',10,1);
-INSERT INTO `notify` VALUES (58,'Preventive Maintenance Expiry','1',12,2);
-INSERT INTO `notify` VALUES (59,'Preventive Maintenance Expiry','4',12,2);
-INSERT INTO `notify` VALUES (60,'Preventive Maintenance Expiry','1',2,3);
-INSERT INTO `notify` VALUES (61,'Preventive Maintenance Expiry','2',2,3);
-INSERT INTO `notify` VALUES (62,'Preventive Maintenance Expiry','11',2,3);
-INSERT INTO `notify` VALUES (63,'Preventive Maintenance Expiry','14',2,3);
+INSERT INTO `notify` VALUES (58,'Preventive Maintenance Expiry','1',64,2);
+INSERT INTO `notify` VALUES (59,'Preventive Maintenance Expiry','4',64,2);
+INSERT INTO `notify` VALUES (60,'Preventive Maintenance Expiry','1',5,3);
+INSERT INTO `notify` VALUES (61,'Preventive Maintenance Expiry','2',5,3);
+INSERT INTO `notify` VALUES (62,'Preventive Maintenance Expiry','11',5,3);
+INSERT INTO `notify` VALUES (63,'Preventive Maintenance Expiry','14',5,3);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -793,7 +793,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -802,7 +802,15 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (5,1,'MVPI Expiry','2014-12-29','opened');
+INSERT INTO `tickets` VALUES (1,5,'Istemara Expiry','2015-01-28','opened');
+INSERT INTO `tickets` VALUES (2,19,'Istemara Expiry','2015-01-31','opened');
+INSERT INTO `tickets` VALUES (3,19,'Preventive Maintenance Expiry','2015-03-19','opened');
+INSERT INTO `tickets` VALUES (4,5,'TUV Sticker Expiry','2015-01-25','opened');
+INSERT INTO `tickets` VALUES (5,19,'TUV Sticker Expiry','2015-02-27','opened');
+INSERT INTO `tickets` VALUES (6,2,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (7,3,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (8,1,'Client Sticker Expiry','2015-02-05','opened');
+INSERT INTO `tickets` VALUES (9,5,'MVPI Expiry','2015-01-21','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -934,4 +942,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-14 20:45:58
+-- Dump completed on 2015-01-14 21:49:14
