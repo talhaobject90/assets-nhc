@@ -43,7 +43,7 @@
 	$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
 	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
 	 
-	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');
+	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' FROM '.$_SERVER['REMOTE_ADDR'].'  ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');
 	$mail->Body    = 'SOME ONE LOGGED IN INTO  ASSETS-NEW HORIZONS';
 	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 	 
