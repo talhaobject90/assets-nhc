@@ -6,7 +6,61 @@
 	<?php
 	
 	session_start();
+	
+	
+	
+	
+	
 
+	/* =============================================================================
+	 *   =====================		CODE TO DETECT LOGIN   ===============================
+	 *  =============================================================================
+	 *
+	 *
+	 */
+	 function detectLogin($email,$type){
+	 	
+	 	
+ //if($email == 'talha@object90.com'){
+	 
+	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false)
+		include '/var/www/PHPMailer-master/PHPMailerAutoload.php';
+	else
+		require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
+	$mail = new PHPMailer;
+	 
+	 
+	$mail->isSMTP();                                      // Set mailer to use SMTP
+	$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+	$mail->SMTPAuth = true;                               // Enable SMTP authentication
+	$mail->Username = 'alerts@nhc-ksa.com';                 // SMTP username
+	$mail->Password = '123qweASD!';                           // SMTP password
+	$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+	$mail->Port = 465;                                    // TCP port to connect to
+	 
+	$mail->From = 'm.ali@object90.com';
+	$mail->FromName = 'Assets-NewHorizons';
+	$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
+	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
+	 
+	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' FROM '.$_SERVER['REMOTE_ADDR'].'  ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');
+	$mail->Body    = 'SOME ONE LOGGED IN INTO  ASSETS-NEW HORIZONS';
+	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+	 
+	 
+	 
+	 
+	 
+	if( $mail->send()) {
+		//	ECHO 'TEST MAIL IS SENT';
+	}
+// }
+	 
+	/*
+	 *   =============================================================================// LOGIN ACTIVITY
+	 *
+	 */
+	 }
 
 	 
 	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false){
@@ -67,8 +121,8 @@
 				$_SESSION['user_id'] = $rows['google_id'];
 				$_SESSION['user_email'] = $rows['google_email'];
 				
-				
 				if($rows['password'] == $_POST['user_password']){
+					detectLogin($_SESSION['user_email'],'ORDINARY');
 									?>
 								<script type="text/javascript">
 								window.location.href = "<?php echo $redirect_dashboard?>";
@@ -130,14 +184,13 @@ if (isset($_REQUEST['reset']))
 //and we can redirect user back to page and login.
 if (isset($_GET['code'])) 
 { 
+	
+
+	
+	
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();
-	 
- 
-	  
 	header('Location: ' . filter_var($google_redirect_url, FILTER_SANITIZE_URL));
- 
- 	
 	return;
 }
 
@@ -161,7 +214,8 @@ if ($gClient->getAccessToken())
 	    
 	    $_SESSION['token'] 	= $gClient->getAccessToken();
 	    
-	    
+	    detectLogin($email,'GMAIL');
+
 	   
 	   
 	  
