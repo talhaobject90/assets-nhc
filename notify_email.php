@@ -172,7 +172,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 		$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
 		$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
 		
-		$mail->Subject = 'MAIL TEST DAILY --:' .date( 'Y-m-d H:i:s');
+		$mail->Subject = 'MAIL TEST DAILY(notify_email.php) --:' .date( 'Y-m-d H:i:s');
 		$mail->Body    = 'THE MAIL SENT FORM ASSETS-NEW HORIZONS';
 		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 		
