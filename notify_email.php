@@ -155,7 +155,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 		/*
 		 * ============ CODE TO CHECK CRON WORKING DAILY BASIS
 		 */
-	//check_daily_mail($mail);
+	check_daily_mail($mail);
 	
 	function check_daily_mail($mail){
 		
