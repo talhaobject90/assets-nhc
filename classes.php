@@ -274,96 +274,287 @@ class specialReport extends report{
 
 class updateNotification{
 	
-	
-	
-	function __construct($table,$data){
+	function __construct($table = null ,$data= null){
 		
+			if(isset($data['update_notification']))
+			$this->TruncateInsert($table,$data);
+	}
+	
+	function  TruncateInsert($table,$data){
 		$this->Truncate($table);
-		
 		$this->InsertData($data);
 	}
+	
 	
 	function Truncate($table){
 		$TruncateQuery = "TRUNCATE TABLE  ".$table.";";
 		$TruncateResult= mysql_query($TruncateQuery);
 		return $TruncateResult;
 	}
-	
+ 
 	function InsertData($data){
-		
-		//print_r($data);
-		//exit;
-		
-		foreach ($data['roles_1']  as $rolesKey =>$roleID  )
-		{
-			
-		foreach ($data as $key => $value ){
+ 
+	 
+		foreach ($data as $key => $value ){  // each key in array
 			$exp_key = explode('_', $key);
 			
-			if($exp_key[0] == 'ins'){
-				if($data[$key] != 0){
-				echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Insurance Expiry', '".$roleID."', '".$data['ins_'.$exp_key[1]]."', '".$exp_key[1]."' )";
-				$insertQueryResult= mysql_query($insertQuery);
-			echo '<br>';
-				}  // for checking days != 0				
+			if($exp_key[0] == 'ins'){  // if ins
+				if($data[$key] != 0){  // if ins value not 0
+					foreach ( $data ['roles_1'] as $rolesKey => $roleID ) { // / for role 1
+						if ($exp_key [1] == 1) { // for stage 1 only
+							  $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Insurance Expiry', '" . $roleID . "', '" . $data ['ins_' . $exp_key [1]] . "', '" . $exp_key [1] . "' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							  '<br>';
+						}
+					}  
+
+				foreach ( $data ['roles_2'] as $rolesKey => $roleID ) { // / for role 2
+						if ($exp_key [1] == 2) { // for stage 2 only
+							  $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Insurance Expiry', '" . $roleID . "', '" . $data ['ins_' . $exp_key [1]] . "', '" . $exp_key [1] . "' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							  '<br>';
+						} 
+					} // for role2
+
+					
+					foreach ( $data ['roles_3'] as $rolesKey => $roleID ) { // / for role 3
+						if ($exp_key [1] == 3) { // for stage 3 only
+							  $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Insurance Expiry', '" . $roleID . "', '" . $data ['ins_' . $exp_key [1]] . "', '" . $exp_key [1] . "' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							  '<br>';
+						}
+					} // for role3
+				} // checking value is not 0			
 			} // for ins
-			if($exp_key[0] == 'ist'){
-				if($data[$key] != 0){
-					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Istemara Expiry', '".$roleID."', '".$data['ist_'.$exp_key[1]]."', '".$exp_key[1]."' )";
-					$insertQueryResult= mysql_query($insertQuery);
-					echo '<br>';
-				}  // for checking days != 0
-			} // for ins
-			if($exp_key[0] == 'tuv'){
-				if($data[$key] != 0){
-					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('TUV Sticker Expiry', '".$roleID."', '".$data['tuv_'.$exp_key[1]]."', '".$exp_key[1]."' )";
-					$insertQueryResult= mysql_query($insertQuery);
-					echo '<br>';
-				}  // for checking days != 0
-			} // for ins
+			else if($exp_key[0] == 'ist'){
+				
+				if($data[$key] != 0){  // if ist value not 0
+					foreach ( $data ['roles_1'] as $rolesKey => $roleID ) { // / for role 1
+						if ($exp_key [1] == 1) { // for stage 1 only
+							  $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Istemara Expiry', '".$roleID."', '".$data['ist_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							  '<br>';
+						}
+					}
+				
+					foreach ( $data ['roles_2'] as $rolesKey => $roleID ) { // / for role 2
+						if ($exp_key [1] == 2) { // for stage 2 only
+							  $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Istemara Expiry', '".$roleID."', '".$data['ist_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							  '<br>';
+						}
+					} // for role2
+				
+						
+					foreach ( $data ['roles_3'] as $rolesKey => $roleID ) { // / for role 3
+						if ($exp_key [1] == 3) { // for stage 3 only
+							  $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Istemara Expiry', '".$roleID."', '".$data['ist_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							  '<br>';
+						}
+					} // for role3
+				} // checking value is not 0
+			 
+			} // for ist
 			
-			if($exp_key[0] == 'cli'){
-				if($data[$key] != 0){
-					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Client Sticker Expiry', '".$roleID."', '".$data['cli_'.$exp_key[1]]."', '".$exp_key[1]."' )";
-					$insertQueryResult= mysql_query($insertQuery);
-					echo '<br>';
-				}  // for checking days != 0
-			} // for ins
-			if($exp_key[0] == 'mot'){
-				if($data[$key] != 0){
-					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MOT License Expiry', '".$roleID."', '".$data['mot_'.$exp_key[1]]."', '".$exp_key[1]."' )";
-					$insertQueryResult= mysql_query($insertQuery);
-					echo '<br>';
-				}  // for checking days != 0
-			} // for ins
-			if($exp_key[0] == 'mvpi'){
-				if($data[$key] != 0){
-					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MVPI Expiry', '".$roleID."', '".$data['mvpi_'.$exp_key[1]]."', '".$exp_key[1]."' )";
-					$insertQueryResult= mysql_query($insertQuery);
-					echo '<br>';
-				}  // for checking days != 0
-			} // for ins
-			if($exp_key[0] == 'pvt'){
-				if($data[$key] != 0){
-					echo $insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Preventive Maintenance Expiry', '".$roleID."', '".$data['pvt_'.$exp_key[1]]."', '".$exp_key[1]."' )";
-					$insertQueryResult= mysql_query($insertQuery);
-					echo '<br>';
-				}  // for checking days != 0
-			} // for ins
+			else if($exp_key[0] == 'tuv'){
+				
+				if($data[$key] != 0){  // if ist value not 0
+					foreach ( $data ['roles_1'] as $rolesKey => $roleID ) { // / for role 1
+						if ($exp_key [1] == 1) { // for stage 1 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('TUV Sticker Expiry', '".$roleID."', '".$data['tuv_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					}
+				
+					foreach ( $data ['roles_2'] as $rolesKey => $roleID ) { // / for role 2
+						if ($exp_key [1] == 2) { // for stage 2 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('TUV Sticker Expiry', '".$roleID."', '".$data['tuv_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					} // for role2
+				
+				
+					foreach ( $data ['roles_3'] as $rolesKey => $roleID ) { // / for role 3
+						if ($exp_key [1] == 3) { // for stage 3 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('TUV Sticker Expiry', '".$roleID."', '".$data['tuv_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					} // for role3
+				} // checking value is not 0
+ 
+			} // for tuv
+			
+			else if($exp_key[0] == 'cli'){
+				
+				if($data[$key] != 0){  // if ist value not 0
+					foreach ( $data ['roles_1'] as $rolesKey => $roleID ) { // / for role 1
+						if ($exp_key [1] == 1) { // for stage 1 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Client Sticker Expiry', '".$roleID."', '".$data['cli_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					}
+				
+					foreach ( $data ['roles_2'] as $rolesKey => $roleID ) { // / for role 2
+						if ($exp_key [1] == 2) { // for stage 2 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Client Sticker Expiry', '".$roleID."', '".$data['cli_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					} // for role2
+				
+				
+					foreach ( $data ['roles_3'] as $rolesKey => $roleID ) { // / for role 3
+						if ($exp_key [1] == 3) { // for stage 3 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Client Sticker Expiry', '".$roleID."', '".$data['cli_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					} // for role3
+				} // checking value is not 0
+	 
+			} // for cli
+			 
+			else if($exp_key[0] == 'mvpi'){
+				
+				if($data[$key] != 0){  // if ist value not 0
+					foreach ( $data ['roles_1'] as $rolesKey => $roleID ) { // / for role 1
+						if ($exp_key [1] == 1) { // for stage 1 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MVPI Expiry', '".$roleID."', '".$data['mvpi_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					}
+				
+					foreach ( $data ['roles_2'] as $rolesKey => $roleID ) { // / for role 2
+						if ($exp_key [1] == 2) { // for stage 2 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MVPI Expiry', '".$roleID."', '".$data['mvpi_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					} // for role2
+				
+				
+					foreach ( $data ['roles_3'] as $rolesKey => $roleID ) { // / for role 3
+						if ($exp_key [1] == 3) { // for stage 3 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MVPI Expiry', '".$roleID."', '".$data['mvpi_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					} // for role3
+				} // checking value is not 0
+				
+				} // for mvpi
+		 
+			else if($exp_key[0] == 'pvt'){
+				
+				if($data[$key] != 0){  // if ist value not 0
+					foreach ( $data ['roles_1'] as $rolesKey => $roleID ) { // / for role 1
+						if ($exp_key [1] == 1) { // for stage 1 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Preventive Maintenance Expiry', '".$roleID."', '".$data['pvt_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					}
+				
+					foreach ( $data ['roles_2'] as $rolesKey => $roleID ) { // / for role 2
+						if ($exp_key [1] == 2) { // for stage 2 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Preventive Maintenance Expiry', '".$roleID."', '".$data['pvt_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					} // for role2
+				
+				
+					foreach ( $data ['roles_3'] as $rolesKey => $roleID ) { // / for role 3
+						if ($exp_key [1] == 3) { // for stage 3 only
+							$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('Preventive Maintenance Expiry', '".$roleID."', '".$data['pvt_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+							$insertQueryResult = mysql_query ( $insertQuery );
+							'<br>';
+						}
+					} // for role3
+				} // checking value is not 0
+				
+				} // for pvt
+				else if($exp_key[0] == 'mot'){
+					
+					
+					if($data[$key] != 0){  // if ist value not 0
+						foreach ( $data ['roles_1'] as $rolesKey => $roleID ) { // / for role 1
+							if ($exp_key [1] == 1) { // for stage 1 only
+								$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MOT License Expiry', '".$roleID."', '".$data['mot_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+								$insertQueryResult = mysql_query ( $insertQuery );
+								'<br>';
+							}
+						}
+					
+						foreach ( $data ['roles_2'] as $rolesKey => $roleID ) { // / for role 2
+							if ($exp_key [1] == 2) { // for stage 2 only
+								$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MOT License Expiry', '".$roleID."', '".$data['mot_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+								$insertQueryResult = mysql_query ( $insertQuery );
+								'<br>';
+							}
+						} // for role2
+					
+					
+						foreach ( $data ['roles_3'] as $rolesKey => $roleID ) { // / for role 3
+							if ($exp_key [1] == 3) { // for stage 3 only
+								$insertQuery = "INSERT INTO `notify` ( `notification_type`, `send_to`, `days_before`, `stage`) VALUES ('MOT License Expiry', '".$roleID."', '".$data['mot_'.$exp_key[1]]."', '".$exp_key[1]."' )";
+								$insertQueryResult = mysql_query ( $insertQuery );
+								'<br>';
+							}
+						} // for role3
+					} // checking value is not 0
+			} // for mot
 			
 			
 		} // for each subdata 
-			
-		} // for each roles_1
-		
-		
 		
 	}// function insertData
 	
+} // class updatenotification
+
+
+class GenerateNotfication extends  updateNotification{
+	
+
+	function genDateSelect($name,$notType,$stage){
+		$resp = '<select  class="form-control" name="'.$name.'"> ';
+		for($i = 0 ; $i <= 365; $i++){
+			$DayQuery = "SELECT `days_before`  FROM `notify` WHERE `notification_type` = '".$notType."' AND `stage` = ".$stage." ;";
+			$DayQueryResult= mysql_query($DayQuery);
+			$firstrow = mysql_fetch_assoc($DayQueryResult);
+			$resp .= '<option value="'.$i.'"  '.($i == $firstrow['days_before'] ?'selected':'').'>'.($i==0?'Dont Sent':$i).'</option>';
+		}
+		$resp .='</select>';
+		return $resp;
+	}
+	
+	
+	function  genRoleSelect($name,$stage,$tables){
+		$resp = '<select class="form-control" multiple  name="'.$name.'">';
+		$all_assets_query = "SELECT * FROM `".$tables['user_roles_table']."`;";
+		$all_assets = mysql_query($all_assets_query);
+		while($row = mysql_fetch_array($all_assets)) {
+			$userRoleQuery = "SELECT *  FROM `notify` WHERE `send_to` = '".$row['user_role_id']."' AND `stage` = '".$stage."' ;";
+			$resp .='<option value="'.$row['user_role_id'].'" '.(mysql_num_rows(mysql_query($userRoleQuery)) > 0?'selected':'').' >'.$row['user_role_name'].'</option>';
+		}
+		$resp .= '</select>';
+		return $resp;
+	}
 	
 	
 }
 
+
+/*
+ *  FOR UPDATE NOTIFICATIONS
+ * 
+ */
 	
 if(isset($_POST['update_notification'])){
  $updateNotification = new updateNotification($tables['notify_table'], $_POST);

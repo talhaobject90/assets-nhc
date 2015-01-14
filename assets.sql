@@ -642,7 +642,7 @@ CREATE TABLE `notify` (
   `days_before` int(4) NOT NULL,
   `stage` int(5) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -651,12 +651,69 @@ CREATE TABLE `notify` (
 
 LOCK TABLES `notify` WRITE;
 /*!40000 ALTER TABLE `notify` DISABLE KEYS */;
-INSERT INTO `notify` VALUES (1,'Insurance Expiry','1',12,1);
-INSERT INTO `notify` VALUES (2,'Insurance Expiry','1',15,2);
-INSERT INTO `notify` VALUES (3,'Insurance Expiry','1',6,3);
-INSERT INTO `notify` VALUES (4,'Insurance Expiry','2',12,1);
-INSERT INTO `notify` VALUES (5,'Insurance Expiry','2',15,2);
-INSERT INTO `notify` VALUES (6,'Insurance Expiry','2',6,3);
+INSERT INTO `notify` VALUES (1,'Insurance Expiry','1',16,1);
+INSERT INTO `notify` VALUES (2,'Insurance Expiry','2',16,1);
+INSERT INTO `notify` VALUES (3,'Insurance Expiry','4',16,1);
+INSERT INTO `notify` VALUES (4,'Insurance Expiry','1',12,2);
+INSERT INTO `notify` VALUES (5,'Insurance Expiry','4',12,2);
+INSERT INTO `notify` VALUES (6,'Insurance Expiry','1',2,3);
+INSERT INTO `notify` VALUES (7,'Insurance Expiry','2',2,3);
+INSERT INTO `notify` VALUES (8,'Insurance Expiry','11',2,3);
+INSERT INTO `notify` VALUES (9,'Insurance Expiry','14',2,3);
+INSERT INTO `notify` VALUES (10,'Istemara Expiry','1',16,1);
+INSERT INTO `notify` VALUES (11,'Istemara Expiry','2',16,1);
+INSERT INTO `notify` VALUES (12,'Istemara Expiry','4',16,1);
+INSERT INTO `notify` VALUES (13,'Istemara Expiry','1',14,2);
+INSERT INTO `notify` VALUES (14,'Istemara Expiry','4',14,2);
+INSERT INTO `notify` VALUES (15,'Istemara Expiry','1',14,3);
+INSERT INTO `notify` VALUES (16,'Istemara Expiry','2',14,3);
+INSERT INTO `notify` VALUES (17,'Istemara Expiry','11',14,3);
+INSERT INTO `notify` VALUES (18,'Istemara Expiry','14',14,3);
+INSERT INTO `notify` VALUES (19,'TUV Sticker Expiry','1',15,1);
+INSERT INTO `notify` VALUES (20,'TUV Sticker Expiry','2',15,1);
+INSERT INTO `notify` VALUES (21,'TUV Sticker Expiry','4',15,1);
+INSERT INTO `notify` VALUES (22,'TUV Sticker Expiry','1',12,2);
+INSERT INTO `notify` VALUES (23,'TUV Sticker Expiry','4',12,2);
+INSERT INTO `notify` VALUES (24,'TUV Sticker Expiry','1',13,3);
+INSERT INTO `notify` VALUES (25,'TUV Sticker Expiry','2',13,3);
+INSERT INTO `notify` VALUES (26,'TUV Sticker Expiry','11',13,3);
+INSERT INTO `notify` VALUES (27,'TUV Sticker Expiry','14',13,3);
+INSERT INTO `notify` VALUES (28,'Client Sticker Expiry','1',18,1);
+INSERT INTO `notify` VALUES (29,'Client Sticker Expiry','2',18,1);
+INSERT INTO `notify` VALUES (30,'Client Sticker Expiry','4',18,1);
+INSERT INTO `notify` VALUES (31,'Client Sticker Expiry','1',15,2);
+INSERT INTO `notify` VALUES (32,'Client Sticker Expiry','4',15,2);
+INSERT INTO `notify` VALUES (33,'Client Sticker Expiry','1',6,3);
+INSERT INTO `notify` VALUES (34,'Client Sticker Expiry','2',6,3);
+INSERT INTO `notify` VALUES (35,'Client Sticker Expiry','11',6,3);
+INSERT INTO `notify` VALUES (36,'Client Sticker Expiry','14',6,3);
+INSERT INTO `notify` VALUES (37,'MOT License Expiry','1',10,1);
+INSERT INTO `notify` VALUES (38,'MOT License Expiry','2',10,1);
+INSERT INTO `notify` VALUES (39,'MOT License Expiry','4',10,1);
+INSERT INTO `notify` VALUES (40,'MOT License Expiry','1',12,2);
+INSERT INTO `notify` VALUES (41,'MOT License Expiry','4',12,2);
+INSERT INTO `notify` VALUES (42,'MOT License Expiry','1',11,3);
+INSERT INTO `notify` VALUES (43,'MOT License Expiry','2',11,3);
+INSERT INTO `notify` VALUES (44,'MOT License Expiry','11',11,3);
+INSERT INTO `notify` VALUES (45,'MOT License Expiry','14',11,3);
+INSERT INTO `notify` VALUES (46,'MVPI Expiry','1',7,1);
+INSERT INTO `notify` VALUES (47,'MVPI Expiry','2',7,1);
+INSERT INTO `notify` VALUES (48,'MVPI Expiry','4',7,1);
+INSERT INTO `notify` VALUES (49,'MVPI Expiry','1',13,2);
+INSERT INTO `notify` VALUES (50,'MVPI Expiry','4',13,2);
+INSERT INTO `notify` VALUES (51,'MVPI Expiry','1',14,3);
+INSERT INTO `notify` VALUES (52,'MVPI Expiry','2',14,3);
+INSERT INTO `notify` VALUES (53,'MVPI Expiry','11',14,3);
+INSERT INTO `notify` VALUES (54,'MVPI Expiry','14',14,3);
+INSERT INTO `notify` VALUES (55,'Preventive Maintenance Expiry','1',10,1);
+INSERT INTO `notify` VALUES (56,'Preventive Maintenance Expiry','2',10,1);
+INSERT INTO `notify` VALUES (57,'Preventive Maintenance Expiry','4',10,1);
+INSERT INTO `notify` VALUES (58,'Preventive Maintenance Expiry','1',12,2);
+INSERT INTO `notify` VALUES (59,'Preventive Maintenance Expiry','4',12,2);
+INSERT INTO `notify` VALUES (60,'Preventive Maintenance Expiry','1',2,3);
+INSERT INTO `notify` VALUES (61,'Preventive Maintenance Expiry','2',2,3);
+INSERT INTO `notify` VALUES (62,'Preventive Maintenance Expiry','11',2,3);
+INSERT INTO `notify` VALUES (63,'Preventive Maintenance Expiry','14',2,3);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -877,4 +934,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-13 23:12:29
+-- Dump completed on 2015-01-14 16:52:02
