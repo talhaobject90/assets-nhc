@@ -1,1 +1,1 @@
-date >> $OPENSHIFT_REPO_DIR/date.txt
+date >> $OPENSHIFT_REPO_DIR/cron_test/date_minutely.txt
