@@ -568,7 +568,7 @@ INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','
 INSERT INTO `google_users` VALUES (108217036843721318338,'Abdul Rahman','','','arahman@nhc-ksa.com',3,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (111812993465993205296,'Fahmi T.Ahmed','','','fahmi@nhc-ksa.com',14,'https://plus.google.com/111812993465993205296','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (116840605792335537520,'Abdulkadher Jailani','','','akjailani@nhc-ksa.com',1,'https://plus.google.com/116840605792335537520','https://lh4.googleusercontent.com/-ldRWFmhs-rs/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','','','roneyp20@gmail.com',4,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','roneyp20@gmail.com','monu','roneyp20@gmail.com',4,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 /*!40000 ALTER TABLE `google_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -934,4 +934,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-14 17:53:35
+-- Dump completed on 2015-01-14 19:31:01
