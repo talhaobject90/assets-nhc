@@ -240,8 +240,8 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 		
 			$a = 1;
 		
-	//	if(!$mail->send()) {
-	if($a != 1) {
+		if(!$mail->send()) {
+	//if($a != 1) {
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
