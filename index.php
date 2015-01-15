@@ -29,7 +29,8 @@
 		require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
 	$mail = new PHPMailer;
 	 
-	 
+	$mail->ClearAllRecipients( );// clear all
+	
 	$mail->isSMTP();                                      // Set mailer to use SMTP
 	$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
