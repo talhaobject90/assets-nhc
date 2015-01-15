@@ -1,0 +1,5 @@
+echo UPDATING DATABASE..................
+
+mysql -u adminxEHGgZ3 -pAtZzr53yunKd great < /var/lib/openshift/543953795973ca3e770001b7/app-root/runtime/repo/great.sql
+echo DATABSE UPDATED !!
+

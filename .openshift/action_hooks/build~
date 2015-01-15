@@ -1,0 +1,15 @@
+
+
+echo REPLACING SETTINGS FILE....
+cp  /var/lib/openshift/543953795973ca3e770001b7/app-root/runtime/repo/settings.php    /var/lib/openshift/543953795973ca3e770001b7/app-root/runtime/repo/sites/default/settings.php
+if [ $? -eq 0 ]; then
+    echo SETTINGS CONFIGURED.. !
+else
+    echo  FAILED TO CONFIGURE SETTINGS.... EDIT settings.php manually...
+fi
+
+
+
+
+
+
