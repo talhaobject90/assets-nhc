@@ -274,6 +274,8 @@ jQuery( document ).ready(function() {
 
 	
 
+	
+
 	str = "<?php echo $_SERVER[REQUEST_URI] ; ?>";
 	if(str.search("dashboard.php") != '-1' )
  		jQuery("#dashboard-link").addClass( "active" );
