@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
+
+
 <?php 
 
 
@@ -148,15 +150,16 @@ $_SESSION['redirected'] =  'yes';  */
  ?>
 
 <head>
-
+<link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'/ >
 <title>
+Assets New Horizons Company
 </title>
 
 <link data-turbolinks-track="true" href="css/application-f4d0efa73761521b652b54dd7321c38d.css" media="all" rel="stylesheet" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" media="screen" rel="stylesheet" />
 <link href="css/font-awesome.css" media="screen" rel="stylesheet" />
 <link href="css/style.css" media="screen" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css"></link>
 
 <script data-turbolinks-track="true" src="js/application-9924af930ec816234c493e9467f16835.js"></script>
 <!-- <script src="https://js.stripe.com/v1/"></script> -->
@@ -172,6 +175,7 @@ $_SESSION['redirected'] =  'yes';  */
 <meta content="authenticity_token" name="csrf-param" />
 <meta content="IfzLnEn8oYqOhaLKf6/huXuPr/feRlhEoW1az2XOYOs=" name="csrf-token" />
 <meta content="pk_live_tXltt2t4mCC4vqhPbAGDkQLb" name="stripe-key" />
+</head>
 <body>
 	<div class='container'>
 	
