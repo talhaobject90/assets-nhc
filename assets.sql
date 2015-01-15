@@ -757,7 +757,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -799,6 +799,17 @@ INSERT INTO `tickets` VALUES (30,19,'TUV Sticker Expiry','2015-02-27','opened');
 INSERT INTO `tickets` VALUES (31,2,'Client Sticker Expiry','2015-02-02','opened');
 INSERT INTO `tickets` VALUES (32,3,'Client Sticker Expiry','2015-02-02','opened');
 INSERT INTO `tickets` VALUES (33,1,'Client Sticker Expiry','2015-02-05','opened');
+INSERT INTO `tickets` VALUES (34,5,'Istemara Expiry','2015-01-28','opened');
+INSERT INTO `tickets` VALUES (35,19,'Istemara Expiry','2015-01-31','opened');
+INSERT INTO `tickets` VALUES (36,5,'Insurance Expiry','2015-01-22','opened');
+INSERT INTO `tickets` VALUES (37,19,'Insurance Expiry','2015-02-20','opened');
+INSERT INTO `tickets` VALUES (38,5,'Preventive Maintenance Expiry','2015-01-17','opened');
+INSERT INTO `tickets` VALUES (39,19,'Preventive Maintenance Expiry','2015-03-19','opened');
+INSERT INTO `tickets` VALUES (40,5,'TUV Sticker Expiry','2015-01-25','opened');
+INSERT INTO `tickets` VALUES (41,19,'TUV Sticker Expiry','2015-02-27','opened');
+INSERT INTO `tickets` VALUES (42,2,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (43,3,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (44,1,'Client Sticker Expiry','2015-02-05','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -930,4 +941,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-15 14:12:20
+-- Dump completed on 2015-01-15 14:19:39
