@@ -143,7 +143,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 				$user_query_results = mysql_query ($user_query);
 				while ( $user_query_row= mysql_fetch_array ( $user_query_results) ) {
 					  $sent_to  = $user_query_row['google_email'];
-					  notify ( $istemara_row ['name'], $istemara_row ['id'], $notification_type, $istemara_row [$order_by], $mail  , $sent_to , $ticket_id );
+					  notify ( $istemara_row ['name'], $istemara_row ['id'], $notification_type, $istemara_row [$order_by], $mail  , $sent_to , $ticket_id ,$left);
 				}
 					
 					
@@ -152,35 +152,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 	}
 	}
 
-		/*
-		 * ============ CODE TO CHECK CRON WORKING DAILY BASIS
-		 */
-	//check_daily_mail($mail);
-	
-	function check_daily_mail($mail){
 		
-		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
-		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'alerts@nhc-ksa.com';                 // SMTP username
-		$mail->Password = '123qweASD!';                           // SMTP password
-		$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-		$mail->Port = 465;                                    // TCP port to connect to
-		
-		$mail->From = 'm.ali@object90.com';
-		$mail->FromName = 'Assets-NewHorizons';
-		$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
-		$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
-		
-		$mail->Subject = 'MAIL TEST DAILY(notify_email.php) --:' .date( 'Y-m-d H:i:s');
-		$mail->Body    = 'THE MAIL SENT FORM ASSETS-NEW HORIZONS';
-		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-		
-		if( $mail->send()) {
-			 ECHO 'TEST MAIL IS SENT';
-		}
-		 
-	}
 	
 	
 	
@@ -191,7 +163,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 	
 		
 
-		function notify($asset, $asset_id ,  $expiry_type, $expiry_date ,  $mail , $sent_to , $ticket_id){
+		function notify($asset, $asset_id ,  $expiry_type, $expiry_date ,  $mail , $sent_to , $ticket_id,$left){
 			
 			/*
 			 * 	OPENING TICKET FOR A PARTICULAR NOTIFICATION
@@ -205,7 +177,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 			$imgTitle = 'Logo'; // Change Alt Title tag/image title to your site specific settings
 		
 			$subjectPara1 = '<h3>The '.$expiry_type.' expiring shortly.</h3>';
-			$subjectPara2 = 'The '.$expiry_type.' expiry  for asset :  '.$asset.' (ID : '.$asset_id.' ) is on '.$expiry_date.' Kindly take necessary action.';
+			$subjectPara2 = 'The '.$expiry_type.' expiry  for asset :  '.$asset.' (ID : '.$asset_id.' ) is on '.$expiry_date.' ('.$left.' days left).Kindly take necessary action.';
 			$subjectPara3 = 'A ticket is opened under ID : ' . $ticket_id;
 			$subjectPara4 = NULL;
 			$subjectPara5 = NULL;
@@ -237,9 +209,9 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 		
 			/*EMAIL TEMPLATE ENDS*/
 		
- 			$subject = 'Notification alert : '.$expiry_type .' expiring on '.$expiry_date.'.';  //change subject of email
+ 			$subject = 'Notification alert ('.$asset_id.'/'.$ticket_id.'): '.$expiry_type .' expiring on '.$expiry_date.' for Asset ID : '.$asset_id.', Ticket ID: '.$ticket_id.'.';  //change subject of email
 			//$mail->SMTPDebug = 3;                               // Enable verbose debug output
-		
+ 			$mail->ClearAllRecipients( );// clear all
 			$mail->isSMTP();                                      // Set mailer to use SMTP
 			$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
 			$mail->SMTPAuth = true;                               // Enable SMTP authentication
@@ -269,7 +241,7 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 			$a = 1;
 		
 	//	if(!$mail->send()) {
-		if($a != 1) {
+	if($a != 1) {
 				echo 'Message could not be sent.';
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
@@ -278,5 +250,38 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 				 			}
 		}
 		
+		
+		
+		
+		/*=================================================================================================+
+		 * ============ CODE TO CHECK CRON WORKING DAILY BASIS================================================
+		 * =================================================================================================+
+		 */
+		check_daily_mail($mail);
+		
+		function check_daily_mail($mail){
+			$mail->ClearAllRecipients( );// clear all
+			$mail->isSMTP();                                      // Set mailer to use SMTP
+			$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                               // Enable SMTP authentication
+			$mail->Username = 'alerts@nhc-ksa.com';                 // SMTP username
+			$mail->Password = '123qweASD!';                           // SMTP password
+			$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 465;                                    // TCP port to connect to
+		
+			$mail->From = 'm.ali@object90.com';
+			$mail->FromName = 'Assets-NewHorizons';
+			$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
+			$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
+		
+			$mail->Subject = 'MAIL TEST DAILY(notify_email.php) --:' .date( 'Y-m-d H:i:s');
+			$mail->Body    = 'THE MAIL SENT FORM ASSETS-NEW HORIZONS';
+			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+		
+			if( $mail->send()) {
+				ECHO 'TEST MAIL IS SENT';
+			}
+				
+		}
 		
  

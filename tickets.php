@@ -71,13 +71,11 @@ if( mysql_num_rows($all_assets) == 0){
 </div>';
 	}
 else{
-$pagination_class = '';
-if(mysql_num_rows($all_assets) > 8)
-	$pagination_class = 'pagination_table';
+ 
 	
 	
-echo '<table class="table table-hover '.$pagination_class.' ">';
-echo '<thead><th>ID</th><th>Asset ID</th><th>Expiry Type</th><th>Expiry Date</th><th>Expiring in(Days)</th><th>Status</th><th></th><th></th></thead><tbody>';
+echo '<table class="table table-hover pagination_table ">';
+echo '<thead><th>ID</th><th>Asset ID</th><th>Expiry Type</th><th>Expiry Date</th><th>Expiring in(Days)</th><th>Status</th><th></th></thead><tbody>';
 while($row = mysql_fetch_array($all_assets)) {
 
 $today = date("Y-m-d");

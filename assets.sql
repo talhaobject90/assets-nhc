@@ -561,14 +561,16 @@ CREATE TABLE `google_users` (
 
 LOCK TABLES `google_users` WRITE;
 /*!40000 ALTER TABLE `google_users` DISABLE KEYS */;
+INSERT INTO `google_users` VALUES (100428232109775983047,'Mohammed Talha','','','talhaqqq@gmail.com',4,'https://plus.google.com/100428232109775983047','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 INSERT INTO `google_users` VALUES (100678434091494690900,'Mohammed Talha','talha@object90.com','monu','talha@object90.com',1,'https://plus.google.com/100678434091494690900','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (103583028745737769566,'Sami A. Iskandrani','','','sami@nhc-ksa.com',12,'','https://lh5.googleusercontent.com/-COWe5Xc1JxE/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (105295586601853475832,'Syed Abdul Aaleem','','','aaleem@nhc-ksa.com',14,'https://plus.google.com/105295586601853475832','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.com',2,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (108217036843721318338,'Abdul Rahman','','','arahman@nhc-ksa.com',3,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (111812993465993205296,'Fahmi T.Ahmed','','','fahmi@nhc-ksa.com',14,'https://plus.google.com/111812993465993205296','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (116840605792335537520,'Abdulkadher Jailani','','','akjailani@nhc-ksa.com',1,'https://plus.google.com/116840605792335537520','https://lh4.googleusercontent.com/-ldRWFmhs-rs/AAAAAAAAAAI/A');
-INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','roneyp20@gmail.com','monu','roneyp20@gmail.com',4,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (103583028745737769566,'Sami A. Iskandrani','','','sami@nhc-ksa.coms',14,'','https://lh5.googleusercontent.com/-COWe5Xc1JxE/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (105295586601853475832,'Syed Abdul Aaleem','','','aaleem@nhc-ksa.coms',14,'https://plus.google.com/105295586601853475832','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (106219740134865583912,'ramesh balakrishnan','','','rameshkumar86@gmail.coms',14,'https://plus.google.com/106219740134865583912','https://lh5.googleusercontent.com/-nCqLiYHWuJM/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (108217036843721318338,'Abdul Rahman','','','arahman@nhc-ksa.coms',14,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (111812993465993205296,'Fahmi T.Ahmed','','','fahmi@nhc-ksa.coms',14,'https://plus.google.com/111812993465993205296','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (116840605792335537520,'Abdulkadher Jailani','','','akjailani@nhc-ksa.coms',14,'https://plus.google.com/116840605792335537520','https://lh4.googleusercontent.com/-ldRWFmhs-rs/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (117736027063058566983,'talha mohammed','','','talhaobject90@gmail.com',1,'','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
+INSERT INTO `google_users` VALUES (118161579513011654715,'Roney Philip','roneyp20@gmail.com','monu','roneyp20@gmail.com',3,'https://plus.google.com/118161579513011654715','https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/A');
 /*!40000 ALTER TABLE `google_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -642,7 +644,7 @@ CREATE TABLE `notify` (
   `days_before` int(4) NOT NULL,
   `stage` int(5) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -651,22 +653,31 @@ CREATE TABLE `notify` (
 
 LOCK TABLES `notify` WRITE;
 /*!40000 ALTER TABLE `notify` DISABLE KEYS */;
-INSERT INTO `notify` VALUES (1,'Insurance Expiry','1',13,1);
-INSERT INTO `notify` VALUES (2,'Insurance Expiry','2',13,1);
-INSERT INTO `notify` VALUES (3,'Insurance Expiry','4',13,1);
-INSERT INTO `notify` VALUES (4,'Insurance Expiry','2',36,2);
-INSERT INTO `notify` VALUES (5,'Insurance Expiry','4',36,2);
-INSERT INTO `notify` VALUES (6,'Istemara Expiry','1',16,1);
-INSERT INTO `notify` VALUES (7,'Istemara Expiry','2',16,1);
-INSERT INTO `notify` VALUES (8,'Istemara Expiry','4',16,1);
-INSERT INTO `notify` VALUES (9,'TUV Sticker Expiry','1',10,1);
-INSERT INTO `notify` VALUES (10,'TUV Sticker Expiry','2',10,1);
-INSERT INTO `notify` VALUES (11,'TUV Sticker Expiry','4',10,1);
-INSERT INTO `notify` VALUES (12,'Client Sticker Expiry','1',10,1);
-INSERT INTO `notify` VALUES (13,'Client Sticker Expiry','2',10,1);
-INSERT INTO `notify` VALUES (14,'Client Sticker Expiry','4',10,1);
-INSERT INTO `notify` VALUES (15,'Client Sticker Expiry','2',8,2);
-INSERT INTO `notify` VALUES (16,'Client Sticker Expiry','4',8,2);
+INSERT INTO `notify` VALUES (1,'Insurance Expiry','1',36,1);
+INSERT INTO `notify` VALUES (2,'Insurance Expiry','3',36,1);
+INSERT INTO `notify` VALUES (3,'Insurance Expiry','4',36,1);
+INSERT INTO `notify` VALUES (4,'Insurance Expiry','1',34,2);
+INSERT INTO `notify` VALUES (5,'Insurance Expiry','4',34,2);
+INSERT INTO `notify` VALUES (6,'Insurance Expiry','3',7,3);
+INSERT INTO `notify` VALUES (7,'Istemara Expiry','1',16,1);
+INSERT INTO `notify` VALUES (8,'Istemara Expiry','3',16,1);
+INSERT INTO `notify` VALUES (9,'Istemara Expiry','4',16,1);
+INSERT INTO `notify` VALUES (10,'Istemara Expiry','3',13,3);
+INSERT INTO `notify` VALUES (11,'TUV Sticker Expiry','1',10,1);
+INSERT INTO `notify` VALUES (12,'TUV Sticker Expiry','3',10,1);
+INSERT INTO `notify` VALUES (13,'TUV Sticker Expiry','4',10,1);
+INSERT INTO `notify` VALUES (14,'TUV Sticker Expiry','3',43,3);
+INSERT INTO `notify` VALUES (15,'Client Sticker Expiry','1',18,1);
+INSERT INTO `notify` VALUES (16,'Client Sticker Expiry','3',18,1);
+INSERT INTO `notify` VALUES (17,'Client Sticker Expiry','4',18,1);
+INSERT INTO `notify` VALUES (18,'Client Sticker Expiry','1',8,2);
+INSERT INTO `notify` VALUES (19,'Client Sticker Expiry','4',8,2);
+INSERT INTO `notify` VALUES (20,'Client Sticker Expiry','3',21,3);
+INSERT INTO `notify` VALUES (21,'Preventive Maintenance Expiry','1',2,1);
+INSERT INTO `notify` VALUES (22,'Preventive Maintenance Expiry','3',2,1);
+INSERT INTO `notify` VALUES (23,'Preventive Maintenance Expiry','4',2,1);
+INSERT INTO `notify` VALUES (24,'Preventive Maintenance Expiry','1',63,2);
+INSERT INTO `notify` VALUES (25,'Preventive Maintenance Expiry','4',63,2);
 /*!40000 ALTER TABLE `notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -746,7 +757,7 @@ CREATE TABLE `tickets` (
   `expiring_date` date NOT NULL,
   `status` enum('opened','assigned','closed') NOT NULL DEFAULT 'opened',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -757,32 +768,37 @@ LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
 INSERT INTO `tickets` VALUES (1,5,'Istemara Expiry','2015-01-28','opened');
 INSERT INTO `tickets` VALUES (2,19,'Istemara Expiry','2015-01-31','opened');
-INSERT INTO `tickets` VALUES (3,19,'Preventive Maintenance Expiry','2015-03-19','opened');
-INSERT INTO `tickets` VALUES (4,5,'TUV Sticker Expiry','2015-01-25','opened');
-INSERT INTO `tickets` VALUES (5,19,'TUV Sticker Expiry','2015-02-27','opened');
-INSERT INTO `tickets` VALUES (6,2,'Client Sticker Expiry','2015-02-02','opened');
-INSERT INTO `tickets` VALUES (7,3,'Client Sticker Expiry','2015-02-02','opened');
-INSERT INTO `tickets` VALUES (8,1,'Client Sticker Expiry','2015-02-05','opened');
-INSERT INTO `tickets` VALUES (10,5,'Istemara Expiry','2015-01-28','opened');
-INSERT INTO `tickets` VALUES (11,19,'Istemara Expiry','2015-01-31','opened');
-INSERT INTO `tickets` VALUES (12,19,'Preventive Maintenance Expiry','2015-03-19','opened');
-INSERT INTO `tickets` VALUES (13,5,'TUV Sticker Expiry','2015-01-25','opened');
-INSERT INTO `tickets` VALUES (14,19,'TUV Sticker Expiry','2015-02-27','opened');
-INSERT INTO `tickets` VALUES (15,2,'Client Sticker Expiry','2015-02-02','opened');
-INSERT INTO `tickets` VALUES (16,3,'Client Sticker Expiry','2015-02-02','opened');
-INSERT INTO `tickets` VALUES (17,1,'Client Sticker Expiry','2015-02-05','opened');
-INSERT INTO `tickets` VALUES (19,5,'Istemara Expiry','2015-01-28','opened');
-INSERT INTO `tickets` VALUES (20,19,'Istemara Expiry','2015-01-31','opened');
-INSERT INTO `tickets` VALUES (21,19,'Preventive Maintenance Expiry','2015-03-19','opened');
-INSERT INTO `tickets` VALUES (22,5,'TUV Sticker Expiry','2015-01-25','opened');
-INSERT INTO `tickets` VALUES (23,19,'TUV Sticker Expiry','2015-02-27','opened');
-INSERT INTO `tickets` VALUES (24,2,'Client Sticker Expiry','2015-02-02','opened');
-INSERT INTO `tickets` VALUES (25,3,'Client Sticker Expiry','2015-02-02','opened');
-INSERT INTO `tickets` VALUES (26,1,'Client Sticker Expiry','2015-02-05','opened');
-INSERT INTO `tickets` VALUES (28,19,'Istemara Expiry','2015-01-31','opened');
-INSERT INTO `tickets` VALUES (29,19,'Istemara Expiry','2015-01-31','opened');
-INSERT INTO `tickets` VALUES (30,19,'Insurance Expiry','2015-02-20','opened');
-INSERT INTO `tickets` VALUES (31,5,'TUV Sticker Expiry','2015-01-25','opened');
+INSERT INTO `tickets` VALUES (3,5,'Insurance Expiry','2015-01-22','opened');
+INSERT INTO `tickets` VALUES (4,19,'Insurance Expiry','2015-02-20','opened');
+INSERT INTO `tickets` VALUES (5,5,'Preventive Maintenance Expiry','2015-01-17','opened');
+INSERT INTO `tickets` VALUES (6,19,'Preventive Maintenance Expiry','2015-03-19','opened');
+INSERT INTO `tickets` VALUES (7,5,'TUV Sticker Expiry','2015-01-25','opened');
+INSERT INTO `tickets` VALUES (8,19,'TUV Sticker Expiry','2015-02-27','opened');
+INSERT INTO `tickets` VALUES (9,2,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (10,3,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (11,1,'Client Sticker Expiry','2015-02-05','opened');
+INSERT INTO `tickets` VALUES (12,5,'Istemara Expiry','2015-01-28','opened');
+INSERT INTO `tickets` VALUES (13,19,'Istemara Expiry','2015-01-31','opened');
+INSERT INTO `tickets` VALUES (14,5,'Insurance Expiry','2015-01-22','opened');
+INSERT INTO `tickets` VALUES (15,19,'Insurance Expiry','2015-02-20','opened');
+INSERT INTO `tickets` VALUES (16,5,'Preventive Maintenance Expiry','2015-01-17','opened');
+INSERT INTO `tickets` VALUES (17,19,'Preventive Maintenance Expiry','2015-03-19','opened');
+INSERT INTO `tickets` VALUES (18,5,'TUV Sticker Expiry','2015-01-25','opened');
+INSERT INTO `tickets` VALUES (19,19,'TUV Sticker Expiry','2015-02-27','opened');
+INSERT INTO `tickets` VALUES (20,2,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (21,3,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (22,1,'Client Sticker Expiry','2015-02-05','opened');
+INSERT INTO `tickets` VALUES (23,5,'Istemara Expiry','2015-01-28','opened');
+INSERT INTO `tickets` VALUES (24,19,'Istemara Expiry','2015-01-31','opened');
+INSERT INTO `tickets` VALUES (25,5,'Insurance Expiry','2015-01-22','opened');
+INSERT INTO `tickets` VALUES (26,19,'Insurance Expiry','2015-02-20','opened');
+INSERT INTO `tickets` VALUES (27,5,'Preventive Maintenance Expiry','2015-01-17','opened');
+INSERT INTO `tickets` VALUES (28,19,'Preventive Maintenance Expiry','2015-03-19','opened');
+INSERT INTO `tickets` VALUES (29,5,'TUV Sticker Expiry','2015-01-25','opened');
+INSERT INTO `tickets` VALUES (30,19,'TUV Sticker Expiry','2015-02-27','opened');
+INSERT INTO `tickets` VALUES (31,2,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (32,3,'Client Sticker Expiry','2015-02-02','opened');
+INSERT INTO `tickets` VALUES (33,1,'Client Sticker Expiry','2015-02-05','opened');
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -914,4 +930,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-15 11:44:12
+-- Dump completed on 2015-01-15 14:12:20
