@@ -111,7 +111,7 @@
   <li><a href="#locations" role="tab" data-toggle="tab">Locations</a></li>
   <li><a href="#department" role="tab" data-toggle="tab">Departments</a></li>
   <li><a href="#project" role="tab" data-toggle="tab">Projects</a></li>
-  <li><a href="notification_monitor.php" role="tab" >Notifications</a></li>
+  <li><a href="notification_map.php" role="tab" >Notifications</a></li>
 </ul>
 
 <!-- Tab panes -->

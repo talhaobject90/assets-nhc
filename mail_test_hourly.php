@@ -1,4 +1,12 @@
 <?php
+
+
+if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false)
+	include '/var/www/PHPMailer-master/PHPMailerAutoload.php';
+else
+	require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
+$mail = new PHPMailer;
+
 check_hourly_mail($mail);
 
 function check_hourly_mail($mail){

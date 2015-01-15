@@ -289,7 +289,7 @@ jQuery( document ).ready(function() {
 	if(str.search("role_table.php") != '-1')
 		jQuery("#roles-link").addClass( "active" );
 	
-	if(str.search("config.php")  != '-1'  || str.search("vendor_new.php")  != '-1'  || str.search("asset_category_new.php")    != '-1' || str.search("department_new.php") != '-1'  || str.search("project_new.php") != '-1'  || str.search("locations_new.php") != '-1')  
+	if(str.search("config.php")  != '-1'  || str.search("vendor_new.php")  != '-1'  || str.search("asset_category_new.php")    != '-1' || str.search("department_new.php") != '-1'  || str.search("project_new.php") != '-1'  || str.search("locations_new.php") != '-1' || str.search("notification_map.php") != '-1')  
 		jQuery("#configure-link").addClass( "active" );
 	
 		
