@@ -18,6 +18,15 @@
 			
 		}
 	
+		
+		
+
+		if(isset($_POST['truncate']))
+		{
+			$mysql_query = "TRUNCATE TABLE`".$tickets_table."` ;";
+			mysql_query($mysql_query);
+		}
+		
 	
 	if(isset($_GET['delete']))
 	{
@@ -112,6 +121,7 @@
   <li><a href="#department" role="tab" data-toggle="tab">Departments</a></li>
   <li><a href="#project" role="tab" data-toggle="tab">Projects</a></li>
   <li><a href="notification_map.php" role="tab" >Notifications</a></li>
+  <li><a href="#admin_tools"  data-toggle="tab" role="tab" >Admin Tools</a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -315,6 +325,43 @@ echo '<tr ><td>'.$row['id'].'</td><td>'.$row['project_name'].'</td> <td>'.$statu
 echo '</table>';
 ?>
 
+</div>
+</div>
+</section>
+  
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  
+    <div class="tab-pane   " id="admin_tools">
+  
+  
+  <section class="index col-md-12" id="purchase">
+<div class="row">
+<div class="page-header">
+<h1>Admin Tools</h1>&nbsp;&nbsp;&nbsp;    <span style="color: red;font-style:none;"> (Caution: Think twice before action !!)</span>
+ <br>
+ 
+ 
+
+</div>
+
+ 
+</div>
+<div class="row">
+<div class="page-content col-md-12">
+
+ 
+ <div class="row">
+ <form onsubmit="return confirm('Do you really want to truncate employees table ?');"   action="" method="post">
+Truncate Tickets Table : <a ><input type="submit" name="truncate"  value = "Truncate"></a>
+</form>
+</div>
 </div>
 </div>
 </section>
