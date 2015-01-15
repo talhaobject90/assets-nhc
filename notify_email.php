@@ -246,7 +246,8 @@ while ( $istemara_row = mysql_fetch_array ( $istemara_check_query_results ) ) { 
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 				
- 				echo  '<b>Send for asset id ' . $asset_id . ' to '.$sent_to  . '     OPENED TICKET ID IS :'. mysql_insert_id().' </b><br>';
+ 				echo  '<b>Send for asset id ' . $asset_id . ' to '.$sent_to  . '     OPENED TICKET ID IS :'. $ticket_id.' </b><br>';
+ 			
 				 			}
 		}
 		
