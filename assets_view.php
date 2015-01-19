@@ -376,13 +376,14 @@ else
 							</div>
 
 
+							
 
 							<div class="row">
 								<div class="remark form-group col-sm-12">
 									<label  >Accident history</label>
 									<br>
  									<textarea class="form-control" id="accident_history"
-										name="accident_history" placeholder="Accident history.
+										name="accident_history" placeholder="Accident history."
 										rows="4"><?php echo (isset($asset_det['accident_history'])?$asset_det['accident_history'] : '')?></textarea>
 								</div>
 							</div>
