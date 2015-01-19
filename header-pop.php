@@ -284,7 +284,7 @@ jQuery( document ).ready(function() {
 	if(str.search("dashboard.php") != '-1' )
  		jQuery("#dashboard-link").addClass( "active" );
 	
-  	if(str.search("assets_monitor.php") != '-1' || str.search("assets_new.php") != '-1')
+  	if(str.search("assets_monitor.php") != '-1' || str.search("assets_new.php") != '-1' || str.search("assets_view.php") != '-1'   ) 
  		jQuery("#assets-link").addClass( "active" );
 	if(str.search("employees.php") != '-1'   || str.search("import_excel.php") != '-1'   || str.search("employee_new.php") != '-1')
 		jQuery("#employees-link").addClass( "active" );
