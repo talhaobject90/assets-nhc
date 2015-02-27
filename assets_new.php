@@ -217,6 +217,7 @@ else{
 					<div class="row">
 						<div class="page-header">
 
+<<<<<<< HEAD
 <script type="text/javascript">
 /*$(document).ready(function() {
      toggleFields(); 
@@ -256,6 +257,9 @@ $(document).ready(function() {
     });
 });
 </script>
+=======
+
+>>>>>>> 58bc398b1c2148492c151989be8c68e3e7f5534d
 <?php  
 if($Edit_mode)
 	echo '<h1>Edit Asset</h1>';
@@ -360,8 +364,13 @@ else
 														<br>
 														
 														
+<<<<<<< HEAD
 														<select  class="form-control message"
 															id="custodian_select custodian" name="custodian">
+=======
+														<select  class="form-control message "
+															id="custodian_select " name="custodian">
+>>>>>>> 58bc398b1c2148492c151989be8c68e3e7f5534d
 															<option value="">- Custodian -</option>
 															<?php 
 															$edit_query ="SELECT * FROM `".$employee_table."` ;" ;
@@ -375,7 +384,7 @@ else
 															<div style="color:red;" id="custodian_msg" ></div>
 															
 														</select>
-
+													
 													</div>
 												</div>
 
@@ -704,7 +713,6 @@ if(isset($asset_det['asset_id']))
 <?php  
 if($Edit_mode){
 	echo '<input class="btn btn-default"  type="submit" name="update" value="Update Asset"  style="background-color: #ffe400;margin-bottom:10px;">';
-	
 	}
 else{
 	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Asset"  style="background-color: #ffe400;margin-bottom:10px;">';

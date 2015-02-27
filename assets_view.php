@@ -2,6 +2,7 @@
 	include_once('header-pop.php');
 	include_once('db_connect.php');
 	
+
 	if(isset($_GET['edit'])){
 		$Edit_mode = true;
 		$edit_id = $_GET['edit'];
@@ -9,10 +10,12 @@
 	
 	if(isset($_POST['update']))
 	{
-		if(isset($_POST['asset_name']) && $_POST['asset_name'] != ''){
+	if(isset($_POST['asset_name']) &&  && $_POST['asset_name'] != ''){
+			
 			if(isset($_POST['asset_expiry'])){
 				$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
 			}
+							
  			
 			        $mysql_query = "UPDATE `".$assets_table."` SET 
 			       `name`='".trim($_POST["asset_name"])."',
@@ -241,7 +244,7 @@ else
 														<br>
 														<span    style=" text-transform: capitalize; "><?php echo ($asset_det['custodian']); ?></span>
 														
-														
+														<div class="msg" style="font-size:18px;color:green"></div>
 														 
 
 													</div>

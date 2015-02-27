@@ -1,4 +1,4 @@
-<?php
+				<?php
 
 /*
  * 		The concepts of tickets as following
