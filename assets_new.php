@@ -322,7 +322,7 @@ else
 														<br>
 														
 														
-														<select  class="form-control message sb "
+														<select  class="form-control message "
 															id="custodian_select " name="custodian">
 															<option value="">- Custodian -</option>
 															<?php 
@@ -337,7 +337,7 @@ else
 															<div style="color:red;" id="custodian_msg" ></div>
 															
 														</select>
-														<div class="msg"></div>
+													
 													</div>
 												</div>
 

@@ -143,7 +143,14 @@ $num_rows = mysql_num_rows($result);
     </a>
   </div>
 </div>
-
+<br>
+<div class="row">
+  <div class="col-xs-6 col-md-4  col-centered"   >
+    <img src="\var\www\assets\images\help.png" >
+       
+        <p>Help</p>
+    </a>
+  </div>
 
 
  
