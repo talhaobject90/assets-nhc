@@ -85,9 +85,9 @@
 					
 					
 		 
-    <img height="125" width="125" alt="help"  src="../images/help.png"/>
+    
 
-
+<p><img height="125" width="125" alt="help"  src="/images/help.png"/></p>
 					
 					
 					
@@ -99,6 +99,7 @@
     <i class="fa fa-file-text-o icon dash_thumb "></i> 
     <p>Assets</p>
      </a>
+	 
   </div>
     <div class="col-xs-6 col-md-4 col-centered"  <?php echo ( !in_array(3, $user_roles_parts) ? 'style="display:none;"' : '')?>>
     <a href="employees.php" class="thumbnail">
