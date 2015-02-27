@@ -45,7 +45,8 @@
 	
 	
 	?>
-	
+
+
 	
 	
 	<div class="col-md-9 col-lg-10" id="content">
@@ -61,11 +62,13 @@
   <?php  echo ($username_not_set?'Set Password':'Change Password') ;?>
   
 </button>
-    
-<br>
-<br>
-<br>
 
+
+
+</div>
+<br>
+<br>
+<br>
 
  
 
@@ -82,7 +85,7 @@
 					
 					
 		 
-    
+    <img height="125" width="125" alt="help"  src="../images/help.png"/>
 
 
 					
