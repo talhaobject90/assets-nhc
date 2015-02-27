@@ -6,7 +6,7 @@
 
 
  
-	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false || strpos($_SERVER['SERVER_NAME'],'192.168.1.6') !== false){
+	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false || strpos($_SERVER['SERVER_NAME'],'192.168.0.104') !== false){
 		mysql_connect("localhost", "root", "password") or die (mysql_error ());
 		$uploads_folder = '/var/www/assets/uploads';
 	}
@@ -33,6 +33,7 @@ $notification_types_table = 'notification_types';
 $notify_table = 'notify';
 $tickets_table = 'tickets';
 $locations_table = 'locations';
+$custodian='custodian';
 
 $tables = array(
 		'assets_table' =>$assets_table,
@@ -49,8 +50,9 @@ $tables = array(
 		'notification_types_table' =>$notification_types_table,
 		 'notify_table' => $notify_table,
 		'tickets_table' =>$tickets_table,
-		'locations_table'=>$locations_table);
-
+		'locations_table'=>$locations_table,
+		'custodian'=>$custodian);
+		
 // Select database
 mysql_select_db($assets_table) or die(mysql_error());
 
