@@ -113,6 +113,7 @@
 					</div>
 					<input id="current_time" name="current_time" type="hidden"
 							value="1413815433">
+
 		
 				<div class="row">		
 						<!-- Nav tabs -->
@@ -124,6 +125,7 @@
   <li><a href="#project" role="tab" data-toggle="tab">Projects</a></li>
   <li><a href="notification_map.php" role="tab" >Notifications</a></li>
   <li><a href="#admin_tools"  data-toggle="tab" role="tab" >Admin Tools</a></li>
+  <li><a href="#project" role="tab" data-toggle="tab">Approver Details</a></li>
 </ul>
 <!-- Tab panes -->
 <!-- ---- VENDOR TAB CONTENT -->
@@ -371,6 +373,44 @@ Truncate Tickets Table : <a ><input type="submit" name="truncate"  value = "Trun
   
   </div>
 </div>
+<!--Apporver details content-->
+ <div class="tab-pane  "  id="asset_category">
+  
+
+  <section class="index col-md-12" id="purchase">
+<div class="row">
+<div class="page-header">
+<h1>Asset Categories</h1>
+<div class="page-menus">
+<a href="#"><i class="icon fa fa-plus"></i><span>Approver Detais</span></a></div>
+</div>
+
+<h4>
+<!-- <center>
+Toggle the icons to quickly filter by status
+</center> -->
+</h4>
+</div>
+<div class="row">
+<div class="page-content col-md-12">
+ 
+<?php 
+  $all_assets_query = "SELECT * FROM `".$assets_category_table."`;";
+$all_assets = mysql_query($all_assets_query);
+echo '<table class="table table-hover">';
+echo '<th>ID</th><th>Asset Category Name</th><th></th><th></th>';
+while($row = mysql_fetch_array($all_assets)) {
+echo '<tr ><td>'.$row['id'].'</td><td>'.$row['asset_category_name'].'</td><td><a href="asset_category_new.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&del_category=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+}
+echo '</table>';
+?>
+
+</div>
+</div>
+</section>
+  
+  
+  </div>
 
 </div>
 </form>
