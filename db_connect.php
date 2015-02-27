@@ -6,7 +6,7 @@
 
 
  
-	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false || strpos($_SERVER['SERVER_NAME'],'192.168.1.6') !== false){
+	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false || strpos($_SERVER['SERVER_NAME'],'192.168.0.104') !== false){
 		mysql_connect("localhost", "root", "password") or die (mysql_error ());
 		$uploads_folder = '/var/www/assets/uploads';
 	}

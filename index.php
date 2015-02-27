@@ -23,7 +23,7 @@
 	 	
  //if($email == 'talha@object90.com'){
 	 
-	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false)
+	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false  || strpos($_SERVER['SERVER_NAME'],'192.168.0.104') !== false)
 		include '/var/www/PHPMailer-master/PHPMailerAutoload.php';
 	else
 		require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
@@ -64,16 +64,16 @@
 	 }
 
 	 
-	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false){
+	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false  || strpos($_SERVER['SERVER_NAME'],'192.168.0.104') !== false){
 		
 		
 
 		########## Google Settings.. Client ID, Client Secret from https://cloud.google.com/console #############
 		$google_client_id 		= '166287425618-1au2e08rn22lrbpsg6bqvcqv83408kv6.apps.googleusercontent.com';
 		$google_client_secret 	= 'ph_0jB5Izo_tP5shCjIsYXdU';
-		$google_redirect_url 	= 'http://localhost/assets/index.php'; //path to your script
+		$google_redirect_url 	= 'http://192.168.0.104/assets/index.php'; //path to your script
 		$google_developer_key 	= 'AIzaSyDmpPdRA5DdNLPZQ5c539o9QwA45BVlycw';
-		$redirect_dashboard = 'http://localhost/assets/dashboard.php';
+		$redirect_dashboard = 'http://192.168.0.104/assets/dashboard.php';
 		$access_type = 'online';
 		
 		########## MySql details (Replace with yours) #############

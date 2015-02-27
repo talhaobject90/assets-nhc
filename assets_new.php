@@ -217,6 +217,45 @@ else{
 					<div class="row">
 						<div class="page-header">
 
+<script type="text/javascript">
+/*$(document).ready(function() {
+     toggleFields(); 
+		$("#custodian").change(function() {
+		 toggleFields();
+		  });
+
+});
+function toggleFields() {
+			if($("#custodian").val()=='')
+    		{
+				 $("#custodian").hide();
+				$("#custodian_msg").html(js_ln("Your Modification Processing..."));
+					return false;
+	   		 }
+		 	if($("#custodian").val()!='')
+	 	 	{	
+				 $("#custodian").hide();
+				 $("#custodian_msg").html("");
+	    	}
+			else
+			{
+				return true;
+			}
+		})
+});
+</script>*/
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#custodian').change(function() {
+        var selectedValue = $('#custodian').find(":selected").text();
+        if ( selectedValue == '1' ) {
+            $('.message').hide();
+        } else {
+            $('.message').show();
+        }
+    });
+});
+</script>
 <?php  
 if($Edit_mode)
 	echo '<h1>Edit Asset</h1>';
@@ -316,13 +355,13 @@ else
 
 
 												<div class="form-group col-sm-4 item-qty">
-															<div class="custodian_div">
+															<div class="custodian_div message">
 														<label for="custodian_div">Custodian</label>
 														<br>
 														
 														
-														<select class="form-control"
-															id="custodian_select" name="custodian">
+														<select  class="form-control message"
+															id="custodian_select custodian" name="custodian">
 															<option value="">- Custodian -</option>
 															<?php 
 															$edit_query ="SELECT * FROM `".$employee_table."` ;" ;
@@ -333,7 +372,7 @@ else
 															<option value="<?php echo $rows['first_name'].' ' . $rows['last_name']; ?>"
 																<?php echo ($asset_det['custodian'] == $rows['first_name'].'' . $rows['last_name'] ? 'selected="selected"' : '')?>><?php  echo  $rows['first_name'].' ' . $rows['last_name'];?></option>
 																<?php } ?>
-															
+															<div style="color:red;" id="custodian_msg" ></div>
 															
 														</select>
 

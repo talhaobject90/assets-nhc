@@ -123,7 +123,7 @@ jQuery("#mvpi_expiry_date").attr("required" ,"required");
     	//========================================
     
     
-    
+    $(".client_sticker_date").datepicker({format:"yyyy/mm/d"}).datepicker("setDate",client)
     
     
     
