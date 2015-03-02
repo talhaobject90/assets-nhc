@@ -65,7 +65,10 @@ else{
 	 
 	$mail->From = 'm.ali@object90.com';
 	$mail->FromName = 'Assets-NewHorizons';
-	$mail->addAddress('asaad@nhc-ksa.com', 'Recipient');     // Add a recipient
+	
+	$mail->AddAddress('asaad@nhc-ksa.com', 'Site Manager');
+	$mail->addBcc($_SESSION["user_email"],'Requester');    // Add a recipient
+	
 	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
 	 
 	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' FROM '.$_SERVER['REMOTE_ADDR'].'  ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');
@@ -130,13 +133,15 @@ else{
  		       		( `old_custodian`, 
  		       		`new_custodian`,
  		       		`assets_id`, 
- 		       		`user_id`, 
+ 		       		`user_id`,
+ 		       		`requester_mail`,
  		       		`status`
  		       	) VALUES
 				('".trim($_POST["old_cust"] )."',
 				'".trim($_POST["custodian"])."',
 				'".trim($edit_id)."',
 				'". trim($_SESSION['user_logged_in'])."' ,
+				'". trim($_SESSION['user_email'])."' ,
 				'".trim("1")."' 
 				)";
  		       

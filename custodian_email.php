@@ -10,7 +10,6 @@
 	if(isset($_POST['update']))
 	{
 		
-		
 		$status="";
 		switch($_POST['status'])
 		{
@@ -46,7 +45,8 @@
 	 
 	$mail->From = 'm.ali@object90.com';
 	$mail->FromName = 'Assets-NewHorizons';
-	$mail->addAddress('asaad@nhc-ksa.com', 'Recipient');     // Add a recipient
+	$mail->addAddress('asaad@nhc-ksa.com', 'Site Manager');
+	$mail->addBcc($_POST["requester_mail"],'Requester');     // Add a recipient
 	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
 	 
 	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' FROM '.$_SERVER['REMOTE_ADDR'].'  ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');
@@ -149,6 +149,7 @@
 			$asset_det['new_custodian'] = trim($rows['new_custodian']);
 			$asset_det['assets_id'] = trim($rows['assets_id']);
 			$asset_det['user_id'] = trim($rows['user_id']);
+			$asset_det['requester_mail'] = trim($rows['requester_mail']);
 			$asset_det['status'] = trim($rows['status']);
 		}
 		
@@ -160,7 +161,17 @@
 			$get_det['name'] = trim($rows['name']);
 			$get_det['location'] = trim($rows['location']);
 			$get_det['asset_category'] = trim($rows['asset_category']);
+			$get_det['requester_mail'] = trim($rows['requester_mail']);
 		}
+		
+		// Get Requester Email form Employee table
+		
+		$email_query ="SELECT employee_email FROM `".$employee_table."`  WHERE `id` =".$asset_det['user_id'].";";
+		$mail_query = mysql_query($email_query);
+		$mail=mysql_fetch_assoc($mail_query);
+		 
+		 
+		
 		
 		$status="";
 		switch($asset_det['status'])
@@ -242,6 +253,9 @@
 										<input type="hidden" name="location" value="<?php echo $get_det['location']?>">
 										<input type="hidden" name="asset_categ" value="<?php echo $get_det['asset_category'];?>">
 										<input type="hidden" name="old_custodian" value="<?php echo $asset_det['old_custodian']?>">
+										<input type="hidden" name="requester_mail" value="<?php echo $asset_det['requester_mail'];?>">
+										
+										
 									</div>
 								</div>
 								
