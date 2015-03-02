@@ -71,7 +71,7 @@ else{
 	
 	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
 	 
-	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' FROM '.$_SERVER['REMOTE_ADDR'].'  ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');
+	$mail->Subject = 'Custodian Notification Details';
 	$mail->Body    = '<html><body><h1>Custodian Notification Details</h1><br/>
 	<div class="form-group">
 									<label class="col-sm-4 control-label bold"><strong> Asset Name : </strong> </label>
