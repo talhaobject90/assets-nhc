@@ -45,7 +45,7 @@
 	 
 	$mail->From = 'm.ali@object90.com';
 	$mail->FromName = 'Assets-NewHorizons';
-	$mail->addAddress('asaad@nhc-ksa.com', 'Site Manager');
+	$mail->addAddress('mars@object90.com', 'Site Manager');
 	$mail->addBcc($_POST["requester_mail"],'Requester');     // Add a recipient
 	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
 	 
