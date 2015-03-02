@@ -432,32 +432,63 @@ else
 
 													</div>
 												</div>
-
+<?php 
+$email_query ="SELECT status FROM `".$custodian_table."`  WHERE `assets_id` =".$edit_id.";";
+		$mail_query = mysql_query($email_query);
+		$mail=mysql_fetch_assoc($mail_query);
+		
+		
+		$status="";
+		switch($mail['status'])
+		{
+			case 1:
+				$status="Request for Approval";
+				break;
+			case 2:
+				$status="Approval Pending";
+				break;
+			case 3:
+				$status="";
+				break;
+			case 4:
+				$status="Approval Cancelled";
+				break;
+		}
+	$style="";
+	if($mail['status'] == "" || $mail['status'] == 4 || $mail['status'] == 3)
+	{
+		$style="";
+	}
+	else{
+		$style="disabled";
+	}
+?>
 
 												<div class="form-group col-sm-4 item-qty">
 															<div class="custodian_div">
 														<label for="custodian_div">Custodian</label>
 														<br>
 													
-														
+	
 														<select class="form-control"
-															id="custodian_select cs" name="custodian">
+															id="custodian_select cs" <?php echo $style;?> name="custodian">
 															<option id="cs"value="">- Custodian -</option>
 															<?php 
 															$edit_query ="SELECT * FROM `".$employee_table."` ;" ;
 															$edit_query = mysql_query($edit_query);
 															while($rows = mysql_fetch_array($edit_query)) {
-$custodian=$rows['first_name'].'' . $rows['last_name'];
- ?>
+																$custodian=$rows['first_name'].'' . $rows['last_name'];
+ 																?>
 															<option value="<?php echo $custodian; ?>"
 																<?php echo ($asset_det['custodian'] ==$custodian  ? 'selected="selected"' : '')?>><?php  echo  $rows['first_name'].' ' . $rows['last_name'];?></option>
 																<?php } ?>
 															
 															
 														</select>
-
+														<p style="color:green"><?php echo $status;?></p>
 													</div>
 												</div>
+		
 												<div>
 												</div>
 											

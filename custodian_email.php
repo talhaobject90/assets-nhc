@@ -174,19 +174,24 @@
 		
 		
 		$status="";
+		$style="";
 		switch($asset_det['status'])
 		{
 			case 1:
 				$status="Request for Approval";
+				$style="";
 				break;
 			case 2:
 				$status="Approval Pending";
+				$style="";
 				break;
 			case 3:
 				$status="Approved";
+				$style="disabled";
 				break;
 			case 4:
 				$status="Approval Cancelled";
+				$style="disabled";
 				break;
 		}
 		
@@ -260,6 +265,7 @@
 								</div>
 								
 				 												<?php  
+	
 if($Edit_mode){?>			
 							
 								
@@ -268,7 +274,7 @@ if($Edit_mode){?>
 									<div class="col-sm-6">
 										<p class="form-control-static">
 									
-										<select name="status">
+										<select name="status" <?php echo $style;?>>
 										<option>Select</option>
 										<?php 
 										
