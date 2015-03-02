@@ -451,7 +451,7 @@ $email_query ="SELECT status FROM `".$custodian_table."`  WHERE `assets_id` =".$
 				$status="";
 				break;
 			case 4:
-				$status="Approval Cancelled";
+				$status="";
 				break;
 		}
 	$style="";
