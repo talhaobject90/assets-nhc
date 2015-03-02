@@ -54,6 +54,7 @@ switch ($myurl){
 	case 'config.php':
 	case 'vendor_new.php':
 	case 'asset_category_new.php':
+	case 'custodian_email.php':
 	case 'department_new.php':
 	case 'project_new.php':
 	case 'locations_new.php':
