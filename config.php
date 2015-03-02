@@ -12,8 +12,9 @@
 			?>
 						<script type="text/javascript">
 						jQuery(function () {
+							
 			 				jQuery('a[href="#<?php  echo $tab ; ?>"]').tab('show'); // Select tab by name
-						})
+						});
 						</script><?php 
 			
 		}
@@ -122,6 +123,7 @@
   <li><a href="#project" role="tab" data-toggle="tab">Projects</a></li>
   <li><a href="notification_map.php" role="tab" >Notifications</a></li>
   <li><a href="#admin_tools"  data-toggle="tab" role="tab" >Admin Tools</a></li>
+  <li><a href="#approver_category" role="tab" data-toggle="tab">Approver Details</a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -338,7 +340,7 @@ echo '</table>';
   
   
   
-    <div class="tab-pane   " id="admin_tools">
+    <div class="tab-pane" id="admin_tools">
   
   
   <section class="index col-md-12" id="purchase">
@@ -369,7 +371,73 @@ Truncate Tickets Table : <a ><input type="submit" name="truncate"  value = "Trun
   
   
   </div>
+  
+  
+  <!--Approver Details-->
+  
+  <div class="tab-pane"  id="approver_category">
+  
+  
+  <section class="index col-md-12" id="purchase">
+<div class="row">
+<div class="page-header">
+<h1>Custodian Notification</h1>
+
 </div>
+
+<h4>
+<!-- <center>
+Toggle the icons to quickly filter by status
+</center> -->
+</h4>
+</div>
+<div class="row">
+<div class="page-content col-md-12">
+ 
+<?php 
+  $all_assets_query = "SELECT * FROM `".$custodian_table."`;";
+$all_assets = mysql_query($all_assets_query);
+
+echo '<table class="table table-hover">';
+echo '<th>ID</th><th>Asset Name</th><th>Status</th><th>Details</th><th>Disapprove</th>';
+while($row = mysql_fetch_array($all_assets)) {
+	$status="";
+		switch($row['status'])
+		{
+			case 1:
+				$status="Request for Approval";
+				break;
+			case 2:
+				$status="Approval Pending";
+				break;
+			case 3:
+				$status="Approved";
+				break;
+			case 4:
+				$status="Approval Cancelled";
+				break;
+		}
+		
+		
+	$assets_fetch = "SELECT name FROM `".$assets_table."`where id=".$row['assets_id'].";";
+	$assets = mysql_query($assets_fetch);
+	$asset_name=mysql_fetch_assoc($assets);
+	
+	
+	
+echo '<tr ><td>'.$row['id'].'</td><td>'.$asset_name['name'].'</td><td>'.$status.'</td><td><a href="custodian_email.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&del_category=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+}
+echo '</table>';
+?>
+
+</div>
+</div>
+</section>
+  
+  
+  </div>
+</div>
+ 
 
 </div>
 </form>
