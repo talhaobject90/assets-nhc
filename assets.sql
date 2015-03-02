@@ -60,7 +60,7 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (1,'Hyundai Vacuum Truck With Tanker','','JRD','Abdul Rahman Abdullah Alzahran','active','2014-12-08','2014-12-09','2014-12-09','2014-12-09','2015-02-05','2014-12-17','2014-12-29','','','Mercedes','Vehicles','Operations','1657  TLA','JRD Tank Repair LFC','','','','','0000-00-00','0000-00-00','NHV - 011');
+INSERT INTO `assets` VALUES (1,'Hyundai Vacuum Truck With Tanker','','JRD','Muhammed Hussain','active','2014-12-08','2014-12-09','2014-12-09','2014-12-09','2015-02-05','2014-12-17','2014-12-29','','','Mercedes','Vehicles','Operations','1657  TLA','JRD Tank Repair LFC','','','','','0000-00-00','0000-00-00','NHV - 011');
 INSERT INTO `assets` VALUES (2,'Mazda 2 Cabin p/up','','JRD','Mohammed Asif','active','2015-01-10','0000-00-00','0000-00-00','2014-12-20','2015-02-02','0000-00-00','0000-00-00','','','','Equipment','Operations','5526  TKA','','','','','','0000-00-00','0000-00-00','NHV - 014');
 INSERT INTO `assets` VALUES (4,'Doosan (GX 30) Fork Lift - 3 Tons','','JRD','Shahid Zaffar Iqbal','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-01','0000-00-00','0000-00-00','','','Hyundai','','Operations','5668 VBA','','','','','','0000-00-00','0000-00-00','NHV - 033');
 INSERT INTO `assets` VALUES (5,'Mazda 2 Cabin p/up','','JRD','Palani Chinnasamy','active','2015-01-28','2015-01-22','2015-01-17','2015-01-25','2015-02-04','2015-01-15','2015-01-21','','','Nissan','','Operations','3747 GHA','','','','','','2015-01-31','2015-01-31','NHV - 038');
@@ -141,7 +141,7 @@ CREATE TABLE `custodian` (
   `status` varchar(100) NOT NULL,
   `approver` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -926,4 +926,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-27 22:28:39
+-- Dump completed on 2015-03-02 12:40:22

@@ -158,7 +158,7 @@ else{
  		  ?>
 
 <script type="text/javascript">
-				window.location.href = "assets_monitor.php"
+				window.location.href = "assets_monitor.php";
  		  </script>
 
 <?php 
@@ -217,7 +217,7 @@ else{
 					<div class="row">
 						<div class="page-header">
 
-<<<<<<< HEAD
+
 <script type="text/javascript">
 /*$(document).ready(function() {
      toggleFields(); 
@@ -257,9 +257,7 @@ $(document).ready(function() {
     });
 });
 </script>
-=======
 
->>>>>>> 58bc398b1c2148492c151989be8c68e3e7f5534d
 <?php  
 if($Edit_mode)
 	echo '<h1>Edit Asset</h1>';
@@ -358,20 +356,15 @@ else
 												</div>
 
 
-												<div class="form-group col-sm-4 item-qty">
-															<div class="custodian_div message">
+													<div class="form-group col-sm-4 item-qty">
+															<div class="custodian_div">
 														<label for="custodian_div">Custodian</label>
 														<br>
+													
 														
-														
-<<<<<<< HEAD
-														<select  class="form-control message"
-															id="custodian_select custodian" name="custodian">
-=======
-														<select  class="form-control message "
-															id="custodian_select " name="custodian">
->>>>>>> 58bc398b1c2148492c151989be8c68e3e7f5534d
-															<option value="">- Custodian -</option>
+														<select class="form-control"
+															id="custodian_select cs" name="custodian">
+															<option id="cs"value="">- Custodian -</option>
 															<?php 
 															$edit_query ="SELECT * FROM `".$employee_table."` ;" ;
 															$edit_query = mysql_query($edit_query);
@@ -381,9 +374,12 @@ else
 															<option value="<?php echo $rows['first_name'].' ' . $rows['last_name']; ?>"
 																<?php echo ($asset_det['custodian'] == $rows['first_name'].'' . $rows['last_name'] ? 'selected="selected"' : '')?>><?php  echo  $rows['first_name'].' ' . $rows['last_name'];?></option>
 																<?php } ?>
-															<div style="color:red;" id="custodian_msg" ></div>
+															
 															
 														</select>
+
+													
+												
 													
 													</div>
 												</div>

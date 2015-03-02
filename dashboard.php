@@ -65,7 +65,7 @@
 
 
 
-</div>
+
 <br>
 <br>
 <br>
@@ -87,7 +87,7 @@
 		 
     
 
-<p><img height="125" width="125" alt="help"  src="/images/help.png"/></p>
+
 					
 					
 					
