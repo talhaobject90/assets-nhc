@@ -2,6 +2,8 @@
 	include_once('header-pop.php');
 	include_once('db_connect.php');
 	
+	
+	
 	if(isset($_GET['edit'])){
 		$Edit_mode = true;
 		$edit_id = $_GET['edit'];
@@ -33,18 +35,116 @@ else{
 </div>';
 }
  
- 
- 
-    
-    
+   
 }
 
-	 
-		
-		
 	
 	if(isset($_POST['update']))
 	{
+		//print_r($_POST);
+	
+		// Check status of Custodian  start//
+		
+	if($_POST['custodian'] != $_POST['old_cust']){	
+		
+	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false)
+		include '/var/www/PHPMailer-master/PHPMailerAutoload.php';
+	else
+		require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
+	$mail = new PHPMailer;
+	 
+	$mail->ClearAllRecipients( );// clear all
+	
+	$mail->isSMTP();                                      // Set mailer to use SMTP
+	$mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+	$mail->SMTPAuth = true;                               // Enable SMTP authentication
+	$mail->Username = 'alerts@nhc-ksa.com';                 // SMTP username
+	$mail->Password = '123qweASD!';                           // SMTP password
+	$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+	$mail->Port = 465;                                    // TCP port to connect to
+	 
+	$mail->From = 'm.ali@object90.com';
+	$mail->FromName = 'Assets-NewHorizons';
+	$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
+	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
+	 
+	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' FROM '.$_SERVER['REMOTE_ADDR'].'  ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');
+	$mail->Body    = '<html><body><h1>Custodian Notification Details</h1><br/>
+	<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong> Asset Name : </strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static">'.$_POST["asset_name"].'</p>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong> Asset Category  : </strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static">'.$_POST["asset_category"].'</p>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong> Asset Location : </strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static">'.$_POST["asset_location"].'</p>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong>Custodian Name:</strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static">'.$_POST["old_cust"].'</p>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong> Request Custodian Name: </strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static">'.$_POST["custodian"].'</p>
+										<input type="hidden" name="asset_id" value="<?php echo $asset_det[assets_id]?>">
+										<input type="hidden" name="new_custodian" value="<?php echo $asset_det[new_custodian]?>">
+										<input type="hidden" name="old_custodian" value="<?php echo $asset_det[old_custodian]?>">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong>Status:</strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static" style="color:green;font-weight:bold">Request For Approval</p>
+									</div>
+								</div><br/>';
+	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+	 
+	 
+	 
+	 
+	 
+	if( $mail->send()) {
+		//ECHO 'TEST MAIL IS SENT';
+	}
+		
+	
+	
+			
+			  $mysql_query = "INSERT INTO `".$custodian_table."`
+ 		       		( `old_custodian`, 
+ 		       		`new_custodian`,
+ 		       		`assets_id`, 
+ 		       		`user_id`, 
+ 		       		`status`
+ 		       	) VALUES
+				('".trim($_POST["old_cust"] )."',
+				'".trim($_POST["custodian"])."',
+				'".trim($edit_id)."',
+				'". trim($_SESSION['user_logged_in'])."' ,
+				'".trim("1")."' 
+				)";
+ 		       
+ 		  mysql_query($mysql_query);
+		}
+		
+				// Check status of Custodian   End //
+		
 		if(isset($_POST['asset_name']) && $_POST['asset_name'] != ''){
 			if(isset($_POST['asset_expiry'])){
 				$expiry_date  = date( "Y-m-d H:i:s", strtotime( $_POST['asset_expiry']) );
@@ -86,7 +186,7 @@ else{
 			   ?>
 			  			  			  			  			  			  			<script type="text/javascript">
 			  			  			  			  			  			  			jQuery(function () {
-			  			  			  			  			  			  	window.location.href = "assets_monitor.php"
+			  			  			  			  			  			  	window.location.href = "assets_monitor.php";
 			  			  			  			  			  			  			})
 			  			  			  			  			  			  			</script><?php 
  		}
@@ -216,49 +316,22 @@ else{
 				<section class="form col-sm-9" id="purchase">
 					<div class="row">
 						<div class="page-header">
-
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
 
 <script type="text/javascript">
-/*$(document).ready(function() {
-     toggleFields(); 
-		$("#custodian").change(function() {
-		 toggleFields();
-		  });
 
-});
-function toggleFields() {
-			if($("#custodian").val()=='')
-    		{
-				 $("#custodian").hide();
-				$("#custodian_msg").html(js_ln("Your Modification Processing..."));
-					return false;
-	   		 }
-		 	if($("#custodian").val()!='')
-	 	 	{	
-				 $("#custodian").hide();
-				 $("#custodian_msg").html("");
-	    	}
-			else
-			{
-				return true;
-			}
-		})
-});
-</script>*/
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#custodian').change(function() {
-        var selectedValue = $('#custodian').find(":selected").text();
-        if ( selectedValue == '1' ) {
-            $('.message').hide();
-        } else {
-            $('.message').show();
-        }
+$(document).ready(function(){
+	
+    $("#cs").change(function(){
+        $(this).hide();
+		alert("Wait your request is processing....");
     });
 });
 </script>
-
 <?php  
+
+
+ 
 if($Edit_mode)
 	echo '<h1>Edit Asset</h1>';
 else
@@ -268,6 +341,7 @@ else
 
 </div>
 					</div>
+					<input type="hidden" name="old_cust" value="<?php echo $asset_det['custodian'];?>">
 					<div class="row">
 						<div class="page-content col-sm-12">
 							<div class="row">
@@ -356,7 +430,7 @@ else
 												</div>
 
 
-													<div class="form-group col-sm-4 item-qty">
+												<div class="form-group col-sm-4 item-qty">
 															<div class="custodian_div">
 														<label for="custodian_div">Custodian</label>
 														<br>
@@ -369,21 +443,20 @@ else
 															$edit_query ="SELECT * FROM `".$employee_table."` ;" ;
 															$edit_query = mysql_query($edit_query);
 															while($rows = mysql_fetch_array($edit_query)) {
-
+$custodian=$rows['first_name'].'' . $rows['last_name'];
  ?>
-															<option value="<?php echo $rows['first_name'].' ' . $rows['last_name']; ?>"
-																<?php echo ($asset_det['custodian'] == $rows['first_name'].'' . $rows['last_name'] ? 'selected="selected"' : '')?>><?php  echo  $rows['first_name'].' ' . $rows['last_name'];?></option>
+															<option value="<?php echo $custodian; ?>"
+																<?php echo ($asset_det['custodian'] ==$custodian  ? 'selected="selected"' : '')?>><?php  echo  $rows['first_name'].' ' . $rows['last_name'];?></option>
 																<?php } ?>
 															
 															
 														</select>
 
-													
-												
-													
 													</div>
 												</div>
-
+												<div>
+												</div>
+											
 
 
 											</div>
@@ -695,8 +768,6 @@ if(isset($asset_det['asset_id']))
 					
 					
 					
-
-					
 					
 					
 					
@@ -709,6 +780,7 @@ if(isset($asset_det['asset_id']))
 <?php  
 if($Edit_mode){
 	echo '<input class="btn btn-default"  type="submit" name="update" value="Update Asset"  style="background-color: #ffe400;margin-bottom:10px;">';
+	
 	}
 else{
 	echo '<input class="btn btn-default"  type="submit"  name="save"  value="Save Asset"  style="background-color: #ffe400;margin-bottom:10px;">';
