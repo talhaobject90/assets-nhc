@@ -42,6 +42,17 @@
 			})
 			</script><?php 
 		}
+		
+	if(isset($_GET['delete_cust'])){
+			$mysql_query = "DELETE FROM `".$custodian_table."` WHERE `id` =".$delete_id.";";
+			mysql_query($mysql_query);
+			?>
+			<script type="text/javascript">
+			jQuery(function () {
+ 				jQuery('a[href="#approver_category"]').tab('show'); // Select tab by name
+			})
+			</script><?php 
+		}
 		if(isset($_GET['del_category'])){
 			$mysql_query = "DELETE FROM `".$assets_category_table."` WHERE `id` =".$delete_id.";";
 			mysql_query($mysql_query);
@@ -399,7 +410,7 @@ Toggle the icons to quickly filter by status
 $all_assets = mysql_query($all_assets_query);
 
 echo '<table class="table table-hover">';
-echo '<th>ID</th><th>Asset Name</th><th>Status</th><th>Details</th><th>Disapprove</th>';
+echo '<th>ID</th><th>Asset Name</th><th>Status</th><th>Details</th><th>Delete</th>';
 while($row = mysql_fetch_array($all_assets)) {
 	$status="";
 		switch($row['status'])
@@ -425,7 +436,7 @@ while($row = mysql_fetch_array($all_assets)) {
 	
 	
 	
-echo '<tr ><td>'.$row['id'].'</td><td>'.$asset_name['name'].'</td><td>'.$status.'</td><td><a href="custodian_email.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&del_category=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
+echo '<tr ><td>'.$row['id'].'</td><td>'.$asset_name['name'].'</td><td>'.$status.'</td><td><a href="custodian_email.php?edit='.$row['id'].'"><img src="images/edit.png"  class="img-responsive" alt="Edit"> </a></td> <td><a href="config.php?delete='.$row['id'].'&delete_cust=true"><img src="images/del.png"  class="img-responsive" alt="Delete"> </a></td> </tr>';
 }
 echo '</table>';
 ?>
