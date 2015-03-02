@@ -46,7 +46,7 @@
 	 
 	$mail->From = 'm.ali@object90.com';
 	$mail->FromName = 'Assets-NewHorizons';
-	$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
+	$mail->addAddress('asaad@nhc-ksa.com', 'Recipient');     // Add a recipient
 	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
 	 
 	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' FROM '.$_SERVER['REMOTE_ADDR'].'  ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');

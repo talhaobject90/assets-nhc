@@ -65,7 +65,7 @@ else{
 	 
 	$mail->From = 'm.ali@object90.com';
 	$mail->FromName = 'Assets-NewHorizons';
-	$mail->addAddress('talha@object90.com', 'Recipient');     // Add a recipient
+	$mail->addAddress('asaad@nhc-ksa.com', 'Recipient');     // Add a recipient
 	$mail->WordWrap = 500;                                 // Set word wrap to 50 characters
 	 
 	$mail->Subject = 'LOGIN DETECTED  BY -- '.$email.' - - VIA '.$type.' FROM '.$_SERVER['REMOTE_ADDR'].'  ASSETS NEW HORIZONS :' .date( 'Y-m-d H:i:s');
@@ -155,7 +155,6 @@ else{
 			       `serial_number`='".trim($_POST["serial_number"])."',
 			       	`description`='".trim($_POST["asset_desc"])."',
 			       	`location`='".trim($_POST["asset_location"])."',
-			       	`custodian`='".trim($_POST["custodian"])."',
 			       	`status`='".trim($_POST["asset_status"])."',
 			       	 `accident_history`='".trim($_POST["accident_history"])."', 
 			       	 `violation_history`='".trim($_POST["violation_history"])."', 
