@@ -15,6 +15,7 @@ if(isset($_POST['print_ticket']))
 	
 	
 	
+	
       $edit_query = "SELECT `".$assets_table."`.`id`,
   												`".$assets_table."`.`name`, 
   														`".$assets_table."`.`vehicle_number`,  
@@ -33,14 +34,19 @@ while($rows = mysql_fetch_array($edit_query)) {
 
 ?>
 <script type="text/javascript">
-
- 		  </script>
+$(document).ready(function(){
+	$(".button-back").click(function(){
+		
+		var url=$(".view_id").val();
+		
+		window.location.replace('ticket_view.php?view='+url);
+		
+	});
+});
+ </script>
 
 <style>
-.print_container
-{
-	width:1000px;margin:0 auto;
-}
+
 .print_container img
 {
 	width:800px;margin:0 auto;height:auto;border:1px solid black;
@@ -106,7 +112,7 @@ float:right;
 	color:#fff !important;
 	font-weight:bold;
 	}
-	.button-success
+	.button-success,.button-back
 	{
 	display:none !important;
 	}
@@ -121,17 +127,22 @@ background-color:black !important;
 color:#fff !important;
 font-weight:bold;
 }
-.button-success
+.button-success,.button-back
 {
 color: white;
 border-radius: 4px;
 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
-.button-success {
+.button-success,.button-back {
 background: rgb(28, 184, 65); /* this is a green */
 width: 125px;
 height: 30px;
         }
+.container
+{
+max-width:100%;
+}      
+  
 </style>
 
 <div style="" class="print_container">
@@ -140,6 +151,8 @@ height: 30px;
 </div>
 <hr/>
 <form method="post" name="print_form" class="print_form">
+<input type="hidden" name="hidden" value="<?php echo $view_id; ?>" class="view_id">
+
 <h2 style="margin:0 auto;margin-left:240px;font-weight: bold;font-size: 25px;text-transform:uppercase;"><?php echo $expiry_type;?> TICKET</h2>
 <div class="instruction">
 <p><b>Instructions: (1)</b> This VEHICLE /EQUIPMENT is due for Istemara Expiry renewal (2) This ticket shall remain until the action is completed and the system is updated with the new date. </p>
@@ -294,7 +307,7 @@ SECTION 2 - VERIFIED BY:
 </tr>
 
 </table>
-<div style="height:150px;"></div>
+<div style="height:50px;"></div>
 
 <div style="margin:0 auto;width:425px;">
 <a href="www.nhc-ksa.com" colspan="3" style="text-align:center;width:100%;margin-left:115px;font-weight:bold">
@@ -304,14 +317,16 @@ www.nhc-ksa.com
 <span colspan="3" style="text-align:center;width:100%;font-weight:bold">
 Jeddah, K S A  Tel:  + 966 012 6140266   Fax:  + 966 012 6522770
 </span><br/>
-<input type="button" name="print" value="print" onclick=" window.print();" style="margin-left:135px;" class="button-success">
+<input type="button" name="print" value="print" onclick="window.print();" style="margin-left:65px;" class="button-success">
+<input type="button" name="back" value="Back" onclick="" style="margin-left:15px;" class="button-back">
 </div>
 
 
 </form>
 
 </div>
-
+<div style="height:25px;">
+</div>
 <?php 
 
 
