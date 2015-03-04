@@ -60,12 +60,11 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (1,'Hyundai Vacuum Truck With Tanker','','JRD','Muhammed Hussain','active','2014-12-08','2014-12-09','2014-12-09','2014-12-09','2015-02-05','2014-12-17','2014-12-29','','','Mercedes','Vehicles','Operations','1657  TLA','JRD Tank Repair LFC','','','','','0000-00-00','0000-00-00','NHV - 011');
 INSERT INTO `assets` VALUES (2,'Mazda 2 Cabin p/up','','JRD','Mohammed Asif','active','2015-01-10','0000-00-00','0000-00-00','2014-12-20','2015-02-02','0000-00-00','0000-00-00','','','','Equipment','Operations','5526  TKA','','','','','','0000-00-00','0000-00-00','NHV - 014');
 INSERT INTO `assets` VALUES (4,'Doosan (GX 30) Fork Lift - 3 Tons','','JRD','Shahid Zaffar Iqbal','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-01','0000-00-00','0000-00-00','','','Hyundai','','Operations','5668 VBA','','','','','','0000-00-00','0000-00-00','NHV - 033');
 INSERT INTO `assets` VALUES (5,'Mazda 2 Cabin p/up','','JRD','Palani Chinnasamy','active','2015-01-28','2015-01-22','2015-01-17','2015-01-25','2015-02-04','2015-01-15','2015-01-21','','','Nissan','','Operations','3747 GHA','','','','','','2015-01-31','2015-01-31','NHV - 038');
-INSERT INTO `assets` VALUES (6,'Mazda 2 Cabin p/up','','JRD','Samadullah Shareef','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-16','0000-00-00','0000-00-00','','','Mazdas','Vehicle','Operations','7130 KEA','JRD','','','','','0000-00-00','0000-00-00','NHV - 041');
-INSERT INTO `assets` VALUES (7,'Genie Man Lift Model  S8513','Using In site.','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-15','0000-00-00','0000-00-00','','','Isuzu','Vehicle','Operations','S.N. :10163','JRD','','','','','0000-00-00','0000-00-00','NHV - 042');
+INSERT INTO `assets` VALUES (6,'Mazda 2 Cabin p/up','','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-16','0000-00-00','0000-00-00','','','','','Operations','7130 KEA','','','','','','0000-00-00','0000-00-00','NHV - 041');
+INSERT INTO `assets` VALUES (7,'Genie Man Lift Model  S8513','Using In site.','JRD','Shahid Zaffar Iqbal','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-15','0000-00-00','0000-00-00','','','Isuzu','','Operations','S.N. :10163','','','','','','0000-00-00','0000-00-00','NHV - 042');
 INSERT INTO `assets` VALUES (8,'Toyota Coaster','Since 5 Dec 14 (Old Plate Number 8046  BBA)','JRD','Sherrehman Saifurahman','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Toyota','Vehicle','Operations','9367 BVA','JRD','','','','','0000-00-00','0000-00-00','NHV - 017');
 INSERT INTO `assets` VALUES (9,'Toyota Coaster','Since 5 Dec 14 (Old Plate Number 4723  BBA)','JRD','Sajid Khan Muhammed Ismail','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Toyota','Vehicle','Operations','9644 BVA','JRD','','','','','0000-00-00','0000-00-00','NHV - 026');
 INSERT INTO `assets` VALUES (10,'Nissan 2 Cabin Pick up','','JRD','Ajayakumar Anandan','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','Nissan','Vehicle','Operations','4867 DHA','JRD','','','','','0000-00-00','0000-00-00','NHV - 035');
@@ -91,7 +90,7 @@ INSERT INTO `assets` VALUES (29,'_dummy asset for testing','','test','Sami Iskan
 INSERT INTO `assets` VALUES (30,'Test asset','','','','','2014-12-15','2014-12-03','2014-12-24','2014-12-08','2014-12-23','2014-12-18','2014-12-10','','','','Vehicles','','','','','','','','0000-00-00','0000-00-00','2322');
 INSERT INTO `assets` VALUES (31,'fgdsgd','dgdsgdsg','Jeddah','','inactive','2015-02-18','2015-02-27','2015-02-19','2015-02-26','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','4124');
 INSERT INTO `assets` VALUES (32,'dddaddddd','dsds','JRD','Muhammed Ikram','active','2015-02-25','2015-03-11','2015-02-27','2015-02-24','2015-02-20','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','12312354');
-INSERT INTO `assets` VALUES (33,'ibrahim','dsdsggdg','JRD','Muhammed Ikram','inactive','2015-02-18','2015-02-28','2015-02-27','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','232132');
+INSERT INTO `assets` VALUES (33,'ibrahim','dsdsggdg','JRD','Ramil Sevilla Nacua','inactive','2015-02-18','2015-02-28','2015-02-27','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','232132');
 INSERT INTO `assets` VALUES (34,'dfdsfd','dfdfdfd','JRD','Mahboob Khan','active','2015-02-11','2015-02-19','0000-00-00','0000-00-00','0000-00-00','0000-00-00','0000-00-00','','','','','','','','','','','','0000-00-00','0000-00-00','232132');
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -210,7 +209,6 @@ LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
 INSERT INTO `employee` VALUES (1,'Sami','Iskandrani','sami@nhc-ksa.com','iskandsa','CEO','Jeddah - HO','Office of the CEO','','active');
 INSERT INTO `employee` VALUES (2,'Fahmi','T. Ahmed','fahmi@nhc-ksa.com','tanrak','Manager, Support Services','Jeddah - HO','Support Services','0500100250','active');
-INSERT INTO `employee` VALUES (3,'Syed Abdul Aleem','','aaleem@nhc-ksa.com','10001','Commercial Manager','Jeddah - HO','Commercial and Business Development','','active');
 INSERT INTO `employee` VALUES (4,'Ali Abdullah Alzahrani','','aalzahrani@nhc-ksa.com','10002','Operations Manager','Jeddah','Operations Department','','active');
 INSERT INTO `employee` VALUES (5,'Abdul Rahman Abdullah Alzahran','','arzahrani@nhc-ksa.com','10083','H R Co-ordinator','Jeddah - HO','Human Resources Department','','active');
 INSERT INTO `employee` VALUES (6,'Asaad Adham Al Nemer','','asaad@nhc-ksa.com','10310','Area Manager','Rabigh Workshop','Operations Department','','active');
@@ -367,7 +365,6 @@ INSERT INTO `employee` VALUES (156,'MISTER','ALI KHAN','','iv1240','Rigger','Jub
 INSERT INTO `employee` VALUES (157,'MOHAMMAD','ZIYAUL HAQUE KHAN','','iv1241','Rigger','Jubail','Operations Department','','active');
 INSERT INTO `employee` VALUES (158,'Omar Daraz','','','10326','Rigger','Jubail','Operations Department','','active');
 INSERT INTO `employee` VALUES (159,'SANJAY','KUMAR PANNALAL GUPTA','','iv1225','Rigger','Jubail','Operations Department','','active');
-INSERT INTO `employee` VALUES (160,'MAHMUD','ANSARI SAIYEK','','iv1218','Rigger','Jubail','Operations Department','','active');
 INSERT INTO `employee` VALUES (161,'Victorino Lat Anis','','','10108','General Worker','Abha','Operations Department','538855870','active');
 INSERT INTO `employee` VALUES (162,'Rajendra Sarki Bipin','','','10133','General Worker','Yanbu','Operations Department','541950208','active');
 INSERT INTO `employee` VALUES (163,'Nagaraj Ponnuchamy','','','10188','General Worker','Yanbu','Operations Department','','active');
@@ -926,4 +923,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-03 12:03:08
+-- Dump completed on 2015-03-04 23:09:56
