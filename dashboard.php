@@ -45,40 +45,45 @@
 	
 	
 	?>
+<!DOCTYPE html>
+<head>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
 
 
-	
-	
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+<body>
+ 
+  
+  <div id="dialog">
+   Asset details
+  </div>
 	<div class="col-md-9 col-lg-10" id="content">
-	
-	    
-		
-					
 	<div class="row">
 		<div class="canvas col-md-12" id="main-canvas"  style="padding-top: 50px;">
 		
-							<!-- Button trigger modal -->
+	<div>						<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary   pull-right" data-toggle="modal" data-target="#myModal">
   <?php  echo ($username_not_set?'Set Password':'Change Password') ;?>
-  
+
 </button>
-
-
-
-
+<button type="button" class="btn btn-primary   pull-right" onclick="window.location='help.php';">
+ Help
+</button>
+ </div>
 <br>
 <br>
 <br>
-
- 
-
 			 
-				 
-				 
 				<section class="form col-sm-9  col-centered" id="purchase"  >
 					<div class="row">
 						<div class="page-header">
- 
+  
 
 </div>
 					</div>
@@ -88,8 +93,7 @@
     
 
 
-					
-					
+				
 					
 					
 <div class="row  row-centered"  >
@@ -98,13 +102,16 @@
     <a href="assets_monitor.php" class="thumbnail">
     <i class="fa fa-file-text-o icon dash_thumb "></i> 
     <p>Assets</p>
+	
      </a>
-	 
   </div>
+ 
     <div class="col-xs-6 col-md-4 col-centered"  <?php echo ( !in_array(3, $user_roles_parts) ? 'style="display:none;"' : '')?>>
     <a href="employees.php" class="thumbnail">
     <i class="fa fa-users icon dash_thumb "></i> 
+	
     <p>Employees</p>
+	
      </a>
   </div>
 </div>
@@ -128,6 +135,7 @@ $num_rows = mysql_num_rows($result);
 ?>
         <i class="fa fa-ticket   dash_thumb  "><span class="badge" ><?php  echo $num_rows?></span></i>
         <p>Open Tickets</p> 
+		
     </a>
   </div>
 
@@ -138,23 +146,18 @@ $num_rows = mysql_num_rows($result);
     <a href="report.php" class="thumbnail">
         <i class="fa fa-sort-alpha-desc  dash_thumb"></i> 
         <p>Reports</p>
+		
     </a>
   </div>
     <div class="col-xs-6 col-md-4   col-centered"   <?php echo ( !in_array(4, $user_roles_parts) ? 'style="display:none;"' : '')?>>
     <a href="config.php" class="thumbnail">
         <i class="fa fa-wrench   dash_thumb  "></i>
         <p>Configure</p> 
+		
     </a>
   </div>
 </div>
 <br>
-<div class="row">
-  <div class="col-xs-6 col-md-4  col-centered"   >
-    <img src="\var\www\assets\images\help.png" >
-       
-        <p>Help</p>
-    </a>
-  </div>
 
 
 
@@ -179,7 +182,7 @@ $num_rows = mysql_num_rows($result);
 		
 		
 
-<!-- Modal -->
+<!-- Modal-->
 <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -229,11 +232,11 @@ $num_rows = mysql_num_rows($result);
 
 
 
-
 </div>
 </div>
 
-
+</body>
+</html>
 
 
 

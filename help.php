@@ -103,7 +103,7 @@ height: 160px;
 <h1 class='header'>
 <span class='pp'></span>
  
-<a href="index.php">
+<a href="dashboard.php">
 <img  class="form-control" src="images/logoold.jpg" style="width: 225px;height: auto;margin-left: 65px;"></a>
  
 </h1>
@@ -122,15 +122,19 @@ height: 160px;
 			
 					
 								
-										
 
 <div class="col-md-9 col-lg-10" id="content" style="width:900px;">
 	<div class="row">
 		<div class="canvas col-md-12" id="main-canvas"  style="padding-top: 50px;">
+		<input type="button" name="main_dashboard" value="Home" style="float:right" class="btn btn-primary pull-right" onclick='window.location="dashboard.php";'>
 		<section class="form col-sm-9  col-centered" id="purchase" >
+		
 					<div class="row">
+					
 						<div class="page-header">
-  
+  										
+
+<br/>
 
 </div>
 					</div>
@@ -139,6 +143,7 @@ height: 160px;
 		 
     
 <div class="row row-centered ">
+
  
   <div class="col-xs-6 col-centered" id="assets">
     <a href="" class="thumbnail">
