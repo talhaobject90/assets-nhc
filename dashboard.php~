@@ -71,7 +71,7 @@
 
 </button>
 &nbsp;
-<button type="button" class="btn btn-primary   " onclick="window.location='help.php';">
+<button type="button" class="btn btn-primary   pull-right" onclick="window.location='help.php';">
 
 
  Help
