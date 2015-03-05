@@ -126,7 +126,7 @@ height: 160px;
 <div class="col-md-9 col-lg-10" id="content" style="width:900px;">
 	<div class="row">
 		<div class="canvas col-md-12" id="main-canvas"  style="padding-top: 50px;">
-		<input type="button" name="main_dashboard" value="Home" style="float:right" class="btn btn-primary pull-right" onclick='window.location="dashboard.php";'>
+		<input type="button" name="main_dashboard" value="Home"  class="btn btn-primary pull-right" onclick='window.location="dashboard.php";'>
 		<section class="form col-sm-9  col-centered" id="purchase" >
 		
 					<div class="row">
@@ -211,7 +211,7 @@ $num_rows = mysql_num_rows($result);
 	
 	<!--Login Section start-->
 	<section id="tickets-section" class="section login">
-	<button type="button"  class="btn btn-primary back_button" style="float:right">Back</button>
+	<button type="button"  class="btn btn-primary back_button" >Back</button>
 	<h2>Logging In</h2>
 	
 <br/>
@@ -246,7 +246,7 @@ $num_rows = mysql_num_rows($result);
 	<!--Signup Section End-->
 	
 	<section id="tickets-section" class="section signup">
-	<button type="button"  class="btn btn-primary back_button" style="float:right">Back</button>
+	<button type="button"  class="btn btn-primary back_button" >Back</button>
 	<h2>Signing up</h2>
 
 <br/>
@@ -272,7 +272,7 @@ $num_rows = mysql_num_rows($result);
 	
 	
 	<section id="tickets-section" class="section password">
-	<button type="button"  class="btn btn-primary back_button" style="float:right">Back</button>
+	<button type="button"  class="btn btn-primary back_button" >Back</button>
 	<h2>Password</h2>
 	
 <br/>
@@ -306,7 +306,7 @@ $num_rows = mysql_num_rows($result);
 	
 	
 	<section id="tickets-section" class="section support">
-	<button type="button"  class="btn btn-primary back_button" style="float:right">Back</button>
+	<button type="button"  class="btn btn-primary back_button" >Back</button>
 	<h2>Support</h2>
 
 <br/>
@@ -332,7 +332,7 @@ $num_rows = mysql_num_rows($result);
 	
 	
 	<section id="dashboard-section" class="section assets">
-	<button type="button" class="btn btn-primary back_button" style="float:right">Back</button>
+	<button type="button" class="btn btn-primary back_button" >Back</button>
 	<h2>Assets Help</h2><br/>
 	
 
@@ -402,7 +402,7 @@ $num_rows = mysql_num_rows($result);
 
 	
 	<section id="employee-section" class="section employee">
-	<button type="button"  class="btn btn-primary back_button" style="float:right">Back</button>
+	<button type="button"  class="btn btn-primary back_button" >Back</button>
 	<h2>Employee</h2>
 	
 <br/>
@@ -456,7 +456,7 @@ $num_rows = mysql_num_rows($result);
 
 	<!--tickets Section start-->
 	<section id="tickets-section" class="section tickets">
-		<button type="button"  class="btn btn-primary back_button" style="float:right">Back</button>
+		<button type="button"  class="btn btn-primary back_button" >Back</button>
 	<h2>Tickets</h2>
 
 <br/>
@@ -488,7 +488,7 @@ $num_rows = mysql_num_rows($result);
 
 	
 	<section id="reports-section" class="section reports">
-		<button type="button" class="btn btn-primary back_button" style="float:right">Back</button>
+		<button type="button" class="btn btn-primary back_button" >Back</button>
 		<h2>Reports</h2>
 
 <br/>
@@ -540,7 +540,7 @@ $num_rows = mysql_num_rows($result);
 	
 	
 	<section id="configure-section" class="section configure">
-		<button type="button" class="btn btn-primary back_button" style="float:right">Back</button>
+		<button type="button" class="btn btn-primary back_button" >Back</button>
 		<h2>Configure</h2>
 
 <br/>
