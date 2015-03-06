@@ -60,7 +60,7 @@ CREATE TABLE `assets` (
 
 LOCK TABLES `assets` WRITE;
 /*!40000 ALTER TABLE `assets` DISABLE KEYS */;
-INSERT INTO `assets` VALUES (2,'Mazda 2 Cabin p/up','','JRD','Mohammed Asif','active','2015-01-10','0000-00-00','0000-00-00','2014-12-20','2015-02-02','0000-00-00','0000-00-00','','','','Equipment','Operations','5526  TKA','','','','','','0000-00-00','0000-00-00','NHV - 014');
+INSERT INTO `assets` VALUES (2,'Mazda 2 Cabin p/up','','JRD','Mohammed Asif','active','2015-01-10','0000-00-00','0000-00-00','2014-12-20','2015-02-02','0000-00-00','0000-00-00','','','Fordland','Equipment','Operations','5526  TKA','RRD','','','','','0000-00-00','0000-00-00','NHV - 014');
 INSERT INTO `assets` VALUES (4,'Doosan (GX 30) Fork Lift - 3 Tons','','JRD','Shahid Zaffar Iqbal','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2015-03-01','0000-00-00','0000-00-00','','','Hyundai','','Operations','5668 VBA','','','','','','0000-00-00','0000-00-00','NHV - 033');
 INSERT INTO `assets` VALUES (5,'Mazda 2 Cabin p/up','','JRD','Palani Chinnasamy','active','2015-01-28','2015-01-22','2015-01-17','2015-01-25','2015-02-04','2015-01-15','2015-01-21','','','Nissan','','Operations','3747 GHA','','','','','','2015-01-31','2015-01-31','NHV - 038');
 INSERT INTO `assets` VALUES (6,'Mazda 2 Cabin p/up','','JRD','','active','0000-00-00','0000-00-00','0000-00-00','0000-00-00','2014-12-16','0000-00-00','0000-00-00','','','','','Operations','7130 KEA','','','','','','0000-00-00','0000-00-00','NHV - 041');
@@ -134,13 +134,14 @@ DROP TABLE IF EXISTS `custodian`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `custodian` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
-  `asset_id` int(100) NOT NULL DEFAULT '1',
-  `old_custodian` varchar(100) NOT NULL,
-  `new_custodian` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL,
-  `approver` varchar(100) NOT NULL,
+  `old_custodian` varchar(100) DEFAULT NULL,
+  `new_custodian` varchar(100) DEFAULT NULL,
+  `assets_id` int(100) NOT NULL,
+  `user_id` int(100) NOT NULL,
+  `requester_mail` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +150,34 @@ CREATE TABLE `custodian` (
 
 LOCK TABLES `custodian` WRITE;
 /*!40000 ALTER TABLE `custodian` DISABLE KEYS */;
+INSERT INTO `custodian` VALUES (1,'Mohammed Asif','Bien Sebuc Gonzales',2,1,'talha@object90.com',0);
 /*!40000 ALTER TABLE `custodian` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `custodian_status`
+--
+
+DROP TABLE IF EXISTS `custodian_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `custodian_status` (
+  `id` int(11) NOT NULL,
+  `custodian_type` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `custodian_status`
+--
+
+LOCK TABLES `custodian_status` WRITE;
+/*!40000 ALTER TABLE `custodian_status` DISABLE KEYS */;
+INSERT INTO `custodian_status` VALUES (1,'Request for Approval');
+INSERT INTO `custodian_status` VALUES (2,'Approval Pending');
+INSERT INTO `custodian_status` VALUES (3,'Approved');
+INSERT INTO `custodian_status` VALUES (4,'Approval Cancelled');
+/*!40000 ALTER TABLE `custodian_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -923,4 +951,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-03-05 11:55:53
+-- Dump completed on 2015-03-06 15:02:25

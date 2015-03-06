@@ -516,6 +516,9 @@
 .fa-exclamation-triangle:before {
   content: "\f071";
 }
+.fa-check-circle-o :before {
+  content: "\f05d";
+}
 .fa-plane:before {
   content: "\f072";
 }

@@ -134,8 +134,7 @@
   <li><a href="#project" role="tab" data-toggle="tab">Projects</a></li>
   <li><a href="notification_map.php" role="tab" >Notifications</a></li>
   <li><a href="#admin_tools"  data-toggle="tab" role="tab" >Admin Tools</a></li>
-  <li><a href="#approver_category" role="tab" data-toggle="tab">Approver Details</a></li>
-</ul>
+ </ul>
 
 <!-- Tab panes -->
 <!-- ---- VENDOR TAB CONTENT -->

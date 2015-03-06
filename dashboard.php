@@ -120,14 +120,14 @@
 <br>
 
 <div class="row">
-<!-- 
-  <div class="col-xs-6 col-md-4  col-centered"  <?php // echo ( !in_array(2, $user_roles_parts) ? 'style="display:none;"' : '')?> >
-    <a href="notification_monitor.php" class="thumbnail">
-        <i class="fa fa-exclamation-triangle   dash_thumb "></i> 
-        <p>Notifications</p>
+ 
+  <div class="col-xs-6 col-md-4  col-centered">
+    <a href="approver.php" class="thumbnail">
+        <i class="fa fa-check-circle-o  dash_thumb "></i> 
+        <p>Approval Details</p>
     </a>
   </div>
- -->  
+  
     <div class="col-xs-6 col-md-4   col-centered"   >
     <a href="tickets.php" class="thumbnail">
     <?php 
@@ -177,8 +177,7 @@ $num_rows = mysql_num_rows($result);
 				
 		<div class="clear">
 		</div>
-		
-		
+
 		
 		
 		

@@ -41,13 +41,13 @@ else{
 	
 	if(isset($_POST['update']))
 	{
-		//print_r($_POST);
+
 	
 		// Check status of Custodian  start//
 		
 	if($_POST['custodian'] != $_POST['old_cust']){	
 		
-	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false)
+	if(strpos($_SERVER['SERVER_NAME'],'192.168.0.104') !== false)
 		include '/var/www/PHPMailer-master/PHPMailerAutoload.php';
 	else
 		require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
@@ -84,6 +84,13 @@ else{
 									<label class="col-sm-4 control-label bold"><strong> Asset Category  : </strong> </label>
 									<div class="col-sm-6">
 										<p class="form-control-static">'.$_POST["asset_category"].'</p>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong> Project Location  : </strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static">'.$_POST["project"].'</p>
 									</div>
 								</div>
 								
@@ -144,7 +151,7 @@ else{
 				'". trim($_SESSION['user_email'])."' ,
 				'".trim("1")."' 
 				)";
- 		       
+       
  		  mysql_query($mysql_query);
 		}
 		
@@ -434,6 +441,7 @@ else
 												</div>
 <?php 
 $email_query ="SELECT status FROM `".$custodian_table."`  WHERE `assets_id` =".$edit_id.";";
+
 		$mail_query = mysql_query($email_query);
 		$mail=mysql_fetch_assoc($mail_query);
 		

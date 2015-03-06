@@ -58,6 +58,7 @@ switch ($myurl){
 	case 'department_new.php':
 	case 'project_new.php':
 	case 'locations_new.php':
+	case 'approver.php':
 		$screen_id = 4;
 		break;
 

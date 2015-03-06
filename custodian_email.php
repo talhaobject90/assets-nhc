@@ -27,7 +27,7 @@
 				break;
 		}
 		
-	if(strpos($_SERVER['SERVER_NAME'],'localhost') !== false)
+	if(strpos($_SERVER['SERVER_NAME'],'192.168.0.104') !== false)
 		include '/var/www/PHPMailer-master/PHPMailerAutoload.php';
 	else
 		require '/var/lib/openshift/544f43b94382ec6427000496/php/PHPMailer-master/PHPMailerAutoload.php';
@@ -64,6 +64,14 @@
 										<p class="form-control-static">'.$_POST["asset_categ"].'</p>
 									</div>
 								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong> Project Location  : </strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static">'.$_POST["project"].'</p>
+									</div>
+								</div>
+								
 								
 								<div class="form-group">
 									<label class="col-sm-4 control-label bold"><strong> Asset Location : </strong> </label>
@@ -128,7 +136,7 @@
 			  ?>
 			  			  			<script type="text/javascript">
 			  			  			jQuery(function () {
-			  			  				window.location.replace("config.php?show=approver_category");
+			  			  				window.location.replace("dashboard.php");
 			  			  			})
 			  			  			</script><?php 
 			   
@@ -161,6 +169,7 @@
 			$get_det['name'] = trim($rows['name']);
 			$get_det['location'] = trim($rows['location']);
 			$get_det['asset_category'] = trim($rows['asset_category']);
+			$get_det['project'] = trim($rows['project']);
 			$get_det['requester_mail'] = trim($rows['requester_mail']);
 		}
 		
@@ -240,6 +249,14 @@
 										<p class="form-control-static"><?php  echo $get_det['asset_category']?></p>
 									</div>
 								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-4 control-label bold"><strong> Project Location : </strong> </label>
+									<div class="col-sm-6">
+										<p class="form-control-static"><?php  echo $get_det['project']?></p>
+									</div>
+								</div>
+								
 								
 								<div class="form-group">
 									<label class="col-sm-4 control-label bold"><strong>Custodian Name:</strong> </label>
