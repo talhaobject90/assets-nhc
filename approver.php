@@ -1,4 +1,6 @@
 <?php 
+	// ADDED BY MARS & FARIS
+	
 	include_once('header-pop.php');
 	
 	include_once('db_connect.php');
